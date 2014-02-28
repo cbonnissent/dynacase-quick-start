@@ -1,0 +1,13 @@
+book:
+    title: "Quick Start"
+    module: "Dynacase Platform"
+    githubsrc: "https://github.com/Anakeen/dynacase-quick-start"
+    version: "1.0"
+    edition: "1"
+    chapters: 
+        - level:   1
+          content:  "00-Introduction/00-introduction.md"
+        - level:   1
+          content:  "01-Préparation/00-introduction.md"
+        - level:   2
+          content:  "01-Préparation/01-VM.md"

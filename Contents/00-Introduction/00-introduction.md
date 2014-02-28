@@ -1,0 +1,31 @@
+# Contexte
+
+## Introduction
+
+Ce document présente un quick start pour la plateforme Dynacase. 
+Il va présenter un projet fictif contenant les principales fonctionnalités de la plateforme.
+
+## Contexte
+
+Vous êtes nouvellement embauché au sein du service informatique de la société [COGIP](http://fr.wikipedia.org/wiki/COGIP).  
+
+Dans le cadre de son activité la COGIP a mis en place une démarche qualité.  
+Cette démarche consiste en l'expertise annuelle de ses différents sites de production par un ensemble d'auditeurs internes dans le but de vérifier que 
+les processus qualités sont bien appliqués.  
+
+L'année précédente la COGIP a connu une très forte croissance qui a aboutit à l'ouverture de 42 nouvelles usines de production en complément des 48 existantes.  
+La mise en place et le suivi des audits qualité est devenu une tâche 
+plus importante et plus complexe que précédemment. L'équipe du service qualité est arrivé au constat que l'espace partagé contenant quelques tableaux excel et l'envoi de mail ne permet plus comme auparavant de suivre efficacement le déroulement des audits.
+Le responsable du service qualité a donc demandé à la DSI de mettre en place rapidement une solution permettant de planifier et de suivre le déroulement de la phase d'audit.
+
+Suite à une phase d'analyse menée conjointement par la DSI et le service qualité, plusieurs éléments sont apparus :
+
+* l'outil doit être sur le réseau interne pour pouvoir être accessible en temps réel à partir du siège et de toutes les usines,
+* l'outil doit être intuitif les auditeurs ne réalisant que 2 ou 3 audits par an,
+* l'outil doit apporter en temps réel un suivi des audits planifiés, faits, en cours ainsi que des non conformités,
+* l'outil doit produire par audit un PDF résumant l'audit.
+
+La DSI a donc audité quelques outils existant sur le marché et a décidé de sélectionner Dynacase Platform et de développer en interne la logique métier propre au service qualité.
+
+Votre responsable hiérarchique vous a donc assigné la tâche de mener à bien ce développement, vous avez 1 mois pour réaliser et mettre en production l'outil.
+
