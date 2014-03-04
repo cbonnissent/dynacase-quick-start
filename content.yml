@@ -11,3 +11,5 @@ book:
           content:  "01-Préparation/00-introduction.md"
         - level:   2
           content:  "01-Préparation/01-VM.md"
+        - level:   2
+          content:  "01-Préparation/02-module.md"
