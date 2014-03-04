@@ -3,7 +3,7 @@
 $app_desc = array(
     "name"        => "COGIP_AUDIT",
     "short_name"  => N_("Cogip_audit"),
-    //"description" => N_(""),
+    "description" => N_("Cogip_audit"),
     "access_free" => "N",
     "icon"        => "cogip_audit.png",
     "displayable" => "N",

@@ -1,1 +1,0 @@
-Add your [PO translation](https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:7f5e9754-6db2-4dcb-ac99-e640f8a93c38.html#core-ref:7f5e9754-6db2-4dcb-ac99-e640f8a93c38) here

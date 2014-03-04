@@ -1,0 +1,22 @@
+# French translations for COGIP_AUDIT package
+# Traductions françaises du paquet COGIP_AUDIT.
+# Copyright (C) 2014 THE COGIP_AUDIT'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the COGIP_AUDIT package.
+# Automatically generated, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: COGIP_AUDIT\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-04 17:40+0100\n"
+"PO-Revision-Date: 2014-03-04 17:40+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Cogip_audit"
+msgstr "Application d'audit de la cogip"
