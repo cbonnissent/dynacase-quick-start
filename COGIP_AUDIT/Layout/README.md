@@ -1,0 +1,1 @@
+Add your [layout](https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cb3e2b97-ee6d-4cdf-aa25-b2e41d0d3156.html#core-ref:cb3e2b97-ee6d-4cdf-aa25-b2e41d0d3156) here.
