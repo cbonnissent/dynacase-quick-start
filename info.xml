@@ -9,6 +9,9 @@
 
     <post-install>
         <process command="programs/record_application COGIP_AUDIT" />
+        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
+        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
+        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
         <process command="programs/update_catalog" />
     </post-install>
 
