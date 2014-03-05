@@ -8,8 +8,12 @@ book:
         - level:   1
           content:  "00-Introduction/00-introduction.md"
         - level:   1
-          content:  "01-Préparation/00-introduction.md"
+          content:  "10-Préparation/10-introduction.md"
         - level:   2
-          content:  "01-Préparation/01-VM.md"
+          content:  "10-Préparation/20-VM.md"
         - level:   2
-          content:  "01-Préparation/02-module.md"
+          content:  "10-Préparation/30-module.md"
+        - level:   1
+          content:  "20-Compte/10-introduction.md"
+        - level:   1
+          content:  "20-Compte/20-account.md"
