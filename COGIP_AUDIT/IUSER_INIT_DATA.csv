@@ -1,5 +1,5 @@
 //FAM;utilisateur(IUSER);<specid>;<fldid>;Nom;Prénom;Mail principal;Login;Nouveau mot de passe;Confirmation mot de passe;
-ORDER;IUSER;;;us_lname;us_fname;us_extmail;us_login;us_passwd1;us_passwd2;us_role
+ORDER;IUSER;;;us_lname;us_fname;us_extmail;us_login;us_passwd1;us_passwd2;us_roles
 DOC;IUSER;USER_JEAN_MARTIN;GRP_QUALITE_COGIP;Martin;Jean;martin.jean@quickstartcogip.com;martin.jean;p@ssw0rd;p@ssw0rd;
 DOC;IUSER;USER_PRISCILLA_ARTHAUD;GRP_QUALITE_COGIP;Arthaud;Priscilla;arthaud.priscilla@quickstartcogip.com;arthaud.priscilla;p@ssw0rd;p@ssw0rd;
 DOC;IUSER;USER_ARNAUD_LUC;GRP_QUALITE_COGIP;Arnaud;Luc;arnaud.luc@quickstartcogip.com;arnaud.luc;p@ssw0rd;p@ssw0rd;
