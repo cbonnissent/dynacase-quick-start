@@ -1,4 +1,4 @@
-# Préparation de l'environnement
+# Préparation de l'environnement {#quickstart:354d4c0e-3386-47fb-b79c-4ea19e3cd5d9}
 
 Ce chapitre du quickstart aborde la mise en place de l'environnement de développement de votre application Dynacase.  
 

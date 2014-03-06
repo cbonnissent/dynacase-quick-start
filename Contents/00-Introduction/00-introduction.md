@@ -1,6 +1,6 @@
-# Introduction
+# Introduction {#quickstart:744282c8-96a2-44da-8daf-e68ae60b5960}
 
-## Présentation et objectif
+## Présentation et objectif {#quickstart:a11031ce-6591-46fa-b005-fb757717dd53}
 
 Ce document présente un quick start pour la plateforme Dynacase. 
 
@@ -37,7 +37,7 @@ De plus, [Anakeen](http://anakeen.com/#services) propose des prestations de form
 Ces formations d'une durée de 5 jours permettent d'aborder les points de ce quick start ou des points avancés non présentés dans ce document.  
 Elles peuvent prendre pour thème un projet que vous désirez réaliser ou un projet standard et se dérouler en région parisienne ou sur site.
 
-## Organisation
+## Organisation {#quickstart:f6b3c074-0249-4a60-bbb2-0778b6a8778b}
 
 Ce quick start est organisé en quelques chapitres principaux :
 
@@ -54,7 +54,7 @@ Chaque chapitre est composé de sous chapitres, un sous chapitre est écrit pour
 
 De plus, les chapitres sont rédigés de manière à réduire les dépendances entre eux de façon à ce que l'ordre d'exécution du tutoriel ne soit pas imposé, toutefois nous vous conseillons de suivre l'ordre du sommaire.
 
-## Contexte Fonctionnel
+## Contexte Fonctionnel {#quickstart:1b340f92-085a-4bbe-a866-47e17444ca51}
 
 Vous êtes nouvellement embauché au sein du service informatique de la société [COGIP](http://fr.wikipedia.org/wiki/COGIP).  
 

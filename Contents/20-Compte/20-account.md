@@ -1,13 +1,13 @@
-# Initialisation des comptes
+# Initialisation des comptes {#quickstart:b4800208-9c02-45bc-badc-9948c2277eae}
 
-## Objectifs
+## Objectifs {#quickstart:d3ca62ec-47fb-42a9-8402-3c580a6382f7}
 
 * Utiliser l'interface d'administration pour initialiser des comptes,
 * Exporter les comptes,
 * Initialiser des comptes à l'aide des formats d'exports,
 * Produire le paquet `webinst` en important les comptes.
 
-## Cadre
+## Cadre {#quickstart:fdbc640b-3030-45f5-ad2f-486d3eead6c3}
 
 Lors de la phase de spécification, les éléments suivants ont été identifiés. Votre application va nécessiter :
 
@@ -30,7 +30,7 @@ De plus, l'application doit être initialisée avec les utilisateurs suivants :
 * Karine Marthe : membre de la section Risque Opérationnel et Qualité et auditeur, responsable des audit et administrateur fonctionnel,
 * Marina Arnic : responsable de la DSI et administrateur fonctionnel.
 
-## Initialisation du premier utilisateur
+## Initialisation du premier utilisateur {#quickstart:653a946b-9655-4728-9c65-50c90bb771df}
 
 Pour initialiser les différents types de comptes le plus simple est d'utiliser l'interface web. Veuillez vous rendre sur l'interface d'administration :
 
@@ -69,13 +69,13 @@ Les utilisateurs ont quelques spécificités, vous pouvez :
 * indiquer une date d'expiration du compte, passé cette date le compte est désactivé et l'utilisateur ne peut plus se connecter à plateforme,
 * désactiver le compte à l'aide du menu `Compte`.
 
-## Export du premier utilisateur
+## Export du premier utilisateur {#quickstart:137414aa-e378-4ece-b343-6e0ddc4d27c0}
 
 Vous allez maintenant exporter cet utilisateur pour pouvoir l'importer avec le paquet d'installation.
 
 Tous les éléments nécessaires au paramétrage de l'application doivent être importés pour permettre l'installation de l'application dans divers environnements (développement, pré-production, production).
 
-### Mise en place du nom logique
+### Mise en place du nom logique {#quickstart:6124a031-bc16-4182-ae7e-9b659b918905}
 
 Pour pouvoir référencer l'utilisateur de manière unique entre les différents contextes, vous allez lui attribuer un **nom logique**. Le nom logique est un identifiant sous la forme d'une chaîne de caractères qui doit être unique au sein du contexte et permet de retrouver le document.
 
@@ -91,7 +91,7 @@ L'interface de saisie du nom logique est présentée à nouveau avec cette fois 
 
 Veuillez fermer la fenêtre de propriétés.
 
-### Export du document
+### Export du document {#quickstart:3ee75773-6a1c-44f4-8b67-bf1e50dd8a95}
 
 Vous allez maintenant exporter le document. Veuillez cliquer sur `Autres` et ensuite sur `Ajouter au porte document`.
 
@@ -125,7 +125,7 @@ Vous retrouvez ensuite le contenu suivant :
 
 Ce fichier contient l'ensemble des valeurs contenues dans la fiche utilisateur (à l'exception des mots de passe qui étant encodés en base ne sont pas exportables).
 
-### Format d'export
+### Format d'export {#quickstart:9f1e3e32-bb48-4e6b-807a-37ff31c0f705}
 
 Le format d'export CSV repose sur quelques mots clefs, les deux mots utilisés dans le fichier produit sont :
 
@@ -160,7 +160,7 @@ NB : ces réglages doivent être utilisés pour tous les fichiers `CSV` au sein 
 
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IUSER_INIT_DATA.csv`.
 
-NB : Le nom est normalement laissé à votre appréciation. Dans le cadre de ce tutoriel, nous utilisons une nomenclature qui vous est présentée dans le premier tutoriel sur la création d'une famille.
+NB : Le nom est normalement laissé à votre appréciation. Dans le cadre de ce tutoriel, nous utilisons une nomenclature qui vous est présentée dans l'[annexe][annexe].
 
 Il vous reste à ajouter l'instruction d'import du fichier dans le fichier info.xml. 
 
@@ -173,7 +173,7 @@ entre les lignes :
     <process command="programs/record_application COGIP_AUDIT" />
     <process command="programs/update_catalog" />
 
-## Ajout des autres utilisateurs
+## Ajout des autres utilisateurs {#quickstart:28c4dbb7-97ea-4902-94ca-7e04db2d6d43}
 
 Vous pouvez utiliser la même technique pour créer les autres utilisateurs mais ce fonctionnement est assez vite fastidieux. Vous allez donc créer les autres utilisateurs directement en modifiant le fichier `IUSER_INIT_DATA.csv`.
 
@@ -185,7 +185,7 @@ Vous devez obtenir un résultat similaire à :
 
 Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation les utilisateurs que vous avez ajoutés ici seront ajoutés à la base.
 
-## Création des groupes
+## Création des groupes {#quickstart:78e478c8-e1bf-4766-9ae1-de45e13e3068}
 
 Vous allez maintenant créer les groupes. La procédure est similaire à celle des utilisateurs.
 
@@ -249,7 +249,7 @@ Vous obtenez un listing semblable au suivant :
 
 NB : Vous pouvez associer un groupe à plusieurs groupe parent en dupliquant la ligne le définissant jusqu'à la colonne `D` et en ajoutant le nom de son nouveau parent. Vous pouvez effectuer cette opération autant de fois que nécessaire.
 
-## Association des utilisateurs aux groupes
+## Association des utilisateurs aux groupes {#quickstart:0ac2eeca-c96e-46fc-b79f-4bf77404cc93}
 
 L'association des utilisateurs aux groupes se passe de la même manière. Veuillez ouvrir le fichier `IUSER_INIT_DATA.csv` et compléter la colonne `D` pour indiquer pour chaque utilisateur à quel groupe il appartient.
 
@@ -263,7 +263,7 @@ Soit :
 
 et sauvez le fichier.
 
-## Création des rôles
+## Création des rôles {#quickstart:1a5c2498-c522-491b-a7a3-f73d03b13116}
 
 Vous allez maintenant créer les rôles. La procédure est similaire à celle des utilisateurs.
 
@@ -317,7 +317,7 @@ En ajoutant les rôles définis lors de la phase de spécification, on obtient :
 
 ![ Rôle ](20-10-role-creation2.png "Rôle")
 
-### Association des rôles aux groupes et utilisateurs
+### Association des rôles aux groupes et utilisateurs {#quickstart:e946f46a-9d47-4f44-a61d-45248f47ce62}
 
 Vous allez maintenant conclure la partie pratique de ce chapitre en associant les rôles aux utilisateurs et aux groupes.
 
@@ -342,7 +342,7 @@ En reprenant l'analyse, on voit que tous les membres du groupe `Section Risque O
 
 ![ Rôle association ](20-10-role-association2.png "Rôle association")
 
-## Mise en place des modifications
+## Mise en place des modifications {#quickstart:c7522c13-68ab-47c7-b592-6c672b963820}
 
 Vous allez maintenant déployer vos modifications. Il y a pour cela deux manières de faire :
 
@@ -379,13 +379,13 @@ Vous pouvez voir que les groupes ont été ajoutés et leur arborescence respect
 
 NB : le recalcul de l'arborescence des groupes et des droits est asynchrone, il peut y avoir un décalage de quelques minutes entre l'installation du paquet et l'arrivée des données sur le contexte.
 
-## Conclusion
+## Conclusion {#quickstart:ebfe623e-99c3-4b85-92a5-a790685b3e7e}
 
 Dans ce chapitre, vous avez appris l'ensemble des techniques pour créer, associer et importer les différents éléments nécessaires à la gestion des comptes Dynacase.
 
 Ces éléments vous serviront dans toutes les autres phases de vos projets pour fixer les droits, définir des vues particulières, etc.
 
-## Pour aller plus loin
+## Pour aller plus loin {#quickstart:ff368e8d-9630-408d-9644-5383753f2ac0}
 
 Vous pouvez consulter les chapitres suivants de la documentation :
 
@@ -394,8 +394,10 @@ Vous pouvez consulter les chapitres suivants de la documentation :
 * [les sources avant le tutoriel][githubSourceBefore].
 * [les sources après le tutoriel][githubSourceAfter].
 
+<!-- links -->
 
 [githubSourceBefore]: https://github.com/Anakeen/dynacase-quick-start/archive/before_20_20.zip "Github : source avant le tutoriel"
 [githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start/archive/after_20_20.zip "Github : source après le tutoriel"
 [docCompte]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2bd98eec-5b03-4af0-b9d6-1bbf78fe9733.html "Doc Dynacase : Comptes"
 [formatCSV] : https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093.html "Doc Dynacase : CSV"
+[annexe]:   #quickstart:69f091b6-34ef-47b0-a453-8e00676b7dcd

@@ -1,9 +1,9 @@
-# Mise en place de votre module
+# Mise en place de votre module {#quickstart:5b0e5ec5-1f8d-49ea-9953-42727cdc1b2b}
 
 Ce chapitre va vous permettre d'initier le module contenant le code source de 
 votre application Dynacase.
 
-## Objectifs
+## Objectifs {#quickstart:04e53353-fe9b-4b51-8097-fdc8b60ea166}
 
 * Télécharger le template de module
 * Initialiser le module
@@ -11,7 +11,7 @@ votre application Dynacase.
 * Faire une première traduction
 * Déployer votre module
 
-## Partie théorique
+## Partie théorique {#quickstart:88db7990-155d-4f96-95e1-57406b2b493b}
 
 Dynacase Control utilise le concept de module pour gérer les différents 
 éléments composants un contexte.
@@ -35,7 +35,7 @@ d'un seul fichier, le format est composé de la manière suivante :
 
 Une fois le module envoyé à Dynacase Control, celui-ci lit le fichier info.xml et décompresse le contenu du tar.gz dans le contexte.
 
-## Mise en place
+## Mise en place {#quickstart:6207b157-95a4-4a53-b112-fbb5c2b58741}
 
 Il vous faut tout d'abord télécharger le **developper toolkit**, cet outil vous permet :
 
@@ -94,7 +94,7 @@ Nous voyons que par défaut une référence est ajoutée vers un fichier `cogip_
 
 Toutes les chaînes de caractères qui sont inclus dans la fonction `_` sont traduisibles, ce qui est ici le cas pour `short_name` et `description`.
 
-## Traduction
+## Traduction {#quickstart:bec85337-36e8-4289-a938-f48b361e125e}
 
 Vous allez lancer la procédure permettant l'extraction des clefs de traduction et compléter celles-ci.
 
@@ -151,7 +151,7 @@ Ce qui donne :
     msgid "Cogip_audit"
     msgstr "Application d'audit de la cogip"
 
-## Production du paquet
+## Production du paquet {#quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e}
 
 Vous allez maintenant conclure ce chapitre en produisant le fichier contenant le paquet et en le déployant à l'aide de l'interface web.
 
@@ -183,11 +183,11 @@ Vous pouvez ensuite vérifier que celle-ci est bien installée et que la traduct
 
 Vous pouvez retrouver votre application dans la liste. En outre, la traduction est appliquée dans la colonne description.
 
-## Conclusion
+## Conclusion {#quickstart:12b5141e-7400-467b-87c0-458e487c9da3}
 
 Vous connaissez maintenant la structure des sources Dynacase, savez déployer un projet et faire une traduction basique.
 
-## Voir aussi
+## Voir aussi {#quickstart:bbe5ad1c-1aa3-4ae4-ba5d-a16b60999bed}
 
 * [Les sources après le tutoriel][githubSource]
 
