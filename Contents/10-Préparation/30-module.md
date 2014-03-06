@@ -183,6 +183,14 @@ Vous pouvez ensuite vérifier que celle-ci est bien installée et que la traduct
 
 Vous pouvez retrouver votre application dans la liste. En outre, la traduction est appliquée dans la colonne description.
 
+## Conclusion
 
+Vous connaissez maintenant la structure des sources Dynacase, savez déployer un projet et faire une traduction basique.
+
+## Voir aussi
+
+* [Les sources après le tutoriel][githubSource]
+
+[githubSource]: https://github.com/Anakeen/dynacase-quick-start/archive/after_10_30.zip "Github : source après le tutoriel"
 [tar]: https://fr.wikipedia.org/wiki/Tar_(informatique) "Définition du TAR : Wikipedia"
 [wpoedit]: https://en.wikipedia.org/wiki/Poedit "Description de Poedit : Wikipedia"

@@ -390,8 +390,12 @@ Ces éléments vous serviront dans toutes les autres phases de vos projets pour 
 Vous pouvez consulter les chapitres suivants de la documentation :
 
 * [les comptes][docCompte],
-* [le format d'import CSV][formatCSV].
+* [le format d'import CSV][formatCSV],
+* [les sources avant le tutoriel][githubSourceBefore].
+* [les sources après le tutoriel][githubSourceAfter].
 
 
+[githubSourceBefore]: https://github.com/Anakeen/dynacase-quick-start/archive/before_20_20.zip "Github : source avant le tutoriel"
+[githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start/archive/after_20_20.zip "Github : source après le tutoriel"
 [docCompte]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2bd98eec-5b03-4af0-b9d6-1bbf78fe9733.html "Doc Dynacase : Comptes"
 [formatCSV] : https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093.html "Doc Dynacase : CSV"
