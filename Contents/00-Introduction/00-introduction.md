@@ -1,11 +1,60 @@
-# Contexte
+# Introduction
 
-## Introduction
+## Présentation et objectif
 
 Ce document présente un quick start pour la plateforme Dynacase. 
-Il va présenter un projet fictif contenant les principales fonctionnalités de la plateforme.
 
-## Contexte
+Il contient un projet fictif contenant les principales fonctionnalités de la plateforme.
+
+Une fois le tutoriel complété, vous saurez :
+
+* Gérer des utilisateurs via la plateforme :
+    * Ajouter/ Désactiver des utilisateurs,
+    * Mettre en place une structure de groupe,
+    * Créer des rôles applicatifs
++ Construire des familles Dynacase qui permettent de mettre en place un système de formulaires et de persistances riche et évolutif :
+    + Créer des familles et utiliser le mécanisme d'héritage,
+    + Paramétrer les formulaires et customiser leur mise en forme,
+    + Ajouter du code métier au formulaire,
+    + Gérer la sécurité (CRUD) par document et les visibilités par élément de formulaire,
+    + Utiliser les documents pour produire des sorties bureautique,
+    + Internationaliser les formulaires.
+* Construire des cycles de vie
+    - Mettre en forme un cycle de vie,
+    - Mettre en place des droits par étapes,
+    - Ajouter des alertes et des relances,
+    - Internationaliser les cycles de vie.
+* Construire des applications :
+    - Mettre en place une application d'export de données,
+    - Créer une interface de consultation spécifique,
+    - Gérer la sécurité des applications/actions,
+    - Internationaliser les applications.
+* Packager
+    - Créer des package pour faciliter le déploiement,
+    - Créer des scripts pour gérer les mise à jour.
+
+De plus, [Anakeen](http://anakeen.com/#services) propose des prestations de formation à l'utilisation de la plateforme Dynacase.  
+Ces formations d'une durée de 5 jours permettent d'aborder les points de ce quick start ou des points avancés non présentés dans ce document.  
+Elles peuvent prendre pour thème un projet que vous désirez réaliser ou un projet standard et se dérouler en région parisienne ou sur site.
+
+## Organisation
+
+Ce quick start est organisé en quelques chapitres principaux :
+
+* Mise en place du contexte de développement,
+* Utilisateurs,
+* Famille/Document,
+* Cycle de vie,
+* Application/Action,
+* Déploiement.
+
+Il permet d'avoir une vue d'ensemble des fonctionnalités de Dynacase Platform.
+
+Chaque chapitre est composé de sous chapitres, un sous chapitre est écrit pour pouvoir être parcouru et compris en **2 heures**.
+
+De plus, les chapitres sont rédigés de manière à réduire les dépendances entre eux de façon à ce que l'ordre d'exécution du tutoriel ne soit pas imposé, toutefois nous vous conseillons de suivre l'ordre du sommaire.
+
+## Contexte Fonctionnel
 
 Vous êtes nouvellement embauché au sein du service informatique de la société [COGIP](http://fr.wikipedia.org/wiki/COGIP).  
 
@@ -28,4 +77,3 @@ Suite à une phase d'analyse menée conjointement par la DSI et le service quali
 La DSI a donc audité quelques outils existant sur le marché et a décidé de sélectionner Dynacase Platform et de développer en interne la logique métier propre au service qualité.
 
 Votre responsable hiérarchique vous a donc assigné la tâche de mener à bien ce développement, vous avez 1 mois pour réaliser et mettre en production l'outil.
-

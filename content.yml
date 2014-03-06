@@ -2,18 +2,20 @@ book:
     title: "Quick Start"
     module: "Dynacase Platform"
     githubsrc: "https://github.com/Anakeen/dynacase-quick-start"
-    version: "1.0"
+    version: "3.2"
     edition: "1"
     chapters: 
         - level:   1
           content:  "00-Introduction/00-introduction.md"
         - level:   1
           content:  "10-Préparation/10-introduction.md"
+          subtoc : 2
         - level:   2
           content:  "10-Préparation/20-VM.md"
         - level:   2
           content:  "10-Préparation/30-module.md"
         - level:   1
           content:  "20-Compte/10-introduction.md"
+          subtoc: 2
         - level:   2
           content:  "20-Compte/20-account.md"
