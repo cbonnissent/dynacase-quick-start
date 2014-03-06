@@ -49,7 +49,7 @@ Action :
 * `<APPLICATION>`/action.`<action_name>`.php : Fichier de contrôleur d'action,
 * `<APPLICATION>`/Layout/`<action_name`.html : Template HTML d'une action.
 
-## Script open office
+## Script open office {#quickstart:c35b47c9-22d0-44c9-9bdd-0ddde39af53c}
 
 Il existe un ensemble de scripts libre/openoffice pour faciliter le développement d'une famille.
 

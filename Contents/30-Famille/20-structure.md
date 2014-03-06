@@ -94,7 +94,7 @@ Dans la partie d'initialisation après l'import des utilisateurs, dans la partie
         <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
         <process command="programs/update_catalog" />
     </post-install>
-
+    
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT" />
         <process command="programs/record_application COGIP_AUDIT" />
@@ -170,7 +170,7 @@ Votre `info.xml` contient les lignes suivantes :
         <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv"/>
         <process command="programs/update_catalog" />
     </post-install>
-
+    
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT" />
         <process command="programs/record_application COGIP_AUDIT" />
@@ -200,6 +200,23 @@ Le fichier se présente sous cette forme :
 
 ![ Contenu structure site ](30-20-structure-site.png "Contenu structure site")
 
+NB : Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir un certains nombre d'éléments avec des valeurs par défaut. Dans la suite du tutoriel, nous allons considérer que vous installer ces scripts.
+
+NB : **Attention** : un attribut non-structurant (texte, relation, numérique, ...) doit obligatoirement être contenu dans un attribut structurant (frame ou array).
+
+Pour définir un attribut, vous devez :
+
+1. dans la colonne A, indiquez le mot clef `ATTR`,
+2. dans la colonne B, indiquez l'identifiant de l'attribut, celui-ci est alphanumérique et doit être écrit de préférence en minuscule,
+3. dans la colonne C, indiquez l'attribut encadrant de l'attribut en cours (cet élément est nécessaire pour les attributs non-structurants, c'est à dire les attributs qui contiennent des données, text, int, etc.). NB : le script `setParent` rempli automatiquement les parents des attributs n'en ayant pas,
+4. dans la colonne D, la valeur de traduction par défaut du label de l'attribut,
+5. dans la colonne E, Y ou N cela indique si l'attribut est utilisé pour composer le titre,
+6. dans la colonne G, le type de l'attribut,
+7. dans la colonne H, l'ordre d'affichage des attributs. Cet élément est utile dans le cas d'héritage entre famille, il permet de dire dans quel ordre doivent être affichés les attributs. NB : Le script `setOrder` calcul automatiquement l'ordre d'affichage, vous pouvez indiquez que la numérotation doit reprendre à un numéro en l'indiquant colonne R.
+
+Dans le cas du site, vous devez obtenir une structure similaire à :
+
+![ Contenu structure site ](30-20-structure-site-completed.png "Contenu structure site")
 
 
 ## Voir aussi
@@ -212,3 +229,4 @@ Le fichier se présente sous cette forme :
 [DocFamCSV]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html "Documentation : structure du fichier de définition"
 [DocAttribut]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:4e167170-33ed-11e2-8134-a7f43955d6f3.html "Documentation : attribut"
 [annexe]:   #quickstart:69f091b6-34ef-47b0-a453-8e00676b7dcd
+[annexeColor]: #quickstart:c35b47c9-22d0-44c9-9bdd-0ddde39af53c
