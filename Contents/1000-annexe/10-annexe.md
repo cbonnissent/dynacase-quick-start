@@ -49,6 +49,27 @@ Action :
 * `<APPLICATION>`/action.`<action_name>`.php : Fichier de contrôleur d'action,
 * `<APPLICATION>`/Layout/`<action_name`.html : Template HTML d'une action.
 
+## Script open office
+
+Il existe un ensemble de scripts libre/openoffice pour faciliter le développement d'une famille.
+
+Vous pouvez le trouver [ici][githubScriptOOO].
+
+Le script s'intègre en passant par le menu `Macro` sous partie `Libre office basic`.
+
+![ Ajout d'un script ](1000-10-add-script.png "Ajout d'un script")
+
+Ensuite la fenêtre suivante s'ouvre :
+
+![ Ajout d'un script ](1000-10-add-script2.png "Ajout d'un script")
+
+Vous sélectionnez le module1 et le bouton `éditer`. L'écran suivant est affiché :
+
+![ Ajout d'un script ](1000-10-add-script3.png "Ajout d'un script")
+
+Et vous copié-collé le contenu du fichier référencé ci-dessus à la place du script existant.
+
+Vous pouvez ensuite ajouter les scripts en modifiant les menus. Faite un clique droit sur la barre d'outil et sélectionnez l'option `Personnaliser la barre d'outil`.
 
 <!-- style -->
 
@@ -56,3 +77,4 @@ Action :
 [docHelper]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194.html#core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194 "Documentation : Aide à la saisie"
 [docStyle]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1844a1a8-1406-47bd-a884-1a18ef0a6ca7.html "Documentation : Style"
 [doci18n]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:8f3ad20a-4630-4e86-937b-da3fa26ba423.html "Documentation : traduction"
+[githubScriptOOO]: https://raw.github.com/Anakeen/dynacase-quick-start/documentation/Contents/1000-annexe/script-openoffice.txt "Script open office"

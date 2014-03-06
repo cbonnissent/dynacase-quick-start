@@ -19,3 +19,10 @@ book:
           subtoc: 2
         - level:   2
           content:  "20-Compte/20-account.md"
+        - level:  1
+          content:  "30-Famille/10-introduction.md"
+          subtoc: 2
+        - level:  2
+          content:  "30-Famille/20-structure.md"
+        - level: 1
+          content:  "1000-annexe/10-annexe.md"
