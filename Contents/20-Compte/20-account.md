@@ -5,7 +5,7 @@
 * Utiliser l'interface d'administration pour initialiser des comptes,
 * Exporter les comptes,
 * Initialiser des comptes à l'aide des formats d'exports,
-* Produire le paquet `webinst` en important les comptes nouvellement créé.
+* Produire le paquet `webinst` en important les comptes.
 
 ## Cadre
 
@@ -32,11 +32,11 @@ De plus, l'application doit être initialisée avec les utilisateurs suivants :
 
 ## Initialisation du premier utilisateur
 
-Pour commencer à initialiser les différents type de compte le plus simple et d'utiliser l'interface web. Pour ce faire, veuillez vous rendre sur l'interface d'administration :
+Pour initialiser les différents types de comptes le plus simple est d'utiliser l'interface web. Veuillez vous rendre sur l'interface d'administration :
 
 `http://<nomDeDomaine>/admin.php`
 
-Et veuillez cliquer sur `Gestion des utilisateurs`
+Et cliquer sur `Gestion des utilisateurs`
 
 ![ Création d'utilisateur ](20-10-users.png "Création d'utilisateurs")
 
@@ -50,15 +50,15 @@ Pour créer un utilisateur, veuillez cliquer sur le bouton `Créer un utilisateu
 
 Veuillez compléter le formulaire en indiquant, le nom, le prénom, login, le mail et le mot de passe de l'utilisateur, dans notre cas :
 
-* nom : Martin
-* prénom : Jean
-* mail : martin.jean@quickstartcogip.com
-* login : martin.jean
-* mot de passe : p@ssw0rd
+* nom : Martin,
+* prénom : Jean,
+* mail : martin.jean@quickstartcogip.com,
+* login : martin.jean,
+* mot de passe : p@ssw0rd.
 
 Ensuite cliquez sur le bouton `Créer`.
 
-Votre utilisateur est ajouté et il vous est affiché.
+Votre utilisateur est ajouté et est affiché.
 
 ![ Création d'utilisateur ](20-10-creation-user-done.png "Création d'utilisateur")
 
@@ -71,11 +71,11 @@ Les utilisateurs ont quelques spécificités, vous pouvez :
 
 ## Export du premier utilisateur
 
-### Mise en place du nom logique
-
 Vous allez maintenant exporter cet utilisateur pour pouvoir l'importer avec le paquet d'installation.
 
-Tous les éléments nécessaires au paramétrage de l'application doivent être importés pour permettre l'installation de l'application dans divers environnement (développement, pré-production, production).
+Tous les éléments nécessaires au paramétrage de l'application doivent être importés pour permettre l'installation de l'application dans divers environnements (développement, pré-production, production).
+
+### Mise en place du nom logique
 
 Pour pouvoir référencer l'utilisateur de manière unique entre les différents contextes, vous allez lui attribuer un **nom logique**. Le nom logique est un identifiant sous la forme d'une chaîne de caractères qui doit être unique au sein du contexte et permet de retrouver le document.
 
@@ -87,7 +87,7 @@ Le formulaire suivant est affiché :
 
 Pour compléter le nom logique, veuillez cliquer sur `affecter un nom logique`. Un champ apparaît et vous allez rentrer le nom logique `USER_JEAN_MARTIN` et ensuite cliquer sur `Nom à appliquer`.
 
-L'interface de saisie du nom logique est présentée à nouveau avec cette fois ci le nom logique affiché en son centre.
+L'interface de saisie du nom logique est présentée à nouveau avec cette fois le nom logique affiché en son centre.
 
 Veuillez fermer la fenêtre de propriétés.
 
@@ -115,7 +115,7 @@ Un fichier CSV vous est proposé au téléchargement, celui-ci est encodé avec 
 * Séparateur de cellule : `;`,
 * Séparateur de texte : `` (chaîne vide).
 
-Le logiciel conseillé pour ouvrir ces documents est libre office. Sous ce logiciel, le fenêtre de paramétrage avant ouverture du fichier est :
+Le logiciel conseillé pour ouvrir ces documents est libre office. Avec ce logiciel, le fenêtre de paramétrage avant ouverture du fichier est :
 
 ![ Utilisateur : export ](20-10-user-export3.png "Utilisateur : export")
 
@@ -134,9 +134,9 @@ Le format d'export CSV repose sur quelques mots clefs, les deux mots utilisés d
 
 Vous devez ensuite supprimer les colonnes qui ne sont pas utiles.
 
-NB : **Il est nécessaire de supprimer au moins la colonne us_whatid**, en effet cette colonne contient la référence interne vers l'utilisateur et elle n'est d'aucune utilité et cause des incompatibilité à l'import sur une autre base.
+NB : **Il est nécessaire de supprimer au moins la colonne us_whatid**, en effet cette colonne contient la référence interne vers l'utilisateur. Elle n'est d'aucune utilité et cause des incompatibilités à l'import sur une autre base.
 
-Dans notre cas, vous allez conserver uniquement les colonnes correspondant aux éléments que vous avez complété ci-dessus soit :
+Dans notre cas, vous allez conserver uniquement les colonnes correspondants aux éléments que vous avez complété ci-dessus soit :
 
 * les 4 premières colonnes,
 * Nom : `us_lname`,
@@ -156,11 +156,15 @@ Vous devez ensuite enregistrer le fichier dans les sources du projet que vous av
 * Séparateur de cellule : `;`,
 * Séparateur de texte : `` (chaîne vide).
 
+NB : ces réglages doivent être utilisés pour tous les fichiers `CSV` au sein du tutoriel.
+
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IUSER_INIT_DATA.csv`.
 
 NB : Le nom est normalement laissé à votre appréciation. Dans le cadre de ce tutoriel, nous utilisons une nomenclature qui vous est présentée dans le premier tutoriel sur la création d'une famille.
 
-Il vous reste à ajouter l'instruction d'import du fichier dans le fichier info.xml. Ce fichier indique les actions que le paquet fait lors de son installation et de sa mise à jour, dans ce cas vous allez indiquez que souhaitez que le fichier soit importé lors de l'installation, vous allez donc ajouter la ligne suivante :
+Il vous reste à ajouter l'instruction d'import du fichier dans le fichier info.xml. 
+
+Ce fichier indique les actions que le paquet fait lors de son installation et de sa mise à jour, dans ce cas vous allez indiquez que souhaitez que le fichier soit importé lors de l'installation, vous allez donc ajouter la ligne suivante :
 
 `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>`
 
@@ -179,7 +183,7 @@ Vous devez obtenir un résultat similaire à :
 
 ![ Utilisateur : CSV ](20-10-user-export6.png "Utilisateurs : CSV")
 
-Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation les utilisateurs que vous avez défini ici seront ajoutés à la base.
+Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation les utilisateurs que vous avez ajoutés ici seront ajoutés à la base.
 
 ## Création des groupes
 
@@ -198,7 +202,7 @@ Appuyez ensuite sur le bouton `Créer`.
 
 Ajouter un nom logique à ce groupe, `Autres` `Propriétés` `Affecter un nom logique`.
 
-* Nom logique : GRP_USER_COGIP
+* Nom logique : `GRP_USER_COGIP`
 
 Ensuite, vous allez exporter le groupe, `Autres` `Ajouter au porte-documents`. Le porte documents s'ouvre :
 
@@ -213,16 +217,18 @@ Un fichier CSV vous est retourné comme précédemment.
 Ouvrez le et comme précédemment vous allez supprimer les colonnes non nécessaires, vous n'allez garder que les colonnes :
 
 * les 4 premières colonnes,
-* Nom : `gr
+* Nom : `grp_name`,
+* Identifiant : `us_login`.
+
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IGROUP_INIT_DATA.csv`.
 
-Ensuite, ajoutez dans le fichier info.xml l'instruction suivante :
+Ensuite, vous allez ajouter dans le fichier info.xml l'instruction suivante :
 
 `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>`
 
 Les groupes contenant les utilisateurs, ils doivent être importés avant les utilisateurs.
 
-ce qui donne pour la procédure d'installation :
+Ce qui donne l'ordre suivant, pour la procédure d'installation :
 
     <process command="programs/record_application COGIP_AUDIT" />
     <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
@@ -241,7 +247,7 @@ Vous obtenez un listing semblable au suivant :
 
 ![ Liste des groupes ](20-10-group-creation4.png "Liste des groupes")
 
-NB : Vous pouvez associer un groupe à plusieurs groupe parent en dupliquant la ligne le définissant jusqu'à la colonne `D`.
+NB : Vous pouvez associer un groupe à plusieurs groupe parent en dupliquant la ligne le définissant jusqu'à la colonne `D` et en ajoutant le nom de son nouveau parent. Vous pouvez effectuer cette opération autant de fois que nécessaire.
 
 ## Association des utilisateurs aux groupes
 
@@ -265,7 +271,7 @@ Pour cela, retournez dans l'interface d'administration et cliquez sur gestion de
 
 ![ Rôle ](20-10-role-creation.png "Rôle")
 
-Appuyez ensuite sur `Créer un Rôle`, un formulaire est affiché. Vous devez compléter les deux champs obligatoires :
+Appuyez ensuite sur `Créer un Rôle`, un formulaire est affiché. Vous devez compléter le champ obligatoire :
 
 * Libellé : Responsable des audits.
 
@@ -273,7 +279,7 @@ Appuyez ensuite sur le bouton `Créer`.
 
 Ajouter un nom logique à ce groupe, `Autres` `Propriétés` `Affecter un nom logique`.
 
-* Nom logique : GRP_RESPONSABLE_AUDITS
+* Nom logique : `ROLE_RESPONSABLE_AUDITS`
 
 Ensuite, vous allez exporter le groupe, `Autres` `Ajouter au porte-documents`. Le porte documents s'ouvre :
 
@@ -317,7 +323,9 @@ Vous allez maintenant conclure la partie pratique de ce chapitre en associant le
 
 Cette association se fait dans les fichiers de définition des groupes et des utilisateurs.
 
-Vous allez donc ouvrir le fichier `IUSER_INIT_DATA.csv`. Vous allez ajouter une colonne après la colonne `us_passwd2` que vous allez nommer `us_roles`. Cette colonne contient la liste des rôles associés à un utilisateur séparé par des `\n`.
+Vous allez donc ouvrir le fichier `IUSER_INIT_DATA.csv`. Vous allez ajouter une colonne après la colonne `us_passwd2` que vous allez nommer `us_roles`.
+
+Cette colonne contient la liste des rôles associés à un utilisateur séparés par des `\n`.
 
 En suivant, l'étape d'analyse décrite en début de chapitre, vous avez les liens suivants à établir :
 
@@ -330,5 +338,60 @@ Ce qui donne le résultat suivant :
 
 Pour les groupes, vous devez ouvrir le fichier `IGROUP_INIT_DATA.csv` et de la même manière ajouter une colonne `grp_roles`.
 
-En reprenant l'analyse, on voit que tous les membres du groupe `Section Risque Opérationnel et Qualité` sont auditeurs, vous allez donc affecter le rôle à ce groupe :
+En reprenant l'analyse, on voit que tous les membres du groupe `Section Risque Opérationnel et Qualité` sont auditeurs, vous allez donc affecter le rôle à ce groupe. Ce qui donne le résultat suivant :
 
+![ Rôle association ](20-10-role-association2.png "Rôle association")
+
+## Mise en place des modifications
+
+Vous allez maintenant déployer vos modifications. Il y a pour cela deux manières de faire :
+
+* vous pouvez reconstruire le paquet `webinst` et le redéployer en choisissant la stratégie `install`,
+* vous pouvez déployer manuellement les fichiers que vous avez produit à l'aide de l'interface d'administration.
+
+Vous allez commencer par déployer manuellement le premier fichier. Veuillez sélectionner dans l'interface d'administration `Gestion des documents` `Importations de documents`. L'interface présentée est la suivante :
+
+![ Importation manuelle ](20-10-import.png "Importation manuelle")
+
+Veuillez sélectionner votre fichier, vous allez commencer par `ROLE_INIT_DATA.csv` et ensuite cliquer sur `Lancer l'analyse`. En effet, la mécanique d'import manuel passe toujours par une phase d'analyse permettant de définir si un fichier est ou pas importable.
+
+![ Importation manuelle : analyse ](20-10-import-valid.png "Importation manuelle : analyse")
+
+Le fichier d'import est valide et il indique qu'un document est mis à jour manuellement et deux autres ajoutés. Ce qui correspond à la logique que vous avez mis en place en créant le premier document manuellement dans l'admin et en le dupliquant pour créer les autres.
+
+Cliquez ensuite sur `Importer les documents maintenant`. Le panneau de gauche se met à jour et vous indique le compte rendu de l'import.
+
+Vous pouvez maintenant vous rendre dans la gestion des utilisateurs pour voir vos nouveaux documents.
+
+![ Importation manuelle : résultat ](20-10-import-role.png "Importation manuelle : résultat")
+
+Pour les deux autres éléments, vous allez produire le paquet.
+
+Pour ce faire, veuillez utiliser le **developper toolkit**, cliquer sur le bouton `webinst`, sélectionner le path où sont les sources et ensuite cliquer sur le bouton `generate`.
+
+Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `<content>/dynacase-control/`. Vous sélectionnez votre contexte et cliquez sur le bouton `Import module` ensuite vous choisissez la stratégie de déploiement `Install`. Le paquet se déploie et vous pouvez voir vos différents fichiers `csv` qui sont exécutés.
+
+Vous pouvez maintenant vous rendre dans la gestion des utilisateurs pour voir vos nouveaux documents : 
+
+![ Importation : résultat ](20-10-import-result.png "Importation : résultat")
+
+Vous pouvez voir que les groupes ont été ajoutés et leur arborescence respectée, de plus les différents rôles ont été associés.
+
+NB : le recalcul de l'arborescence des groupes et des droits est asynchrone, il peut y avoir un décalage de quelques minutes entre l'installation du paquet et l'arrivée des données sur le contexte.
+
+## Conclusion
+
+Dans ce chapitre, vous avez appris l'ensemble des techniques pour créer, associer et importer les différents éléments nécessaires à la gestion des comptes Dynacase.
+
+Ces éléments vous serviront dans toutes les autres phases de vos projets pour fixer les droits, définir des vues particulières, etc.
+
+## Pour aller plus loin
+
+Vous pouvez consulter les chapitres suivants de la documentation :
+
+* [les comptes][docCompte],
+* [le format d'import CSV][formatCSV].
+
+
+[docCompte]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2bd98eec-5b03-4af0-b9d6-1bbf78fe9733.html "Doc Dynacase : Comptes"
+[formatCSV] : https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093.html "Doc Dynacase : CSV"

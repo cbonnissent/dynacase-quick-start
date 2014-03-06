@@ -15,5 +15,5 @@ book:
           content:  "10-Préparation/30-module.md"
         - level:   1
           content:  "20-Compte/10-introduction.md"
-        - level:   1
+        - level:   2
           content:  "20-Compte/20-account.md"
