@@ -13,7 +13,16 @@ La construction d'une famille passe par plusieurs étapes :
 * Structure : la structure est la définition de l'arborescence des familles via le mécanisme d'héritage et du contenu de la famille via l'ajout d'attributs au sein de celle-ci,
 * Paramétrage : le paramétrage de la famille consiste en l'ajout d'éléments permettant de définir des éléments de représentation (titre, icône), son contenu (valeur par défaut, etc.) et le code métier associé,
 * Sécurité : la sécurité permet de définir qui peut faire les différentes étapes du CRUD (Create : Créer, Read : Voir, Update : Mettre à jour, Delete : Supprimer), ainsi que quelle représentation est présentée pour quel utilisateur,
-* Vue : la définition des différentes vues présentée pour les documents de la famille. 
+* Vue : la définition des différentes vues présentée pour les documents de la famille.
+
+Une fois une famille construite, elle peut produire des documents. Un document est une instance d'une famille (de la même manière qu'un objet est une instance d'une classe). Dans Dynacase, vous pouvez le retrouver sous les formes suivantes :
+
+* Base de données : un document est stocké dans une ligne de la table de sa famille,
+* PHP : un document est un objet instance de la classe de sa famille,
+* IHM : il a plusieurs représentation :
+    - en édition : c'est un formulaire web permettant la saisie de donnée,
+    - en consultation : c'est une page web présentant les informations qu'il contient.
+
 
 ## Voir aussi
 
