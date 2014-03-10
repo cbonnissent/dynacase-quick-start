@@ -1,4 +1,4 @@
-# Familles et documents
+# Familles et documents {quickstart:f43b95f5-71d4-4c40-bd28-3fff24a3261f}
 
 La notion de famille et celle associée de documents sont fondamentales dans Dynacase.  
 
@@ -6,7 +6,7 @@ Les familles et les documents sont le système utilisé par Dynacase pour produi
 
 Dans ce chapitre, vous allez apprendre à créer vos familles et mettre en forme les documents produits, gérer la sécurité, traduire les formulaire, etc.
 
-## Théorie
+## Théorie {quickstart:ab8489d7-a9cf-4b3d-9470-fcb975e322fe}
 
 La construction d'une famille passe par plusieurs étapes :
 
@@ -23,8 +23,7 @@ Une fois une famille construite, elle peut produire des documents. Un document e
     - en édition : c'est un formulaire web permettant la saisie de donnée,
     - en consultation : c'est une page web présentant les informations qu'il contient.
 
-
-## Voir aussi
+### Voir aussi {quickstart:f63c146c-a9ba-4b31-be7f-b1ef4d010436}
 
 * [Introduction aux notions][ManualIntro]
 

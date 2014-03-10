@@ -1,16 +1,17 @@
-# Mise en place des structures 
+# Mise en place des structures  {#quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15}
 
 Ce chapitre va vous permettre d'initier vos premières familles.
 
-## Objectifs
+## Objectifs {#quickstart:a17c7d35-e9ba-47a4-9b0f-2919d6926966}
 
 * Créer une famille de base,
 * Créer les familles en utilisant l'héritage,
 * Initier les attributs,
+* Initier les stubs,
 * Faire une première traduction,
 * Déployer votre module.
 
-## Cadre
+## Cadre {#quickstart:c77a23ec-d38d-4ada-8a99-8b5124297770}
 
 L'analyse des besoins a montré que votre application nécessite les familles suivantes :
 
@@ -45,9 +46,9 @@ L'analyse des besoins a montré que votre application nécessite les familles su
         + un responsable,
         + une date de prise en compte
 
-## Partie théorique
+## Partie théorique {#quickstart:75dc2bf5-ae31-434e-a538-96ad9c52967f}
 
-### Structure de famille
+### Structure de famille {#quickstart:652fd302-fef6-4335-bea8-e26a60759537}
 
 La structure d'une famille est définie par deux éléments :
 
@@ -62,7 +63,7 @@ La structure de la famille est utilisée en interne par Dynacase pour :
 * générer les matrices de gestion de droits,
 * etc.
 
-## Création de votre première famille : Famille de base
+## Création de votre première famille : Famille de base {#quickstart:d16313a5-1ae6-422a-9f45-8d721aafcd18}
 
 Il est considéré comme une bonne pratique de commencer un projet Dynacase par une famille abstraite qui est mère de toutes les autres familles.  
 Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
@@ -112,7 +113,7 @@ Vous devez avoir un fichier `info.xml` semblable à :
         <process command="programs/update_catalog" />
     </post-upgrade>
 
-## Création des fichiers de familles
+## Création des fichiers de familles {#quickstart:72980b93-3f1f-4aa0-b12d-756e072f2029}
 
 Vous allez maintenant créer les autres familles, reprenez l'outil **developper toolkit** et cliquez sur **Template** et ensuite **Create a family**. Ajoutez les options suivantes :
 
@@ -185,11 +186,11 @@ Votre `info.xml` contient les lignes suivantes :
         <process command="programs/update_catalog" />
     </post-upgrade>
 
-## Ajout des attributs
+## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
 
 Vous allez maintenant définir les [attributs][DocAttribut] contenus dans vos familles.
 
-### Référentiel qualité
+### Référentiel qualité {#quickstart:f8d481f6-4be2-457c-a7e3-96165fbf4cf9}
 
 Vous allez commencer par la famille `Référentiel qualité`. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv`.
 
@@ -227,7 +228,7 @@ Quelques astuces pour faciliter l'écriture des familles :
 
 ![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
 
-### Chapitre
+### Chapitre {#quickstart:db00ea11-3c9a-4a99-8879-af61e8ad2745}
 
 Vous allez maintenant compléter la famille `chapitre`. Cette famille contient un lien vers son référentiel, de manière a pouvoir retrouver facilement tous les chapitres d'un référentiel.
 
@@ -242,7 +243,7 @@ Vous pouvez remarquer la présence d'un nouveau type d'attribut [docid][DocDocid
 
 Dans sa définition, vous pouvez voir une référence vers la famille `Référentiel`, cela indique la nature du lien et permet de n'afficher que les documents provenant de cette famille en édition.
 
-### Fiche de non conformité
+### Fiche de non conformité {#quickstart:6bc0b33f-c7a9-4b20-b940-8d939c3b97ec}
 
 Vous allez maintenant compléter la `Fiche de non conformité`.
 
@@ -257,7 +258,7 @@ Vous pouvez remarquer la présence de deux nouveaux éléments structurants :
 
 NB : Pour faciliter la lecture des noms d'attribut, il est conseillé pour les attributs contenus dans un array de préfixer leur nom avec le nom de l'array. Par exemple, pour le chapitre qui est contenu dans le tableau `ecart`, on obtient `caf_ecart_chapitre`.
 
-### Audit
+### Audit {#quickstart:b2eccdab-bbda-4d80-86a7-dd5e6cdb22dc}
 
 Vous allez maintenant compléter votre dernière famille, la `Fiche d'audit`.
 
@@ -267,7 +268,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv`. Et complétez l
 
 Bravo ! Vous avez initialisé l'ensemble des familles.
 
-## Génération des stubs
+## Génération des stubs {#quickstart:df9b59b1-3a7f-420b-a89d-36cd6894edb9}
 
 Vous allez maintenant générer les stubs. Les stubs sont des fichiers PHP qui sont générés pour aider au développement de l'application.
 
@@ -281,7 +282,7 @@ Si vous ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php`, vous ave
     {
     }
 
-Les deux classes référencées dans ce fichier n'existe pas encore, elles sont générées automatiquement sur le serveur à l'importation des familles.
+Les deux classes référencées dans ce fichier n'existent pas encore, elles sont générées automatiquement sur le serveur à l'importation des familles.
 
 Vous pouvez générer des classes de référence qui permettent d'utiliser la complétion sur votre IDE. Ces classes ne contiennent que les éléments qui vous serons utiles lors du développement et ne sont pas tout à fait semblables à celles générées sur le serveur.
 
@@ -307,7 +308,7 @@ Les fichiers stubs contiennent :
 * les classes intermédiaires générées sur le serveur (`\Dcp\Family\COGIP_AUDIT_BASE`) qui permettent d'avoir la chaîne d'héritage complète et la complétion,
 * les classes en `\Dcp\AttributeIdentifiers\COGIP_AUDIT_AUDIT` qui contiennent la liste des attributs défini dans les fichiers `__STRUCT.csv` et permettent de référencer les attributs en utilisant la complétion de votre IDE.
 
-## Internationalisation
+## Internationalisation {#quickstart:989b4a9e-e3d8-475e-9dcf-9a158605eab6}
 
 Vous allez maintenant extraire les clefs permettant de traduire vos familles.
 
@@ -352,7 +353,7 @@ NB : Par défaut la traduction ajoutée est celle par défaut que vous avez not�
 
 Pour le fichier `fr`, vous pouvez enlever les fuzzy car les propositions sont les bonnes traductions, pour le fichier `en` il vous faudra traduire.
 
-## Production du paquet
+## Production du paquet {#quickstart:62bc3a4e-9b6c-4da2-9fb0-145ecee0f281}
 
 Vous allez maintenant produire le paquet en utilisant le **developper toolkit**.
 
@@ -360,7 +361,7 @@ Déployez le paquet en passant par Dynacase Control, en utilisant le scénario u
 
 Vos familles sont maintenant installées sur le contexte, vous allez pouvoir consulter vos premiers formulaires.
 
-## Consultation des familles
+## Consultation des familles {#quickstart:21559978-8fea-4376-8b77-f0de73437efe}
 
 Vous pouvez consulter les familles en utilisant l'interface open source de consultation par défaut `OneFam`. Cette interface est un exemple d'interface possible de consultation/création de documents, il est simple à configurer et permet d'accéder à la création de rapport et de recherche.
 
@@ -403,13 +404,13 @@ Vous pouvez créer quelques formulaires en utilisant l'interface.
 
 ![ Onefam ](30-20-onefam_audit.png "Onefam")
 
-## Conclusion
+## Conclusion {#quickstart:1f4af8a5-d83c-443d-a41d-cbc1e5677af4}
 
 Vous savez maintenant créer des familles, paramétrer la structure et les traduire.
 
 Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer, en paramétrer la sécurité, en modifier les interfaces.
 
-## Voir aussi
+## Voir aussi {#quickstart:226443c7-a82f-4edd-b8e1-430892fcf030}
 
 * [Définition CSV d'une famille][DocFamCSV],
 * [Liste des attributs][DocAttribut],
