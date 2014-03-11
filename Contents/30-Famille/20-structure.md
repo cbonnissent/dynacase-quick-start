@@ -1,4 +1,4 @@
-# Mise en place des structures  {#quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15}
+# Mise en place des structures {#quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15}
 
 Ce chapitre va vous permettre d'initier vos premières familles.
 
@@ -37,6 +37,7 @@ L'analyse des besoins a montré que votre application nécessite les familles su
 + Fiche de non conformité : Elle représente une non conformité et contient :
     + le titre de la non conformité,
     + un lien vers la fiche d'audit,
+    + un rédacteur,
     + une liste de liens vers des chapitres de référentiel, avec pour chacun :
         + un lien vers le chapitre,
         + un lien vers le référentiel,
@@ -307,6 +308,10 @@ Les fichiers stubs contiennent :
 
 * les classes intermédiaires générées sur le serveur (`\Dcp\Family\COGIP_AUDIT_BASE`) qui permettent d'avoir la chaîne d'héritage complète et la complétion,
 * les classes en `\Dcp\AttributeIdentifiers\COGIP_AUDIT_AUDIT` qui contiennent la liste des attributs défini dans les fichiers `__STRUCT.csv` et permettent de référencer les attributs en utilisant la complétion de votre IDE.
+
+Exemple de complétion d'attribut à l'aide des stubs :
+
+![ Complétion d'attribut ](30-20-structure-stub-completion.png "Complétion d'attribut")
 
 ## Internationalisation {#quickstart:989b4a9e-e3d8-475e-9dcf-9a158605eab6}
 
