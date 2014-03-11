@@ -2,7 +2,7 @@
 
 ## Présentation et objectif {#quickstart:a11031ce-6591-46fa-b005-fb757717dd53}
 
-Ce document présente un quick start pour la plateforme Dynacase. 
+Ce document présente un Quick Start pour la plateforme Dynacase. 
 
 Il contient un projet fictif mettant en oeuvre les principales fonctionnalités de la plateforme.
 
@@ -34,14 +34,14 @@ Une fois le tutoriel complété, vous saurez :
     - Créer des scripts pour gérer les mise à jour.
 
 De plus, [Anakeen](http://anakeen.com/#services) propose des prestations de formation à l'utilisation de la plateforme Dynacase.  
-Ces formations d'une durée de 5 jours en standard permettent d'aborder les points de ce quick start. Elles peuvent aussi être adaptées pour aborder des thèmes avancés non présentés dans ce document.
-Elles alternent parties théoriques et applications pratiques.
-Les parties pratiques s'appuient sur un projet standard ou être basées sur votre propre projet.__
-Elles se déroulent en inter-entreprise sur Paris ou Toulouse ou en intra sur votre site.
+Ces formations, d'une durée de 5 jours en standard, permettent d'aborder les points de ce Quick Start.  
+Elles peuvent aussi être adaptées pour aborder des thèmes avancés non présentés dans ce document.
+Elles alternent parties théoriques et applications pratiques. Les parties pratiques s'appuient sur un projet standard ou peuvent être basées sur votre propre projet.  
+Elles se déroulent en inter entreprise sur Paris ou Toulouse ou en intra sur votre site.
 
 ## Organisation {#quickstart:f6b3c074-0249-4a60-bbb2-0778b6a8778b}
 
-Ce quick start est organisé en chapitres principaux :
+Ce Quick Start est organisé en chapitres principaux :
 
 * Mise en place du contexte de développement,
 * Utilisateurs,
