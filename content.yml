@@ -24,5 +24,7 @@ book:
           subtoc: 2
         - level:  2
           content:  "30-Famille/20-structure.md"
+        - level:  2
+          content:  "30-Famille/30-param.md"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
