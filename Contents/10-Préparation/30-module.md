@@ -72,8 +72,7 @@ La structure générée contient les éléments suivants :
 
 * **info.xml** : ce fichier décrit les actions à effectuer lors de
 l'installation et de la mise à jour du module. Il est intialisé avec les instructions pour enregistrer l'application `COGIP_AUDIT`
-* **COGIP_AUDIT** : Ce répertoire contient les sources de l'application `COGIP_AUDIT` sur laquelle vous allez travailler. C'est dans ce répertoire que vous allez mettre les définitions des familles, les actions et les assets<span class="flag fixme">asset ??</span> de 
-cette application,
+* **COGIP_AUDIT** : Ce répertoire contient les sources de l'application `COGIP_AUDIT` sur laquelle vous allez travailler. C'est dans ce répertoire que vous allez mettre les définitions des familles, les actions et les assets (fichiers images, CSS, JS) de cette application,
 * **COGIP_AUDIT/COGIP_AUDIT.app** : Ce fichier contient la définition de l'application `COGIP_AUDIT`,
 * **COGIP_AUDIT/COGIP_AUDIT_init.php** : Ce fichier contient les paramètres 
 applicatifs associés à l'application `COGIP_AUDIT` par défaut il contient le 
