@@ -348,7 +348,7 @@ Ajoutez un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajoutez
             //Set the return value
             $return[] = array(
                 $enhancedTitle,
-                $currentRef->getPropertyValue("id"),
+                $currentRef->getPropertyValue("initid"),
                 $currentRef->getTitle()
             );
         }
@@ -367,6 +367,11 @@ Cette fonction permet de sélectionner uniquement les référentiels cités dans
 * la variable `$return` contient un array bi-dimensionnel. Chaque entrée de cet array est un array décrivant une suggestion, avec l'ordre suivant :
     * le premier élément est le nom de l'élément affiché dans la liste de suggestion, ce nom est en HTML,
     * les éléments suivants sont défini dans le fichier `__STRUCT`.
+
+<span class="flag inline nota-bene"></span> `id` et `initid` : dans l'aide à la saisie la [propriété][DocDocProperty] renvoyée et l'initid du document. Tout document possède plusieurs moyens d'être identifié :
+
+* id : identifiant unique qui permet de trouver le document au sein d'un contexte,
+* initid : identifiant d'une [lignée documentaire][DocLigneeDoc], une lignée documentaire est l'ensemble des révisions (passées et applicable) d'un document, l'initid est l'id de la première révision du document, c'est elle qui doit être utilisée pour référencer le document dans les formulaires pour permettre la recherche.
 
 ### Paramétrage {#quickstart:dd771ea3-deb6-4d78-991a-236caed4b347}
 
@@ -423,7 +428,7 @@ La fonction suivante est à ajouter dans `helper_audit.php` :
             //Set the return value
             $return[] = array(
                 $enhancedTitle,
-                $currentRef->getPropertyValue("id"),
+                $currentRef->getPropertyValue("initid"),
                 $currentRef->getTitle()
             );
         }
@@ -502,3 +507,5 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 [DocGetDocumentList]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:8f0824fa-eed6-4170-b52d-d3dc7c5cb9c1.html "Documentation : getDocumentList"
 [DocHelperSyntaxe]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194.html#core-ref:c3ea0d07-1032-4abf-9746-df01e9434247 "Documentation : Syntaxe"
 [DocIsAlive]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b791d14e-800a-4b3b-bee7-41e271a8087e.html "Documentation : alive"
+[DocDocProperty]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:9aa8edfa-2f2a-11e2-aaec-838a12b40353.html "Documentation : propriétés des documents"
+[DocLigneeDoc]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1cdff481-42e0-4caf-baba-d2348d760ca5.html "Documentation : Lignée documentaire"
