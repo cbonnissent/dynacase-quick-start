@@ -145,7 +145,7 @@ Le fichier COGIP_AUDIT.po dans sa version fr contient :
     msgid "Cogip_audit"
     msgstr ""
 
-Vous allez compléter la clef `Cogip_audit`, ceci peut-être fait à l'aide votre IDE ou d'un logiciel spécialisé [poedit][wpoedit] ([téléchargement][upoedit]).
+Vous allez compléter la clef `Cogip_audit`, ceci peut-être fait à l'aide votre [IDE][wikiIDE] ou d'un logiciel spécialisé [poedit][wpoedit] ([téléchargement][upoedit]).
 
 Complétez avec `Application d'audit de la cogip`.
 
@@ -198,6 +198,7 @@ et avez abordé les principes des traductions.
 * [Le format des paquets webinst][webinst]
 * [Internationalisation et traduction][internationalisation]
 
+[IDE][wikiIDE]: https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement_int%C3%A9gr%C3%A9
 [githubSource]: https://github.com/Anakeen/dynacase-quick-start/archive/after_10_30.zip "Github : source après le tutoriel"
 [tar]: https://fr.wikipedia.org/wiki/Tar_(informatique) "Définition du TAR : Wikipedia"
 [wpoedit]: https://en.wikipedia.org/wiki/Poedit "Description de Poedit : Wikipedia"
