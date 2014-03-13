@@ -13,7 +13,7 @@ Dans ce chapitre, vous allez paramétrer les familles que vous avez créé dans 
 
 ## Cadre {#quickstart:fc3a144d-e608-4538-aa71-808075b1860b}
 
-Lors de la phase de spécification, les éléments suivants ont été identifiés. Votre application va nécessiter :
+Lors de la phase de spécification, les éléments suivants ont été identifiés. Votre application nécessite pour :
 
 * Référentiel qualité : 
     * Le titre d'un référentiel est sa référence,
@@ -53,7 +53,7 @@ Le paramétrage des familles de Dynacase comprend tout ce qui est lié à la per
 
 ## Propriétés des familles {#quickstart:d73e0224-f9f4-445a-a828-069cbc468053}
 
-Vous allez commencer par les propriétés des familles. 
+Commencez par les propriétés des familles. 
 
 Une famille peut contenir un certain nombre de propriétés, elles sont décrites dans la [documentation][famProperty].
 
@@ -63,7 +63,7 @@ Celui-ci contient les lignes suivantes :
 
 ![ Paramètre de la famille référentiel ](30-30-param-referentiel.png "Paramètre de la famille référentiel")
 
-Vous pouvez remarquer que deux paramètres ont été rempli par le **developper tool** :
+Deux paramètres ont été rempli par le **developper tool** :
 
 * ICON : ce paramètre contient la référence vers une image qui est utilisée comme icône de cette famille dans les interfaces standards,
 * DFLDIF : cet élément est lié au fonctionnement de ONEFAM, il est paramétré par défaut avec une valeur permettant d'afficher les familles dans ONEFAM.
@@ -87,7 +87,7 @@ Vous devez obtenir la structure de fichiers suivantes :
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
 
-Le titre de la famille se paramètre via les traductions. Veuillez ouvrir le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et modifier le bloc suivant :
+Le titre de la famille se paramètre via les traductions. Ouvrez le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et modifiez le bloc suivant :
 
     msgid "COGIP_AUDIT_AUDIT#title"
     msgstr "COGIP_AUDIT_AUDIT"
@@ -97,7 +97,7 @@ en
     msgid "COGIP_AUDIT_AUDIT#title"
     msgstr "Audit"
 
-Vous pouvez compléter les différents `po` avec les traductions suivantes :
+Complétez les différents `po` avec les traductions suivantes :
 
 * `COGIP_AUDIT_BASE#title` : Base,
 * `COGIP_AUDIT_CHAPITRE#title` : Chapitre,
@@ -106,7 +106,7 @@ Vous pouvez compléter les différents `po` avec les traductions suivantes :
 
 ![ Famille avec titre ](30-30-with-title.png "Famille avec titre")
 
-NB : **Attention**, si jamais votre bloc de traduction porte la mention `fuzzy`à supprimer la mention sinon la traduction ne sera pas prise en compte.
+<span class="flag inline nota-bene"></span> **Attention** si jamais votre bloc de traduction porte la mention `fuzzy`à supprimer la mention sinon la traduction ne sera pas prise en compte.
 
 ### Valeur par défaut {#quickstart:b48d21a1-1305-407c-a2bc-aebca7315416}
 
@@ -116,7 +116,7 @@ Pour obtenir ce comportement, vous allez utiliser la notion de [valeur par défa
 
 La valeur par défaut est donnée par une fonction PHP contenue dans la classe associée à famille, cette fonction est appelée lors de la création d'un document et retourne une valeur qui complète la valeur d'un attribut.
 
-Pour indiquer la valeur par défaut, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv` et ajouter une ligne juste avant le `END` contenant, dans les colonnes :
+Pour indiquer la valeur par défaut, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv` et ajoutez une ligne juste avant le `END` contenant, dans les colonnes :
 
 * `A` : `DEFAULT`,
 * `B` : le nom de l'attribut `caf_redacteur` dans votre cas,
@@ -156,9 +156,9 @@ Vous avez différentes règles de calcul de titre de fiche.
 
 Il existe deux moyens de spécifier les règles de calcul de titre d'une fiche :
 
-* soit en modifiant la colonne `E` d'un fichier `__STRUCT.csv`, cette colonne indique les attributs utilisés dans la composition du titre. Ce moyen est simple mais à plusieurs limitations :
+* soit en modifiant la colonne `E` d'un fichier `__STRUCT.csv`, cette colonne indique les attributs utilisés dans la composition du titre. Ce moyen est simple mais a plusieurs limitations :
     - vous ne pouvez pas définir l'ordre de composition,
-    - seuls les attributs textuels et numériques sont utilisables
+    - seuls les attributs textuels et numériques sont utilisables.
 * soit en modifiant la méthode [`getCustomTitle`][DocGetCustomTitle] dans ce cas vous composez directement le titre et la colonne `E` n'est plus utilisée.
 
 ### Composition du titre en paramétrant la famille {#quickstart:d3a65d4a-67d4-42dd-9b11-23a41ee3f5c7}
@@ -177,7 +177,7 @@ Ce qui donne après la création du document :
 
 Pour les autres familles, vous ne pouvez pas utiliser la même méthode car soit le titre contient un lien vers un attribut, soit il est composé avec des éléments qui ne sont pas directement dans la fiche.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle], pour qu'elle soit similaire à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle] :
 
     [php]
     /**
@@ -198,7 +198,7 @@ Ce qui donne après la création du document :
 
 ![ Document avec le calcul du titre ](30-30-compute-title-function.png "Document avec le calcul du titre")
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle], pour qu'elle soit similaire à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle] :
 
     [php]
     /**
@@ -220,14 +220,14 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la m�
 
 Vous allez maintenant construire le titre pour la famille audit. Ce titre est composé de deux parties :
 
-* un préfixe que vous allez stocker dans un [paramètre de famille][DocParamFam],
+* un préfixe que sera stocké dans un [paramètre de famille][DocParamFam],
 * le contenu d'un attribut de la famille `caa_titre`.
 
-Vous allez ajouter un paramètre de famille à la famille audit. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv`, et modifiez le pour qu'il soit similaire à :
+Vous allez ajouter un paramètre de famille à la famille audit. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` et modifiez le pour qu'il soit similaire à :
 
 ![ Paramètre de famille ](30-30-param-famParam.png "Paramètre de famille")
 
-NB : Les paramètres de familles se définissent de la même manière que les attributs (voir la [documentation d'importation][DocDefFamParam]).
+<span class="flag inline nota-bene"></span> Les paramètres de familles se définissent de la même manière que les attributs (voir la [documentation d'importation][DocDefFamParam]).
 
 À la prochaine importation, un paramètre sera associé à cette famille, sa valeur est modifiable dans les interfaces d'administration sans redéploiement des sources.
 
@@ -284,7 +284,7 @@ Quelques remarques sur la fonction ci-dessus :
 * les méthodes associées à des contraintes commence par convention par `check`,
 * la fonction `_` permet d'indiquer que la ligne va être traduite.
 
-NB : Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier po de l'application.
+<span class="flag inline nota-bene"></span> Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier po de l'application.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la colonne `O` de la ligne de l'attribut `caa_date_debut` pour y ajouter la référence à la fonction définie ci-dessus. Vous devez obtenir une ligne similaire à :
 
@@ -299,6 +299,8 @@ Une fois le module déployé, le formulaire possède une nouvelle fonctionnalit�
 
 ![ Définition contrainte : résultat ](30-30-form-constraint.png "Définition contrainte : résultat")
 
+<span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs. Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
+
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
 Vous allez maintenant configurer une [aide à la saisie][DocDocHelper].  
@@ -306,7 +308,7 @@ La spécification indique que dans une fiche de non conformité les référentie
 
 ### Fonction {#quickstart:3af954c1-fba1-4899-934e-2de89965e9f4}
 
-Veuillez créer un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajouter dans celui-ci la fonction `selectReferentiel` comme ci-dessous :
+Ajoutez un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajoutez dans celui-ci la fonction `selectReferentiel` comme ci-dessous :
 
     [php]
     function selectReferentiel($caf_audit, $userInput = "") {
@@ -358,8 +360,8 @@ Cette fonction permet de sélectionner uniquement les référentiels cités dans
 
 * si jamais le document audit associé à la FNC n'est pas [alive][DocIsAlive] (soit pas existant, soit supprimé) alors un message est envoyé à l'utilisateur lui indiquant qu'il doit sélectionner un audit,
 * l'attribut `caa_ref` est multiple donc le retour de la fonction `getAttributeValue` est un array,
-* l'array retourné par la fonction `getAttributeValue` est converti en une chaîne de caractères`,
-* la variable `$searchDoc` est une instance de la classe [`SearchDoc`][DocSearchDoc], cette classe permet de chercher des documents dans la base documentaire de Dynacase. Cette classe génère le SQL nécessaire à la recherche et retourne des instances de Document,
+* l'array retourné par la fonction `getAttributeValue` est converti en une chaîne de caractères,
+* la variable `$searchDoc` est une instance de la classe [`SearchDoc`][DocSearchDoc], cette classe permet de chercher des documents dans la base documentaire de Dynacase. Elle génère le SQL nécessaire à la recherche et retourne des instances de Document ou les valeurs contenus dans le document,
 * la fonction [addFilter][DocAddFilter] permet d'ajouter un critère de recherche pour préciser la recherche,
 * la fonction [getDocumentList][DocGetDocumentList] permet d'avoir la liste des documents trouvés,
 * la variable `$return` contient un array bi-dimensionnel. Chaque entrée de cet array est un array décrivant une suggestion, avec l'ordre suivant :
@@ -368,21 +370,21 @@ Cette fonction permet de sélectionner uniquement les référentiels cités dans
 
 ### Paramétrage {#quickstart:dd771ea3-deb6-4d78-991a-236caed4b347}
 
-Vous allez maintenant enregistrer cette aide à la saisie dans la famille, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et ajouter dans les colonnes `L` et `M` les valeurs suivantes :
+Vous allez maintenant enregistrer cette aide à la saisie dans la famille, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et ajoutez dans les colonnes `L` et `M` les valeurs suivantes :
 
 * `L` : `helper_audit.php`, cette colonne contient la référence vers le fichier contenant l'aide à la saisie,
 * `M` : `selectReferentiel(caf_audit,CT):caf_ecart_ref,CT[caf_ecart_ref]` cette colonne contient le paramétrage de l'aide à la saisie, elle peut-être découpée en trois éléments :
     - le nom de la fonction `selectReferentiel`,
-    - la liste des éléments entrants : `caf_audit,CT`, ces éléments sont passés à la fonction en valeur entrantes, vous pouvez trouvez [la liste des éléments acceptés][DocHelperSyntaxe] dans la documentation,
-    - la liste des éléments cibles de l'aide à la saisie, cette liste décrit les éléments à valuer avec l'élément sélectionné.
+    - la liste des éléments entrants : `caf_audit,CT`, ces éléments sont passés à la fonction en valeur entrantes, vous trouverez [la liste des éléments acceptés][DocHelperSyntaxe] dans la documentation,
+    - la liste des éléments cibles de l'aide à la saisie, cette liste décrit les éléments à valuer avec la suggestion sélectionnée par l'utilisateur.
 
 ![ Aide à la saisie : struct ](30-30-helper.png " Aide à la saisie : struct")
 
-NB : Vous pouvez remarquer qu'il y a un décalage d'une valeur entre le nombre de retour de la fonction d'aide à la saisie (3 éléments par valeur possible) et la définition de l'aide à la saisie (2 éléments uniquement).  Le premier élément du retour de l'aide à la saisie est utilisé pour construire la liste de suggestion présentée à l'utilisateur.
+<span class="flag inline nota-bene"></span> Vous remarquez qu'il y a un décalage d'une valeur entre le nombre de retour de la fonction d'aide à la saisie (3 éléments par valeur possible) et la définition de l'aide à la saisie (2 éléments uniquement).  Le premier élément du retour de l'aide à la saisie est utilisé pour construire la liste de suggestion présentée à l'utilisateur.
 
 ### Résultat {#quickstart:ac23551e-7fc5-4f92-b6dd-7d97c11cbb6e}
 
-![ Aide à la saisie : résultat ](30-30-helper-result.png " Aide à la saisie : résultat")
+![ Aide à la saisie : résultat ](30-30-helper-result.gif " Aide à la saisie : résultat")
 
 ### Exemple {#quickstart:fb944e8e-6327-4ea9-8e95-9d45ceeb5624}
 
@@ -429,13 +431,13 @@ La fonction suivante est à ajouter dans `helper_audit.php` :
         return $return;
     }
 
-Et compléter le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` :
+Et complétez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` :
 
 ![ Aide à la saisie : struct ](30-30-helper2.png " Aide à la saisie : struct")
 
 ## Attributs calculés {#quickstart:ead89bc8-c1ce-4522-8d19-6e2d8d0dfd50}
 
-Pour finir ce chapitre, vous allez mettre en place un attribut calculé. Vous allez calculer la date de fin de l'audit en fonction de sa date de début et de sa durée.
+Pour finir ce chapitre, vous allez mettre en place un attribut calculé. La date de fin de l'audit doit être calculée en fonction de sa date de début et de sa durée.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction ci-dessous :
 
