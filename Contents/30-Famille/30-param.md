@@ -140,7 +140,7 @@ Pour indiquer qu'un attribut est obligatoire, il faut modifier le fichier `__STR
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifiez la colonne `J` sur la ligne de l'attribut `car_titre` en y ajoutant la lettre `Y`. Le fichier doit être similaire à :
 
-![ Valeur par défaut ](30-30-needed.png "Valeur par défaut")
+![ Attribut obligatoire ](30-30-needed.png "Attribut obligatoire")
 
 Une fois le fichier importé le formulaire en édition indique que l'attribut est obligatoire (passage en gras du label) et ne permet pas d'effectuer la sauvegarde sans mettre une valeur dans cet attribut.
 
@@ -300,6 +300,8 @@ Une fois le module déployé, le formulaire possède une nouvelle fonctionnalit�
 ![ Définition contrainte : résultat ](30-30-form-constraint.png "Définition contrainte : résultat")
 
 <span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs. Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
+
+<span class="flag inline nota-bene"></span> Vous avez probablement remarqué que ce comportement est limitant pour votre application, en effet la date avance d'une journée tous les jours et la contrainte se déclenche à chaque sauvegarde. Vous verrez comment améliorer ce point dans le chapitre sur les cycles de vie.
 
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
@@ -466,7 +468,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fon
 
 Ensuite, vous devez enregistrer la fonction dans le fichier `__STRUCT.csv`, ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour la ligne contenant l'attribut `caa_date_fin` les colonnes :
 
-* `I` : pour rester cohérent il faut que la visibilité soit en `S` car l'utilisateur ne doit pas pouvoir modifier la date de fin,
+* `I` : pour rester cohérent il faut que la [visibilité][DocVisibilite] soit en `S` car l'utilisateur ne doit pas pouvoir modifier la date de fin,
 * `M` : `::computeDateFin(caa_date_debut,caa_duree)`. Cette cellule porte la référence vers la fonction et ces paramètres d'entrée. Le format de cet élément est explicité dans la [documentation][DocDocAttrComputed].
 
 Bravo ! Vous avez terminé la partie pratique de ce chapitre.
