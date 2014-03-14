@@ -117,7 +117,7 @@ Dans les fiches de non-conformité, le rédacteur est le créateur de la fiche.
 
 Pour obtenir ce comportement, vous allez utiliser la notion de [valeur par défaut][DocValDefault].
 
-La valeur par défaut est donnée par une fonction PHP contenue dans la classe associée à famille. Cette fonction est appelée lors de la création d'un document et retourne une valeur qui complète la valeur d'un attribut.<span class="flag fixme">Calculée ou statique ?</span>
+La valeur par défaut est donnée par une fonction PHP contenue dans la classe associée à famille. Cette fonction est appelée lors de la création d'un document et retourne une valeur qui complète la valeur d'un attribut.
 
 Pour indiquer la valeur par défaut, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv` et ajoutez une ligne juste avant le `END` avec pour les colonnes les valeurs :
 
@@ -155,7 +155,7 @@ Complétez ensuite les autres familles :
 
 ## Calcul des titres des documents {#quickstart:66cc3713-6e43-4e45-916e-82d29c016d05}
 
-Il existe deux moyens de spécifier les règles de calcul de titre d'une document :
+Il existe deux moyens de spécifier les règles de calcul de titre d'un document :
 
 * soit en modifiant la colonne `E` d'un fichier `__STRUCT.csv`, cette colonne indique les attributs utilisés dans la composition du titre.
   Ce moyen est simple mais a plusieurs limitations :
@@ -165,8 +165,6 @@ Il existe deux moyens de spécifier les règles de calcul de titre d'une documen
   La colonne `E` n'est plus utilisée.
 
 ### Composition du titre par paramétrage de la structure {#quickstart:d3a65d4a-67d4-42dd-9b11-23a41ee3f5c7}
-
-Vous allez commencer par modifier la famille où la première méthode fonctionne.<span class="flag fixme">pas compris ?</span>
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifiez le pour qu'il soit similaire à :
 
@@ -178,7 +176,7 @@ Ce qui donne après la création du document :
 
 ### Composition du titre en utilisant `getCustomTitle` {#quickstart:7afe120f-3249-48a1-af92-7bd52b4ff837}
 
-Pour les autres familles, vous ne pouvez pas utiliser la même méthode car soit le titre contient un lien vers un attribut, soit il est composé avec des éléments qui ne sont pas directement dans la document.
+Pour les autres familles, vous ne pouvez pas utiliser la même méthode car soit le titre contient un lien vers un attribut, soit il est composé avec des éléments qui ne sont pas directement dans le document.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle] :
 
@@ -264,7 +262,7 @@ Bravo ! Vous avez mise en place le calcul des titres des documents.
 
 Vous allez maintenant paramétrer la [contrainte][DocDocContrainte] nécessaire à votre projet.
 
-Une contrainte permet de vérifier qu'une condition est valide lors de l'enregistrement d'une document.
+Une contrainte permet de vérifier qu'une condition est valide lors de l'enregistrement d'un document.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et veuillez ajouter la fonction suivante :
 
@@ -371,7 +369,7 @@ Cette fonction permet de sélectionner uniquement les référentiels cités dans
 * la fonction [getDocumentList][DocGetDocumentList] permet d'avoir la liste des documents trouvés,
 * la variable `$return` contient un `array` bi-dimensionnel. Chaque entrée de cet `array` est un `array` décrivant une suggestion, constituée de :
     * le premier élément est le nom de l'élément affiché dans la liste de suggestion, ce nom est en HTML,
-    * les éléments suivants sont les valeurs pour les attibuts spécifiés dans le fichier `__STRUCT`.
+    * les éléments suivants sont les valeurs pour les attributs spécifiés dans le fichier `__STRUCT`.
 
 <span class="flag inline nota-bene"></span> `id` et `initid` : dans l'aide à la saisie la [propriété][DocDocProperty] renvoyée est l'initid du document. Tout document possède plusieurs moyens d'être identifié :
 
@@ -495,7 +493,7 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 
 <!-- links -->
 
-[structure]:   #quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15 "Mise en place des structures"
+[structure]:   #quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15
 [famProperty]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:6f013eb8-33c7-11e2-be43-373b9514dea3 "Documentation : propriété de famille"
 [DocValDefault]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:94fa51e2-3488-11e2-9e34-1f7c912168cf "Documentation : valeur par défaut"
 [DocVisibilite]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e8.html "Documentation : visibilité"

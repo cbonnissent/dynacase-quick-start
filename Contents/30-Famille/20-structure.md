@@ -188,7 +188,7 @@ Votre `info.xml` contient les lignes suivantes :
         <process command="programs/update_catalog" />
     </post-upgrade>
 
-<span class="flag inline nota-bene"></span> Vous avez ici défini une famille abstraite `COGIP_AUDIT_BASE` qui est mère de toutes les autres familles. Cette méthode peut être considérée comme une bonne pratique pour débuter un projet Dynacase. Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
+<span class="flag inline nota-bene"></span> Vous avez ici défini une famille abstraite `COGIP_AUDIT_BASE` qui est mère de toutes les autres familles. Cette méthode est considérée comme une bonne pratique pour débuter un projet Dynacase. Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
 
 ## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
 
@@ -202,7 +202,7 @@ Le fichier se présente sous cette forme :
 
 ![ Contenu structure site ](30-20-structure-referentiel.png "Contenu structure site")
 
-<span class="flag inline nota-bene"></span> Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir quelques éléments avec des valeurs par défaut. Dans la suite du tutoriel, il est considéré ces scripts sont installés.
+<span class="flag inline nota-bene"></span> Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir quelques éléments avec des valeurs par défaut. Dans la suite du tutoriel, ces scripts sont considérés comme installés.
 
 <span class="flag inline nota-bene"></span> **Attention** : un attribut non-structurant (texte, relation, numérique, ...) doit obligatoirement être contenu dans un attribut structurant frame ou array.
 
