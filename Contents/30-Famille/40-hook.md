@@ -26,7 +26,7 @@ Lors de la phase de spécification, les éléments suivants ont été identifié
 
 * pour les Audits :
     * le tableau des Fiche de non conformité doit être calculé automatiquement et non modifiable,
-    * la duplication d'un audit peut-être effectuée mais la date d'audit doivent être vidée automatiquement,
+    * la duplication d'un audit peut-être effectuée mais la date d'audit doit être vidée automatiquement,
     * lorsque la fin de l'audit est dépassée à message doit être affiché pour avertir les utilisateurs,
 * pour les Référentiels de qualité :
     - un référentiel de qualité ne peut pas être supprimé tant que qu'il existe des chapitres associés à ce référentiel.
@@ -251,7 +251,7 @@ Ajoutez ensuite la fonction suivante :
 
 ## Injection de JS ou CSS
 
-Pour finir ce chapitre, le service qualité a jeté un coup d'oeil sur vos ajouts et aimerait que le message renvoyé aux utilisateurs soit moins impressionnant. 
+Pour finir ce chapitre, le service qualité a jeté un coup d'oeil sur vos ajouts et aimerait que le message envoyé aux utilisateurs soit moins anxiogène. 
 
 Ajoutez donc une CSS pour obtenir ce comportement.
 
