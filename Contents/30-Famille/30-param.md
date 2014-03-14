@@ -26,7 +26,7 @@ Votre application nécessite :
     + Le titre est composé du titre de l'audit et d'un préfixe,
     + L'attribut titre est obligatoire,
     + La date de début est postérieure à la date du jour,
-    + La date de fin de l'audit est calculée automatiquement en fonction de la date de début d'audit et de sa durée,<span class="flag inline fixme">pas trouvé la durée</span>
+    + La date de fin de l'audit est calculée automatiquement en fonction de la date de début d'audit et de sa durée,
     + La liste des fiches de non-conformité, calculée automatiquement, n'est pas modifiable.
 + Fiche de non-conformité : 
     + Le titre est composé de l'attribut titre de la fiche et du titre de l'audit associé,
@@ -53,7 +53,14 @@ Les différents éléments paramétrables sont :
     - [attribut calculé][DocDocAttrComputed],
     - [aide à la saisie][DocDocHelper],
 
-<span class="flag fixme">je pense qu'il faut rappeler les opérations -mise à jour- à réaliser lors de chaque modification des familles par la suite</span>
+<span class="flag inline nota-bene"></span> Il vous est rappelé qu'à chaque modification de votre paquet, vous devez reconstruire celui-ci et le déployer pour voir les modifications s'appliquer sur votre environnement d'éxécution (VM). De plus :
+
+* si vous avez modifié le structure (ajout, suppression d'attribut), il est conseillé de :
+    * rafraîchir les [stubs][stubs],
+    * rafraîchir les [traductions][i18n]
+* si vous avez ajouté/enlever une clefs de traduction dans le code associé aux familles (fonction `_`), il est conseillé de rafraîchir les [traductions][i18n].
+
+<span class="flag inline nota-bene"></span> Les annexes contiennent un chapitre [développement rapide][devRapide] qui résume quelques techniques permettant d'accélérer le développement en évitant de déployer à chaque modification.
 
 ## Propriétés des familles {#quickstart:d73e0224-f9f4-445a-a828-069cbc468053}
 
@@ -302,7 +309,12 @@ Une fois le module déployé, le formulaire possède une nouvelle fonctionnalit�
 
 <span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs. Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
 
-<span class="flag inline nota-bene"></span> Vous avez probablement remarqué que ce comportement est limitant pour votre application, en effet la date avance d'une journée tous les jours et la contrainte se déclenche à chaque sauvegarde. Vous verrez comment améliorer ce point dans le chapitre sur les cycles de vie.<span class="flag fixme">pas compris</span>
+<span class="flag inline nota-bene"></span> Pour l'instant cette contrainte est très limitante, en effet elle s’exécute à chaque sauvegarde du document. Donc :
+
+1. vous créez l'audit le 12 juin pour un audit commençant le 15 juin et durant 5 jours,
+2. vous le modifiez le 16 juin la contrainte vous indique que la date de début est dépassée et vous empêche de sauvegarder.
+
+Vous verrez dans le chapitre sur les cycles de vie vous permettra d'améliorer cette contrainte.
 
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
@@ -493,6 +505,9 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 
 <!-- links -->
 
+[devRapide]:    #quickstart:c4eef86b-1f5d-4fd1-b362-d78c8fa637eb
+[i18n]:     #quickstart:989b4a9e-e3d8-475e-9dcf-9a158605eab6
+[stubs]:    #quickstart:df9b59b1-3a7f-420b-a89d-36cd6894edb9
 [structure]:   #quickstart:3b64d38f-81aa-4c02-aad5-77271247bf15
 [famProperty]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:6f013eb8-33c7-11e2-be43-373b9514dea3 "Documentation : propriété de famille"
 [DocValDefault]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:94fa51e2-3488-11e2-9e34-1f7c912168cf "Documentation : valeur par défaut"
