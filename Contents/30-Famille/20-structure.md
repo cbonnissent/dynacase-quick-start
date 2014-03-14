@@ -23,6 +23,8 @@ L'analyse des besoins a montré que votre application nécessite les familles su
 + Audit : elle représente un audit et contient :
     + le titre de l'audit,
     + sa date de début,
+    + sa durée en jour,
+    + sa date de fin,
     + le site audité,
     + un champ descriptif,
     + le responsable de l'audit,
