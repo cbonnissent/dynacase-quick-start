@@ -27,7 +27,7 @@ Lors de la phase de spécification, les éléments suivants ont été identifié
 * pour les Audits :
     * le tableau des Fiche de non conformité doit être calculé automatiquement et non modifiable,
     * la duplication d'un audit peut-être effectuée mais la date d'audit doit être vidée automatiquement,
-    * lorsque la fin de l'audit est dépassée à message doit être affiché pour avertir les utilisateurs,
+    * lorsque la fin de l'audit est dépassée un message doit être affiché pour avertir les utilisateurs,
 * pour les Référentiels de qualité :
     - un référentiel de qualité ne peut pas être supprimé tant que qu'il existe des chapitres associés à ce référentiel.
 
@@ -65,8 +65,8 @@ Cette méthode est assez proche de celles écrites dans le chapitre de paramétr
 Les point suivants sont intéressants :
 
 * le filtre de la recherche est fait sur l'`initid` du document en cours,
-* le [`setValue`][DocSetValue] est fait avec un array car l'attribut `caa_fnc_fnc` est multiple,
-* la gestion des erreurs dans Dynacase est faite principalement par le retour des fonctions, celle-ci renvoie une chaîne de caractères décrivant l'erreur en cours et rien lorsque la fonction n'a pas échoué.
+* le [`setValue`][DocSetValue] est fait avec un `array` car l'attribut `caa_fnc_fnc` est multiple,
+* la gestion des erreurs dans Dynacase est faite principalement par le retour de la fonction : celle-ci renvoie une chaîne de caractères décrivant l'erreur en cours et rien lorsque la fonction n'a pas échoué.
 
 Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction est appelée après chaque enregistrement du document :
 
@@ -79,23 +79,24 @@ Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction es
         }
     }
 
-<span class="flag inline nota-bene"></span> Il est déconseillé de mettre le code métier directement dans la fonction de manière à pouvoir surcharger dans les familles filles les fonctions appelées dans les hooks plus facilement.
+<span class="flag inline nota-bene"></span> Il est conseillé de ne pas mettre le code métier directement dans la fonction `postStore`.
+Il est ainsi possible de surcharger dans les familles filles les fonctions appelées dans les hooks plus facilement.
 
 ### Problèmes
 
-A ce stade, le formulaire calcul automatiquement la valeur de l'attribut `caa_fnc_fnc`, il reste deux défauts :
+A ce stade, le formulaire calcule automatiquement la valeur de l'attribut `caa_fnc_fnc`, il reste deux points à résoudre :
 
-* les utilisateurs peuvent toujours modifier la valeur de l'attribut dans le formulaire,
-* le calcul n'est effectué que lors de la sauvegarde du document audit, si des fiches de non-conformités sont ajoutées et l'audit n'est pas modifié alors l'attribut `caa_fnc_fnc` n'est pas à jour.
+* lors de la modification de l'audit, les utilisateurs peuvent toujours modifier la valeur de l'attribut dans le formulaire,
+* le calcul est effectué seulement lors de la sauvegarde du document audit. Si des fiches de non-conformités sont ajoutées, alors que l'audit n'est pas modifié, l'attribut `caa_fnc_fnc` n'est pas à mis à jour.
 
-Pour corriger le premier point, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la [visibilité][DocVisibilite] du tableau des Fiches de non conformité pour le rendre statique. Modifiez la colonne `I` :
+Pour corriger le premier point, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la [visibilité][DocVisibilite] du tableau des Fiches de non-conformité pour le rendre statique. Modifiez la colonne `I` :
 
 * pour l'attribut `caa_a_fnc`, passez la valeur de `W` à `U`,
 * pour l'attribut `caac_fnc_fnc`, passez la valeur de `W` à `S`.
 
 La liste des fiches de non conformité n'est plus modifiable dans les audits en modification.
 
-Pour corriger le second point, vous devez modifier les fiches de non conformité pour qu'à sa sauvegarde une fiche mette à jour l'audit associé. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et ajoutez la fonction suivante :
+Pour corriger le second point, vous devez modifier les fiches de non conformité pour que lors de leurs sauvegardes elles mettent à jour l'audit associé. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et ajoutez la fonction suivante :
 
     [php]
     /**
@@ -132,11 +133,12 @@ Ensuite surchargez la fonction [`postStore`][DocDocPostStore] :
         }
     }
 
-<span class="flag inline nota-bene"></span> Attention a bien appeler le parent lors de la surcharge de la fonction de hook, sinon le code des classes parentes ne serait pas appelé.
+<span class="flag inline nota-bene"></span> Attention à bien appeler le parent lors de la surcharge de la fonction de hook, sinon le code des classes parentes ne serait pas appelé.
 
 ## Duplication
 
 Vous allez mettre en place un traitement après la duplication d'un audit pour supprimer les dates de l'audit dans le nouveau document créé par duplication.
+<spn class="flag fixme">les FNC liées sont conservées ?</span>
 
 Ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction suivante :
 
@@ -170,7 +172,7 @@ Ajoutez ensuite la fonction suivante :
         }
     }
 
-Vous pouvez ensuite dupliquer le document, le menu de duplication est dans `Autres > Dupliquer`.
+Vous pouvez ensuite dupliquer le document en utilisant le menu du document `Autres > Dupliquer`.
 
 ## Affichage d'un message aux utilisateurs
 
@@ -292,11 +294,11 @@ Vous allez maintenant ajouter les fonctions suivantes :
         return $err;
     }
 
-Les deux fonctions ajoutées s’exécute respectivement avant l'édition et avant la consultation et ajoute la CSS que vous avez défini ci-dessus dans le formulaire.
+Les deux fonctions ajoutées s’exécutent respectivement avant l'édition et avant la consultation. La CSS définie ci-dessus est ajoutée dans le formulaire.
 
 ## Conclusion
 
-Vous avez abordé les hooks et leurs fonctionnalités, ils permettent de surcharger le fonctionnement par défaut des documents de Dynacase pour implémenter la logique métier de votre projet.
+Vous avez abordé les hooks et leurs fonctionnalités. Ils permettent de surcharger le fonctionnement par défaut des documents de Dynacase pour implémenter la logique métier de votre projet.
 
 ## Voir aussi
 
