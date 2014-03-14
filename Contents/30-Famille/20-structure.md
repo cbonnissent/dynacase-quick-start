@@ -188,7 +188,7 @@ Votre `info.xml` contient les lignes suivantes :
         <process command="programs/update_catalog" />
     </post-upgrade>
 
-<span class="flag inline nota-bene"></span> Nous avons ici défini une famille abstraite `COGIP_AUDIT_BASE` qui est mère de toutes les autres familles. Cette méthode peut être considérée comme une bonne pratique pour débuter un projet Dynacase. Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
+<span class="flag inline nota-bene"></span> Vous avez ici défini une famille abstraite `COGIP_AUDIT_BASE` qui est mère de toutes les autres familles. Cette méthode peut être considérée comme une bonne pratique pour débuter un projet Dynacase. Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
 
 ## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
 
@@ -202,7 +202,7 @@ Le fichier se présente sous cette forme :
 
 ![ Contenu structure site ](30-20-structure-referentiel.png "Contenu structure site")
 
-<span class="flag inline nota-bene"></span> Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir quelques éléments avec des valeurs par défaut. Dans la suite du tutoriel, nous allons considérer que vous avez installé ces scripts.
+<span class="flag inline nota-bene"></span> Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir quelques éléments avec des valeurs par défaut. Dans la suite du tutoriel, il est considéré ces scripts sont installés.
 
 <span class="flag inline nota-bene"></span> **Attention** : un attribut non-structurant (texte, relation, numérique, ...) doit obligatoirement être contenu dans un attribut structurant frame ou array.
 
@@ -258,7 +258,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv`, et complétez le 
 
 Vous pouvez remarquer la présence de deux nouveaux éléments structurants :
 
-* [array][DocArray] : un `array` permet de gérer la multiplicité de certaines informations, sous la forme d'un tableau où chaque élément contenu est une colonne et chaque valeur est stockée sur une ligne,<span class="flag fixme">à reformuler</span>
+* [array][DocArray] : un `array` permet de gérer la multiplicité d'une liste d'attributs (un n-uplet) : chaque attribut est matérialisé par une colonne, et chaque ligne porte une valeur du n-uplet (liste des valeurs unitaire des attributs),
 * [tab][DocTab] : un `tab` est représenté sous la forme d'un onglet dans le formulaire, il permet d'organiser les informations à présenter, d'avoir une présentation plus lisible et éviter des formulaires trop long.
 
 <span class="flag inline nota-bene"></span> Pour faciliter la lecture de la structure, il est conseillé pour les attributs contenus dans un array de préfixer leur nom avec celui de l'array. Par exemple, pour le chapitre qui est contenu dans le tableau `ecart`, l'attribut est nommé `caf_ecart_chapitre`.
