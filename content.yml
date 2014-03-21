@@ -28,5 +28,7 @@ book:
           content:  "30-Famille/30-param.md"
         - level:  2
           content:  "30-Famille/40-hook.md"
+        - level:  2
+          content:  "30-Famille/50-securite.md"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
