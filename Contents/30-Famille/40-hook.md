@@ -106,7 +106,7 @@ Pour corriger le second point, vous devez modifier les fiches de non conformité
      */
     public function refreshAudit() {
         $err = "";
-        $audit = $this->getAttribute(MyAttributes::caf_audit);
+        $audit = $this->getAttributeValue(MyAttributes::caf_audit);
         $audit = new_Doc("", $audit, true);
         /* @var \Dcp\Family\COGIP_AUDIT_AUDIT $audit */
         $err .= $audit->computeFNC();
