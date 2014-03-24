@@ -2,13 +2,13 @@
 
 Dans ce chapitre, vous allez utiliser la notion de hook (hameçons). 
 
-## Objectifs
+## Objectifs {#quickstart:6aaa1eea-d37c-4d09-ac25-2b1b7d593d71}
 
 * Calcul automatique d'un tableau de référentiel,
 * Contrôle à la création d'un document,
 * Ajout de JS/CSS dans les formulaires.
 
-## Théorie
+## Théorie {#quickstart:40cef360-334d-49e9-918b-ff12e28bb54d}
 
 Les [hooks][DocHook] sont des fonctions de la classe Doc qui sont appelées 
 à différents moments clefs de la vie du document.
@@ -20,7 +20,7 @@ Dynacase propose deux types de hooks :
 
 La liste des hooks standards est dans la [documentation][DocHook].
 
-## Cadre
+## Cadre {#quickstart:1247e02d-540e-4974-8ba7-e9c6d885224d}
 
 Lors de la phase de spécification, les éléments suivants ont été identifiés. L'application nécessite :
 
@@ -31,7 +31,7 @@ Lors de la phase de spécification, les éléments suivants ont été identifié
 * pour les Référentiels de qualité :
     - un référentiel de qualité ne peut pas être supprimé tant que qu'il existe des chapitres associés à ce référentiel.
 
-## Automatisation du calcul d'un tableau
+## Automatisation du calcul d'un tableau {#quickstart:5ce81bd6-b692-4a7e-99f5-cc384b4ba4fd}
 
 Vous allez mettre en place la logique permettant de calculer automatiquement le tableau des Fiches de non conformité.
 
@@ -82,7 +82,7 @@ Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction es
 <span class="flag inline nota-bene"></span> Il est conseillé de ne pas mettre le code métier directement dans la fonction `postStore`.
 Il est ainsi possible de surcharger dans les familles filles les fonctions appelées dans les hooks plus facilement.
 
-### Problèmes
+### Problèmes {#quickstart:59afb583-b9da-4dc2-92d7-69426961562e}
 
 A ce stade, le formulaire calcule automatiquement la valeur de l'attribut `caa_fnc_fnc`, il reste deux points à résoudre :
 
@@ -135,7 +135,7 @@ Ensuite surchargez la fonction [`postStore`][DocDocPostStore] :
 
 <span class="flag inline nota-bene"></span> Attention à bien appeler le parent lors de la surcharge de la fonction de hook, sinon le code des classes parentes ne serait pas appelé.
 
-## Duplication
+## Duplication {#quickstart:c2f7a2b2-f9d5-4db1-845d-371ba6425317}
 
 Vous allez mettre en place un traitement après la duplication d'un audit pour supprimer les dates de l'audit dans le nouveau document créé par duplication.
 <spn class="flag fixme">les FNC liées sont conservées ?</span>
@@ -174,7 +174,7 @@ Ajoutez ensuite la fonction suivante :
 
 Vous pouvez ensuite dupliquer le document en utilisant le menu du document `Autres > Dupliquer`.
 
-## Affichage d'un message aux utilisateurs
+## Affichage d'un message aux utilisateurs {#quickstart:d0443641-f6fc-419b-9647-c30bc1b2e635}
 
 Vous allez maintenant mettre en place l'affichage conditionnel d'un message aux utilisateurs lorsque la date de fin d'audit est dépassée.
 
@@ -212,7 +212,7 @@ Une fois le code déployé si la date de fin d'audit est dans le passé vous ave
 
 ![ Message utilisateur ](30-40-postRefresh.png "Message utilisateur")
 
-## Contrôle à la suppression
+## Contrôle à la suppression {#quickstart:e1f220a8-aa10-4149-aa4a-a20fd6b4598c}
 
 Vous allez mettre en place un contrôle à la suppression.
 
@@ -251,7 +251,7 @@ Ajoutez ensuite la fonction suivante :
         return $msg;
     }
 
-## Injection de JS ou CSS
+## Injection de JS ou CSS {#quickstart:bb25d5ff-d5a6-4d26-b32a-26db45de88e7}
 
 Pour finir ce chapitre, le service qualité a jeté un coup d'oeil sur vos ajouts et aimerait que le message envoyé aux utilisateurs soit moins anxiogène. 
 
@@ -296,11 +296,11 @@ Vous allez maintenant ajouter les fonctions suivantes :
 
 Les deux fonctions ajoutées s’exécutent respectivement avant l'édition et avant la consultation. La CSS définie ci-dessus est ajoutée dans le formulaire.
 
-## Conclusion
+## Conclusion {#quickstart:e066bf1f-a23b-4a8d-bf56-7207147c095b}
 
 Vous avez abordé les hooks et leurs fonctionnalités. Ils permettent de surcharger le fonctionnement par défaut des documents de Dynacase pour implémenter la logique métier de votre projet.
 
-## Voir aussi
+## Voir aussi {#quickstart:3d2825a4-f9f5-45ce-ac3a-099965f178b5}
 
 * [Les hooks][DocHook].
 
