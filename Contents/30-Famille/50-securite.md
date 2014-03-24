@@ -1,14 +1,14 @@
-# Sécurité
+# Sécurité {#quickstart:3e38794d-93eb-464e-9a69-1828ece189ac}
 
 Ce chapitre va vous permettre de mettre en place les notions de sécurité sur vos familles.
 
-## Objectifs
+## Objectifs {#quickstart:13665808-ee26-47c9-b1b9-02e0e65c19eb}
 
 * Mettre en place les droits basiques sur les documents, droits sur le [CRUD][wikiCRUD],
 * Mettre en place les droits basiques sur la définition des familles,
 * Mettre en place les contrôles de vue permettant de restreindre la vue d'un document suivant le type d'utilisateur.
 
-## Cadre
+## Cadre {#quickstart:ef53c139-18b2-4d79-a83c-c51c0424c646}
 
 Lors de la phase de spécification, les droits suivants ont été identifiés. L'application nécessite :
 
@@ -26,7 +26,7 @@ La définition des familles doit pouvoir être mise à jour par les administrate
 
 En outre, il y a une demande particulière, les auditeurs veulent que dans les fiches de non conformité la partie **Écart** peut être vue par tous les utilisateurs pouvant voir le document, mais être modifiée uniquement par les auditeurs.
 
-## Théorie
+## Théorie {#quickstart:98e77eba-96ad-49cb-9eae-19ef01141fc2}
 
 La sécurité applicative des documents dans Dynacase repose sur la notion de [profil][DocProfil].
 
@@ -37,7 +37,7 @@ Un profil est une matrice de droits, il permet d'indiquer quel utilisateur/group
 
 La modification de la représentation en fonction du type d'utilisateur est elle réalisée à l'aide de [contrôle de vue][DocCVDOC]. Ce type de document permet d'indiquer des règles de composition de la vue d'un document en fonction des droits de l'utilisateur.
 
-## Profil de famille
+## Profil de famille {#quickstart:1aecb6e4-0046-4ecc-b9d0-8af9e13faf9b}
 
 Vous allez commencer par définir les profils de famille.
 
@@ -46,7 +46,7 @@ Le profil de famille permet de définir :
 * qui peut Voir, Modifier la configuration de la famille,
 * qui peut créer des documents de cette famille 
 
-### Création
+### Création {#quickstart:651a15e9-ebbf-4e85-8f0f-652d64fcf5cd}
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
 
@@ -68,7 +68,7 @@ Complétez le titre avec `Profil de référentiel` et cliquez sur `Créer`. Vous
 
 ![ Profil famille désactivé ](30-50-docadmin-pfam-consult.png "Profil famille désactivé")
 
-### Paramétrage
+### Paramétrage {#quickstart:1cd2c714-d287-4ca6-8282-c5a20393c0ea}
 
 Le profil de famille est créé désactivé. C'est à dire qu'il n'y a aucun droits associés à celui-ci donc tous les documents associés à ce profil sont libres d'accès.
 
@@ -105,7 +105,7 @@ Cliquez sur `Modifier les privilèges`, l'interface se présente ensuite de cett
 
 ![ Profil famille matrice de droits : consultation ](30-50-docadmin-pfam-rights-validated.png "Profil famille matrice de droits : consultation")
 
-### Export
+### Export {#quickstart:c6ed1357-b76f-4a83-9204-c8de33fff66f}
 
 Vous allez ensuite exporter le documents de profil.
 
@@ -132,7 +132,7 @@ Un fichier CSV vous est envoyé. Ouvrez le fichier :
 
 Les spécificités du  format sont décrites dans la [documentation][DocProfilExport]. 
 
-### Import
+### Import {#quickstart:84222982-26c8-4a1c-9c93-01e82b913b44}
 
 Vous pouvez remarquer les points suivants :
 
@@ -154,7 +154,7 @@ Ce qui donne dans votre cas :
 
 ![ Import référentiel ](30-50-import-pfam-ref.png "Import référentiel")
 
-### Chapitre
+### Chapitre {#quickstart:71093ab5-b57d-4b3b-b58c-bb6067ce4afd}
 
 Vous allez maintenant valuer le profil de famille Chapitres. Votre spécification indique que celui-ci est similaire à celui du référentiel.
 
@@ -177,7 +177,7 @@ Ce qui donne dans votre cas :
 
 ![ Import chapitre ](30-50-import-pfam-chapitre.png "Import chapitre")
 
-### Audit
+### Audit {#quickstart:5bcdd917-3580-4cf4-8ece-6696e88c2da5}
 
 Vous allez maintenant valuer le profil de famille Audits. Votre spécification indique que celui-ci est similaire à celui du référentiel avec juste une différence, le compte ayant le droit de création est le rôle Responsable des audits.
 
@@ -196,7 +196,7 @@ Ce qui donne dans votre cas :
 
 ![ Import audit ](30-50-import-pfam-audit.png "Import audit")
 
-### Fiche de non-conformité
+### Fiche de non-conformité {#quickstart:70215d94-966b-42a9-a453-c5651bc045b7}
 
 Vous allez maintenant valuer le profil de famille Fiche de non-conformité. Votre spécification indique que celui-ci est similaire à celui du référentiel avec juste une différence, le compte ayant le droit de création est le rôle Responsable des audits.
 
@@ -215,7 +215,7 @@ Ce qui donne dans votre cas :
 
 ![ Import Fiche de non-conformité ](30-50-import-pfam-fnc.png "Import Fiche de non-conformité")
 
-## Profil de document
+## Profil de document {#quickstart:62aad07c-8c51-423d-907a-ed7a0d8b5f5d}
 
 Vous allez maintenant créer les [profils de documents][DocProfilDocument]. Un profil de document permet de définir qui peut :
 
@@ -226,7 +226,7 @@ Vous allez maintenant créer les [profils de documents][DocProfilDocument]. Un p
 
 un document.
 
-### Création
+### Création {#quickstart:54194696-d4ab-43de-b4ac-50a93bcfc878}
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
 
@@ -255,7 +255,7 @@ Vous obtenez la matrice suivante (les groupes 24 à 86 ont été coupés sur la 
 
 ![ Import Profil de document ](30-50-create-pdoc-view.png "Import Profil de document")
 
-### Export
+### Export {#quickstart:9d267ad0-d8de-4ebc-a1bb-dee3fb3f97b4}
 
 Ajoutez le nom logique `PDOC_REFERENTIEL` au document `Autres > Propriétés`. Ajoutez le au porte document `Autres > Ajouter au porte-documents` (pensez à supprimer les éventuels autres documents) et cliquez ensuite `Outils > exportation du dossier`.
 Dans l'interface qui s'affiche ensuite passez l'entrée profil à `Avec les profils`.
@@ -266,7 +266,7 @@ Le fichier CSV suivant vous est envoyé :
 
 Le fichier se présente exactement de la même manière que celui de profil de famille et contient le même type d'informations.
 
-### Import
+### Import {#quickstart:4e232fc8-f150-44c5-8384-04226190a5e7}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv`.
 
@@ -279,7 +279,7 @@ Ajoutez les :
 
 ![ Import : profil référentiel ](30-50-export-pdoc.png "Import : profil référentiel")
 
-### Chapitre
+### Chapitre {#quickstart:5e2a95fe-474c-498d-b902-f625a234b575}
 
 Vous allez maintenant valuer le profil de famille Chapitres. Votre spécification indique que celui-ci est similaire à celui du référentiel.
 
@@ -291,21 +291,21 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv`:
     * dans la première case `CPROFID`,
     * dans la deuxième case, le nom logique du profil soit : `PDOC_CHAPITRE`.
 
-### Audit et fiche de non-conformité
+### Audit et fiche de non-conformité {#quickstart:0dfd0cb1-c566-4149-9ef8-8c568427d574}
 
 L'audit et les fiches de non conformité ne vont pas avoir pour l'instant de profil de document, car ils ont un cycle de vie et leur profil de document est fixé par leur cycle de vie.
 
-## Contrôle de vue
+## Contrôle de vue {#quickstart:80954137-faa1-4860-ac5b-902929614282}
 
 Vous allez maintenant configurer le contrôle de vue.
 
 Le [contrôle de vue][DocCVDOC] va vous permettre de définir des [masques][DocMasque] variant suivant l'utilisateur connecté.
 
-### Masque
+### Masque {#quickstart:0d5ee6ee-aafb-4a1f-b3fc-b0a0ef9d3fd9}
 
 Vous allez commencer par créer le [masque][DocMasque].
 
-#### Création
+#### Création {#quickstart:fa8b629c-79a7-42d0-a0f2-d6efc0dfa01d}
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`, sélectionnez l'application `Gestion des documents > Explorateurs de documents`, cliquez sur `Création > Documents système` et sélectionnez dans la liste déroulante en haut à droite `Masque de saisie`. Vous obtenez l'interface ci-dessous :
 
@@ -328,7 +328,7 @@ Et cliquez sur `Sauver`.
 
 Vous pouvez remarquer que en ayant fixé un seul attribut encadrant en lecture seule, tous les attributs contenu dans cet attribut sont passés en lecture seule.
 
-#### Export
+#### Export {#quickstart:d60a13f2-82cd-4bb5-9807-c57af6be2ded}
 
 Ajoutez un nom logique au document en cliquant sur `Autres > Propriétés` et fixez le nom logique à `MASK_FNC_DEFAULT`.
 
@@ -338,9 +338,9 @@ Ajoutez le masque au porte-documents, en cliquant sur `Autres > Ajoutez au porte
 
 Le contenu du porte document sera exporté avec le contrôle de vue.
 
-### Contrôle de vue
+### Contrôle de vue {#quickstart:7d459926-2a4e-4c6f-9b3c-bdc400a29020}
 
-#### Création
+#### Création {#quickstart:9643ca08-b086-4e99-b821-f8dd60b73733}
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`, sélectionnez l'application `Gestion des documents > Explorateurs de documents`, cliquez sur `Création > Documents système` et sélectionnez dans la liste déroulante en haut à droite `Contrôle de vue`. Vous obtenez l'interface ci-dessous :
 
@@ -383,7 +383,7 @@ Complétez le tableau des vues comme présenté ci-dessous :
 
 Cliquez sur sauver.
 
-#### Paramétrage
+#### Paramétrage {#quickstart:2e34eab3-a689-493a-b313-b6e3267c5d3b}
 
 Vous allez maintenant paramétrer les droits associés au contrôle de vue, ce qui permet de dire quel utilisateur peut consulter quelle vue.
 
@@ -409,7 +409,7 @@ Les droits que vous avez attribués correspondent à :
 
 <span class="flag inline nota-bene"></span> Les utilisateurs ayant le rôle `auditeurs` ont donc accès aux deux vues de modification. Mais la vue dédiée aux auditeurs a un ordre plus faible, elle est donc sélectionnée pour les auditeurs.
 
-#### Exportation
+#### Exportation {#quickstart:533f114b-d23a-4962-aa2e-f1fec59b7d32}
 
 Vous allez maintenant exporter le contrôle de vue et son masque.
 
@@ -443,7 +443,7 @@ Vous obtenez le fichier suivant :
 
 ![Porte-documents : association famille](30-50-import-cvdoc-ref.png "Porte-documents : association famille")
 
-## Conclusion
+## Conclusion {#quickstart:d26ea9af-dc4c-4c90-9a53-0963a06fdfe5}
 
 Vous pouvez maintenant vous connecter à l'application et consulter une fiche de non-conformité avec un utilisateur ayant le profil `Auditeur`.
 
@@ -462,7 +462,7 @@ On peut aussi remarquer les droits sur les `Référentiels`.
 Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et a une icône indiquant que le document est non modifiable.
 
 
-## Voir aussi
+## Voir aussi {#quickstart:a8ae1a02-f60f-4b81-a207-ad5ff44a8d10}
 
 * [Profil][DocProfilExport],
 * [Contrôle de vue][DocCVDOC],
