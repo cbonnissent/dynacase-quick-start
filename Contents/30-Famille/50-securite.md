@@ -19,14 +19,14 @@ Lors de la phase de spécification, les droits suivants ont été identifiés. L
     * Suppression : Uniquement par les utilisateurs ayant le rôle : Auditeur.
 + Audit :
     * Création : Uniquement par les utilisateurs ayant le rôle : Responsable des audits,
-	* <span class="flag fixme inline">et pour RUD ?</span>
+    * Les droits de vue, modification et suppression seront abordés lors de la réalisation du cycle de vie,
 + Fiche de non-conformité :
     * Création : Uniquement par les utilisateurs ayant le rôle : Responsable des audits.
-	* <span class="flag fixme inline">et pour RUD ?</span>
+    * Les droits de vue, modification et suppression seront abordés lors de la réalisation du cycle de vie,
 
 La définition des familles doit pouvoir être mise à jour par les administrateurs fonctionnels.
 
-En outre, il y a une demande particulière, les auditeurs veulent que dans les fiches de non conformité la partie **Écart** peut être vue par tous les utilisateurs pouvant voir le document, mais être modifiée uniquement par les auditeurs. <span class="flag inline fixme">les droits pour les personnels autres que les responsables audit ne sont pas précisés au préalable.</span>
+En outre, il y a une demande particulière, les auditeurs veulent que dans les fiches de non conformité la partie **Écart** puisse être vue par tous les utilisateurs pouvant voir le document, mais être modifiée uniquement par les auditeurs.
 
 ## Théorie {#quickstart:98e77eba-96ad-49cb-9eae-19ef01141fc2}
 
@@ -37,7 +37,10 @@ Un profil est une matrice de droits. Il permet d'indiquer quel utilisateur/group
 * _statique_ : l'affectation ne varie pas suivant le contenu du document,
 * _dynamique_ : l'affectation varie suivant le contenu du document.
 
-La modification de la représentation en fonction du type d'utilisateur est elle réalisée à l'aide de [contrôle de vue][DocCVDOC]. Ce type de document permet d'indiquer des règles de composition de la vue d'un document en fonction des droits de l'utilisateur.<span class="flag fixme">Il faut peut-être ajouter un § présentant les contrôles de vue, comme cela est fait pour les profils</span>
+On peut compléter la notion de sécurité avec deux autres éléments :
+
+* le [masque][DocMasque] : c'est un document permettant de re-définir les visibilités pour une famille, le masque est associé à un document via un cycle de vie ou un contrôle de vue et permet de rendre des attributs invisibles, non-modifiables, etc...,
+* le [contrôle de vue][DocCVDOC] : ce type de document permet d'indiquer des règles de composition de la vue d'un document en fonction des droits de l'utilisateur. Il permet notamment d'utiliser un masque pour changer les visibilités suivant le profil d'un attribut.
 
 ## Profil de famille {#quickstart:1aecb6e4-0046-4ecc-b9d0-8af9e13faf9b}
 
@@ -66,19 +69,19 @@ Déroulez la liste et choisissez le type de document `Profil de famille`. L'inte
 
 ![ Création document profil famille ](30-50-docadmin-creation-pfam.png "Création document profil famille")
 
-Complétez le titre avec `Profil de référentiel`<span class="flag inline fixme">Profil Audit ? J'ai l'impression  que ça ne corrrespond pas à la capture</span> et cliquez sur `Créer`. Vous obtenez l'interface suivante :
+Complétez le titre avec `Profil de référentiel` et cliquez sur `Créer`. Vous obtenez l'interface suivante :
 
 ![ Profil famille désactivé ](30-50-docadmin-pfam-consult.png "Profil famille désactivé")
 
 ### Paramétrage {#quickstart:1cd2c714-d287-4ca6-8282-c5a20393c0ea}
 
-Le profil de famille est créé désactivé. C'est à dire qu'il n'y a aucun droits associés à celui-ci donc tous les documents associés à ce profil sont libres d'accès.<span class="flag fixme">Pour moi `désactivé` signifie non appliqué.</span> <span class="flag fixme">Profil de famille => …tous les documents… ?.</span>
+Le profil de famille est créé désactivé. C'est à dire que toutes les familles associées à ce profil sont libres d'accès donc tous les utilisateurs peuvent effectuer toutes les actions.
 
 Cliquez sur `Activer` en bas à droite. L'interface se recharge.
 
 ![ Profil famille activé ](30-50-docadmin-pfam-active.png "Profil famille activé")
 
-Le profil de famille est maintenant activé. Il n'y a aucun droit associé au profil donc tous les documents associés à ce profil ne peuvent plus être utilisé.<span class="flag fixme">Profil de famille => …tous les documents… ?.</span>
+Le profil de famille est maintenant activé. C'est à dire que toutes les familles associées à ce profil sont restreintes donc aucun utilisateur (sauf l'administrateur) peut effectuer une action.
 
 Cliquez sur `Accessibilités`. Une nouvelle fenêtre s'ouvre et présente la matrice de droits.
 
@@ -90,9 +93,7 @@ Vous allez créer le profil pour les familles Chapitres et Référentiels.
 
 Cliquez sur le bouton `∴` devant `Auditeur`. L'interface devient semblable à :
 
-<span class="flag inline fixme">Capture identique à la précédente</span>
-
-![ Profil famille matrice de droits : modification ](30-50-docadmin-pfam-rights.png "Profil famille matrice de droits : modification")
+![ Profil famille matrice de droits : modification ](30-50-docadmin-pfam-edit-rights.png "Profil famille matrice de droits : modification")
 
 Cochez ensuite les cases `Create` et `Créer manuellement`.
 
@@ -307,7 +308,7 @@ Le [contrôle de vue][DocCVDOC] va vous permettre de définir des [masques][DocM
 
 ### Masque {#quickstart:0d5ee6ee-aafb-4a1f-b3fc-b0a0ef9d3fd9}
 
-Vous allez commencer par créer le [masque][DocMasque].<span class="flag fixme">Ajouter une présentation du _masque_ en introduction (comme profils et contrôle de vue au § [Théorie](#quickstart:98e77eba-96ad-49cb-9eae-19ef01141fc2) ?</span>
+Vous allez commencer par créer le [masque][DocMasque].
 
 #### Création {#quickstart:fa8b629c-79a7-42d0-a0f2-d6efc0dfa01d}
 
@@ -373,8 +374,8 @@ Chaque ligne vous propose les options suivantes :
 * `Type` : le type de vue soit une vue d'édition (modification), soit de consultation,
 * `Zone` : indique la [zone][DocZone] utilisée pour représenter le document, une zone permet de re-définir complètement la représentation d'un document,
 * `Masque` : indique le [masque][DocMasque] associé à cette vue, le masque permet de définir les visibilités applicable lors de la représentation du document,
-* `Affichable` : indique si la vue sera représentée sous la forme d'un menu ajouté à la représentation standard du document ou deviendra la représentation standard du document,<span class="flag inline fixme">reformulation : indique si la vue est accessible via un menu sur le document, ou est utilisée directement pour l'affichage du document</span>
-* `Ordre` : en cas d'ambigüité <span class="flag inline release from">réforme 1990 :)</span> sur l'attribution de la vue aux utilisateurs c'est la vue ayant l'ordre le plus faible qui est sélectionnée.
+* `Affichable` : indique si la vue est accessible via un menu sur le document,
+* `Ordre` : en cas d'ambigüité sur l'attribution de la vue aux utilisateurs c'est la vue ayant l'ordre le plus faible qui est sélectionnée.
 
 Vous allez ajouter deux vues :
 
@@ -389,7 +390,7 @@ Cliquez sur sauver.
 
 #### Paramétrage {#quickstart:2e34eab3-a689-493a-b313-b6e3267c5d3b}
 
-Vous allez maintenant paramétrer les droits associés au contrôle de vue : <span class="flag inline fixe"> ce qui permet de dire quel utilisateur peut consulter quelle vue => ceci permet d'exprimer quelles vues sont proposées à l'utilisateur en fonction des rôle ou groupe.</span>.
+Vous allez maintenant paramétrer les droits associés au contrôle de vue ceci permet d'exprimer quelles vues sont proposées à l'utilisateur en fonction des rôle ou groupe.
 
 Cliquez sur `Autres > Sécurité > Profil dédié`. La page se recharge, cliquez maintenant sur `Autres > Sécurité > Accessibilités...`.
 
