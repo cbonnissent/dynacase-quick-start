@@ -100,11 +100,11 @@ Vous allez ensuite définir la liste des constantes représentant les états. Po
 
     [php]
     //region States
-    const e_brouillon = 'coa_e1';
-    const e_annule = 'coa_e2';
-    const e_redaction = 'coa_e3';
-    const e_certifie = 'coa_e4';
-    const e_refus_certif = 'coa_e5';
+    const e_brouillon = 'coa_audit_e1';
+    const e_annule = 'coa_audit_e2';
+    const e_redaction = 'coa_audit_e3';
+    const e_certifie = 'coa_audit_e4';
+    const e_refus_certif = 'coa_audit_e5';
     //endregion
 
 <span class="flag inline nota-bene"></span> Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid) pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
@@ -119,8 +119,8 @@ Les activités sont un deuxième libellé qui est apposé à un étape. Il décr
 
     [php]
     public $stateactivity = array(
-        self::e_brouillon => "coa:planning",
-        self::e_redaction => "coa:writing"
+        self::e_brouillon => "coa:audit:planning",
+        self::e_redaction => "coa:audit:writing"
     );
 
 <span class="flag inline nota-bene"></span> En théorie, les étapes finales d'un cycle n'ont pas d'activité. Par exemple, une fois l'audit `Certifié`, `Annulé` ou `Refusé`, il n'y a plus de travail à effectuer sur cet audit donc pas d'activité.
@@ -133,11 +133,11 @@ Vous allez ensuite définir la liste des constantes représentant les transition
 
     [php]
     //region Transitions
-    const t_brouillon__redaction = 'coa_t1';
-    const t_brouillon__annule = 'coa_t2';
-    const t_redaction__brouillon = 'coa_t3';
-    const t_redaction__certif = 'coa_t4';
-    const t_redaction__refus_certif = 'coa_t5';
+    const t_brouillon__redaction = 'coa_audit_t1';
+    const t_brouillon__annule = 'coa_audit_t2';
+    const t_redaction__brouillon = 'coa_audit_t3';
+    const t_redaction__certif = 'coa_audit_t4';
+    const t_redaction__refus_certif = 'coa_audit_t5';
     //endregion
 
 <span class="flag inline nota-bene"></span> Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid) pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
