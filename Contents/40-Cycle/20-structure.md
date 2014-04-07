@@ -55,7 +55,7 @@ Deux fichiers sont générés :
 
 Le fichier `__CLASS.php` contient le code métier et la structure du cycle de vie, le fichier CSV contiendra quelques éléments de paramétrage.
 
-Le fichier est initialiser avec les éléments suivants :
+Le fichier est initialisé avec les éléments suivants :
 
     [php]
     namespace Cogip;
@@ -63,7 +63,7 @@ Le fichier est initialiser avec les éléments suivants :
     class COGIP_AUDIT_AUDIT_WFL extends \Dcp\Family\WDoc
     {
         public $attrPrefix = 'FIXME'; //FIXME: set attrPrefix
-        public $firstState = self::E1;
+        public $firstState = 'FIXME'; //FIXME: set FirstState
         public $viewlist = "none";
     
         //region States
@@ -111,7 +111,7 @@ Vous allez ensuite définir la liste des constantes représentant les états. Po
 
 <span class="flag inline nota-bene"></span> Il est conseillé de préfixer les constantes par `e_` pour en faciliter l'extraction des clefs pour la traductions.
 
-<span class="flag inline nota-bene"></span> Les commentaires `//region States` et `//endregion` sont une convention de l'éditeur [PhpStorm][phpStormFolding] qui permet de replier et retrouver plus facilement cette zone.
+<span class="flag inline nota-bene"></span> Les commentaires `//region States` et `//endregion` sont une convention de certains éditeurs ([PhpStorm][phpStormFolding], etc.) qui permet de replier et retrouver plus facilement cette zone.
 
 ### Activités {#quickstart:41ca59ea-f036-4918-94c3-12c2697e274c}
 
@@ -147,8 +147,6 @@ Vous allez ensuite définir la liste des constantes représentant les transition
 <span class="flag inline nota-bene"></span> Il est possible d'utiliser la même transition pour relier deux étapes mais ce fonctionnement est déconseillé car tous le paramétrage de la transition est alors partagé, notamment les droits d'accès ce qui rend le cycle moins facilement paramétrable.
 
 <span class="flag inline nota-bene"></span> Il est conseillé de nommer les transitions sous la forme `t_<etat1>__<etat2>` pour en faciliter le paramétrage.
-
-<span class="flag inline nota-bene"></span> Les commentaires `//region States` et `//endregion` sont une convention de l'éditeur [PhpStorm][phpStormFolding] qui permet de replier et retrouver plus facilement cette zone.
 
 #### Paramétrage {#quickstart:9ec307d5-d547-47ef-b4ba-b2f56233de87}
 
@@ -304,17 +302,17 @@ Ajoutez la ligne suivante dans le `info.xml` à l'installation et à la mise à 
 
 Vous allez maintenant générer le document de cycle de vie.
 
-Pour cela générer le `webinst` et importez le.
+Pour cela générez le `webinst` et importez le.
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
 
-Cliquez sur `Gestion des documents > Explorateurs de documents` et cliquez sur `Création > Documents système` en haut dans la partie de droite, l'interface de création de document s'ouvre sur la partie droite.
+Cliquez sur `Gestion des documents > Explorateurs de documents` et cliquez sur `Création > Documents système` en haut dans la partie de droite, l'interface de création de documents s'ouvre sur la partie droite.
 
 ![ Création workflow ](40-20-creation-wfl1.png "Création workflow")
 
 Sélectionnez ensuite votre cycle de vie dans la liste déroulante en haut `COGIP_AUDIT_AUDIT_WFL`.
 
-Compléter le formulaire présenté avec les éléments suivants :
+Complétez le formulaire présenté avec les éléments suivants :
 
 * **Titre** : Audit,
 * **Famille** (Basique et Profil Dynamique) : `COGIP_AUDIT_AUDIT`.
@@ -350,12 +348,14 @@ Ajoutez une ligne juste avant le `END` les éléments suivant :
 * colonne `A` : `WID`,
 * colonne `B` : `WDOC_COGIP_AUDIT_AUDIT_WFL`.
 
+<span class="flag inline nota-bene"></span> L'instruction [WID est explicité dans la documentation.][DocWID]
+
 ## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
 
 Vous avez initié la structure d'un des cycles de vie et associé celui-ci à sa famille.
-Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycle de vie.
+Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycles de vie.
 
-Le second cycle présenté dans le début du chapitre est dans le code source solution de ce chapitre.
+La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre, mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
 
 ## Voir aussi {#quickstart:59b3f403-b656-4a8f-86b8-c368f64e08d8}
 
