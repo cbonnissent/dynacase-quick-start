@@ -1,8 +1,8 @@
-# Paramétrage du cycle de vie
+# Paramétrage du cycle de vie {#quickstart:44863baa-b9c5-46a7-8a46-d28b4d8696a2}
 
 Ce chapitre aborde le paramétrage du cycle de vie.
 
-## Objectifs
+## Objectifs {#quickstart:8bf472d9-6bd8-40fe-ac1c-7f8eef15f5a7}
 
 * Mettre en place les couleurs des étapes,
 * Ajouter des modèles de mail,
@@ -10,7 +10,7 @@ Ce chapitre aborde le paramétrage du cycle de vie.
 * Effectuer des contrôles avant un changement d'étape,
 * Poser des questions lors d'un changement d'étape.
 
-## Cadre
+## Cadre {#quickstart:73d8d0ac-0892-46b2-bd89-3e834ca18b4f}
 
 Lors de la phase d'analyse, les points suivants ont été relevés :
 
@@ -21,7 +21,7 @@ Lors de la phase d'analyse, les points suivants ont été relevés :
 * lorsqu'un audit est passe à l'état `annulé` une question doit être posée pour en demander la raison,
 * une fois que l'audit n'est plus dans l'étape `Brouillon` le contrôle de cohérence sur la date de début inférieure à la date du jour ne doit plus être appliqué.
 
-## Théorie
+## Théorie {#quickstart:86140cda-43d9-44f1-b16f-4f5c2eb39c4e}
 
 Le paramétrage d'un cycle de vie passe par plusieurs éléments distincts :
 
@@ -34,11 +34,11 @@ Le paramétrage d'un cycle de vie passe par plusieurs éléments distincts :
     + du [code métier][DocWFLClass] qui peut être exécuté avant ou après un changement d'étape,
     + la liste des questions ([ask][DocWFLask]) qui doivent être posée lors d'un changement d'état.
 
-## Paramétrage via le document
+## Paramétrage via le document {#quickstart:1b65b62f-7169-4e8f-9fe0-aa18d2ca03df}
 
 L'intégralité du paramétrage du document cycle de vie est détaillé dans la [documentation][DocWFLDoc].
 
-### Couleur
+### Couleur {#quickstart:f7499780-3582-4e5e-a677-9481b1d94841}
 
 Vous allez commencer par spécifier les couleurs.
 
@@ -76,7 +76,7 @@ Ce qui donne le cycle suivant :
 
 <span class="flag inline nota-bene"></span> **Attention**, il faut exporter le document de cycle de vie et mettre à jour sa définition dans le fichier `COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` pour que ce paramétrage soit valide en dehors du contexte de développement.
 
-### Les mails
+### Les mails {#quickstart:284cd032-303b-4140-bb44-72a30843d0c8}
 
 Ouvrez le document de cycle de vie en modification.
 
@@ -121,7 +121,7 @@ Une fois ce paramétrage fait lors du changement d'état en passant par la trans
 
 ![ Mail : exemple ](40-30-mail.png "Mail : exemple")
 
-### Relance (timer)
+### Relance (timer) {#quickstart:67c58ac9-a1df-4d22-9bb6-8172a3adfb1d}
 
 Ouvrez le document de cycle de vie en modification.
 
@@ -140,7 +140,7 @@ Remplissez les champs suivants :
 * Titre : Démarrer,
 * Délai (en jours) (première ligne) : 15
 
-#### Création du mail associé
+#### Création du mail associé {#quickstart:b3e8706a-1c26-49cc-b530-b36f3ee7d018}
 
 Cliquez sur le `+` dans la colonne `Modèle de mail` pour initier le modèle de mail.
 
@@ -182,13 +182,13 @@ Cliquez sur `Sauver`.
 
 <span class="flag inline nota-bene"></span> Les différentes options pour paramétrer les règles de relance sont décrites dans la [documentation][DocMinuteur].
 
-#### Nom logique
+#### Nom logique {#quickstart:598741bf-95c4-486b-b8f0-114fb6196d74}
 
 Cliquez sur le lien `Minuteur démarrer` et cliquez ensuite sur `Autres > Propriétés` et donnez le nom suivant `MINUTEUR_DEMARRER`.
 
 <span class="flag inline nota-bene"></span> Vous pouvez suivre les différents minuteurs en activité grâce à l'interface de suivi qui est dans l'admin `Gestion des documents > Gestion des minuteurs`.
 
-### Export du paramétrage
+### Export du paramétrage {#quickstart:6633ab3c-ab35-48ad-93a9-71898bfad9f3}
 
 Vous allez maintenant exporter le paramétrage que vous avez mis en place. Vous avez plusieurs manières de faire cette action, soit :
 
@@ -228,11 +228,11 @@ Ajoutez les nouveaux documents au début du fichier `__PARAM.csv`, soit :
 
 ![ Famille Audit ](40-30-wdoc-import-csv.png "Famille Audit")
 
-## Paramétrage via le code
+## Paramétrage via le code {#quickstart:bc42ac10-2bf8-48fc-850b-30caf71b72d8}
 
 L'intégralité du paramétrage du cycle de vie via le code est détaillé dans la [documentation][DocWFLClass].
 
-### Contrôle au changement d'état
+### Contrôle au changement d'état {#quickstart:edf4add4-7cde-4fc7-a0a9-56caab45516a}
 
 Les contrôle au changement d'état se font lors des [transitions][DocTransition], il existe quatre hook de transition utilisé pour :
 
@@ -241,11 +241,11 @@ Les contrôle au changement d'état se font lors des [transitions][DocTransition
 * `m2` : modifier le document juste après le changement d'état, ce hook ne peut plus annuler le changement d'état,
 * `m3` : modifier le document après le changement d'état et après les différents traitements automatique de Dynacase.
 
-#### m0 (pré-condition)
+#### m0 (pré-condition) {#quickstart:1fbdce8d-c8dc-44b7-ad87-cd8348ac0d12}
 
 Vous allez utiliser le `m0` pour vérifier que les fiches de non-conformités associées à l'audit sont bien toutes closes avant d'accorder ou de refuser la certification.
 
-##### Définition de la fonction
+##### Définition de la fonction {#quickstart:3ddde06d-f233-4e54-980a-8264e370ef9b}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL__CLASS.php` et ajoutez la fonction suivante :
 
@@ -270,7 +270,7 @@ Cette fonction effectue une recherche sur les FNC, elle a les spécificités sui
 * la recherche limite le nombre de résultat à 1, car un seul résultat suffit à indiquer que la transition ne doit pas être franchie,
 * la recherche utilise la fonction [`onlyCount`][DocSearchOnlyCount], cette fonction calcule uniquement le nombre de résultats et ne retourne pas les documents.
 
-##### Enregistrement de la fonction
+##### Enregistrement de la fonction {#quickstart:587bf536-180e-4878-9c02-9b0f2969c441}
 
 Modifiez le tableau de déclaration des transitions :
 
@@ -289,11 +289,11 @@ Vous avez déclaré deux hooks de `m0` qui seront déclenchés lors de l'afficha
 
 Dans l'exemple ci-dessus la transition est refusée et au survol un message est affiché à l'utilisateur.
 
-### Question au changement d'état (ask)
+### Question au changement d'état (ask) {#quickstart:52b12e42-a3e8-4b7f-a7a2-bf0c77f2691c}
 
 Vous allez maintenant mettre en place le mécanisme de [`ask`][DocWFLask], il permet de poser un ensemble de question via un petit formulaire lors d'un changement d'état.
 
-#### Déclaration du ask
+#### Déclaration du ask {#quickstart:1a89239f-465e-464e-8098-cf59854371d3}
 
 Les ask se composent de deux éléments :
 
@@ -321,7 +321,7 @@ Lors du passage de la transition, le ask est présenté sous la forme d'une fen�
 
 ![ Ask : démonstration ](40-30-wdoc-ask-capture.png  "Ask : démonstration")
 
-#### Utilisation du ASK
+#### Utilisation du ASK {#quickstart:e7fe1de5-f5da-45dc-bbb2-2ca0f4449477}
 
 Les valeurs de retour du ASK peuvent être utilisées au m1, m2 et m3 et dans les modèles de mail.
 
@@ -355,7 +355,7 @@ Vous avez ajouté une fonction qui utilise et enregistre dans l'historique la va
 
 Une fois la transition de retour franchie si l'utilisateur clique sur le menu `historique` l'interface ci-dessus est présentée.
 
-## Mise à jour des contrôle de cohérence
+## Mise à jour des contrôle de cohérence {#quickstart:85a0bad9-9e7f-424f-b5d3-88aea4616944}
 
 Vous allez maintenant modifier le contrôle de cohérence que vous avez mis en place sur les [dates][contrainte] pour que le contrôle ne se déclenche que lorsque la fiche est à l'état `Brouillon`.
 
@@ -377,13 +377,13 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et modifiez la fo
 
 Vous avez ajouté une condition pour que la contrainte ne se déclenche qu'à l'état `Brouillon`.
 
-## Conclusion
+## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
 
 Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie, que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.
 
 Ces paramétrages vous permette simplement de créer des cycles complet et riche et de guider les utilisateurs.
 
-## Voir aussi
+## Voir aussi {#quickstart:837931f9-3475-4494-9f2b-c09327ec4603}
 
 * [Document workflow][DocWFLDoc],
 * [Modèle de mail][DocModelMail],
