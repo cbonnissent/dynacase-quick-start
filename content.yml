@@ -39,5 +39,7 @@ book:
           content:  "40-Cycle/20-structure.md"
         - level :  2
           content:  "40-Cycle/30-param.md"
+        - level :  2
+          content:  "40-Cycle/40-securite.md"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
