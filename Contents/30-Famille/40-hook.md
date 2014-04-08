@@ -138,7 +138,8 @@ Ensuite surchargez la fonction [`postStore`][DocDocPostStore] :
 ## Duplication {#quickstart:c2f7a2b2-f9d5-4db1-845d-371ba6425317}
 
 Vous allez mettre en place un traitement après la duplication d'un audit pour supprimer les dates de l'audit dans le nouveau document créé par duplication.
-<spn class="flag fixme">les FNC liées sont conservées ?</span>
+
+<span class="flag inline nota-bene"></span> Les liens vers les fiches de non-conformité sont re-calculé automatiquement après la duplication de la page (car ils sont enregistrés au postStore).
 
 Ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction suivante :
 
