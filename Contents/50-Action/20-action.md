@@ -203,7 +203,7 @@ Le code ci-dessus a les spécificités suivantes :
 
 <span class="flag inline nota-bene"></span> Vous avez pu remarquer que la recherche demande un document de plus que nécessaire, cela permet de savoir si le bouton suivant du tourne-page doit être activé ou pas.
 
-<span class="flag inline nota-bene"></span> L'affectation du layout au moteur de template et le rendu du template sont automatique. Si toutefois, vous n'aviez pas de template associé à l'action, vous devez le préciser avec le code suivant en fin d'action (ici pour du retour en JSON) :
+<span class="flag inline nota-bene"></span> L'affectation du layout au moteur de template et le rendu du template sont automatiques. Si toutefois, vous n'aviez pas de template à associé à l'action, vous devez le préciser avec le code suivant en fin d'action (ici pour du retour en JSON) :
 
     [php]
     $action->lay->template = json_encode($return);
@@ -570,7 +570,7 @@ Le code JavaScript est lui aussi assez simple, il est structuré en plusieurs pa
 * utilitaires :
     * `setCurrentDocument` : cette fonction sélectionne l'iframe principale et la met à jour avec l'url d'un document,
     * `getDocumentList` : cette fonction post une requête vers l'action que vous avez mis en place dans le chapitre précédent, celle-ci vous retourne une liste de document en HTML que vous injectez dans la page principale,
-* événements : dans cette partie du code différents écouteurs sont mis en place sur l'interface pour lui permettre de réagir aux actions des utilisateurs. La fonction utilisée est le [`on`][jQueryOn].
+* événements : dans cette partie du code différents écouteurs sont mis en place sur l'interface pour lui permettre de réagir aux actions des utilisateurs. La fonction utilisée est le [`on`][jQueryOn],
 * initialisation : le code termine par une phase d'initialisation qui lance la première récupération de la liste et les widgets [foundation][zurbFoundation].
 
 Une fois l'ensemble des fichiers initiés et le contexte mis à jour. Rendez vous à l'adresse `<context>/?app=COGIP_AUDIT`, vous obtenez l'interface suivante :
