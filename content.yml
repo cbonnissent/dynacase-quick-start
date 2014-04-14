@@ -41,5 +41,10 @@ book:
           content:  "40-Cycle/30-param.md"
         - level :  2
           content:  "40-Cycle/40-securite.md"
+        - level:   1
+          content:  "50-Action/10-introduction.md"
+          subtoc: 2
+        - level :  2
+          content:  "50-Action/20-action.md"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
