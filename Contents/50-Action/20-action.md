@@ -1,13 +1,13 @@
-# Action
+# Action {#quickstart:d461c0c7-8c7c-4bbc-9d42-9a54cef4fa0e}
 
 Vous allez écrire une série d'action réalisant une nouvelle interface de consultation des documents.
 
-## Objectifs
+## Objectifs {#quickstart:f25d1dac-345b-4eff-a278-994f8e57ca7d}
 
 * Créer une action retournant une liste de document en JSON,
 * Créer une interface représentant une liste de documents.
 
-## Cadre
+## Cadre {#quickstart:a37beb82-63ba-4295-95c7-4833b7974e5b}
 
 Vos utilisateurs sont conquis par les formulaires que vous avez réalisé dans les chapitres précédents. Toutefois, ils trouvent que l'interface d'accès par défaut pourraient être plus design et vous demande de faire une nouvelle proposition.
 
@@ -23,7 +23,7 @@ Pour vous simplifier la tâche, vous avez décidé d'utiliser deux librairies ex
 * [jQuery][jQuery] pour manipuler le DOM et faire des requêtes Ajax,
 * [Foundation][zurbFoundation] pour la mise en forme et quelques widgets d'interface.
 
-## Théorie
+## Théorie {#quickstart:95a30037-1946-457e-b883-9f0e2d7df865}
 
 Les actions impliquent trois concepts :
 
@@ -42,7 +42,7 @@ Une fois l'action déclarée, elle peut être appelée de la manière suivante :
 
 `<context>?app=<app_name>&action=<action_name>&param1=value1&....`
 
-## Ajout des librairies externes
+## Ajout des librairies externes {#quickstart:faab6a06-0d73-495e-ae50-4c1bf34382dd}
 
 Vous allez ajouter les librairies dans le paquet. Vous pouvez trouver les fichiers ayant servi à la réalisation du tutoriel ici.
 
@@ -56,7 +56,7 @@ Vous devez obtenir une arborescence similaire à :
         ├── foundation.min.js
         └── jquery.js
 
-## Ajout d'une ACL
+## Ajout d'une ACL {#quickstart:e6f0b31a-b086-448d-a4c3-0bac70896475}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$app_acl` pour qu'il contienne les entrées suivantes :
 
@@ -75,7 +75,7 @@ L'ACL est composée :
 * d'une description traduite,
 * d'une instruction pour que cette ACL soit par défaut donnée aux utilisateurs de la plateforme.
 
-## Action : liste de document
+## Action : liste de document {#quickstart:58681a59-74f9-4a6f-abc3-a8dd8c3bc590}
 
 Vous allez commencer par l'action liste de document. Cette action affiche une liste d'audits et un entête.
 
@@ -85,7 +85,7 @@ Ce fragment va (une fois intégré dans la page complète) aura le rendu suivant
 
 ![ Liste documents : rendu final ](50-20-liste-document-final.png "Liste documents : rendu final")
 
-### Enregistrement de l'action
+### Enregistrement de l'action {#quickstart:76d495c9-a264-4c73-9c67-18b559552868}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$action_desc` pour qu'il contienne les entrées suivantes :
 
@@ -112,11 +112,11 @@ La nouvelle action comporte les éléments suivants :
 
 <span class="flag inline nota-bene"></span> Toutes les entrées du tableau `$action_desc` sont décrites dans la [documentation][DocumentationEnregistrementAction].
 
-#### Ajout des fichiers
+#### Ajout des fichiers {#quickstart:6af4c944-b263-484b-9615-0e044baac3e4}
 
 Vous allez maintenant ajouter les fichiers que vous avez spécifié dans le chapitre précédent.
 
-##### Code
+##### Code {#quickstart:434e733f-a883-4893-a1b4-4c495bec8f15}
 
 Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit contenir le code suivant :
 
@@ -210,7 +210,7 @@ Le code ci-dessus a les spécificités suivantes :
     $action->lay->noparse = true;
     header('Content-type: application/json');
 
-##### Template
+##### Template {#quickstart:29e51122-8f66-4478-9f5d-4abd3f5f6e0a}
 
 Ajoutez le fichier `./COGIP_AUDIT/Layout/document_list.html` :
 
@@ -264,13 +264,13 @@ Le template ci-dessus a les spécificités suivantes :
 * la liste des documents trouvés avec leur état et une couleur par état,
 * le code JavaScript permettant l'animation du formulaire n'est pas fourni avec mais sera mis en place sur la page principale.
 
-## Action : principale
+## Action : principale {#quickstart:ff2d40f6-f0af-40c1-b3cb-b5844e7fed92}
 
 Vous allez maintenant mettre en place l'action principale de votre interface.
 
 Cette action principale présente le layout global de l'application. Elle ne contiendra pas de code PHP et fonctionnera principalement via du code JavaScript.
 
-### Enregistrement de l'action
+### Enregistrement de l'action {#quickstart:8f811c9e-a39d-46c4-a821-8974f581b771}
 
 Ajoutez cette entrée au tableau `$action_desc` :
 
@@ -289,11 +289,11 @@ La définition est similaire à l'action `DOCUMENT_LIST` à une différence prê
 
 `<context>/?app=COGIP_AUDIT`
 
-#### Ajout des fichiers
+#### Ajout des fichiers {#quickstart:2d0b4cca-a029-4e95-91e5-96704aaef9b9}
 
 Vous allez maintenant ajouter les fichiers que vous avez spécifié dans le chapitre précédent et les assets (js, css).
 
-##### Code
+##### Code {#quickstart:aa3f3171-8650-422e-84b3-5e237504f794}
 
 Ajoutez le fichier `./COGIP_AUDIT/action.main.php`, ce fichier doit contenir le code suivant :
 
@@ -304,7 +304,7 @@ Ajoutez le fichier `./COGIP_AUDIT/action.main.php`, ce fichier doit contenir le 
 
 Il n'y a pas de code dans la fonction, car le template associé est statique.
 
-##### Template
+##### Template {#quickstart:ceb9a546-81cf-4fb3-b559-29665ea282ef}
 
 Ajoutez le fichier `./COGIP_AUDIT/Layout/main.html` :
 
@@ -383,11 +383,11 @@ Le template ci-dessus contient les spécificités suivantes :
 * les documents sont représentés dans l'iframe `main-doc`,
 * le formulaire `disconnect` permet de déconnecter l'utilisateur courant du contexte.
 
-##### Assets
+##### Assets {#quickstart:fcd8773a-55b2-4978-a632-fcdb94a421db}
 
 Il y a deux fichiers d'asset (un fichier CSS et un fichier JS).
 
-###### CSS
+###### CSS {#quickstart:263efe54-0f5a-48f4-a9c5-0cce3fd9cfc9}
 
 Ajoutez le fichier `./COGIP_AUDIT/libs/css/main.css` :
 
@@ -419,7 +419,7 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/css/main.css` :
 
 La CSS ci-dessus reste très simple et apporte principalement de la mise en forme pour l'iframe centrale et pour le formulaire des listes de documents.
 
-###### JavaScript
+###### JavaScript {#quickstart:0a80214f-4b5e-4097-bf7c-0a75b23f30ac}
 
 Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
 
@@ -575,9 +575,9 @@ Le code JavaScript est lui aussi assez simple, il est structuré en plusieurs pa
 
 Une fois l'ensemble des fichiers initiés et le contexte mis à jour. Rendez vous à l'adresse `<context>/?app=COGIP_AUDIT`, vous obtenez l'interface suivante :
 
-![ Interface : rendu final ](50-20-interface-final.gif "Interface : rendu final")
+![ Interface : rendu final ](50-20-interface-finale.gif "Interface : rendu final")
 
-## Enregistrement de l'interface
+## Enregistrement de l'interface {#quickstart:d5124a6a-20f5-42ce-87b4-a5df9dff75a1}
 
 Vous allez finir ce chapitre en enregistrant votre nouvelle action principale en tant qu'action par défaut, ce qui permet aux utilisateurs d'arriver directement sur l'action.
 
@@ -591,7 +591,7 @@ Pour ce faire, ouvrez le fichier `info.xml` et ajoutez la ligne :
 
 <span class="flag inline nota-bene"></span> Le script [`setApplicationParameter`][DocumentationScriptSetApp] permet de valuer un paramètre applicatif lors l'installation d'un paquet.
 
-## Conclusion
+## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
 
 Vous avez maintenant expérimenté le système d'application/action. Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
 
