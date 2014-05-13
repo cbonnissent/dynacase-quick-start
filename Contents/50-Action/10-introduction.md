@@ -2,23 +2,23 @@
 
 Une [action][DocIntroAction] permet d'étendre les fonctionnalités de Dynacase. Vous pouvez :
 
-* manipuler des documents,
-* exporter dans un format spécifique (XML, JSON, XLS, PDF, etc.),
-* implémenter le protocole SOAP,
-* implémenter un endpoint REST,
-* mettre en place une IHM spécifique,
-* etc.
+-   manipuler des documents,
+-   exporter dans un format spécifique (XML, JSON, XLS, PDF, etc.),
+-   implémenter le protocole SOAP,
+-   implémenter un endpoint REST,
+-   mettre en place une IHM spécifique,
+-   etc.
 
 Le système d'action est composé de trois éléments :
 
-* une fonction PHP qui est exécutée lors de l'appel de l'action,
-* un layout (optionnel) qui permet de faciliter le rendu du retour de l'action,
-* un système d'ACL (optionnel) qui permet de sécuriser l'action.
+-   une fonction PHP qui est exécutée lors de l'appel de l'action,
+-   un layout (optionnel) qui permet de faciliter le rendu du retour de l'action,
+-   un système d'ACL (optionnel) qui permet de sécuriser l'action.
 
 Les actions peuvent être appelée :
 
-* en web avec une URL formatée de la manière suivante `<url_du_contexte>?app=<APPLICATION>&action=<ACTION>&param1=<param1>&param2=...`
-* en [CLI à l'aide du WIFF][DocCLIAction].
+-   en web avec une URL formatée de la manière suivante `<url_du_contexte>?app=<APPLICATION>&action=<ACTION>&param1=<param1>&param2=...`
+-   en [CLI à l'aide du WIFF][DocCLIAction].
 
 <!-- links -->
 

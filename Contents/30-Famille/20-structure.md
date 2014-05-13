@@ -15,39 +15,52 @@ Ce chapitre va vous permettre d'initialiser vos premières familles.
 
 L'analyse des besoins a montré que votre application nécessite les familles suivantes :
 
-* Référentiel qualité : elle représente un référentiel qualité et contient :
-    * la désignation d'un référentiel qualité,
-* Chapitre de référentiel : elle représente un chapitre et contient :
-    * un lien à un référentiel, 
-    * un titre,
-+ Audit : elle représente un audit et contient :
-    + le titre de l'audit,
-    + sa date de début,
-    + sa durée en jour,
-    + sa date de fin,
-    + le site audité,
-    + un champ descriptif,
-    + le responsable de l'audit,
-    + la liste des auditeurs,
-    + une liste de référentiels,
-    + une liste de points forts, avec pour chacun :
-        + un encart de texte,
-    + une liste de points faibles,
-        + un encart de texte,
-    + une liste de fiche de non-conformité,
-    + une liste de fichier associée.
-+ Fiche de non-conformité : elle représente une non-conformité et contient :
-    + le titre de la non-conformité,
-    + un lien vers la fiche d'audit,
-    + un rédacteur,
-    + une liste de liens vers des chapitres de référentiel, avec pour chacun :
-        + un lien vers le référentiel,
-        + un lien vers le chapitre,
-        + un texte explicitant le manquement
-    + une liste d'actions, avec pour chacune :
-        + un descriptif,
-        + un responsable,
-        + une date de prise en compte
+Référentiel qualité
+:   elle représente un référentiel qualité et contient :
+    
+    -   la désignation d'un référentiel qualité.
+
+Chapitre de référentiel
+:   elle représente un chapitre et contient :
+    
+    -   un lien à un référentiel,
+    -   un titre.
+
+Audit
+:   elle représente un audit et contient :
+    
+    -   le titre de l'audit,
+    -   sa date de début,
+    -   sa durée en jours,
+    -   sa date de fin,
+    -   le site audité,
+    -   un champ descriptif,
+    -   le responsable de l'audit,
+    -   la liste des auditeurs,
+    -   une liste de référentiels,
+    -   une liste de points forts, avec pour chacun :
+        -   un encart de texte,
+    -   une liste de points faibles, avec pour chacun :
+        -   un encart de texte,
+    -   une liste de fiches de non-conformité,
+    -   une liste de fichiers associés.
+
+Fiche de non-conformité
+: elle représente une non-conformité et contient :
+    
+    -   le titre de la non-conformité,
+    -   un lien vers la fiche d'audit,
+    -   un rédacteur,
+    -   une liste de liens vers des chapitres de référentiel, avec pour chacun :
+        -   un lien vers le référentiel,
+        -   un lien vers le chapitre,
+        -   un texte explicitant le manquement,
+    -   une liste d'actions, avec pour chacune :
+        -   un descriptif,
+        -   un responsable,
+        -   une date de prise en compte.
+
+<span class="flag fixme inline">présenter le MCD de type UML ou BDD</span>
 
 ## Partie théorique {#quickstart:75dc2bf5-ae31-434e-a538-96ad9c52967f}
 
@@ -55,12 +68,15 @@ L'analyse des besoins a montré que votre application nécessite les familles su
 
 La structure d'une famille est définie par deux éléments :
 
-* le fichier de structure : il contient la liste des attributs (type de données) que les documents de la famille contiennent, 
-* l'héritage : si une famille hérite d'une autre, elle hérite de manière dynamique de tous les éléments de ses familles parentes.
+le fichier de structure
+: il contient la liste des attributs (type de données) que les documents de la famille contiennent,
+
+l'héritage
+: si une famille hérite d'une autre, elle hérite de manière dynamique de tous les éléments de ses familles parentes.
 
 La structure de la famille est utilisée en interne par Dynacase pour :
 
-* créer la table de la base de donnée permettant de stocker les données,
+* créer la table de la base de données permettant de stocker les données,
 * générer les formulaires de saisie des données,
 * générer les formulaires de recherche de documents,
 * générer les matrices de gestion de droits,
@@ -69,6 +85,14 @@ La structure de la famille est utilisée en interne par Dynacase pour :
 
 ## Création de votre première famille : Famille de base {#quickstart:d16313a5-1ae6-422a-9f45-8d721aafcd18}
 
+À la liste des familles identifiées de manière fonctionnelle, nous allons ajouter une famille dite _de base_,
+dont toutes les familles de l'application hériteront.
+Cette méthode est considérée comme une bonne pratique pour débuter un projet Dynacase.
+Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet.
+
+Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet,
+vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.  
+De même, comme nous le verrons plus tard, cela permet de mettre en place une vue commune à toutes ces familles.
 
 Ouvrez le **developper toolkit** et cliquez sur **Template** et ensuite **Create a family**, l'outil vous demande de saisir :
 
@@ -87,17 +111,21 @@ Les fichiers suivants sont générés :
 
 Les fichiers ci-dessus sont pré-remplis et prêts à être utilisés. Leur nomenclature est explicitée dans l'[annexe][annexe].
 
-Vous devez maintenant indiquer dans le fichier `info.xml` que cette famille doit être importée lors de l'initialisation et la mise à jour. Vous allez ajouter les lignes suivantes :
+Vous devez maintenant indiquer dans le fichier `info.xml` que cette famille doit être importée lors de l'initialisation
+et la mise à jour. Vous allez ajouter les lignes suivantes :
 
+    [xml]
     <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
     <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
 
-2 fois :
+à 2 endroits :
+
 * dans la partie d'initialisation, après l'import des utilisateurs
 * dans la partie d'upgrade, après le `record_application`. 
 
 Vous devez avoir un fichier `info.xml` semblable à :
 
+    [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT" />
         <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
@@ -119,42 +147,39 @@ Vous devez avoir un fichier `info.xml` semblable à :
 
 ## Création des fichiers de familles {#quickstart:72980b93-3f1f-4aa0-b12d-756e072f2029}
 
-Vous allez maintenant créer les autres familles, reprenez l'outil **developper toolkit**, cliquez sur **Template** et ensuite **Create a family** pour chacune des familles présentées ci-dessous.
+Vous allez maintenant créer les autres familles, reprenez l'outil **developper toolkit**, cliquez sur **Template** et
+ensuite **Create a family** pour chacune des familles présentées ci-dessous.
 
-Pour la famille `Référentiel qualité` :
-
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `COGIP_AUDIT_REFERENTIEL`,
-* parent name : `COGIP_AUDIT_BASE`,
-* [namespace][php_namespace] : `COGIP`.
-
-Pour la famille `Chapitre` :
-
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `COPGIP_AUDIT_CHAPITRE`,
-* parent name : `COGIP_AUDIT_BASE`,
-* [namespace][php_namespace] : `COGIP`.
-
-Pour la famille `Audit` :
-
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `COPGIP_AUDIT_AUDIT`,
-* parent name : `COGIP_AUDIT_BASE`,
-* [namespace][php_namespace] : `COGIP`.
-
-Pour la famille `Fiche de non-conformité` :
-
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `COPGIP_AUDIT_FNC`,
-* parent name : `COGIP_AUDIT_BASE`,
-* [namespace][php_namespace] : `COGIP`.
+-   `Référentiel qualité` :
+    -   path : le path vers le répertoire `COGIP_AUDIT`,
+    -   logical name : `COGIP_AUDIT_REFERENTIEL`,
+    -   parent name : `COGIP_AUDIT_BASE`,
+    -   [namespace][php_namespace] : `COGIP`.
+-   `Chapitre` :
+    -   path : le path vers le répertoire `COGIP_AUDIT`,
+    -   logical name : `COPGIP_AUDIT_CHAPITRE`,
+    -   parent name : `COGIP_AUDIT_BASE`,
+    -   [namespace][php_namespace] : `COGIP`.
+-   `Audit` :
+    -   path : le path vers le répertoire `COGIP_AUDIT`,
+    -   logical name : `COPGIP_AUDIT_AUDIT`,
+    -   parent name : `COGIP_AUDIT_BASE`,
+    -   [namespace][php_namespace] : `COGIP`.
+-   `Fiche de non-conformité` :
+    -   path : le path vers le répertoire `COGIP_AUDIT`,
+    -   logical name : `COPGIP_AUDIT_FNC`,
+    -   parent name : `COGIP_AUDIT_BASE`,
+    -   [namespace][php_namespace] : `COGIP`.
 
 Vous avez créé l'ensemble des fichiers qui vont définir vos familles. 
 
-Il faut maintenant les référencer dans le fichier `info.xml`. Pour ce faire, vous devez respecter l'ordre de l'héritage et importer les familles mères puis les familles filles. Si vous ne suivez pas un ordre adéquat, l'installeur refusera d'installer le paquet et vous indiquera le problème.
+Il faut maintenant les référencer dans le fichier `info.xml`. Pour ce faire, vous devez respecter l'ordre de l'héritage
+et importer les familles mères puis les familles filles.
+Si vous ne suivez pas un ordre adéquat, l'installeur refusera d'installer le paquet et vous indiquera le problème.
 
 Votre `info.xml` contient les lignes suivantes :
 
+    [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT" />
         <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
@@ -190,8 +215,6 @@ Votre `info.xml` contient les lignes suivantes :
         <process command="programs/update_catalog" />
     </post-upgrade>
 
-<span class="flag inline nota-bene"></span> Vous avez ici défini une famille abstraite `COGIP_AUDIT_BASE` qui est mère de toutes les autres familles. Cette méthode est considérée comme une bonne pratique pour débuter un projet Dynacase. Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet. Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet, vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.
-
 ## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
 
 Vous allez maintenant définir les [attributs][DocAttribut] contenus dans vos familles.
@@ -204,51 +227,69 @@ Le fichier se présente sous cette forme :
 
 ![ Contenu structure site ](30-20-structure-referentiel.png "Contenu structure site")
 
-<span class="flag inline nota-bene"></span> Vous pouvez installer les scripts permettant de faire la coloration syntaxique en suivant l'[annexe][annexeColor]. Ces scripts permettent de colorer les fichiers, numéroter automatiquement les attributs et remplir quelques éléments avec des valeurs par défaut. Dans la suite du tutoriel, ces scripts sont considérés comme installés.
+<span class="flag inline nota-bene"></span> Dans cette capture d'écran, vous remarquez que le fichier est coloré.
+Vous pouvez obtenir ce comportement (ainsi que d'autres aides) en suivant l'[annexe][annexeColor].
+Dans la suite du tutoriel, ces scripts sont considérés comme installés.
 
-<span class="flag inline nota-bene"></span> **Attention** : un attribut non-structurant (texte, relation, numérique, ...) doit obligatoirement être contenu dans un attribut structurant frame ou array.
+<span class="flag inline nota-bene"></span> **Attention** : un attribut non-structurant (_texte_, _relation_, _numérique_, …)
+doit obligatoirement être contenu dans un attribut structurant _frame_ ou _array_.
 
 Pour définir un attribut, vous devez saisir :
 
-1. dans la colonne `A`, le mot clef `ATTR`,
-2. dans la colonne `B`, l'identifiant unique de l'attribut, celui-ci est alphanumérique et écrit de préférence en minuscules,
-3. dans la colonne `C`, l'attribut encadrant de l'attribut en cours (cet élément est nécessaire pour les attributs non-structurants, c'est à dire les attributs qui contiennent des données, text, int, etc.). <span class="flag inline nota-bene"></span> Le script `setParent` rempli automatiquement les parents des attributs n'en ayant pas,
-4. dans la colonne `D`, la valeur de traduction par défaut du label de l'attribut,
-5. dans la colonne `E`, `Y` ou `N` selon que l'attribut est utilisé pour composer le titre ou non
-6. dans la colonne `G`, le type de l'attribut,
-7. dans la colonne `H`, l'ordre d'affichage des attributs. Cet élément est utile dans le cas d'héritage entre famille, il permet de dire dans quel ordre doivent être affichés les attributs. <span class="flag inline nota-bene"></span> Le script `setOrder` calcule automatiquement l'ordre d'affichage, vous pouvez demander une reprise de la numérotation en saisissant à la colonne `R` la nouveau numéro,
-8. dans la colonne `I`, la [visibilité][DocVisibilite] par défaut de l'attribut.
+1.  dans la colonne `A` : le mot clef `ATTR` ;
+2.  dans la colonne `B` : l'identifiant unique de l'attribut,
+    celui-ci est alphanumérique et écrit de préférence en minuscules ;
+3.  dans la colonne `C` : l'attribut encadrant de l'attribut en cours
+    (cet élément est nécessaire pour les attributs non-structurants,
+    c'est à dire les attributs qui contiennent des données, text, int, etc.) ;
+4.  dans la colonne `D` : la valeur de traduction par défaut du label de l'attribut,
+5.  dans la colonne `E` : `Y` ou `N` selon que l'attribut est utilisé pour composer le titre ou non
+6.  dans la colonne `G` : le [type][DocAttribut] de l'attribut,
+7.  dans la colonne `H` : l'ordre d'affichage des attributs.
+    Cet élément est utile dans le cas d'héritage entre famille,
+    il permet de dire dans quel ordre doivent être affichés les attributs ;
+8.  dans la colonne `I` : la [visibilité][DocVisibilite] par défaut de l'attribut.
 
 Dans le cas des `Référentiel qualité`, vous devez obtenir une structure similaire à :
 
 ![ Contenu structure référentiel ](30-20-structure-referentiel-done.png "Contenu structure référentiel")
 
-<span class="flag inline nota-bene"></span> Quelques astuces pour faciliter l'écriture des familles :  
+<span class="flag inline nota-bene"></span> Quelques astuces pour faciliter l'écriture des familles :
 
-* il est préférable de composer les noms d'attributs de la manière suivante : un préfixe pour indiquer leur famille de provenance (utile dans le cas d'un héritage), une lettre pour indiquer le type d'encadrant lorsque l'attribut est en encadrant (f pour frame, a pour array, t pour tab), un nom explicitant l'information portée par l'attribut,
-* vous pouvez commencer en complétant les colonnes `A`, `B`, `D` et `G` et en exécutant ensuite les scripts :
-    * `autonum` : il se charge de numéroter les attributs,
-    * `color` : il applique une coloration suivant le type d'attribut,
-    * `setDefaultOption` : il remplit les valeurs par défaut des colonnes `E`, `F`, `H`, `I` et `O`.
-    * `setParent` : il complète la colonne `C` en reprenant le dernier encadrant rencontré comme parent.
+-   il est préférable de composer les noms d'attributs de la manière suivante :
+    -   un préfixe pour indiquer leur famille de provenance (utile dans le cas d'un héritage),
+    -   une lettre pour indiquer le type d'encadrant lorsque l'attribut est en encadrant (`f` pour frame, `a` pour array, `t` pour tab),
+    -   un nom explicitant l'information portée par l'attribut.
+    
+    Ce qui donne, par exemple : `fam_f_general`
 
+-   dans le cas particulier des tableaux, la composition suivante est conseillée :
+    -   le nom du tableau (sans le `a`),
+    -   un nom explicitant l'information portée par l'attribut.
+    
+    Ce qui donne, par exemple : `fam_a_fichiers`, puis `fam_fichiers_file` et `fam_fichiers_commentaire`
 
-![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
+-   vous pouvez commencer en complétant uniquement les colonnes `A`, `B`, `D`, `G` puis au moyen des scripts décrits en [annexe][annexeColor].
+    
+    ![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
 
 ### Chapitre {#quickstart:db00ea11-3c9a-4a99-8879-af61e8ad2745}
 
-Vous allez maintenant compléter la famille `chapitre`. Cette famille contient un lien vers son référentiel, de manière a pouvoir retrouver facilement tous les chapitres d'un référentiel.
+Vous allez maintenant compléter la famille `chapitre`.
+Cette famille contient un lien vers son référentiel, de manière a pouvoir retrouver facilement tous les chapitres d'un référentiel.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv`, et complétez le pour obtenir une structure similaire à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv`, et complétez-le pour obtenir une structure similaire à :
 
 ![ Contenu structure Chapitre ](30-20-structure-chapitre.png "Contenu structure Chapitre")
 
-Vous pouvez remarquer la présence d'un nouveau type d'attribut [docid][DocDocid]. Ce type d'attribut référence un document et permet de créer des liens entre les fiches. Il est présenté :
+Vous pouvez remarquer la présence d'un nouveau type d'attribut [docid][DocDocid].
+Ce type d'attribut référence un document et permet de créer des liens entre les fiches. Il est présenté :
 
-* en édition : sous la forme d'une liste déroulante qui vous permez de choisir le document à lier,
-* en consultation : sous la forme d'un lien hypertext pointant vers le document lié.
+-   en édition : sous la forme d'une liste déroulante qui vous permet de choisir le document à lier,
+-   en consultation : sous la forme d'un lien hypertext pointant vers le document lié.
 
-Dans la définition du `docid`, la référence à la famille `Référentiel` indique la nature du lien et permet de n'afficher en édition que les documents issus de cette famille.
+Dans la définition du `docid`, la référence à la famille `Référentiel` indique la nature du lien,
+et permet de n'afficher en édition que les documents issus de cette famille.
 
 ### Fiche de non-conformité {#quickstart:6bc0b33f-c7a9-4b20-b940-8d939c3b97ec}
 
@@ -260,10 +301,10 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv`, et complétez le 
 
 Vous pouvez remarquer la présence de deux nouveaux éléments structurants :
 
-* [array][DocArray] : un `array` permet de gérer la multiplicité d'une liste d'attributs (un n-uplet) : chaque attribut est matérialisé par une colonne, et chaque ligne porte une valeur du n-uplet (liste des valeurs unitaire des attributs),
-* [tab][DocTab] : un `tab` est représenté sous la forme d'un onglet dans le formulaire, il permet d'organiser les informations à présenter, d'avoir une présentation plus lisible et éviter des formulaires trop long.
-
-<span class="flag inline nota-bene"></span> Pour faciliter la lecture de la structure, il est conseillé pour les attributs contenus dans un array de préfixer leur nom avec celui de l'array. Par exemple, pour le chapitre qui est contenu dans le tableau `ecart`, l'attribut est nommé `caf_ecart_chapitre`.
+-   [array][DocArray] : un `array` permet de gérer la multiplicité d'une liste d'attributs (un n-uplet) :
+    chaque attribut est matérialisé par une colonne, et chaque ligne porte une valeur du n-uplet (liste des valeurs unitaires des attributs),
+-   [tab][DocTab] : un `tab` est représenté sous la forme d'un onglet dans le formulaire.
+    Il permet d'organiser les informations à présenter, d'avoir une présentation plus lisible et éviter des formulaires trop long.
 
 ### Audit {#quickstart:b2eccdab-bbda-4d80-86a7-dd5e6cdb22dc}
 
@@ -289,17 +330,19 @@ Si vous ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php`, vous ave
     {
     }
 
-Les deux classes référencées dans ce fichier n'existent pas encore, elles sont générées automatiquement sur le serveur à l'importation des familles.
+Les deux classes référencées dans ce fichier n'existent pas encore :
+elles sont générées automatiquement sur le serveur lors de l'importation des familles.
 
-Vous pouvez générer des classes de référence, les stubs, qui permettent d'utiliser la complétion sur votre IDE. Ces classes ne contiennent que les éléments qui vous serons utiles lors du développement et ne sont pas tout à fait semblables à celles générées sur le serveur.
+Vous pouvez générer des classes de référence, les _stubs_, qui permettent d'utiliser la complétion sur votre IDE.
+Ces classes ne contiennent que les éléments qui vous seront utiles lors du développement et ne sont pas tout à fait semblables à celles générées sur le serveur.
 
 Pour générer les stubs, ouvrez le **developper toolkit** et cliquez sur **Stubs** l'outil vous demande ensuite :
 
-* path : le path vers les sources
+-   path : le path vers les sources
 
 Cliquez ensuite sur `Generate`.
 
-L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le répertoire de vos sources : 
+L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le répertoire de vos sources :
 
     ├ stubs
       ├─ COGIP_AUDIT_AUDIT__STUB.php
@@ -310,18 +353,22 @@ L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le r
 
 Les fichiers stubs contiennent :
 
-* les classes intermédiaires générées sur le serveur (`\Dcp\Family\COGIP_AUDIT_BASE`) qui permettent d'avoir la chaîne d'héritage complète et la complétion via les IDE,
-* les classes en `\Dcp\AttributeIdentifiers\COGIP_AUDIT_AUDIT` qui contiennent la liste des attributs définis dans les fichiers `__STRUCT.csv` et permettent de référencer les attributs en utilisant la complétion.
+-   les classes intermédiaires générées sur le serveur (une classe par famille, sous le namespace `\Dcp\Family`)
+    qui permettent d'avoir la chaîne d'héritage complète et la complétion via les IDE,
+-   les classes d'attributs (une classe par famille, sous le namespace `\Dcp\AttributeIdentifiers`)
+    qui contiennent la liste des attributs définis dans les fichiers `__STRUCT.csv`
+    et permettent de référencer les attributs en utilisant la complétion.
 
 Exemple de complétion d'attribut à l'aide des stubs :
 
-![ Complétion d'attribut ](30-20-structure-stub-completion.png "Complétion d'attribut")
+![ Complétion d'attribut ](30-20-structure-stub-completion.png "Complétion d'attribut dans PhpStorm")
 
 ## Internationalisation {#quickstart:989b4a9e-e3d8-475e-9dcf-9a158605eab6}
 
 Vous allez maintenant extraire les clefs permettant de traduire vos familles.
 
-Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`, vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
+Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`,
+vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
 
 Des nouveaux fichiers de po sont ajoutés, il en existe un par famille et par langue.
 
@@ -349,6 +396,7 @@ Chacun de ces fichiers contient l'ensemble des clefs permettant de traduire les 
 
 Pour chaque attribut est généré le bloc suivant :
 
+    [gettext]
     #: COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
     #, fuzzy
     msgid "COGIP_AUDIT_AUDIT#caa_titre"
@@ -357,6 +405,7 @@ Pour chaque attribut est généré le bloc suivant :
 La traduction présente est celle que vous avez notée dans le fichier CSV.  
 La notation `fuzzy` indique que la traduction est une proposition pour aider le traducteur.
 
+    [gettext]
     #: COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
     msgid "COGIP_AUDIT_AUDIT#caa_titre"
     msgstr "Titre"
@@ -374,7 +423,8 @@ Vos familles sont installées sur le contexte, vous allez pouvoir consulter vos 
 ## Consultation des familles {#quickstart:21559978-8fea-4376-8b77-f0de73437efe}
 
 Vous pouvez consulter les familles en utilisant l'interface open source de consultation par défaut `OneFam`.  
-Cette interface est un exemple d'interface possible de consultation/création de documents. Elle est simple à configurer et permet d'accéder à la création de rapport et de recherche.
+Cette interface est un exemple d'interface possible de consultation/création de documents.
+Elle est simple à configurer et permet d'accéder à la création de rapport et de recherche.
 
 Pour accéder à cette interface, connectez vous sur le contexte.
 
@@ -388,8 +438,8 @@ Utilisez le menu en haut à gauche et sélectionnez l'application `Une famille`.
 
 Les deux boutons `+` vous permettent de choisir les familles présentées :
 
-* le premier permet de choisir les familles présentées à tous les utilisateurs,
-* le deuxième permet de choisir les familles qui vous sont présentées.
+-   le premier permet de choisir les familles présentées à tous les utilisateurs,
+-   le deuxième permet de choisir les familles qui vous sont présentées.
 
 Cliquez sur le deuxième bouton et vous obtenez l'interface suivante :
 
@@ -412,7 +462,7 @@ Vous pouvez créer quelques formulaires en utilisant l'interface.
 1. Cliquez sur une des icônes,
 2. Cliquez sur `création > ...nom de la famille... `.
 
-<span class="flag fixme">pas asssez large</span>
+<span class="flag fixme">pas assez large</span>
 ![ Onefam ](30-20-onefam_audit.png "Onefam : Création")
 
 ## Conclusion {#quickstart:1f4af8a5-d83c-443d-a41d-cbc1e5677af4}
@@ -425,7 +475,8 @@ Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer
 
 * [Définition CSV d'une famille][DocFamCSV],
 * [Liste des attributs][DocAttribut],
-* [Liste des visibilités][DocVisibilite].
+* [Liste des visibilités][DocVisibilite],
+* [Internationalisation][Internationalisation].
 
 <!-- links -->
 [Method_stub]: http://en.wikipedia.org/wiki/Method_stub "Wikipedia: Method stub"
@@ -438,3 +489,4 @@ Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer
 [DocDocid]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:d461d5f5-b635-47a0-944d-473c227587ab.html#core-ref:d461d5f5-b635-47a0-944d-473c227587ab "Documentation : Docid"
 [DocArray]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:dd400581-8896-4eec-9b9e-f1e5669cf180.html "Documentation : Array"
 [DocTab]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:5b236ce8-ad99-4e21-ae8a-cbea6942c3e4.html "Documentation : Tab"
+[Internationalisation]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:8f3ad20a-4630-4e86-937b-da3fa26ba423.html "Documentation : Internationalisation"

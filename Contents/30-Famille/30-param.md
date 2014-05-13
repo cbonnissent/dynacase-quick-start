@@ -1,6 +1,7 @@
 # Paramétrage {#quickstart:b5501068-3412-4849-a1ac-4155272da2ad}
 
-Dans ce chapitre, vous allez paramétrer les familles que vous avez créées dans le [chapitre précédent, "Mise en place des structures"][structure].
+Dans ce chapitre, vous allez paramétrer les familles que vous avez créées
+dans le [chapitre précédent, "Mise en place des structures"][structure].
 
 ## Objectifs  {#quickstart:9fd3067d-5851-4306-9e1a-13eb626417d8}
 
@@ -14,53 +15,56 @@ Dans ce chapitre, vous allez paramétrer les familles que vous avez créées dan
 ## Cadre {#quickstart:fc3a144d-e608-4538-aa71-808075b1860b}
 
 Lors de la phase de spécification, les éléments suivants ont été identifiés.
-Votre application nécessite :
+Votre application nécessite les comportements suivants :
 
-* Référentiel qualité : 
-    * L'attribut référence est obligatoire.
-    * Le titre d'un référentiel est sa référence,
-* Chapitre de référentiel : 
-    * Le titre est composé du titre du référentiel associé et du titre du chapitre,
-    * L'attribut titre de la chapitre est obligatoire.
-+ Audit : 
-    + Le titre est composé du titre de l'audit et d'un préfixe,
-    + L'attribut titre est obligatoire,
-    + La date de début est postérieure à la date du jour,
-    + La date de fin de l'audit est calculée automatiquement en fonction de la date de début d'audit et de sa durée,
-    + La liste des fiches de non-conformité, calculée automatiquement, n'est pas modifiable.
-+ Fiche de non-conformité : 
-    + Le titre est composé de l'attribut titre de la fiche et du titre de l'audit associé,
-    + Le rédacteur d'une fiche est la personne l'ayant créée,
-    + Les référentiels accessibles sont ceux sélectionnés dans l'audit associé,
-    + Les chapitres accessibles sont ceux du référentiel de la ligne en cours,
-    + L'attribut titre est obligatoire,
-    + L'attribut lien vers l'audit est obligatoire.
+-   Référentiel qualité :
+    -   L'attribut référence est obligatoire,
+    -   Le titre d'un référentiel est sa référence.
+-   Chapitre de référentiel :
+    -   L'attribut titre du chapitre est obligatoire,
+    -   Le titre est composé du titre du référentiel associé et du titre du chapitre.
+-   Audit :
+    -   L'attribut titre est obligatoire,
+    -   Le titre est composé du titre de l'audit et d'un préfixe,
+    -   La date de début est postérieure à la date du jour,
+    -   La date de fin de l'audit est calculée automatiquement en fonction de la date de début d'audit et de sa durée,
+    -   La liste des fiches de non-conformité, calculée automatiquement, n'est pas modifiable.
+-   Fiche de non-conformité :
+    -   Le titre est composé de l'attribut titre de la fiche et du titre de l'audit associé,
+    -   Le rédacteur d'une fiche est la personne l'ayant créée,
+    -   Les référentiels accessibles sont ceux sélectionnés dans l'audit associé,
+    -   Les chapitres accessibles sont ceux du référentiel de la ligne en cours,
+    -   L'attribut titre est obligatoire,
+    -   L'attribut lien vers l'audit est obligatoire.
 
 ## Théorie et fichiers mis en œuvre {#quickstart:6db003ec-41fb-416e-a19a-94488774070e}
 
 Le paramétrage des familles de Dynacase comprend tout ce qui est lié à la personnalisation du fonctionnement des familles.
 Les différents éléments paramétrables sont :
 
-* les [propriétés des familles][famProperty], qui permettent de spécifier :
+-   les [propriétés des familles][famProperty], qui permettent de spécifier :
     - des éléments de présentation (titre, icône),
     - la sécurité (profil de famille, profil de document),
     - [valeur par défaut][DocValDefault],
     - [paramètre de famille][DocParamFam],
     - le cycle de vie associé,
     - etc.
-* l'ajout de code métier à la famille; plusieurs concepts sont mis en œuvre :
+-   l'ajout de code métier à la famille; plusieurs concepts sont mis en œuvre :
     - [contrainte][DocDocContrainte],
     - [attribut calculé][DocDocAttrComputed],
     - [aide à la saisie][DocDocHelper],
 
-<span class="flag inline nota-bene"></span> Il vous est rappelé qu'à chaque modification de votre paquet, vous devez reconstruire celui-ci et le déployer pour voir les modifications s'appliquer sur votre environnement d'éxécution (VM). De plus :
+<span class="flag inline nota-bene"></span> Il vous est rappelé qu'à chaque modification de votre paquet,
+vous devez reconstruire celui-ci et le déployer pour voir les modifications s'appliquer sur votre environnement d'exécution (VM). De plus :
 
-* si vous avez modifié le structure (ajout, suppression d'attribut), il est conseillé de :
-    * rafraîchir les [stubs][stubs],
-    * rafraîchir les [traductions][i18n]
-* si vous avez ajouté/enlever une clefs de traduction dans le code associé aux familles (fonction `_`), il est conseillé de rafraîchir les [traductions][i18n].
+-   si vous avez modifié la structure (ajout, suppression d'attribut), il est conseillé de :
+    -   rafraîchir les [stubs][stubs],
+    -   rafraîchir les [traductions][i18n]
+-   si vous avez ajouté/enlevé une clef de traduction dans le code associé aux familles (fonctions `_`, `___`),
+    il est conseillé de rafraîchir les [traductions][i18n].
 
-<span class="flag inline nota-bene"></span> Les annexes contiennent un chapitre [développement rapide][devRapide] qui résume quelques techniques permettant d'accélérer le développement en évitant de déployer à chaque modification.
+<span class="flag inline nota-bene"></span> Les annexes contiennent un chapitre [développement rapide][devRapide]
+qui résume quelques techniques permettant d'accélérer le développement en évitant de déployer à chaque modification.
 
 ## Propriétés des familles {#quickstart:d73e0224-f9f4-445a-a828-069cbc468053}
 
@@ -74,8 +78,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv`, celui-ci c
 
 Deux paramètres ont été remplis par le **developper tool** :
 
-* ICON : désigne une image qui est utilisée comme icône pour cette famille dans les interfaces standards,
-* DFLDIF : lié au fonctionnement de ONEFAM, il est paramétré par défaut avec une valeur permettant d'afficher les familles dans ONEFAM.
+-   `ICON` : désigne une image qui est utilisée comme icône pour cette famille dans les interfaces standards,
+-   `DFLDID` : lié au fonctionnement de ONEFAM, il est paramétré par défaut avec une valeur permettant d'afficher les familles dans ONEFAM.
 
 ### Icône {#quickstart:486c3a7e-2471-4cc4-8633-44ce5203c1fe}
 
@@ -97,26 +101,30 @@ Vous obtenez la structure de fichiers suivantes :
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
 
-Le titre de la famille se paramètre via les traductions. Ouvrez le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et modifiez le bloc suivant :
+Le titre de la famille se paramètre via les traductions.
+Ouvrez le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et modifiez le bloc suivant :
 
+    [gettext]
     msgid "COGIP_AUDIT_AUDIT#title"
     msgstr "COGIP_AUDIT_AUDIT"
 
-en 
+en
 
+    [gettext]
     msgid "COGIP_AUDIT_AUDIT#title"
     msgstr "Audit"
 
 Complétez les différents fichiers `.po` avec les traductions suivantes :
 
-* `COGIP_AUDIT_BASE#title` : Base,
-* `COGIP_AUDIT_CHAPITRE#title` : Chapitre,
-* `COGIP_AUDIT_FNC#title` : Fiche de non-conformité,
-* `COGIP_AUDIT_REFERENTIEL#title` : Référentiel qualité.
+-   `COGIP_AUDIT_BASE#title` : Base,
+-   `COGIP_AUDIT_CHAPITRE#title` : Chapitre,
+-   `COGIP_AUDIT_FNC#title` : Fiche de non-conformité,
+-   `COGIP_AUDIT_REFERENTIEL#title` : Référentiel qualité.
 
 ![ Famille avec titre ](30-30-with-title.png "Famille avec titre")
 
-<span class="flag inline nota-bene"></span> **Attention** si jamais votre bloc de traduction porte la mention `fuzzy`, la mention doit être supprimée pour que la traduction soit prise en compte.
+<span class="flag inline nota-bene"></span> **Attention** si jamais votre bloc de traduction porte la mention `fuzzy`,
+cette mention doit être supprimée pour que la traduction soit prise en compte.
 
 ### Valeur par défaut {#quickstart:b48d21a1-1305-407c-a2bc-aebca7315416}
 
@@ -124,21 +132,25 @@ Dans les fiches de non-conformité, le rédacteur est le créateur de la fiche.
 
 Pour obtenir ce comportement, vous allez utiliser la notion de [valeur par défaut][DocValDefault].
 
-La valeur par défaut est donnée par une fonction PHP contenue dans la classe associée à famille. Cette fonction est appelée lors de la création d'un document et retourne une valeur qui complète la valeur d'un attribut.
+La valeur par défaut est donnée par une méthode de la classe associée à famille.
+Cette méthode est appelée lors de la création d'un document et retourne une valeur qui complète la valeur d'un attribut.
 
-Pour indiquer la valeur par défaut, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv` et ajoutez une ligne juste avant le `END` avec pour les colonnes les valeurs :
+Pour indiquer la valeur par défaut, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv`
+et ajoutez une ligne juste avant le `END` avec pour les colonnes les valeurs :
 
-* `A` : `DEFAULT`,
-* `B` : le nom de l'attribut, `caf_redacteur` dans votre cas,
-* `C` : le nom de la fonction fournissant la valeur par défaut, ici `::getUserId()`.
+-   `A` : `DEFAULT`,
+-   `B` : le nom de l'attribut, `caf_redacteur` dans votre cas,
+-   `C` : le nom de la fonction fournissant la valeur par défaut, ici `::getUserId()`.
 
 Ce qui donne :
 
 ![ Valeur par défaut ](30-30-param-default.png "Valeur par défaut")
 
-De plus, cette valeur n'étant pas modifiable par les utilisateurs vous allez modifier la [visibilité][DocVisibilite] par défaut de l'attribut correspondant pour le rendre non modifiable.
+De plus, cette valeur n'étant pas modifiable par les utilisateurs, vous allez modifier la [visibilité][DocVisibilite]
+par défaut de l'attribut correspondant pour le rendre non modifiable.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et modifiez la ligne correspondant à l'attribut `caf_redacteur` pour mettre `S` dans la colonne `I`. Cela indique que l'attribut est statique et donc non modifiable :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et modifiez la ligne correspondant à l'attribut `caf_redacteur`
+pour mettre `S` dans la colonne `I`. Cela indique que l'attribut est statique et donc non modifiable :
 
 ![ Attribut en S ](30-30-param-default-S.png "Attribut en S")
 
@@ -148,28 +160,30 @@ Votre spécification indique que certains attributs sont obligatoires.
 
 Pour indiquer qu'un attribut est obligatoire, sa définition est modifiée dans le fichier `__STRUCT.csv`.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifiez la colonne `J` sur la ligne de l'attribut `car_titre` en y ajoutant la lettre `Y`. Le fichier doit être similaire à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifiez la colonne `J`
+sur la ligne de l'attribut `car_titre` en y ajoutant la lettre `Y`. Le fichier doit être similaire à :
 
 ![ Attribut obligatoire ](30-30-needed.png "Attribut obligatoire")
 
-Une fois le fichier importé, le formulaire en édition indique que l'attribut est obligatoire (passage en gras du label). L'enregistrement n'est pas permis sans mettre une valeur dans cet attribut.
+Une fois le fichier importé, le formulaire en édition indique que l'attribut est obligatoire (passage en gras du label).
+L'enregistrement n'est pas permis sans mettre une valeur dans cet attribut.
 
 Complétez ensuite les autres familles :
 
-* `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv` : attributs `cac_ref` et `cac_titre`,
-* `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` : attribut `caa_titre`,
-* `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` : attributs `caf_titre` et `caf_audit`.
+-   `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv` : attributs `cac_ref` et `cac_titre`,
+-   `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` : attribut `caa_titre`,
+-   `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` : attributs `caf_titre` et `caf_audit`.
 
 ## Calcul des titres des documents {#quickstart:66cc3713-6e43-4e45-916e-82d29c016d05}
 
 Il existe deux moyens de spécifier les règles de calcul de titre d'un document :
 
-* soit en modifiant la colonne `E` d'un fichier `__STRUCT.csv`, cette colonne indique les attributs utilisés dans la composition du titre.
-  Ce moyen est simple mais a plusieurs limitations :
-    - vous ne pouvez pas définir l'ordre de composition,
-    - seuls les attributs textuels et numériques sont utilisables.
-* soit en modifiant la méthode [`getCustomTitle`][DocGetCustomTitle] dans ce cas vous composez directement le titre.
-  La colonne `E` n'est plus utilisée.
+-   soit en modifiant la colonne `E` d'un fichier `__STRUCT.csv`, cette colonne indique les attributs utilisés dans la composition du titre.
+    Ce moyen est simple mais a plusieurs limitations :
+    -   vous ne pouvez pas définir l'ordre de composition (les valeurs sont concaténées selon l'ordre des attributs),
+    -   seuls les attributs textuels et numériques sont utilisables.
+-   soit en modifiant la méthode [`getCustomTitle`][DocGetCustomTitle] dans ce cas vous composez directement le titre.
+    La colonne `E` n'est plus utilisée.
 
 ### Composition du titre par paramétrage de la structure {#quickstart:d3a65d4a-67d4-42dd-9b11-23a41ee3f5c7}
 
@@ -183,7 +197,8 @@ Ce qui donne après la création du document :
 
 ### Composition du titre en utilisant `getCustomTitle` {#quickstart:7afe120f-3249-48a1-af92-7bd52b4ff837}
 
-Pour les autres familles, vous ne pouvez pas utiliser la même méthode car soit le titre contient un lien vers un attribut, soit il est composé avec des éléments qui ne sont pas directement dans le document.
+Pour les autres familles, vous ne pouvez pas utiliser la même méthode car soit le titre contient un lien vers un attribut,
+soit il est composé avec des éléments qui ne sont pas directement dans le document.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle] :
 
@@ -228,16 +243,19 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la m�
 
 Vous allez maintenant construire le titre pour la famille audit. Ce titre est composé de deux parties :
 
-* un préfixe que sera stocké dans un [paramètre de famille][DocParamFam],
-* le contenu d'un attribut de la famille `caa_titre`.
+-   un préfixe que sera stocké dans un [paramètre de famille][DocParamFam],
+-   le contenu d'un attribut de la famille `caa_titre`.
 
-Vous allez ajouter un paramètre à la famille audit. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` et modifiez le pour qu'il soit similaire à :
+Vous allez ajouter un paramètre à la famille audit.
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` et modifiez le pour qu'il soit similaire à :
 
 ![ Paramètre de famille ](30-30-param-famParam.png "Paramètre de famille")
 
-<span class="flag inline nota-bene"></span> Les paramètres de familles se définissent de la même manière que les attributs (voir la [documentation d'importation][DocDefFamParam]).
+<span class="flag inline nota-bene"></span> Les paramètres de familles se définissent de la même manière que les attributs
+(voir la [documentation d'importation][DocDefFamParam]).
 
-À la prochaine importation, le paramètre sera associé à cette famille. Sa valeur est modifiable dans les interfaces d'administration sans nouveau déploiement des sources.
+À la prochaine importation, le paramètre sera associé à cette famille.
+Sa valeur est modifiable dans les interfaces d'administration sans nouveau déploiement des sources.
 
 ### Composition du titre avec un paramètre de famille {#quickstart:fc2ad726-7db2-4bed-a759-f0f49f7163cc}
 
@@ -263,7 +281,7 @@ Ce qui donne, après déploiement :
 
 ![ Titre : famille audit ](30-30-title-audit.png "Titre : famille audit")
 
-Bravo ! Vous avez mise en place le calcul des titres des documents.
+Bravo ! Vous avez mis en place le calcul des titres des documents.
 
 ## Mise en place des contraintes {#quickstart:ec7f3353-9d8f-4813-adda-ab1a964e2760}
 
@@ -289,32 +307,37 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et veuillez ajout
 
 Quelques remarques sur la fonction ci-dessus :
 
-* les méthodes associées à des contraintes commencent, par convention, par `check` (bonne pratique),
-* la fonction `_` permet d'indiquer que la ligne va être traduite.
+-   les méthodes associées à des contraintes commencent, par convention, par `check` (bonne pratique),
+-   la fonction `_` permet d'indiquer que la chaîne va être traduite.
 
-<span class="flag inline nota-bene"></span> Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier `.po` de l'application.
+<span class="flag inline nota-bene"></span>
+Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier `.po` de l'application.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la colonne `O` de la ligne de l'attribut `caa_date_debut` pour y ajouter la référence à la fonction définie ci-dessus. Vous devez obtenir une ligne similaire à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la colonne `O`
+de la ligne de l'attribut `caa_date_debut` pour y ajouter la référence à la fonction définie ci-dessus.
+Vous devez obtenir une ligne similaire à :
 
 ![ Définition contrainte : Structure ](30-30-struct-constraint.png "Définition contrainte : Structure")
 
 La cellule contient :
 
-* le nom de la fonction `::checkBeginningDate`,
-* le nom de l'attribut dont la valeur est passée en paramètre à la fonction `caa_date_debut`.
+-   le nom de la fonction `::checkBeginningDate`,
+-   le nom de l'attribut dont la valeur est passée en paramètre à la fonction `caa_date_debut`.
 
 Une fois le module déployé, le formulaire possède une nouvelle fonctionnalité, qui s'affiche de cette manière :
 
 ![ Définition contrainte : résultat ](30-30-form-constraint.png "Définition contrainte : résultat")
 
-<span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs. Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
+<span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs.
+Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
 
-<span class="flag inline nota-bene"></span> Pour l'instant cette contrainte est très limitante, en effet elle s’exécute à chaque sauvegarde du document. Donc :
+<span class="flag inline nota-bene"></span>
+Pour l'instant cette contrainte est très limitante, en effet elle s’exécute à chaque sauvegarde du document. Donc :
 
 1. vous créez l'audit le 12 juin pour un audit commençant le 15 juin et durant 5 jours,
 2. vous le modifiez le 16 juin la contrainte vous indique que la date de début est dépassée et vous empêche de sauvegarder.
 
-Vous verrez dans le chapitre sur les cycles de vie vous permettra d'améliorer cette contrainte.
+Vous verrez dans le chapitre sur les cycles de vie différents moyens d'améliorer cette contrainte.
 
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
@@ -371,36 +394,58 @@ Ajoutez un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajoutez
         return $return;
      }
 
-Cette fonction permet de sélectionner uniquement les référentiels cités dans l'audit associé à la fiche de non-conformité. Vous pouvez remarquer les points suivants :
+Cette fonction permet de sélectionner uniquement les référentiels cités dans l'audit associé à la fiche de non-conformité.
+Vous pouvez remarquer les points suivants :
 
-* si jamais le document audit associé à la FNC n'est pas [vivant (alive)][DocIsAlive] (soit inexistant, soit supprimé) alors un message est envoyé à l'utilisateur lui indiquant qu'il doit sélectionner un audit,
-* l'attribut `caa_ref` est multiple, donc le retour de la fonction `getAttributeValue` est un `array`,
-* l'`array` retourné par la fonction `getAttributeValue` est converti en une chaîne de caractères,
-* la variable `$searchDoc` est une instance de la classe [`SearchDoc`][DocSearchDoc], cette classe permet de chercher des documents dans la base documentaire de Dynacase. Elle génère le SQL nécessaire à la recherche et retourne des instances de Document ou les valeurs contenus dans le document,
-* la fonction [addFilter][DocAddFilter] permet d'ajouter un critère de recherche pour préciser la recherche,
-* la fonction [getDocumentList][DocGetDocumentList] permet d'avoir la liste des documents trouvés,
-* la variable `$return` contient un `array` bi-dimensionnel. Chaque entrée de cet `array` est un `array` décrivant une suggestion, constituée de :
-    * le premier élément est le nom de l'élément affiché dans la liste de suggestion, ce nom est en HTML,
-    * les éléments suivants sont les valeurs pour les attributs spécifiés dans le fichier `__STRUCT`.
+-   si jamais le document audit associé à la FNC n'est pas [vivant (alive)][DocIsAlive] (soit inexistant, soit supprimé)
+    alors un message est envoyé à l'utilisateur lui indiquant qu'il doit sélectionner un audit,
+-   l'attribut `caa_ref` est multiple, donc le retour de la fonction `getAttributeValue` est un `array`,
+-   l'`array` retourné par la fonction `getAttributeValue` est converti en une chaîne de caractères,
+-   la variable `$searchDoc` est une instance de la classe [`SearchDoc`][DocSearchDoc],
+    cette classe permet de chercher des documents dans la base documentaire de Dynacase.
+    Elle génère le SQL nécessaire à la recherche et retourne des instances de Document ou les valeurs contenues dans le document,
+-   la fonction [addFilter][DocAddFilter] permet d'ajouter un critère de recherche pour préciser la recherche,
+-   la fonction [getDocumentList][DocGetDocumentList] permet d'avoir la liste des documents trouvés,
+-   la variable `$return` contient un `array` bi-dimensionnel.
+    Chaque entrée de cet `array` est un `array` décrivant une proposition, constituée de :
+    -   le premier élément est le nom de l'élément affiché dans la liste de suggestion, ce nom est en HTML,
+    -   les éléments suivants sont les valeurs pour les attributs spécifiés dans le fichier `__STRUCT`.
 
-<span class="flag inline nota-bene"></span> `id` et `initid` : dans l'aide à la saisie la [propriété][DocDocProperty] renvoyée est l'initid du document. Tout document possède plusieurs moyens d'être identifié :
+<span class="flag inline nota-bene"></span>
+`id` et `initid` : dans l'aide à la saisie la [propriété][DocDocProperty] renvoyée est l'initid du document.
+Tout document possède plusieurs moyens d'être identifié :
 
-* `id` : identifiant unique qui permet de trouver le document au sein d'un contexte,
-* `initid` : identifiant d'une [lignée documentaire][DocLigneeDoc], une lignée documentaire est l'ensemble des révisions (passées et applicable) d'un document, l'initid est l'id de la première révision du document. Cet `initid` doit être utilisé pour référencer le document dans les formulaires pour permettre la recherche.
+-   `id` : identifiant unique qui permet de trouver le document au sein d'un contexte,
+-   `initid` : identifiant d'une [lignée documentaire][DocLigneeDoc].
+    Une lignée documentaire est l'ensemble des révisions (passées et applicable) d'un document,
+    et l'`initid` est l'`id` de la première révision du document.
+    Cet `initid` doit être utilisé pour référencer le document dans les formulaires pour permettre la recherche.
+-   `name` : identifiant fonctionnel d'un document. Alors que l'`id` et l'`initid` sont générés par la base de donnée,
+    le `name` est défini par le développeur. Ainsi, il est constant entre les différentes installations,
+    alors que l'`id` et l'`initid` ne le sont pas.
 
 ### Paramétrage {#quickstart:dd771ea3-deb6-4d78-991a-236caed4b347}
 
-Vous allez maintenant enregistrer cette aide à la saisie dans la famille, ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et ajoutez dans les colonnes `L` et `M` les valeurs suivantes :
+Vous allez maintenant référencer cette aide à la saisie dans la famille.
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et ajoutez dans les colonnes `L` et `M` les valeurs suivantes :
 
-* `L` : `helper_audit.php`, cette colonne contient la référence vers le fichier contenant l'aide à la saisie,
-* `M` : `selectReferentiel(caf_audit,CT):caf_ecart_ref,CT[caf_ecart_ref]` cette colonne contient le paramétrage de l'aide à la saisie, elle peut-être découpée en trois éléments :
-    - le nom de la fonction `selectReferentiel`,
-    - la liste des éléments entrants : `caf_audit,CT`, ces éléments sont passés à la fonction en valeur entrantes, vous trouverez [la liste des éléments acceptés][DocHelperSyntaxe] dans la documentation,
-    - la liste des éléments cibles de l'aide à la saisie, cette liste décrit les éléments à valuer avec la suggestion sélectionnée par l'utilisateur.
+-   `L` : `helper_audit.php`, cette colonne contient la référence vers le fichier contenant l'aide à la saisie,
+-   `M` : `selectReferentiel(caf_audit,CT):caf_ecart_ref,CT[caf_ecart_ref]`
+    cette colonne contient le paramétrage de l'aide à la saisie, elle peut-être découpée en trois éléments :
+    -   le nom de la fonction `selectReferentiel`,
+    -   la liste des éléments entrants : `caf_audit,CT`, ces éléments sont passés à la fonction en valeur entrantes,
+        vous trouverez [la liste des éléments acceptés][DocHelperSyntaxe] dans la documentation,
+    -   la liste des éléments cibles de l'aide à la saisie,
+        cette liste décrit les éléments à valuer avec la suggestion sélectionnée par l'utilisateur.
 
 ![ Aide à la saisie : struct ](30-30-helper.png " Aide à la saisie : struct")
 
-<span class="flag inline nota-bene"></span> Vous remarquez qu'il y a un décalage d'une valeur entre le nombre de retour de la fonction d'aide à la saisie (3 éléments par valeur possible) et la définition de l'aide à la saisie (2 éléments uniquement).  Le premier élément du retour de l'aide à la saisie est utilisé pour construire la liste de suggestion présentée à l'utilisateur.
+<span class="flag inline nota-bene"></span>
+Vous remarquez qu'il y a un décalage d'une valeur entre
+le nombre de retour de la fonction d'aide à la saisie (3 éléments par valeur possible)
+et la définition de l'aide à la saisie (2 éléments uniquement).  
+En effet, le premier élément du retour de l'aide à la saisie est utilisé
+pour construire la liste de suggestion présentée à l'utilisateur.
 
 ### Résultat {#quickstart:ac23551e-7fc5-4f92-b6dd-7d97c11cbb6e}
 
@@ -408,7 +453,8 @@ Vous allez maintenant enregistrer cette aide à la saisie dans la famille, ouvre
 
 ### Exemple {#quickstart:fb944e8e-6327-4ea9-8e95-9d45ceeb5624}
 
-Ci-dessous, un autre exemple d'aide à la saisie. Il concerne toujours les Fiche de non-conformité, les chapitres présentés doivent être ceux du référentiels en cours.
+Ci-dessous, un autre exemple d'aide à la saisie.
+Il concerne toujours les Fiche de non-conformité, les chapitres présentés doivent être ceux du référentiels en cours.
 
 La fonction suivante est à ajouter dans `helper_audit.php` :
 
@@ -457,7 +503,8 @@ Et complétez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` :
 
 ## Attributs calculés {#quickstart:ead89bc8-c1ce-4522-8d19-6e2d8d0dfd50}
 
-Pour finir ce chapitre, vous allez mettre en place un attribut calculé. La date de fin de l'audit doit être calculée en fonction de sa date de début et de sa durée.
+Pour finir ce chapitre, vous allez mettre en place un attribut calculé.
+La date de fin de l'audit doit être calculée en fonction de sa date de début et de sa durée.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction ci-dessous :
 
@@ -479,29 +526,37 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fon
         return "";
     }
 
-Ensuite, vous devez enregistrer la fonction dans le fichier `__STRUCT.csv`, ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut `caa_date_fin` les colonnes :
+Ensuite, vous devez enregistrer la fonction dans le fichier `__STRUCT.csv`,
+ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut `caa_date_fin` les colonnes :
 
-* `I` : pour rester cohérent il faut que la [visibilité][DocVisibilite] soit en `S` car l'utilisateur ne doit pas pouvoir modifier la date de fin,
-* `M` : `::computeDateFin(caa_date_debut,caa_duree)`. Cette cellule porte la référence vers la fonction et ces paramètres d'entrée. Le format de cet élément est explicité dans la [documentation][DocDocAttrComputed].
+-   `I` : pour rester cohérent il faut que la [visibilité][DocVisibilite] soit en `S`
+    car l'utilisateur ne doit pas pouvoir modifier la date de fin,
+-   `M` : `::computeDateFin(caa_date_debut,caa_duree)`.
+    Cette cellule porte la référence vers la fonction et ces paramètres d'entrée.
+    Le format de cet élément est explicité dans la [documentation][DocDocAttrComputed].
 
 Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
 ## Conclusion {#quickstart:8a58c628-904c-46ea-914a-f592438059c5}
 
-Vous pouvez maintenant, si ce n'est pas déjà fait, générer le paquet et le déployer et créer quelques formulaires pour voir les modifications que vous avez mis en place.
+Vous pouvez maintenant, si ce n'est pas déjà fait, générer le paquet et le déployer et créer quelques formulaires
+pour voir les modifications que vous avez mises en place.
 
 Ce chapitre de paramétrage vous a permis de rendre votre formulaire plus interactif et d'y intégrer plus de logique métier.
 
-Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamment en ajoutant des règles métier grâce aux hooks et en améliorant l'interface générée.
+Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamment
+
+-   en ajoutant des règles métier grâce aux hooks
+-   et en améliorant l'interface générée.
 
 ## Voir aussi {#quickstart:3cd0df89-9a45-46a6-86de-3d218619b8bd}
 
-* [Principales méthodes de la classe Doc][DocMethodClassDoc],
-* [Contrainte][DocDocContrainte],
-* [Attribut calculé][DocDocAttrComputed],
-* [Aide à la saisie][DocDocHelper],
-* [Valeur par défaut][DocValDefault],
-* [Propriété des familles][famProperty]
+-   [Principales méthodes de la classe Doc][DocMethodClassDoc],
+-   [Contrainte][DocDocContrainte],
+-   [Attribut calculé][DocDocAttrComputed],
+-   [Aide à la saisie][DocDocHelper],
+-   [Valeur par défaut][DocValDefault],
+-   [Propriété des familles][famProperty]
 
 <!-- links -->
 
