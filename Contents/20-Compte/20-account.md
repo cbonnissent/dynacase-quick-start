@@ -2,37 +2,56 @@
 
 ## Objectifs {#quickstart:d3ca62ec-47fb-42a9-8402-3c580a6382f7}
 
-* Utiliser l'interface d'administration pour initialiser des comptes,
-* Exporter les comptes,
-* Initialiser des comptes à l'aide des formats d'exports,
-* Produire le paquet `webinst` en important les comptes.
+-   Utiliser l'interface d'administration pour initialiser des comptes,
+-   Exporter les comptes,
+-   Initialiser des comptes à l'aide des formats d'exports,
+-   Produire le paquet `webinst` en important les comptes.
 
 ## Cadre {#quickstart:fdbc640b-3030-45f5-ad2f-486d3eead6c3}
 
 Lors de la phase de spécification, les éléments suivants ont été identifiés. L'application nécessite :
 
-* les rôles :
-    * Responsable des audits,
-    * Auditeurs,
-    * Administrateur fonctionnel.
-+ les groupes suivants :
-    + Utilisateurs COGIP,
-    + Siège de COGIP,
-    + Les 90 sites de la COGIP,
-    + DSI,
-    + Section Risque Opérationnel et Qualité.
+-   les _rôles_ :
+    -   Responsable des audits,
+    -   Auditeurs,
+    -   Administrateur fonctionnel.
+-   les _groupes_ :
+    -   Utilisateurs COGIP,
+    -   Siège de COGIP,
+    -   Les 90 sites de la COGIP,
+    -   DSI,
+    -   Section Risque Opérationnel et Qualité.
+
+De plus, une bonne pratique est de faire le lien entre les _utilisateurs_ et les _rôles_ au travers des _groupes_. Nous allons donc également créer les groupes suivants :
+
+-   Responsable des audits,
+-   Auditeurs,
+-   Administrateur fonctionnel.
 
 De plus, l'application doit être initialisée avec les utilisateurs suivants :
 
-* Jean Martin : membre de la section Risque Opérationnel et Qualité et auditeur,
-* Priscilla Arthaud : membre de la section Risque Opérationnel et Qualité et auditeur,
-* Arnaud Luc : membre de la section Risque Opérationnel et Qualité et auditeur,
-* Karine Marthe : membre de la section Risque Opérationnel et Qualité et auditeur, responsable des audit et administrateur fonctionnel,
-* Marina Arnic : responsable de la DSI et administrateur fonctionnel.
+-   Jean Martin :
+    -   section Risque Opérationnel et Qualité,
+    -   auditeur,
+-   Priscilla Arthaud : 
+    -   section Risque Opérationnel et Qualité,
+    -   auditeur,
+-   Arnaud Luc : 
+    -   section Risque Opérationnel et Qualité,
+    -   auditeur,
+-   Karine Marthe : 
+    -   section Risque Opérationnel et Qualité,
+    -   auditeur,
+    -   responsable des audit,
+    -   administrateur fonctionnel,
+-   Marina Arnic :
+    -   responsable de la DSI,
+    -   administrateur fonctionnel.
 
 ## Initialisation du premier utilisateur {#quickstart:653a946b-9655-4728-9c65-50c90bb771df}
 
-Pour initialiser les différents types de comptes le plus simple est d'utiliser l'interface web. Veuillez vous rendre sur l'interface d'administration : `http://<nomDeDomaine>/admin.php`
+Pour initialiser les différents types de comptes le plus simple est d'utiliser l'interface web.
+Veuillez vous rendre sur l'interface d'administration : `http://<nomDeDomaine>/admin.php`
 
 Et cliquer sur `Gestion des utilisateurs`
 
@@ -40,7 +59,8 @@ Et cliquer sur `Gestion des utilisateurs`
 
 Cette interface permet de créer des utilisateurs, des groupes et des rôles.
 
-<span class="flag inline nota-bene"></span> Vous pouvez replier la partie gauche de l'interface en cliquant sur le bouton tout en haut à gauche.
+<span class="flag inline nota-bene"></span> Vous pouvez replier la partie gauche de l'interface en cliquant sur le
+bouton tout en haut à gauche.
 
 Pour créer un utilisateur, veuillez cliquer sur le bouton `Créer un utilisateur`, l'interface de création apparaît :
 
@@ -48,11 +68,11 @@ Pour créer un utilisateur, veuillez cliquer sur le bouton `Créer un utilisateu
 
 Veuillez compléter le formulaire en fournissant les nom, prénom, login, mail et mot de passe de l'utilisateur :
 
-* nom : Martin,
-* prénom : Jean,
-* mail : martin.jean@quickstartcogip.com,
-* login : martin.jean,
-* mot de passe : p@ssw0rd.
+-   _nom_ : `Martin`,
+-   _prénom_ : `Jean`,
+-   _mail_ : `martin.jean@quickstartcogip.com`,
+-   _login_ : `martin.jean`,
+-   _mot de passe_ : `p@ssw0rd`.
 
 Ensuite cliquez sur le bouton `Créer`.
 
@@ -62,20 +82,23 @@ Votre utilisateur est ajouté et est affiché.
 
 Les utilisateurs ont quelques spécificités, vous pouvez :
 
-* modifier les groupes dans lequel l'utilisateur est présent (via le menu `Gestion du compte`),
-* ajouter un suppléant à l'utilisateur en cours, le suppléant possède tous les droits de l'utilisateur,
-* indiquer une date d'expiration du compte, passé cette date le compte est désactivé et l'utilisateur ne peut plus se connecter à plateforme,
-* désactiver le compte à l'aide du menu `Compte`.
+-   modifier les groupes dans lequel l'utilisateur est présent (via le menu `Gestion du compte`),
+-   ajouter un suppléant à l'utilisateur en cours, le suppléant possède tous les droits de l'utilisateur,
+-   indiquer une date d'expiration du compte, passé cette date le compte est désactivé et l'utilisateur
+    ne peut plus se connecter à plateforme,
+-   désactiver le compte à l'aide du menu `Compte`.
 
 ## Export du premier utilisateur {#quickstart:137414aa-e378-4ece-b343-6e0ddc4d27c0}
 
 Vous allez maintenant exporter cet utilisateur pour pouvoir l'importer avec le paquet d'installation.
 
-Tous les éléments nécessaires au paramétrage de l'application doivent être importés pour permettre les installations et mises à jour de l'application dans divers environnements (développement, pré-production, production).
+Tous les éléments nécessaires au paramétrage de l'application doivent être importés pour permettre les installations et
+mises à jour de l'application dans divers environnements (développement, pré-production, production).
 
 ### Mise en place du nom logique {#quickstart:6124a031-bc16-4182-ae7e-9b659b918905}
 
-Pour pouvoir référencer l'utilisateur entre les différents contextes, vous allez lui attribuer un **nom logique**. Le nom logique (chaîne de caractère) est un identifiant unique au sein d'un contexte.  Il permet de retrouver le document.
+Pour pouvoir référencer l'utilisateur entre les différents contextes, vous allez lui attribuer un **nom logique**.
+Le nom logique (chaîne de caractères) est un identifiant unique au sein d'un contexte. Il permet de retrouver le document.
 
 Vous devez cliquer sur le menu `Autres` et le sous-menu `Propriétés` de la fiche utilisateur.
 
@@ -83,7 +106,8 @@ Le formulaire suivant est affiché :
 
 ![ Utilisateur : nom logique ](20-10-user-logical-name.png "Utilisateur : nom logique")
 
-Pour compléter le nom logique, veuillez cliquer sur `affecter un nom logique`. Un champ apparaît et vous allez rentrer le nom logique `USER_JEAN_MARTIN` et ensuite cliquer sur `Nom à appliquer`.
+Pour compléter le nom logique, veuillez cliquer sur `affecter un nom logique`.
+Un champ apparaît et vous allez saisir le nom logique `USER_JEAN_MARTIN` et ensuite cliquer sur `Nom à appliquer`.
 
 L'interface de saisie du nom logique est présentée à nouveau avec cette fois le nom logique affiché en son centre.
 
@@ -99,21 +123,23 @@ La fenêtre suivante s'ouvre :
 
 Cette fenêtre affiche les documents qui vont être exportés.
 
-Veuillez ensuite cliquer sur `Outils` `Exportation du dossier`, la fenêtre suivante s'ouvre :
+Veuillez ensuite cliquer sur `Outils > Exportation du dossier`, la fenêtre suivante s'ouvre :
 
 ![ Utilisateur : export ](20-10-user-export2.png "Utilisateur : export")
 
-<span class="flag inline nota-bene"></span> Si la fenêtre ne s'ouvre pas, veuillez regarder dans l'application `Gestion des documents` `Explorateur de documents`.
+<span class="flag inline nota-bene"></span> Si la fenêtre ne s'ouvre pas, veuillez regarder dans l'application
+`Gestion des documents > Explorateur de documents`.
 
 Veuillez cliquer sur `Exporter` en laissant les options par défaut.
 
 Un fichier CSV vous est proposé au téléchargement, celui-ci est encodé avec les paramètres suivants :
 
-* Jeu de caractères : `UTF8`,
-* Séparateur de cellule : `;`,
-* Séparateur de texte : `` (chaîne vide).
+-   Jeu de caractères : `UTF8`,
+-   Séparateur de cellule : `;`,
+-   Séparateur de texte : `"`.
 
 Le logiciel conseillé pour ouvrir ces documents est Libre Office. Avec ce logiciel, le fenêtre de paramétrage avant ouverture du fichier est :
+<span class="fixme flag inline">mettre à jour la capture pour le délimiteur</span>
 
 ![ Utilisateur : export ](20-10-user-export3.png "Utilisateur : export")
 
@@ -121,67 +147,81 @@ Vous retrouvez ensuite le contenu suivant :
 
 ![ Utilisateur : CSV ](20-10-user-export4.png "Utilisateur : CSV")
 
-Ce fichier contient l'ensemble des valeurs contenues dans la fiche utilisateur à l'exception des mots de passe qui, étant encodés en base, ne sont pas exportables.
+Ce fichier contient l'ensemble des valeurs contenues dans la fiche utilisateur à l'exception des mots de passe qui,
+étant encodés en base, ne sont pas exportables.
 
 ### Format d'export {#quickstart:9f1e3e32-bb48-4e6b-807a-37ff31c0f705}
 
 Le format d'export CSV repose sur quelques mots clefs, les deux mots utilisés dans le fichier produit sont :
 
-* `DOC` : le mot clef doc indique que toute la ligne contient des valeurs à associer à un document existant ou à créer,
-* `ORDER` : le mot clef order indique à quoi correspond le contenu de chaque colonne.
+-   `DOC` : le mot clef doc indique que toute la ligne contient des valeurs à associer à un document existant ou à créer,
+-   `ORDER` : le mot clef order indique à quoi correspond le contenu de chaque colonne.
 
 Vous devez ensuite supprimer les colonnes qui ne sont pas utiles.
 
-<span class="flag inline nota-bene"></span> **Il est nécessaire de supprimer au moins la colonne us_whatid**, en effet cette colonne contient la référence interne vers l'utilisateur. Elle n'est d'aucune utilité et cause des incompatibilités à l'import sur une autre base.
+<span class="flag inline nota-bene"></span> **Il est nécessaire de supprimer au moins la colonne `us_whatid`**.
+En effet cette colonne contient la référence interne vers l'utilisateur.
+Elle n'est d'aucune utilité et cause des incompatibilités à l'import sur une autre base.
 
 Dans notre cas, vous allez conserver uniquement les colonnes correspondant aux éléments que vous avez complétés ci-dessus, soit :
 
-* les 4 premières colonnes,
-* Nom : `us_lname`,
-* Prénom : `us_fname`,
-* Mail : `us_mail`,
-* Login : `us_login`,
-* Nouveau mot de passe : `us_passwd1`,
-* Confirmation mot de passe : `us_passwd2`.
+-   les 4 premières colonnes,
+-   _Nom_ : `us_lname`,
+-   _Prénom_ : `us_fname`,
+-   _Mail_ : `us_mail`,
+-   _Login_ : `us_login`,
+-   _Nouveau mot de passe_ : `us_passwd1`,
+-   _Confirmation mot de passe_ : `us_passwd2`.
 
 Une fois le fichier nettoyé vous obtenez les lignes suivantes :
 
 ![ Utilisateur : CSV ](20-10-user-export5.png "Utilisateur : CSV")
 
-Vous devez ensuite enregistrer le fichier dans les sources du projet que vous avez initialisé précédemment. Utilisez la sauvegarde de votre tableur, les options de sauvegarde doivent être similaire à celle de lecture :
+Vous devez ensuite enregistrer le fichier dans les sources du projet que vous avez initialisé précédemment.
+Utilisez la sauvegarde de votre tableur, les options de sauvegarde doivent être similaire à celle de lecture :
 
-* Jeu de caractères : `UTF8`,
-* Séparateur de cellule : `;`,
-* Séparateur de texte : `` (chaîne vide).
+-   Jeu de caractères : `UTF8`,
+-   Séparateur de cellule : `;`,
+-   Séparateur de texte : `"`.
 
-<span class="flag inline nota-bene"></span> Ces réglages doivent être utilisés pour tous les fichiers `CSV` au sein du tutoriel.
+<span class="flag inline nota-bene"></span> Ces réglages doivent être utilisés pour tous les fichiers `CSV` du tutoriel.
 
-Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IUSER_INIT_DATA.csv`.
+Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IUSER__INIT_DATA.csv`.
 
-<span class="flag inline nota-bene"></span> Le nom est normalement laissé à votre appréciation. Dans le cadre de ce tutoriel, nous utilisons une nomenclature qui vous est présentée en [annexe][annexe].
+<span class="flag inline nota-bene"></span> Le nom est normalement laissé à votre appréciation.
+Dans le cadre de ce tutoriel, nous utilisons une nomenclature qui vous est présentée en [annexe][annexe].
 
 Il vous reste à ajouter l'instruction d'import du fichier dans le fichier `info.xml`. 
 
 Ce fichier déclare les actions réalisées lors de l'installation ou la mise à jour du paquet. Vous allez donc ajouter la ligne suivante pour demander l'import des utilisateurs :
 
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
+    [xml]
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
 
 entre les lignes :
 
+    [xml]
     <process command="programs/record_application COGIP_AUDIT" />
     <process command="programs/update_catalog" />
 
 ## Ajout des autres utilisateurs {#quickstart:28c4dbb7-97ea-4902-94ca-7e04db2d6d43}
 
-Vous pouvez utiliser l'interface pour créer les autres utilisateurs. Ce fonctionnement est assez vite fastidieux. Vous allez donc créer les autres utilisateurs directement en modifiant le fichier `IUSER_INIT_DATA.csv`.
+Vous pouvez utiliser l'interface pour créer les autres utilisateurs. Ce fonctionnement est assez vite fastidieux.
+Vous allez donc créer les autres utilisateurs directement en modifiant le fichier `IUSER__INIT_DATA.csv`.
 
-Ouvrez le et faites un copié collé de la première ligne commençant par DOC (ligne 3) et vous complétez avec le listing d'utilisateurs identifiés pendant la phase de spécification.
+Ouvrez le et faites un copié collé de la première ligne commençant par DOC (ligne 3) et vous complétez avec le listing
+d'utilisateurs identifiés pendant la phase de spécification.
 
-Vous devez obtenir un résultat similaire à : 
+<span class="flag inline nota-bene"></span> Comme cela a déjà été dit, le nom logique (colonne 3) doit être unique pour
+chaque utilisateur. Il faut donc bien penser à changer le nom logique des lignes ainsi obtenues, en plus des éléments
+tels que nom, prénom…
+
+Vous devez obtenir un résultat similaire à :
 
 ![ Utilisateur : CSV ](20-10-user-export6.png "Utilisateurs : CSV")
 
-Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation, les utilisateurs que vous avez ajoutés ici seront ajoutés à la base. <span class="flag fixme">¿ stratégie d'initialisation ?</span>
+Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation, les utilisateurs que vous avez
+ajoutés ici seront ajoutés à la base. <span class="flag fixme">¿ stratégie d'initialisation ?</span>
 
 ## Création des groupes {#quickstart:78e478c8-e1bf-4766-9ae1-de45e13e3068}
 
@@ -193,70 +233,77 @@ Retournez dans l'interface d'administration, cliquez sur gestion des utilisateur
 
 Appuyez ensuite sur `Créer un groupe d'utilisateur`, un formulaire est affiché. Vous devez compléter les deux champs obligatoires :
 
-* Nom : Utilisateurs COGIP,
-* Identifiant : GRP_USER_COGIP.
+-   _Nom_ : `Utilisateurs COGIP`,
+-   _Identifiant_ : `GRP_USER_COGI`P.
 
 Appuyez ensuite sur le bouton `Créer`.
 
 Ajoutez un nom logique à ce groupe, `Autres > Propriétés > Affecter un nom logique`.
 
-* Nom logique : `GRP_USER_COGIP`
+-   Nom logique : `GRP_USER_COGIP`
 
 Ensuite, vous allez exporter le groupe, `Autres > Ajouter au porte-documents`. Le porte-documents s'ouvre :
 
 ![ Groupe ](20-10-group-creation2.png "Groupe")
 
-Vous pouvez remarquer qu'il reste dans le porte-documents l'utilisateur précédemment sélectionné. Le porte-documents permet d'exporter plusieurs documents en une seule fois. Dans votre cas, vous allez l'enlever du porte-documents, en faisant un clic droit sur le document `Martin Jean` et en cliquant sur le menu `Supprimer la référence`.
+Vous pouvez remarquer qu'il reste dans le porte-documents l'utilisateur précédemment sélectionné.
+Le porte-documents permet d'exporter plusieurs documents en une seule fois.
+Dans votre cas, vous allez l'enlever du porte-documents, en faisant un clic droit sur le document `Martin Jean` et en
+cliquant sur le menu `Supprimer la référence`.
 
 Cliquez ensuite sur `Outils > Exportation du dossier` et sur le bouton `Exporter` dans l'interface suivante.
 
 Un fichier CSV vous est retourné comme précédemment.
 
-Ouvrez le et supprimez les colonnes non nécessaires; vous ne gardez que :
+Ouvrez le et supprimez les colonnes non nécessaires pour ne garder que :
 
-* les 4 premières colonnes,
-* la colonne Nom : `grp_name`,
-* la colonne Identifiant : `us_login`.
+-   les 4 premières colonnes,
+-   la colonne _Nom_ : `grp_name`,
+-   la colonne _Identifiant_ : `us_login`.
 
-Enregistrez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IGROUP_INIT_DATA.csv`.
+Enregistrez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IGROUP__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier `info.xml` l'instruction suivante :
-`<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>`
+`<process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>`
 
 Les groupes contenant les utilisateurs, ils doivent être importés *avant* les utilisateurs.
 
 Ce qui donne l'ordre suivant pour la procédure d'installation :
 
     <process command="programs/record_application COGIP_AUDIT" />
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
     <process command="programs/update_catalog" />
 
 Pour créer les autres groupes, de la même manière que pour les utilisateurs, vous pouvez dupliquer la 3ème ligne.
 
-Vous obtenez un listing semblable au suivant :
+Vous obtenez un listing semblable au suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
 
 ![ Liste des groupes ](20-10-group-creation3.png "Liste des groupes")
 
-Vous devez maintenant construire la hiérarchie des groupes. La colonne `D` permet d'indiquer qu'un groupe est contenu dans un autre. Tous les groupes sont contenus dans le groupe `GRP_USER_COGIP`, vous allez donc compléter la colonne `D` pour l'indiquer.
+Vous devez maintenant construire la hiérarchie des groupes. La colonne `D` permet d'indiquer qu'un groupe est contenudans un autre.
+Tous les groupes sont contenus dans le groupe `GRP_USER_COGIP`, vous allez donc compléter la colonne `D` pour l'indiquer.
 
-Vous obtenez un listing semblable au suivant :
+Vous obtenez un listing semblable au suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
 
 ![ Liste des groupes ](20-10-group-creation4.png "Liste des groupes")
 
-<span class="flag inline nota-bene"></span> Vous pouvez associer un groupe à plusieurs groupes parents. La ligne définissant le groupe est dupliquée en ne conservant que les quatre premières colonnes. La colonne `D` est modifiée avec le nouveau groupe parent. Vous pouvez effectuer cette opération autant de fois que nécessaire.
+<span class="flag inline nota-bene"></span> Vous pouvez associer un groupe à plusieurs groupes parents.
+La ligne définissant le groupe est dupliquée en ne conservant que les quatre premières colonnes.
+La colonne `D` est modifiée avec le nouveau groupe parent. Vous pouvez effectuer cette opération autant de fois que nécessaire.
 
 ## Association des utilisateurs aux groupes {#quickstart:0ac2eeca-c96e-46fc-b79f-4bf77404cc93}
 
-L'association des utilisateurs aux groupes se passe de la même manière. Veuillez ouvrir le fichier `IUSER_INIT_DATA.csv` et compléter la colonne `D` pour indiquer pour chaque utilisateur à quel groupe il appartient.
+L'association des utilisateurs aux groupes se passe de la même manière. Veuillez ouvrir le fichier `IUSER__INIT_DATA.csv`
+et compléter la colonne `D` pour indiquer pour chaque utilisateur à quel groupe il appartient.
 
-Soit :
+Soit :<span class="fixme flag inline">à compléter avec les nouveaux groupes (liés aux rôles)</span>
 
-* `USER_JEAN_MARTIN` : `GRP_QUALITE_COGIP`,
-* `USER_PRISCILLA_ARTHAUD` : `GRP_QUALITE_COGIP`,
-* `USER_ARNAUD_LUC` : `GRP_QUALITE_COGIP`,
-* `USER_KARINE_MARTHE` : `GRP_QUALITE_COGIP`,
-* `USER_MARINA_ARNIC` : `GRP_DSI_COGIP`.
+-   `USER_JEAN_MARTIN` : `GRP_QUALITE_COGIP`,
+-   `USER_PRISCILLA_ARTHAUD` : `GRP_QUALITE_COGIP`,
+-   `USER_ARNAUD_LUC` : `GRP_QUALITE_COGIP`,
+-   `USER_KARINE_MARTHE` : `GRP_QUALITE_COGIP`,
+-   `USER_MARINA_ARNIC` : `GRP_DSI_COGIP`.
 
 et sauvez le fichier.
 
@@ -270,15 +317,15 @@ Pour cela, retournez dans l'interface d'administration, cliquez sur gestion des 
 
 Appuyez ensuite sur `Créer un Rôle`, un formulaire est affiché. Vous devez compléter le champ obligatoire :
 
-* Libellé : Responsable des audits.
+-   _Libellé_ : `Responsable des audits`.
 
 Appuyez ensuite sur le bouton `Créer`.
 
 Ajouter un nom logique à ce rôle, `Autres > Propriétés > Affecter un nom logique`.
 
-* Nom logique : `ROLE_RESPONSABLE_AUDITS`
+-   _Nom logique_ : `ROLE_RESPONSABLE_AUDITS`
 
-Ensuite, vous allez exporter le rôle, `Autres` `Ajouter au porte-documents`. Le porte-documents s'ouvre :
+Ensuite, vous allez exporter le rôle, `Autres > Ajouter au porte-documents`. Le porte-documents s'ouvre :
 
 Pensez à supprimer du porte-documents le groupe précédemment ajouté en faisant un clic droit sur le document  et en cliquant sur le menu `Supprimer la référence`.
 
@@ -286,25 +333,25 @@ Cliquez ensuite sur `Outils > Exportation du dossier` et sur le bouton `Exporter
 
 Un fichier CSV vous est retourné.
 
-Ouvrez le et supprimez les colonnes inutiles, en ne gardant que :
+Ouvrez le et supprimez les colonnes inutiles, pour ne garder que :
 
-* les 4 premières,
-* Référence : `role_login`,
-* Libellé : `role_name`.
+-   les 4 premières colonnes,
+-   _Référence_ : `role_login`,
+-   _Libellé_ : `role_name`.
 
-Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `ROLE_INIT_DATA.csv`.
+Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `ROLE__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier info.xml l'instruction suivante : 
-`<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>`
+`<process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>`
 
 Les rôles pouvant être associés aux groupes et aux utilisateurs, ils doivent être importés en premier.
 
 Ce qui donne pour la procédure d'installation :
 
     <process command="programs/record_application COGIP_AUDIT" />
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv"/>
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>
+    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
     <process command="programs/update_catalog" />
 
 En procédant comme pour les utilisateurs ou les groupes, vous allez initialiser les autres rôles (duplication de la ligne contenant l'instruction `DOC`).
@@ -317,24 +364,18 @@ Après ajout des rôles définis lors de la phase de d'analyse, on obtient :
 
 Vous allez maintenant conclure la partie pratique de ce chapitre en associant les rôles aux utilisateurs et aux groupes.
 
-Cette association se fait dans les fichiers de définition des groupes et des utilisateurs.
+<span class="flag inline nota-bene"></span> Afin de garantir une meilleure évolutivité de l'application, il est
+de systématiquement passer par un _groupe_ pour faire l'association entre _utilisateurs_ et _rôles_. Ainsi, les
+administrateurs n'ont pas à gérer ls rôles, mais uniquement l'appartenance des utilisateurs aux groupes.
 
-Dans le fichier `IUSER_INIT_DATA.csv`, vous allez ajouter une colonne nommée `us_roles` après la colonne `us_passwd2`.
+Cette association se fait dans les fichiers de définition des groupes.
 
-Cette colonne contient la liste des rôles associés à un utilisateur. Le séparateur de liste est le `\n`.
+Dans le fichier `IGROUP__INIT_DATA.csv`, vous allez ajouter une colonne nommée `grp_roles` après la colonne `us_passwd2`.
 
-Conformément à l'étape d'analyse, vous avez les liens suivants à établir :
-
-* Karine Marthe : responsable des audit et administrateur fonctionnel,
-* Marina Arnic : administrateur fonctionnel.
-
-Ce qui donne le résultat suivant : 
-
-![ Rôle association ](20-10-role-association.png "Rôle association")
-
-Pour les groupes, vous devez ouvrir le fichier `IGROUP_INIT_DATA.csv` et de la même manière ajouter une colonne `grp_roles`.
-
-L'analyse a mis en évidence que tous les membres du groupe `Section Risque Opérationnel et Qualité` sont auditeurs. Vous allez donc affecter le rôle à ce groupe. Ce qui donne le résultat suivant :
+L'analyse a mis en évidence que tous les membres du groupe `Section Risque Opérationnel et Qualité` sont auditeurs.
+Vous allez donc affecter le rôle à ce groupe.  
+De plus, _Karine Marthe_ et _Marina Arnic_ sont _administrateur fonctionnel_, et _Karine Marthe_ est _responsable des audit_.
+Ce qui donne le résultat suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
 
 ![ Rôle association ](20-10-role-association2.png "Rôle association")
 
@@ -342,20 +383,24 @@ L'analyse a mis en évidence que tous les membres du groupe `Section Risque Opé
 
 Vous allez maintenant déployer vos modifications. Il y a pour cela deux manières de faire :
 
-* vous pouvez construire le paquet `webinst` et le déployer en choisissant la stratégie `install`,
-* vous pouvez déployer manuellement les fichiers que vous avez produit à l'aide de l'interface d'administration.
+-   vous pouvez construire le paquet `webinst` et le déployer en choisissant la stratégie `install`,
+-   vous pouvez déployer manuellement les fichiers que vous avez produit à l'aide de l'interface d'administration.
 
 <span class="flag inline nota-bene"></span> L'import manuel est destiné à des phases de développement, ou de test ou des importations ponctuelles.
 
-Vous allez commencer par déployer manuellement le premier fichier. Veuillez sélectionner dans l'interface d'administration `Gestion des documents > Importations de documents`. L'interface présentée est la suivante :
+Vous allez commencer par déployer manuellement le premier fichier.
+Veuillez sélectionner dans l'interface d'administration `Gestion des documents > Importations de documents`.
+L'interface présentée est la suivante :
 
 ![ Importation manuelle ](20-10-import.png "Importation manuelle")
 
-Veuillez sélectionner votre fichier, `ROLE_INIT_DATA.csv`, et ensuite cliquer sur `Lancer l'analyse`. La mécanique d'import manuel passe toujours par une phase d'analyse permettant de contrôler si un fichier est importable.
+Veuillez sélectionner votre fichier, `ROLE__INIT_DATA.csv`, et ensuite cliquer sur `Lancer l'analyse`.
+La mécanique d'import manuel passe toujours par une phase d'analyse permettant de contrôler si un fichier est importable.
 
 ![ Importation manuelle : analyse ](20-10-import-valid.png "Importation manuelle : analyse")
 
-Le fichier d'import est valide. L'analyse indique qu'un document est mis à jour manuellement et deux autres ajoutés. Ce qui correspond à ce que vous avez fait en créant le premier document manuellement et créant les autres dans le fichier.
+Le fichier d'import est valide. L'analyse indique qu'un document est mis à jour manuellement et deux autres ajoutés.
+Ce qui correspond à ce que vous avez fait en créant le premier document manuellement et créant les autres dans le fichier.
 
 Cliquez ensuite sur `Importer les documents maintenant`. Le panneau de gauche se met à jour et vous indique le compte rendu de l'import.
 
@@ -365,21 +410,26 @@ Vous pouvez maintenant vous rendre dans la gestion des utilisateurs pour voir vo
 
 Pour les deux autres éléments, vous allez produire le paquet.
 
-Pour ce faire, veuillez utiliser le **developper toolkit**, cliquer sur le bouton `webinst`, sélectionner le path où sont les sources et ensuite cliquer sur le bouton `build`.<span class="flag fixme"></span>
+Pour ce faire, veuillez utiliser le **developper toolkit**, cliquer sur le bouton `webinst`,
+sélectionner le path où sont les sources et ensuite cliquer sur le bouton `build`.<span class="flag fixme"></span>
 
-Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`. Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`. Le paquet se déploie et vous pouvez voir vos différents fichiers `csv` qui sont traités.
+Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
+Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`.
+Le paquet se déploie et vous pouvez voir vos différents fichiers `csv` qui sont traités.
 
-Vous pouvez maintenant vous rendre dans la gestion des utilisateurs : 
+Vous pouvez maintenant vous rendre dans la gestion des utilisateurs :
 
 ![ Importation : résultat ](20-10-import-result.png "Importation : résultat")
 
 Vous pouvez voir que les groupes ont été ajoutés, l'arborescence respectée et les différents rôles associés.
 
-<span class="flag inline nota-bene"></span>  le recalcul de l'arborescence des groupes et des droits est asynchrone, il peut y avoir un décalage de quelques minutes entre l'installation du paquet et l'arrivée des données sur le contexte.
+<span class="flag inline nota-bene"></span>  le recalcul de l'arborescence des groupes et des droits est asynchrone,
+il peut y avoir un décalage de quelques minutes entre l'installation du paquet et l'arrivée des données sur le contexte.
 
 ## Conclusion {#quickstart:ebfe623e-99c3-4b85-92a5-a790685b3e7e}
 
-Dans ce chapitre, vous avez parcouru l'ensemble des techniques pour créer, associer et importer les différents éléments nécessaires à la gestion des comptes Dynacase.
+Dans ce chapitre, vous avez parcouru l'ensemble des techniques pour créer, associer et importer les différents éléments
+nécessaires à la gestion des comptes Dynacase.
 
 Ces éléments vous serviront dans toutes les autres phases de vos projets pour fixer les droits, définir des vues particulières, etc.
 
@@ -387,10 +437,10 @@ Ces éléments vous serviront dans toutes les autres phases de vos projets pour 
 
 Vous pouvez consulter les chapitres suivants de la documentation :
 
-* [les comptes][docCompte],
-* [le format d'import CSV][formatCSV],
-* [les sources avant le tutoriel][githubSourceBefore].
-* [les sources après le tutoriel][githubSourceAfter].
+-   [les comptes][docCompte],
+-   [le format d'import CSV][formatCSV],
+-   [les sources avant le tutoriel][githubSourceBefore].
+-   [les sources après le tutoriel][githubSourceAfter].
 
 <!-- links -->
 

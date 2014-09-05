@@ -4,39 +4,46 @@ Vous allez écrire une série d'action réalisant une nouvelle interface de cons
 
 ## Objectifs {#quickstart:f25d1dac-345b-4eff-a278-994f8e57ca7d}
 
-* Créer une action retournant une liste de document en JSON,
-* Créer une interface représentant une liste de documents.
+-   Créer une action retournant une liste de document en JSON,
+-   Créer une interface représentant une liste de documents.
 
 ## Cadre {#quickstart:a37beb82-63ba-4295-95c7-4833b7974e5b}
 
-Vos utilisateurs sont conquis par les formulaires que vous avez réalisé dans les chapitres précédents. Toutefois, ils trouvent que l'interface d'accès par défaut pourraient être plus design et vous demande de faire une nouvelle proposition.
+Vos utilisateurs sont conquis par les formulaires que vous avez réalisé dans les chapitres précédents.
+Toutefois, ils trouvent que l'interface d'accès par défaut pourrait être plus design
+et vous demandent de faire une nouvelle proposition.
 
-La COGIP étant une entreprise moderne votre parc de machine est à jour et tous les utilisateurs ont des navigateurs à jour (IE, chrome et firefox dernière version). Vous allez donc construire une nouvelle interface qui ne supporte que les navigateurs les plus récents mais qui est plus design.
+La COGIP étant une entreprise moderne votre parc de machine est à jour
+et tous les utilisateurs ont des navigateurs à jour (IE, chrome et firefox dernière version). 
+Vous allez donc construire une nouvelle interface qui ne supporte que les navigateurs les plus récents,
+mais qui est plus design.
 
 Vous allez mettre en place deux actions :
 
-* une générale qui représente l'interface dans son ensemble et son fonctionnement,
-* une qui représente une liste de documents.
+-   une générale qui représente l'interface dans son ensemble et son fonctionnement,
+-   une qui représente une liste de documents.
 
 Pour vous simplifier la tâche, vous avez décidé d'utiliser deux librairies externes :
 
-* [jQuery][jQuery] pour manipuler le DOM et faire des requêtes Ajax,
-* [Foundation][zurbFoundation] pour la mise en forme et quelques widgets d'interface.
+-   [jQuery][jQuery] pour manipuler le DOM et faire des requêtes Ajax,
+-   [Foundation][zurbFoundation] pour la mise en forme et quelques widgets d'interface.
 
 ## Théorie {#quickstart:95a30037-1946-457e-b883-9f0e2d7df865}
 
 Les actions impliquent trois concepts :
 
-* Application : une application contient :
+-   Application : une application contient :
     - des actions,
     - des paramètres applicatifs, ceux-ci sont de trois genres :
-        + basique : le paramètre a une valeur et est accédé en faisant référence à son application et son nom,
-        + global : le paramètre a une valeur et est accédé en faisant uniquement appel à son nom,
-        + utilisateur : le paramètre a une valeur par utilisateur.
-* Action : elle est composée de :
+        -   basique : le paramètre a une valeur et est accédé en faisant référence à son application et son nom,
+        -   global : le paramètre a une valeur et est accédé en faisant uniquement appel à son nom,
+        -   utilisateur : le paramètre a une valeur par utilisateur.
+-   Action : elle est composée de :
     - un fichier PHP contenant une fonction qui est exécutée à l'appel de l'action,
     - un layout (optionnel) qui facilite le rendu de l'action,
-* [ACL][DocumentationACL] : un ACL est un droit qui peut-être associé à une action dans ce cas seul les utilisateurs possédant cet ACL (directement ou via les rôles ou les groupes qu'ils possèdent) peuvent effectuer cette action.
+-   [ACL][DocumentationACL] : un ACL est un droit qui peut-être associé à une action.
+    Dans ce cas seul les utilisateurs possédant cet ACL (directement ou via les rôles ou les groupes qu'ils possèdent)
+    peuvent effectuer cette action.
 
 Une fois l'action déclarée, elle peut être appelée de la manière suivante :
 
@@ -44,7 +51,8 @@ Une fois l'action déclarée, elle peut être appelée de la manière suivante :
 
 ## Ajout des librairies externes {#quickstart:faab6a06-0d73-495e-ae50-4c1bf34382dd}
 
-Vous allez ajouter les librairies dans le paquet. Vous pouvez trouver les fichiers ayant servi à la réalisation du tutoriel ici.
+Vous allez ajouter les librairies dans le paquet.
+Vous pouvez trouver les fichiers ayant servi à la réalisation du tutoriel <span class="fixme flag inline">ici</span>.
 
 Vous devez obtenir une arborescence similaire à :
 
@@ -71,9 +79,9 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$app_a
 
 L'ACL est composée :
 
-* d'un nom logique,
-* d'une description traduite,
-* d'une instruction pour que cette ACL soit par défaut donnée aux utilisateurs de la plateforme.
+-   d'un nom logique,
+-   d'une description traduite,
+-   d'une instruction pour que cette ACL soit par défaut donnée aux utilisateurs de la plateforme.
 
 ## Action : liste de document {#quickstart:58681a59-74f9-4a6f-abc3-a8dd8c3bc590}
 
@@ -87,7 +95,8 @@ Ce fragment va (une fois intégré dans la page complète) aura le rendu suivant
 
 ### Enregistrement de l'action {#quickstart:76d495c9-a264-4c73-9c67-18b559552868}
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$action_desc` pour qu'il contienne les entrées suivantes :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$action_desc`
+pour qu'il contienne les entrées suivantes :
 
     [php]
     $action_desc = array(
@@ -103,14 +112,29 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT.app` et modifiez le tableau `$actio
 
 La nouvelle action comporte les éléments suivants :
 
-* nom logique : `DOCUMENT_LIST`, celui-ci est utilisé dans les URL d'appel de l'action,
-* description : `N_("coa:document list")` : la description est utilisée dans les interfaces pour faire référence à l'action elle est traduite,
-* script : `action.document_list.php`, c'est le fichier PHP qui va contenir le code de l'action,
-* fonction : `document_list`, c'est la fonction du fichier PHP qui est appelée lors du lancement de l'action, cette fonction doit être contenu dans le fichier script,
-* layout : `document_list.html`, c'est le template de l'action,
-* acl : c'est la référence vers une ACL que les utilisateurs voulant exécuter l'action doivent avoir.
+`"name" => "DOCUMENT_LIST"`
+:   Le nom logique de l'application. Il est utilisé dans les URL d'appel de l'action.
 
-<span class="flag inline nota-bene"></span> Toutes les entrées du tableau `$action_desc` sont décrites dans la [documentation][DocumentationEnregistrementAction].
+`"short_name" => N_("coa:document list")`
+:   la description de l'application.
+    Elle est utilisée dans les interfaces pour faire référence à l'action.
+    Elle est traduite.
+
+`"script" => "action.document_list.php"`
+:   Le fichier PHP qui va contenir le code de l'action.
+
+`"function" => "document_list"`
+-   La fonctionphp qui est appelée lors du lancement de l'action.
+    Cette fonction doit être contenue dans le fichier script.
+
+`"layout" => "document_list.html"`
+:   Le template de l'action.
+
+`"acl" => "BASIC"`
+:   Le nom d'une ACL que les utilisateurs voulant exécuter l'action doivent avoir.
+
+<span class="flag inline nota-bene"></span>
+Toutes les entrées du tableau `$action_desc` sont décrites dans la [documentation][DocumentationEnregistrementAction].
 
 #### Ajout des fichiers {#quickstart:6af4c944-b263-484b-9615-0e044baac3e4}
 
@@ -162,7 +186,10 @@ Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit con
                 $audits[] = array(
                     "TITLE" => $currentAudit->getTitle(),
                     "INITID" => $currentAudit->getPropertyValue("initid"),
-                    "URL" => sprintf("?app=FDL&action=OPENDOC&id=%d&mode=view&latest=Y", $currentAudit->getPropertyValue("initid")),
+                    "URL" => sprintf(
+                        "?app=FDL&action=OPENDOC&id=%d&mode=view&latest=Y",
+                        $currentAudit->getPropertyValue("initid")
+                    ),
                     "STATE" => $currentAudit->getStatelabel(),
                     "COLOR" => $currentAudit->getStateColor()
                 );
@@ -188,22 +215,35 @@ Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit con
 
 Le code ci-dessus a les spécificités suivantes :
 
-* [ActionUsage][DocumentationActionUsage] : le code utilise une instance d'action usage, cette classe permet d'analyser les paramètres passés à l'action (que ça soit en CLI ou WEB) et de vérifier que tous les paramètres nécessaires sont bien présents. Dans votre cas, les paramètres sont :
-    * type : permet de définir si vous souhaitez avoir les audits dans un état terminal (annulé, certifié, etc.) ou en cours d'audit (brouillon, rédaction),
-    * offset : la liste est dotée d'un tourne page, l'offset indique le numéro de la page souhaitée,
-    * slice : le slice est la taille d'une page,
-    * keyword : la liste peut-être filtrée par un mot clef sur les titres des documents.
-+ l'action effectue ensuite une recherche sur les audits et prépare un tableau qui contient une entrée par audit trouvé et pour chacune de ces entrées prépare :
-    + le titre de l'audit,
-    + son identifiant de lignée (initid),
-    + l'url d'accès au document, celle-ci utilise l'action [openDoc][DocumentationOpenDoc],
-    + l'étape en cours du document,
-    + la couleur de l'étape en cours du document,
-+ finalement, l'action met en place des variables pour le moteur de template, celles-ci vont servir dans le template décrit ci-dessous. Les variables sont affectées avec les fonctions [eSet][DocumentationeSet] et [eSetBlockData][DocumentationeSetBlockData] pour éviter l'injection HTML.
+-   [ActionUsage][DocumentationActionUsage] : le code utilise une instance d'`[ActionUsage][DocumentationActionUsage].
+    Cette classe permet d'analyser les paramètres passés à l'action (que ça soit en CLI ou WEB)
+    et de vérifier que tous les paramètres nécessaires sont bien présents.  
+    Dans votre cas, les paramètres sont :
+    -   `type` : permet de définir si vous souhaitez avoir les audits dans un état
+        -   _terminal_ (_annulé_, _certifié_, etc.)
+        -   ou _en cours d'audit_ (_brouillon_, _rédaction_),
+    -   `offset` : la liste est dotée d'un tourne page, l'offset indique le numéro de la page souhaitée,
+    -   `slice` : le slice est la taille d'une page,
+    -   `keyword` : la liste peut-être filtrée par un mot clef sur les titres des documents.
+-   l'action effectue ensuite une recherche sur les audits
+    et prépare un tableau qui contient une entrée par audit trouvé et pour chacune de ces entrées prépare :
+    -   le titre de l'audit,
+    -   son identifiant de lignée (initid),
+    -   l'url d'accès au document, celle-ci utilise l'action `[openDoc][DocumentationOpenDoc]`,
+    -   l'étape en cours du document,
+    -   la couleur de l'étape en cours du document,
+-   finalement, l'action met en place des variables pour le moteur de template, qui vont servir dans le template
+    décrit ci-dessous. Les variables sont affectées avec les fonctions [eSet][DocumentationeSet]
+    et [eSetBlockData][DocumentationeSetBlockData] pour éviter l'injection HTML.
 
-<span class="flag inline nota-bene"></span> Vous avez pu remarquer que la recherche demande un document de plus que nécessaire, cela permet de savoir si le bouton suivant du tourne-page doit être activé ou pas.
+<span class="flag inline nota-bene"></span>
+Vous avez pu remarquer que la recherche demande un document de plus que nécessaire,
+cela permet de savoir si le bouton suivant du tourne-page doit être activé ou pas.
 
-<span class="flag inline nota-bene"></span> L'affectation du layout au moteur de template et le rendu du template sont automatiques. Si toutefois, vous n'aviez pas de template à associé à l'action, vous devez le préciser avec le code suivant en fin d'action (ici pour du retour en JSON) :
+<span class="flag inline nota-bene"></span>
+L'affectation du layout au moteur de template et le rendu du template sont automatiques.
+Si toutefois, vous n'aviez pas de template à associé à l'action, vous devez le préciser avec le code suivant
+en fin d'action (ici pour du retour en JSON) :
 
     [php]
     $action->lay->template = json_encode($return);
@@ -255,20 +295,24 @@ Ajoutez le fichier `./COGIP_AUDIT/Layout/document_list.html` :
     [ENDBLOCK AUDITS]
     </ul>
 
-Le template fonctionne avec l'action ci-dessus et utilise les mots clefs du moteur de template interne de Dynacase. Vous pouvez trouver la liste des mots clefs sur la [documentation][DocumentationTemplate].
+Le template fonctionne avec l'action ci-dessus et utilise les mots clefs du moteur de template interne de Dynacase.
+Vous pouvez trouver la liste des mots clefs sur la [documentation][DocumentationTemplate].
 
 Le template ci-dessus a les spécificités suivantes :
 
-* il contient un formulaire de recherche complété avec les paramètres courant de la recherche,
-* il contient un tourne-page complété avec les paramètres du tourne-page courant (numéro de la page courante, possibilité d'aller en avant, en arrière),
-* la liste des documents trouvés avec leur état et une couleur par état,
-* le code JavaScript permettant l'animation du formulaire n'est pas fourni avec mais sera mis en place sur la page principale.
+-   il contient un formulaire de recherche complété avec les paramètres courant de la recherche,
+-   il contient un tourne-page complété avec les paramètres du tourne-page courant
+    (numéro de la page courante, possibilité d'aller en avant, en arrière),
+-   la liste des documents trouvés avec leur état et une couleur par état,
+-   le code JavaScript permettant l'animation du formulaire n'est pas fourni avec
+    mais sera mis en place sur la page principale.
 
 ## Action : principale {#quickstart:ff2d40f6-f0af-40c1-b3cb-b5844e7fed92}
 
 Vous allez maintenant mettre en place l'action principale de votre interface.
 
-Cette action principale présente le layout global de l'application. Elle ne contiendra pas de code PHP et fonctionnera principalement via du code JavaScript.
+Cette action principale présente le layout global de l'application.
+Elle ne contiendra pas de code PHP et fonctionnera principalement via du code JavaScript.
 
 ### Enregistrement de l'action {#quickstart:8f811c9e-a39d-46c4-a821-8974f581b771}
 
@@ -285,9 +329,9 @@ Ajoutez cette entrée au tableau `$action_desc` :
         "acl" => "BASIC"
     ),
 
-La définition est similaire à l'action `DOCUMENT_LIST` à une différence prêt, cette action est [`root`][DocumentationEnregistrementAction]. Cette action est donc l'action par défaut de l'application et peut-être appelée directement avec l'url suivante :
-
-`<context>/?app=COGIP_AUDIT`
+La définition est similaire à l'action `DOCUMENT_LIST` à une différence près :
+cette action est [`root`][DocumentationEnregistrementAction].
+C'est donc l'action par défaut de l'application et elle peut-être appelée directement avec l'url `<context>/?app=COGIP_AUDIT`
 
 #### Ajout des fichiers {#quickstart:2d0b4cca-a029-4e95-91e5-96704aaef9b9}
 
@@ -332,7 +376,11 @@ Ajoutez le fichier `./COGIP_AUDIT/Layout/main.html` :
             </ul>
             <section class="top-bar-section">
                 <ul class="right">
-                    <li class="has-form show-for-large-up"><a href="#" class="button js-disconnect">[TEXT:coa:disconnect]</a></li>
+                    <li class="has-form show-for-large-up">
+                        <a href="#" class="button js-disconnect">
+                            [TEXT:coa:disconnect]
+                        </a>
+                    </li>
                 </ul>
              </section>
         </nav>
@@ -351,7 +399,10 @@ Ajoutez le fichier `./COGIP_AUDIT/Layout/main.html` :
                 </nav>
     
                 <aside class="left-off-canvas-menu">
-                    <a href="?app=FDL&action=OPENDOC&famid=COGIP_AUDIT_AUDIT" class="button small css-create-button js-create-button">[TEXT:coa:Create audit]</a>
+                    <a href="?app=FDL&action=OPENDOC&famid=COGIP_AUDIT_AUDIT"
+                       class="button small css-create-button js-create-button">
+                        [TEXT:coa:Create audit]
+                    </a>
                     <span class="js-document-list"></span>
                 </aside>
     
@@ -378,10 +429,11 @@ Ajoutez le fichier `./COGIP_AUDIT/Layout/main.html` :
 
 Le template ci-dessus contient les spécificités suivantes :
 
-* les seuls clefs du template sont des clefs en `[TEXT:coa:...]` qui permettent les traductions,
-* le template utilise un widget [foundation][zurbFoundation] [offcanvas][ZurbOffcanvas] qui permet d'avoir un menu contextuel,
-* les documents sont représentés dans l'iframe `main-doc`,
-* le formulaire `disconnect` permet de déconnecter l'utilisateur courant du contexte.
+-   les seules clefs du template sont des clefs en `[TEXT:coa:...]` qui permettent les traductions,
+-   le template utilise un widget [foundation][zurbFoundation] [offcanvas][ZurbOffcanvas]
+    qui permet d'avoir un menu contextuel,
+-   les documents sont représentés dans l'iframe `main-doc`,
+-   le formulaire `disconnect` permet de déconnecter l'utilisateur courant du contexte.
 
 ##### Assets {#quickstart:fcd8773a-55b2-4978-a632-fcdb94a421db}
 
@@ -417,7 +469,8 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/css/main.css` :
         color: #000000;
     }
 
-La CSS ci-dessus reste très simple et apporte principalement de la mise en forme pour l'iframe centrale et pour le formulaire des listes de documents.
+La CSS ci-dessus reste très simple et apporte principalement de la mise en forme pour l'iframe centrale
+et pour le formulaire des listes de documents.
 
 ###### JavaScript {#quickstart:0a80214f-4b5e-4097-bf7c-0a75b23f30ac}
 
@@ -426,11 +479,13 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
     [javascript]
     !function () {
         $(window).ready(function () {
-            var $mainDoc = $("#main-doc"), $mainSection = $(".css-doc-section"), $mainTabBar = $(".css-main-tab-bar"),
+            var $mainDoc = $("#main-doc"),
+                $mainSection = $(".css-doc-section"),
+                $mainTabBar = $(".css-main-tab-bar"),
                 setCurrentDocument, getDocumentList;
-            /**************************************************************************************************************/
-            /** Utilities                                                                                                **/
-            /**************************************************************************************************************/
+            /**********************************************************************************************************/
+            /** Utilities                                                                                            **/
+            /**********************************************************************************************************/
             /**
              * Set the current document in the main iframe
              * @param hash
@@ -439,7 +494,10 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
                 var doc = $mainDoc[0].contentDocument || $mainDoc[0].contentWindow.document,
                     currentInitid = $(doc).find("[name=document-initid]").attr("content");
                 if (hash && currentInitid !== hash) {
-                    $mainDoc.attr("src", "?app=FDL&action=OPENDOC&mode=view&latest=Y&id=" + encodeURIComponent(hash));
+                    $mainDoc.attr(
+                        "src",
+                        "?app=FDL&action=OPENDOC&mode=view&latest=Y&id=" + encodeURIComponent(hash)
+                    );
                 }
             };
             /**
@@ -464,9 +522,9 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
                         console.log(event);
                     });
             };
-            /**************************************************************************************************************/
-            /** Events                                                                                                   **/
-            /**************************************************************************************************************/
+            /**********************************************************************************************************/
+            /** Events                                                                                               **/
+            /**********************************************************************************************************/
             /**
              * Add the create document event
              */
@@ -540,13 +598,13 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
                 event.preventDefault();
                 if (!$previous.hasClass("unavailable")) {
                     $offset = $("[name=offset]");
-                    $offset.val($offset.val() + 1);
+                    $offset.val($offset.val() -   1);
                     getDocumentList();
                 }
             });
-            /**************************************************************************************************************/
-            /** Initialisation                                                                                           **/
-            /**************************************************************************************************************/
+            /**********************************************************************************************************/
+            /** Initialisation                                                                                       **/
+            /**********************************************************************************************************/
             /**
              * Use the hash to open a selected document
              */
@@ -567,19 +625,26 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/js/main.js` :
 
 Le code JavaScript est lui aussi assez simple, il est structuré en plusieurs parties :
 
-* utilitaires :
-    * `setCurrentDocument` : cette fonction sélectionne l'iframe principale et la met à jour avec l'url d'un document,
-    * `getDocumentList` : cette fonction post une requête vers l'action que vous avez mis en place dans le chapitre précédent, celle-ci vous retourne une liste de document en HTML que vous injectez dans la page principale,
-* événements : dans cette partie du code différents écouteurs sont mis en place sur l'interface pour lui permettre de réagir aux actions des utilisateurs. La fonction utilisée est le [`on`][jQueryOn],
-* initialisation : le code termine par une phase d'initialisation qui lance la première récupération de la liste et les widgets [foundation][zurbFoundation].
+-   utilitaires :
+    -   `setCurrentDocument` : cette fonction sélectionne l'iframe principale et la met à jour avec l'url d'un document,
+    -   `getDocumentList` : cette fonction envoie une requête POST
+        vers l'action que vous avez mise en place dans le chapitre précédent.
+        Celle-ci vous retourne une liste de document en HTML que vous injectez dans la page principale,
+-   événements : dans cette partie du code différents écouteurs sont mis en place sur l'interface
+    pour lui permettre de réagir aux actions des utilisateurs.
+    La fonction utilisée est le [`on`][jQueryOn],
+-   initialisation : le code termine par une phase d'initialisation
+    qui lance la première récupération de la liste et les widgets [foundation][zurbFoundation].
 
-Une fois l'ensemble des fichiers initiés et le contexte mis à jour. Rendez vous à l'adresse `<context>/?app=COGIP_AUDIT`, vous obtenez l'interface suivante :
+Une fois l'ensemble des fichiers initiés et le contexte mis à jour.
+Rendez vous à l'adresse `<context>/?app=COGIP_AUDIT`, vous obtenez l'interface suivante :
 
 ![ Interface : rendu final ](50-20-interface-finale.gif "Interface : rendu final")
 
 ## Enregistrement de l'interface {#quickstart:d5124a6a-20f5-42ce-87b4-a5df9dff75a1}
 
-Vous allez finir ce chapitre en enregistrant votre nouvelle action principale en tant qu'action par défaut, ce qui permet aux utilisateurs d'arriver directement sur l'action.
+Vous allez finir ce chapitre en enregistrant votre nouvelle action principale en tant qu'action par défaut,
+ce qui permet aux utilisateurs d'arriver directement sur l'action.
 
 Pour ce faire, ouvrez le fichier `info.xml` et ajoutez la ligne :
 
@@ -587,13 +652,18 @@ Pour ce faire, ouvrez le fichier `info.xml` et ajoutez la ligne :
 
 à la fin du process d'installation et de mise à jour.
 
-<span class="flag inline nota-bene"></span> Le paramètre [`CORE_START_APP`][DocumentationCoreStartApp] permet de spécifier l'application qui doit être lancée par défaut.
+<span class="flag inline nota-bene"></span>
+Le paramètre [`CORE_START_APP`][DocumentationCoreStartApp] permet de spécifier l'application qui doit être lancée par défaut.
 
-<span class="flag inline nota-bene"></span> Le script [`setApplicationParameter`][DocumentationScriptSetApp] permet de valuer un paramètre applicatif lors l'installation d'un paquet.
+<span class="flag inline nota-bene"></span>
+Le script [`setApplicationParameter`][DocumentationScriptSetApp] permet de définir la valeur d'un paramètre applicatif
+lors l'installation d'un paquet.
 
 ## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
 
-Vous avez maintenant expérimenté le système d'application/action. Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
+Vous avez maintenant expérimenté le système d'application/action.
+Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système
+et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
 
 <!-- links -->
 

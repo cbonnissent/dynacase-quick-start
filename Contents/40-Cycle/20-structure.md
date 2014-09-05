@@ -1,13 +1,13 @@
 # Structure du cycle de vie  {#quickstart:b7a610e2-e53e-45ca-bc19-bac9f55b468c}
 
-Ce chapitre va vous permettre d'initialiser vos cycles de vie, en créer la structure et l'associer à une famille.
+Ce chapitre va vous permettre d'initialiser vos cycles de vie, en créer la structure et les associer à une famille.
 
 ## Objectifs {#quickstart:c7e46a11-3004-4de3-89c2-5180d9e28336}
 
-* Créer un cycle de vie,
-* Initialiser la forme du cycle de vie (étapes et transitions),
-* Traduire le cycle de vie,
-* Ajouter le cycle au `webinst`.
+-   Créer un cycle de vie,
+-   Initialiser la forme du cycle de vie (étapes et transitions),
+-   Traduire le cycle de vie,
+-   Ajouter le cycle au `webinst`.
 
 ## Cadre {#quickstart:7ca59299-15ad-4161-a274-278a7f9403f4}
 
@@ -15,34 +15,41 @@ L'analyse des besoins à mis en évidence le besoin de deux cycles de vie dans v
 
 Deux cycles ont été identifiés :
 
-* les audits
+-   les audits
 ![ Cycle : audit ](40-20-graph-audit.png "Cycle : audit")
-* les FNC
+-   les FNC
 ![ Cycle : FNC ](40-20-graph-FNC.png "Cycle : FNC")
 
 ## Théorie {#quickstart:3a5e9193-5131-4e58-8b6a-6a2744ee7d00}
 
 La structure d'un cycle de vie fait appel aux concepts suivants :
 
-* **Étape** : Elles marquent un moment clef dans la vie du document. Une étape est constituée de :
-    * **État**: c'est le statut du document à un moment donné (par exemple : brouillon, rédigé, validé, historique),
-    * **Activité** : c'est la tâche en cours de réalisation sur un document donné (par exemple : en rédaction, en validation).
-* **Transition** : Elles indiquent la possibilité de passage entre une étape et une autre.
+Étape
+:   Elles marquent un moment clef dans la vie du document. Une étape est constituée de :
+    
+    État
+    : c'est le statut du document à un moment donné (par exemple : brouillon, rédigé, validé, historique),
+    
+    Activité
+    : c'est la tâche en cours de réalisation sur un document donné (par exemple : en rédaction, en validation).
+
+Transition
+: Elles indiquent la possibilité de passage entre une étape et une autre.
 
 Les cycles de vie sont représentés par deux objets systèmes :
 
-* une famille : elle décrit la structure et contient le code métier,
-* un document : il décrit le paramétrage (mails envoyés, couleurs, etc.).
+-   une famille : elle décrit la structure et contient le code métier,
+-   un document : il décrit le paramétrage (mails envoyés, couleurs, etc.).
 
 ## Initialisation des fichiers {#quickstart:a68c1cbc-e277-4908-95ea-a46cd36cc0b4}
 
 ### Cycle des audits {#quickstart:4b8012f7-a650-4e63-9015-4c7d577892b6}
 
-Ouvrez le **developper toolkit** et cliquez sur **Template** et ensuite **Create a workflow**, l'outil vous demande de saisir :
+Ouvrez le **developper toolkit** et cliquez sur **Template** puis **Create a workflow**, l'outil vous demande de saisir :
 
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `WFL_COGIP_AUDIT_AUDIT`,
-* [namespace][php_namespace] : `COGIP`.
+-   path : le path vers le répertoire `COGIP_AUDIT`,
+-   logical name : `WFL_COGIP_AUDIT_AUDIT`,
+-   [namespace][php_namespace] : `COGIP`.
 
 Cliquez sur `generate`.
 
@@ -53,7 +60,8 @@ Deux fichiers sont générés :
     ├── COGIP_AUDIT_AUDIT__WFL__CLASS.php
     ├── COGIP_AUDIT_AUDIT__WFL.csv
 
-Le fichier `__CLASS.php` contient le code métier et la structure du cycle de vie, le fichier CSV contiendra quelques éléments de paramétrage.
+Le fichier `__CLASS.php` contient le code métier et la structure du cycle de vie,
+le fichier `.csv` contiendra quelques éléments de paramétrage.
 
 Le fichier est initialisé avec les éléments suivants :
 
@@ -96,7 +104,10 @@ Complétez la valeur de `$attrPrefix` à `caaw`.
 
 ### États {#quickstart:b2de0c9b-9c3b-4b5c-aab6-11a2b18a3888}
 
-Vous allez ensuite définir la liste des constantes représentant les états. Pour chaque état, vous allez indiquer un nom logique qui porte sa référence.
+#### Constantes {#quickstart:87e2198f-da20-47ae-894a-0cf308eaf234}
+
+Vous allez ensuite définir la liste des constantes représentant les états.
+Pour chaque état, vous allez indiquer un nom logique qui porte sa référence.
 
     [php]
     //region States
@@ -107,15 +118,21 @@ Vous allez ensuite définir la liste des constantes représentant les états. Po
     const e_refus_certif = 'coa_audit_e5';
     //endregion
 
-<span class="flag inline nota-bene"></span> Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid) pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid)
+pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
 
-<span class="flag inline nota-bene"></span> Il est conseillé de préfixer les constantes par `e_` pour en faciliter l'extraction des clefs pour la traductions.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de préfixer les constantes par `e_` pour en faciliter l'extraction des clefs pour la traduction.
 
-<span class="flag inline nota-bene"></span> Les commentaires `//region States` et `//endregion` sont une convention de certains éditeurs ([PhpStorm][phpStormFolding], etc.) qui permet de replier et retrouver plus facilement cette zone.
+<span class="flag inline nota-bene"></span>
+Les commentaires `//region States` et `//endregion` sont une convention de certains éditeurs
+([PhpStorm][phpStormFolding], etc.) qui permet de replier et retrouver plus facilement cette zone.
 
 ### Activités {#quickstart:41ca59ea-f036-4918-94c3-12c2697e274c}
 
-Les activités sont un deuxième libellé qui est apposé à un étape. Il décrit l'activité qui doit avoir lieu lors de cette étape.
+Les activités sont un deuxième libellé qui est apposé à un étape.
+Il décrit l'activité qui doit avoir lieu lors de cette étape.
 
     [php]
     public $stateactivity = array(
@@ -123,13 +140,16 @@ Les activités sont un deuxième libellé qui est apposé à un étape. Il décr
         self::e_redaction => "coa:audit:writing"
     );
 
-<span class="flag inline nota-bene"></span> En théorie, les étapes finales d'un cycle n'ont pas d'activité. Par exemple, une fois l'audit `Certifié`, `Annulé` ou `Refusé`, il n'y a plus de travail à effectuer sur cet audit donc pas d'activité.
+<span class="flag inline nota-bene"></span> En théorie, les étapes finales d'un cycle n'ont pas d'activité.
+Par exemple, une fois l'audit `Certifié`, `Annulé` ou `Refusé`, il n'y a plus de travail à effectuer sur cet audit,
+et donc pas d'activité.
 
 ### Transitions {#quickstart:9b6709f4-c6fd-461e-b142-8e346a6f17cf}
 
 #### Constantes {#quickstart:1c83eae6-09c0-4740-87ad-8464066261fc}
 
-Vous allez ensuite définir la liste des constantes représentant les transitions. Pour chaque transition, vous allez indiquer un nom logique qui porte sa référence.
+Vous allez ensuite définir la liste des constantes représentant les transitions.
+Pour chaque transition, vous allez indiquer un nom logique qui porte sa référence.
 
     [php]
     //region Transitions
@@ -140,13 +160,20 @@ Vous allez ensuite définir la liste des constantes représentant les transition
     const t_redaction__refus_certif = 'coa_audit_t5';
     //endregion
 
-<span class="flag inline nota-bene"></span> Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid) pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid)
+pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
 
-<span class="flag inline nota-bene"></span> Il est conseillé de préfixer les constantes par `t_` pour en faciliter l'extraction des clefs pour la traductions.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de préfixer les constantes par `t_` pour en faciliter l'extraction des clefs pour la traduction.
 
-<span class="flag inline nota-bene"></span> Il est possible d'utiliser la même transition pour relier deux étapes mais ce fonctionnement est déconseillé car tous le paramétrage de la transition est alors partagé, notamment les droits d'accès ce qui rend le cycle moins facilement paramétrable.
+<span class="flag inline nota-bene"></span>
+Il est possible d'utiliser la même transition pour relier deux étapes mais ce fonctionnement est déconseillé
+car tout le paramétrage de la transition est alors partagé, notamment les droits d'accès
+ce qui rend le cycle moins facilement paramétrable.
 
-<span class="flag inline nota-bene"></span> Il est conseillé de nommer les transitions sous la forme `t_<etat1>__<etat2>` pour en faciliter le paramétrage.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de nommer les transitions sous la forme `t_<etat1>__<etat2>` pour en faciliter le paramétrage.
 
 #### Paramétrage {#quickstart:9ec307d5-d547-47ef-b4ba-b2f56233de87}
 
@@ -178,9 +205,9 @@ Pour terminer, vous allez enregistrer la forme du cycle en utilisant [`$cycle`][
 
 Le tableau de cycle est composé de tableau, chacun de ces tableaux a trois entrées :
 
-* `t` : porte la référence vers une transition,
-* `e1` : porte la référence vers l'état de départ,
-* `e2` : porte la référence vers l'état d'arrivée.
+-   `t` : porte la référence vers une transition,
+-   `e1` : porte la référence vers l'état de départ,
+-   `e2` : porte la référence vers l'état d'arrivée.
 
 ### Premier état {#quickstart:c6b05ec6-de0e-49f4-ad13-8fe2aee9b93a}
 
@@ -245,10 +272,12 @@ Vous avez terminé la déclaration de la structure. Le fichier doit donc conteni
 
 Vous allez maintenant extraire les clefs permettant de traduire votre cycle de vie.
 
-Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`, vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
+Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`,
+vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
 
 Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
 
+    [gettext]
     msgid "coa:planning"
     msgstr "En planification"
     
@@ -289,7 +318,9 @@ Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/CO
 
 Vous allez maintenant inscrire votre cycle de vie dans le paquet pour qu'il soit importé à l'installation et à la mise à jour.
 
-Ajoutez la ligne suivante dans le `info.xml` à l'installation et à la mise à jour entre les lignes `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>` et `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>`:
+Ajoutez la ligne suivante dans le `info.xml` à l'installation et à la mise à jour entre les lignes
+`<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>` et
+`<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>`:
 
     [xml]
     <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>
@@ -306,7 +337,8 @@ Pour cela générez le `webinst` et importez le.
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
 
-Cliquez sur `Gestion des documents > Explorateurs de documents` et cliquez sur `Création > Documents système` en haut dans la partie de droite, l'interface de création de documents s'ouvre sur la partie droite.
+Cliquez sur `Gestion des documents > Explorateurs de documents` et cliquez sur `Création > Documents système`
+en haut dans la partie de droite, l'interface de création de documents s'ouvre sur la partie droite.
 
 ![ Création workflow ](40-20-creation-wfl1.png "Création workflow")
 
@@ -314,8 +346,8 @@ Sélectionnez ensuite votre cycle de vie dans la liste déroulante en haut `COGI
 
 Complétez le formulaire présenté avec les éléments suivants :
 
-* **Titre** : Audit,
-* **Famille** (Basique et Profil Dynamique) : `COGIP_AUDIT_AUDIT`.
+-   **Titre** : Audit,
+-   **Famille** (Basique et Profil Dynamique) : `COGIP_AUDIT_AUDIT`.
 
 ![ Création workflow ](40-20-creation-wfl2.png "Création workflow")
 
@@ -333,36 +365,41 @@ Ajoutez un nom logique au cycle de vie, cliquez sur `Autres > Propriétés` et a
 
 #### Export {#quickstart:bacf9a03-0af5-4b52-afb5-e7f22f04a064}
 
-Ajoutez le cycle au porte-documents `Autres > Ajouter au porte-documents` (pensez à supprimer les éventuels autres documents au porte-documents), cliquez ensuite sur `Outils > Exportation du dossier`. La fenêtre d'exportation s'ouvre, cliquez sur `Exporter`.
+Ajoutez le cycle au porte-documents `Autres > Ajouter au porte-documents`
+(pensez à supprimer les éventuels autres documents au porte-documents), cliquez ensuite sur `Outils > Exportation du dossier`.
+La fenêtre d'exportation s'ouvre, cliquez sur `Exporter`.
 
 Un fichier CSV vous est envoyé.
 
 #### Enregistrement {#quickstart:6e1f919b-a74e-4d84-8fab-182bc556f9a2}
 
-Vous allez ajouter ce document dans le fichier de paramétrage de la famille `Audit`. Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` ajoutez au début du fichier les trois lignes contenues dans le fichier d'exportation.
+Vous allez ajouter ce document dans le fichier de paramétrage de la famille `Audit`.
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` ajoutez au début du fichier les trois lignes
+contenues dans le fichier d'exportation.
 
 Pour finir, vous allez ajouter l'instruction qui associe le cycle de vie des audits à la famille audit.
 
 Ajoutez une ligne juste avant le `END` les éléments suivant :
 
-* colonne `A` : `WID`,
-* colonne `B` : `WDOC_COGIP_AUDIT_AUDIT_WFL`.
+-   colonne `A` : `WID`,
+-   colonne `B` : `WDOC_COGIP_AUDIT_AUDIT_WFL`.
 
-<span class="flag inline nota-bene"></span> L'instruction [WID est explicité dans la documentation.][DocWID]
+<span class="flag inline nota-bene"></span> L'instruction [WID est détaillée dans la documentation.][DocWID]
 
 ## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
 
 Vous avez initié la structure d'un des cycles de vie et associé celui-ci à sa famille.
 Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycles de vie.
 
-La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre, mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
+La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre,
+mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
 
 ## Voir aussi {#quickstart:59b3f403-b656-4a8f-86b8-c368f64e08d8}
 
-* [Documentation cycle de vie][DocCycleDeVie],
-* [Transition][DocTransition],
-* [Cycle][DocCycle],
-* [Instruction WID][DocWID].
+-   [Documentation cycle de vie][DocCycleDeVie],
+-   [Transition][DocTransition],
+-   [Cycle][DocCycle],
+-   [Instruction WID][DocWID].
 
 <!-- links -->
 

@@ -4,35 +4,36 @@ Ce chapitre aborde le paramétrage du cycle de vie.
 
 ## Objectifs {#quickstart:8bf472d9-6bd8-40fe-ac1c-7f8eef15f5a7}
 
-* Mettre en place les couleurs des étapes,
-* Ajouter des modèles de mail,
-* Ajouter des minuteurs,
-* Effectuer des contrôles avant un changement d'étape,
-* Poser des questions lors d'un changement d'étape.
+-   Mettre en place les couleurs des étapes,
+-   Ajouter des modèles de mail,
+-   Ajouter des minuteurs,
+-   Effectuer des contrôles avant un changement d'étape,
+-   Poser des questions lors d'un changement d'étape.
 
 ## Cadre {#quickstart:73d8d0ac-0892-46b2-bd89-3e834ca18b4f}
 
 Lors de la phase d'analyse, les points suivants ont été relevés :
 
-* chaque étape doit porter un code couleur permettant de l'identifier,
-* un mail doit être envoyé pour notifier les différents acteurs d'un audit de son début,
-* une relance doit être envoyée si un audit reste en rédaction plus de 15 jours,
-* un audit ne peut pas franchir l'étape `En rédaction` tant que toutes les fiches de non-conformités associées ne sont pas closes,
-* lorsqu'un audit est passe à l'état `annulé` une question doit être posée pour en demander la raison,
-* une fois que l'audit n'est plus dans l'étape `Brouillon` le contrôle de cohérence sur la date de début inférieure à la date du jour ne doit plus être appliqué.
+-   chaque étape doit porter un code couleur permettant de l'identifier,
+-   un mail doit être envoyé pour notifier les différents acteurs d'un audit de son début,
+-   une relance doit être envoyée si un audit reste en rédaction plus de 15 jours,
+-   un audit ne peut pas franchir l'étape `En rédaction` tant que toutes les fiches de non-conformité associées ne sont pas closes,
+-   lorsqu'un audit est passe à l'état `annulé` une question doit être posée pour en demander la raison,
+-   une fois que l'audit n'est plus dans l'étape `Brouillon`,
+    le contrôle de cohérence sur la date de début inférieure à la date du jour ne doit plus être appliqué.
 
 ## Théorie {#quickstart:86140cda-43d9-44f1-b16f-4f5c2eb39c4e}
 
 Le paramétrage d'un cycle de vie passe par plusieurs éléments distincts :
 
-* le document de cycle de vie, il permet de paramétrer :
-    * les [mails][DocModelMail],
-    * les [minuteurs][DocMinuteur],
-    * les couleurs,
-    * des éléments de profilages.
-+ le fichier PHP de classe du cycle de vie, il permet de mettre en place :
-    + du [code métier][DocWFLClass] qui peut être exécuté avant ou après un changement d'étape,
-    + la liste des questions ([ask][DocWFLask]) qui doivent être posée lors d'un changement d'état.
+-   le document de cycle de vie, il permet de paramétrer :
+    -   les [mails][DocModelMail],
+    -   les [minuteurs][DocMinuteur],
+    -   les couleurs,
+    -   des éléments de profilages.
+-   le fichier PHP de classe du cycle de vie, il permet de mettre en place :
+    -   du [code métier][DocWFLClass] qui peut être exécuté avant ou après un changement d'étape,
+    -   la liste des questions ([ask][DocWFLask]) qui doivent être posée lors d'un changement d'état.
 
 ## Paramétrage via le document {#quickstart:1b65b62f-7169-4e8f-9fe0-aa18d2ca03df}
 
@@ -44,7 +45,8 @@ Vous allez commencer par spécifier les couleurs.
 
 Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
 
-Allez dans l'application `Gestion des documents > Explorateur de documents` cliquez ensuite sur `les cycles` et sélectionnez le cycle `Audit Audit`.
+Allez dans l'application `Gestion des documents > Explorateur de documents` cliquez ensuite sur `les cycles`
+et sélectionnez le cycle `Audit Audit`.
 
 ![ Cycle de vie : Audit ](40-30-edit-wfl-audit.png "Cycle de vie : Audit")
 
@@ -52,29 +54,36 @@ Cliquez ensuite sur `Modifier` et sélectionnez l'onglet `Étapes`
 
 ![ Cycle de vie : Audit ](40-30-edit-wfl-audit1.png "Cycle de vie : Audit")
 
-Le document cycle de vie contient pour chaque étape et transition une série de champs qui permettent de spécifier son comportement. Vous allez modifier les entrées `Couleur` de chaque étape.
+Le document cycle de vie contient pour chaque étape et transition une série de champs
+qui permettent de spécifier son comportement. Vous allez modifier les entrées `Couleur` de chaque étape.
 
-<span class="flag inline nota-bene"></span> Même si l'attribution de couleurs à chaque étape peut sembler accessoires, il reste important et facilite l'attribution par les utilisateurs de l'application que vous produisez.
+<span class="flag inline nota-bene"></span>
+Même si l'attribution d'une couleur à chaque étape peut sembler accessoire, il reste important et facilite
+la prise en main par les utilisateurs de l'application que vous produisez.
 
-<span class="flag inline nota-bene"></span> Il est conseillé de suivre un code couleur cohérent et d'identifier les étapes similaires par des teintes similaires et de choisir des couleurs qui dans la culture des utilisateurs sont en cohérence avec la signification des étapes.
+<span class="flag inline nota-bene"></span>
+Il est conseillé de suivre un code couleur cohérent et d'identifier les étapes similaires par des teintes similaires
+et de choisir des couleurs qui dans la culture des utilisateurs sont en cohérence avec la signification des étapes.
 
 Pour votre cycle, il a été décidé en concertation avec les utilisateurs les couleurs suivantes :
 
-* **Couleur Brouillon** : `#F2FFF9`,
-* **Couleur Planifié** : `#96EAFF`,
-* **Couleur Annulé** : `#BFD3D6`,
-* **Couleur Certifié** : `#8CFF8C`,
-* **Couleur Refusé** : `#FF8282`.
+-   __<span style="background-color: #F2FFF9;">Brouillon</span>__ : `#F2FFF9`,
+-   __<span style="background-color: #96EAFF;">Planifié</span>__ : `#96EAFF`,
+-   __<span style="background-color: #BFD3D6;">Annulé</span>__ : `#BFD3D6`,
+-   __<span style="background-color: #8CFF8C;">Certifié</span>__ : `#8CFF8C`,
+-   __<span style="background-color: #FF8282;">Refusé</span>__ : `#FF8282`.
 
 Ce qui donne le cycle suivant :
 
 ![ Cycle de vie : Audit coloré ](40-30-audit-color.png "Cycle de vie : Audit coloré")
 
-<span class="flag inline nota-bene"></span> Les couleurs des étapes se retrouve dans les interfaces standard de Dynacase.
+<span class="flag inline nota-bene"></span> Les couleurs des étapes se retrouvent dans les interfaces standard de Dynacase.
 
 ![ Interface standard : utilisation des couleurs d'étapes ](40-30-audit-interface-color.png "Interface standard : utilisation des couleurs d'étapes")
 
-<span class="flag inline nota-bene"></span> **Attention**, il faut exporter le document de cycle de vie et mettre à jour sa définition dans le fichier `COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` pour que ce paramétrage soit valide en dehors du contexte de développement.
+<span class="flag inline nota-bene"></span>
+__Attention__, il faut exporter le document de cycle de vie et mettre à jour sa définition dans le fichier
+`COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` pour que ce paramétrage soit valide en dehors du contexte de développement.
 
 ### Les mails {#quickstart:284cd032-303b-4140-bb44-72a30843d0c8}
 
@@ -90,18 +99,20 @@ Une fenêtre d'édition de [mail][DocModelMail] pré-paramétrée s'ouvre alors 
 
 ![ Ajout de mail : modification ](40-30-add-mail-edition.png "Ajout de mail : modification")
 
-<span class="flag inline nota-bene"></span> Cette fenêtre contient des données provenant de son formulaire de création (Famille et Famille Cycle). Vous pouvez paramétrer vos documents pour avoir le même comportement à l'aide de l'option [creation][DocCreation].
+<span class="flag inline nota-bene"></span>
+Cette fenêtre contient des données provenant de son formulaire de création (Famille et Famille Cycle).
+Vous pouvez paramétrer vos documents pour avoir le même comportement à l'aide de l'option [creation][DocCreation].
 
 Complétez les champs suivants :
 
-* Titre : Mail de démarrage d'audit,
-* Émetteur : Laissez ce champ vide dans ce cas c'est le mail de la personne effectuant le changement d'étape qui sera utilisé,
-* Destinataires : Vous allez indiquer les destinataires du mail
-    * Type : Attribut Relation, Destinataire : `caa_auditeur_auditeur (Auditeur)`,
-    * Type : Attribut Relation, Destinataire : `caa_resp_audit (Responsable d'audit)`,
-    * Type : Attribut Relation, Destinataire : `caa_site (Site audité)`.
-* Titre : `L'audit [TITLE] vient de démarrer`
-* Corps : 
+-   Titre : Mail de démarrage d'audit,
+-   Émetteur : Laissez ce champ vide dans ce cas c'est le mail de la personne effectuant le changement d'étape qui sera utilisé,
+-   Destinataires : Vous allez indiquer les destinataires du mail
+    -   Type : Attribut Relation, Destinataire : `caa_auditeur_auditeur (Auditeur)`,
+    -   Type : Attribut Relation, Destinataire : `caa_resp_audit (Responsable d'audit)`,
+    -   Type : Attribut Relation, Destinataire : `caa_site (Site audité)`.
+-   Titre : `L'audit [TITLE] vient de démarrer`
+-   Corps : 
 
     Bonjour,
     
@@ -117,7 +128,9 @@ Vous pouvez fermer la fenêtre de création et cliquez sur le bouton `sauver` du
 
 Une fois ce paramétrage fait lors du changement d'état en passant par la transition un mail est envoyé.
 
-<span class="flag inline nota-bene"></span> Il est aussi possible d'attacher des mails à une étape, dans ce cas le mail est envoyé à chaque passage dans l'étape quelque soit la transition utilisée pour parvenir dans cette étape.
+<span class="flag inline nota-bene"></span>
+Il est aussi possible d'attacher des mails à une étape, dans ce cas le mail est envoyé à chaque passage dans l'étape,
+quelle que soit la transition utilisée pour parvenir dans cette étape.
 
 ![ Mail : exemple ](40-30-mail.png "Mail : exemple")
 
@@ -125,9 +138,11 @@ Une fois ce paramétrage fait lors du changement d'état en passant par la trans
 
 Ouvrez le document de cycle de vie en modification.
 
-<span class="flag inline nota-bene"></span> Il existe plusieurs manière d'affecter les minuteurs, elles sont décrites dans la [documentation][DocMinuteur].
+<span class="flag inline nota-bene"></span>
+Il existe plusieurs manière d'affecter les minuteurs, elles sont décrites dans la [documentation][DocMinuteur].
 
-Vous allez créer un minuteur simple, celui-ci est attaché au document lors du passage de la transition et détaché au prochain changement d'état.
+Vous allez créer un minuteur simple, celui-ci est attaché au document lors du passage de la transition
+et détaché au prochain changement d'état.<span class="flag inline fixme">ce minuteur est persistant et jamais détaché…</span>
 
 Sélectionnez l'onglet `Transitions` et cliquez le `+` à droite de `Minuteur Démarrer`.
 
@@ -137,8 +152,8 @@ L'interface suivante est ouverte :
 
 Remplissez les champs suivants :
 
-* Titre : Démarrer,
-* Délai (en jours) (première ligne) : 15
+-   Titre : Démarrer,
+-   Délai (en jours) (première ligne) : 15
 
 #### Création du mail associé {#quickstart:b3e8706a-1c26-49cc-b530-b36f3ee7d018}
 
@@ -146,12 +161,12 @@ Cliquez sur le `+` dans la colonne `Modèle de mail` pour initier le modèle de 
 
 Remplissez les champs de la manière suivante :
 
-* Titre : `Relance rédaction`,
-* Destinataires :
-    * Type : `Attribut relation`, Destinataire : `caa_resp_audit (Responsable d'audit)`,
-    * Type : `Attribut relation`, Destinataire : `caa_auditeur_auditeur (Auditeur)`.
-+ Sujet : `L'audit [TITLE] est toujours en rédaction`,
-+ Corps : 
+-   Titre : `Relance rédaction`,
+-   Destinataires :
+    -   Type : `Attribut relation`, Destinataire : `caa_resp_audit (Responsable d'audit)`,
+    -   Type : `Attribut relation`, Destinataire : `caa_auditeur_auditeur (Auditeur)`.
+-   Sujet : `L'audit [TITLE] est toujours en rédaction`,
+-   Corps : 
 
     Bonjour,
     
@@ -175,25 +190,31 @@ Cliquez sur `Sauver`.
 
 ![ Minuteur ](40-30-minuteur-wdoc.png "Minuteur")
 
-<span class="flag inline nota-bene"></span> Vous allez utiliser le minuteur pour effectuer une relance par mail, mais celui-ci permet aussi :
+<span class="flag inline nota-bene"></span>
+Vous allez utiliser le minuteur pour effectuer une relance par mail, mais celui-ci permet aussi :
 
-* de changer automatiquement d'état le document auquel est associé le document,
-* de lancer une méthode sur le document associé au cycle de vie.
+-   de changer automatiquement d'état le document auquel est associé le document,
+-   de lancer une méthode sur le document associé au cycle de vie.
 
-<span class="flag inline nota-bene"></span> Les différentes options pour paramétrer les règles de relance sont décrites dans la [documentation][DocMinuteur].
+<span class="flag inline nota-bene"></span>
+Les différentes options pour paramétrer les règles de relance sont décrites dans la [documentation][DocMinuteur].
 
 #### Nom logique {#quickstart:598741bf-95c4-486b-b8f0-114fb6196d74}
 
-Cliquez sur le lien `Minuteur démarrer` et cliquez ensuite sur `Autres > Propriétés` et donnez le nom suivant `MINUTEUR_DEMARRER`.
+Cliquez sur le lien `Minuteur démarrer` puis sur `Autres > Propriétés` et donnez le nom suivant `MINUTEUR_DEMARRER`.
 
-<span class="flag inline nota-bene"></span> Vous pouvez suivre les différents minuteurs en activité grâce à l'interface de suivi qui est dans l'admin `Gestion des documents > Gestion des minuteurs`.
+<span class="flag inline nota-bene"></span>
+Vous pouvez suivre les différents minuteurs en activité grâce à l'interface de suivi qui est dans l'admin
+`Gestion des documents > Gestion des minuteurs`.
 
 ### Export du paramétrage {#quickstart:6633ab3c-ab35-48ad-93a9-71898bfad9f3}
 
-Vous allez maintenant exporter le paramétrage que vous avez mis en place. Vous avez plusieurs manières de faire cette action, soit :
+Vous allez maintenant exporter le paramétrage que vous avez mis en place.
+Vous avez plusieurs manières de faire cette action, soit :
 
-* vous sélectionnez les documents à exporter les uns après les autres,
-* vous exportez un des documents de familles associés au cycle de vie. Dans ce cas l'ensemble des documents de paramétrages de la famille sont exportés.
+-   vous sélectionnez les documents à exporter les uns après les autres,
+-   vous exportez un des documents de familles associés au cycle de vie.
+    Dans ce cas l'ensemble des documents de paramétrages de la famille sont exportés.
 
 Vous allez exporter l'ensemble des documents en une seule fois.
 
@@ -203,28 +224,30 @@ Ouvrez la `Gestion des documents > Accès aux documents systèmes`, sélectionne
 
 ![ Famille Audit ](40-30-wdoc-export.png "Famille Audit")
 
-Cliquez sur `Autres > Ajoutez au porte-documents`, videz les documents non utiles du porte-documents, cliquez sur `Outils > Exportation du dossier`.
+Cliquez sur `Autres > Ajoutez au porte-documents`, videz les documents non utiles du porte-documents, puis cliquez sur
+`Outils > Exportation du dossier`.
 
 Sélectionnez `Profil` `Avec les profils` et cliquez sur `Exporter`.
 
 ![ Famille Audit ](40-30-wdoc-export-csv.png "Famille Audit")
 
-Le fichier CSV qui vous est envoyé contient une partie du paramétrage de la famille, ce qui inclut le paramétrage du cycle de vie.
+Le fichier CSV qui vous est envoyé contient une partie du paramétrage de la famille,
+ce qui inclut le paramétrage du cycle de vie.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv`.
 
 Supprimez les documents que vous avez déjà dans le fichier de paramétrage, soit les :
 
-* PFAM,
-* PDOC,
-* et les lignes entre BEGIN et END.
+-   PFAM,
+-   PDOC,
+-   et les lignes entre BEGIN et END.
 
 Ajoutez les nouveaux documents au début du fichier `__PARAM.csv`, soit :
 
-* `WDOC_COGIP_AUDIT_AUDIT_WFL` : il contient la définition des couleurs et la référence au timer et au modèle de mail,
-* `MAIL_DEMARRAGE` : il contient le modèle de mail envoyé au démarrage de l'audit,
-* `MINUTEUR_DEMARRER` : il contient le timer ajouté lors du passage de la transition démarrer,
-* `MAIL_REDACTION_RELANCE` : il contient le modèle de mail envoyé en cas de relance.
+-   `WDOC_COGIP_AUDIT_AUDIT_WFL` : il contient la définition des couleurs et la référence au timer et au modèle de mail,
+-   `MAIL_DEMARRAGE` : il contient le modèle de mail envoyé au démarrage de l'audit,
+-   `MINUTEUR_DEMARRER` : il contient le timer ajouté lors du passage de la transition démarrer,
+-   `MAIL_REDACTION_RELANCE` : il contient le modèle de mail envoyé en cas de relance.
 
 ![ Famille Audit ](40-30-wdoc-import-csv.png "Famille Audit")
 
@@ -234,16 +257,22 @@ L'intégralité du paramétrage du cycle de vie via le code est détaillé dans 
 
 ### Contrôle au changement d'état {#quickstart:edf4add4-7cde-4fc7-a0a9-56caab45516a}
 
-Les contrôle au changement d'état se font lors des [transitions][DocTransition], il existe quatre hook de transition utilisé pour :
+Les contrôle au changement d'état se font lors des [transitions][DocTransition],
+il existe quatre hook de transition utilisés pour :
 
-* `m0` : savoir si la transition est possible, si le hook retourne un message la transition est annulée,
-* `m1` : modifier le document avant la transition. Si des questions (ask) sont paramétrées elles sont présentées avant le m1. Si le hook retourne un message la transition est annulée,
-* `m2` : modifier le document juste après le changement d'état, ce hook ne peut plus annuler le changement d'état,
-* `m3` : modifier le document après le changement d'état et après les différents traitements automatique de Dynacase.
+-   `m0` : savoir si la transition est possible.
+    Si le hook retourne un message la transition est annulée,
+-   `m1` : modifier le document avant la transition.
+    Si des questions (ask) sont paramétrées elles sont présentées avant le m1.
+    Si le hook retourne un message la transition est annulée,
+-   `m2` : modifier le document juste après le changement d'état
+    Ce hook ne peut plus annuler le changement d'état,
+-   `m3` : modifier le document après le changement d'état et après les différents traitements automatiques de Dynacase.
 
 #### m0 (pré-condition) {#quickstart:1fbdce8d-c8dc-44b7-ad87-cd8348ac0d12}
 
-Vous allez utiliser le `m0` pour vérifier que les fiches de non-conformités associées à l'audit sont bien toutes closes avant d'accorder ou de refuser la certification.
+Vous allez utiliser le `m0` pour vérifier que les fiches de non-conformités associées à l'audit sont bien toutes closes
+avant d'accorder ou de refuser la certification.
 
 ##### Définition de la fonction {#quickstart:3ddde06d-f233-4e54-980a-8264e370ef9b}
 
@@ -256,7 +285,10 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL__CLASS.php` et ajoutez l
         $searchDoc = new \SearchDoc("", \Dcp\Family\Cogip_audit_fnc::familyName);
         //If you find one FNC it's enough (speed the search)
         $searchDoc->setSlice(1);
-        $searchDoc->addFilter("%s = '%d'", \Dcp\AttributeIdentifiers\Cogip_audit_fnc::caf_audit, $this->doc->getPropertyValue("initid"));
+        $searchDoc->addFilter("%s = '%d'",
+            \Dcp\AttributeIdentifiers\Cogip_audit_fnc::caf_audit,
+            $this->doc->getPropertyValue("initid")
+        );
         $searchDoc->addFilter("state <> '%s'", COGIP_AUDIT_FNC_WFL::e_clos);
         if ($searchDoc->onlyCount() > 0) {
             return _("coa:You have to close all FNC before change state");
@@ -266,9 +298,11 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL__CLASS.php` et ajoutez l
 
 Cette fonction effectue une recherche sur les FNC, elle a les spécificités suivantes :
 
-* elle recherche parmi les `Fiches de non-conformités`,
-* la recherche limite le nombre de résultat à 1, car un seul résultat suffit à indiquer que la transition ne doit pas être franchie,
-* la recherche utilise la fonction [`onlyCount`][DocSearchOnlyCount], cette fonction calcule uniquement le nombre de résultats et ne retourne pas les documents.
+-   elle recherche parmi les `Fiches de non-conformités`,
+-   la recherche limite le nombre de résultat à 1,
+    car un seul résultat suffit à indiquer que la transition ne doit pas être franchie,
+-   la recherche utilise la fonction [`onlyCount`][DocSearchOnlyCount].
+    Cette fonction calcule uniquement le nombre de résultats et ne retourne pas les documents.
 
 ##### Enregistrement de la fonction {#quickstart:587bf536-180e-4878-9c02-9b0f2969c441}
 
@@ -291,31 +325,48 @@ Dans l'exemple ci-dessus la transition est refusée et au survol un message est 
 
 ### Question au changement d'état (ask) {#quickstart:52b12e42-a3e8-4b7f-a7a2-bf0c77f2691c}
 
-Vous allez maintenant mettre en place le mécanisme de [`ask`][DocWFLask], il permet de poser un ensemble de question via un petit formulaire lors d'un changement d'état.
+Vous allez maintenant mettre en place le mécanisme de [`ask`][DocWFLask].
+Il permet de poser un ensemble de question via un petit formulaire lors d'un changement d'état.
 
 #### Déclaration du ask {#quickstart:1a89239f-465e-464e-8098-cf59854371d3}
 
 Les ask se composent de deux éléments :
 
-* un paramètre de famille qui va servir de conteneur à la question, ce paramètre permet de définir le type de donnée et une éventuelle valeur par défaut, etc.,
-* l'association d'un ou plusieurs paramètres à une transition.
+-   un paramètre de famille qui va servir de conteneur à la question,
+    ce paramètre permet de définir le type de donnée et une éventuelle valeur par défaut, etc.,
+-   l'association d'un ou plusieurs paramètres à une transition.
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv` et ajoutez les lignes suivantes :
 
-![ Déclaration ASK ](40-30-wdoc-ask-declaration.png  "Déclaration ASK")
+![ Déclaration _ask_ ](40-30-wdoc-ask-declaration.png  "Déclaration _ask_")
 
-Vous avez déclaré deux paramètres, ceux-ci peuvent être utilisés comme ASK. Vous allez mettre à jour la liste des transitions :
+Vous avez déclaré deux paramètres, ceux-ci peuvent être utilisés comme _ask_.
+Vous allez mettre à jour la liste des transitions :
 
     [php]
         public $transitions = array(
-        self::t_brouillon__redaction => array("nr" => true),
-        self::t_brouillon__annule => array("nr" => true, "ask" => \Dcp\AttributeIdentifiers\Cogip_audit_audit_wfl::caaw_raison),
-        self::t_redaction__brouillon => array("nr" => true),
-        self::t_redaction__certif => array("nr" => true, "m0" => "checkAssociatedFNC"),
-        self::t_redaction__refus_certif => array("nr" => true, "m0" => "checkAssociatedFNC"),
-    );
+            self::t_brouillon__redaction => array(
+                "nr" => true
+            ),
+            self::t_brouillon__annule => array(
+                "nr" => true,
+                "ask" => \Dcp\AttributeIdentifiers\Cogip_audit_audit_wfl::caaw_raison
+            ),
+            self::t_redaction__brouillon => array(
+                "nr" => true
+            ),
+            self::t_redaction__certif => array(
+                "nr" => true,
+                "m0" => "checkAssociatedFNC"
+            ),
+            self::t_redaction__refus_certif => array(
+                "nr" => true,
+                "m0" => "checkAssociatedFNC"
+            )
+        );
 
-Vous avez ajoutez un array sur la transition `self::t_brouillon__annule`, celui-ci est référencé par la clef `ask` et contient la liste des ask qui vont être présentés à l'utilisateur.
+Vous avez ajouté un array sur la transition `self::t_brouillon__annule`,
+celui-ci est référencé par la clef `ask` et contient la liste des ask qui vont être présentés à l'utilisateur.
 
 Lors du passage de la transition, le ask est présenté sous la forme d'une fenêtre posant la question :
 
@@ -349,17 +400,21 @@ et modifiez la liste des transitions :
         self::t_redaction__refus_certif => array("nr" => true, "m0" => "checkAssociatedFNC"),
     );
 
-Vous avez ajouté une fonction qui utilise et enregistre dans l'historique la valeur du ask et ensuite vous avez enregistré cette fonction au `m2` de la transition `self::t_brouillon__annule`.
+Vous avez ajouté une fonction qui utilise et enregistre dans l'historique la valeur du ask
+et ensuite vous avez enregistré cette fonction au `m2` de la transition `self::t_brouillon__annule`.
 
 ![ Ask : historique ](40-30-wdoc-ask-histo.png  "Ask : historique")
 
-Une fois la transition de retour franchie si l'utilisateur clique sur le menu `historique` l'interface ci-dessus est présentée.
+Une fois la transition de retour franchie, si l'utilisateur clique sur le menu `historique`,
+l'interface ci-dessus est présentée.
 
 ## Mise à jour des contrôle de cohérence {#quickstart:85a0bad9-9e7f-424f-b5d3-88aea4616944}
 
-Vous allez maintenant modifier le contrôle de cohérence que vous avez mis en place sur les [dates][contrainte] pour que le contrôle ne se déclenche que lorsque la fiche est à l'état `Brouillon`.
+Vous allez maintenant modifier le contrôle de cohérence que vous avez mis en place sur les [dates][contrainte]
+pour que le contrôle ne se déclenche que lorsque la fiche est à l'état `Brouillon`.
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et modifiez la fonction `checkDate` pour qu'elle soit identique à :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php`
+et modifiez la fonction `checkDate` pour qu'elle soit identique à :
 
     [php]
     /**
@@ -369,7 +424,9 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et modifiez la fo
      * @return string|null
      */
     public function checkBeginningDate($date) {
-        if (!empty($date) && $this->getPropertyValue("state") === COGIP_AUDIT_AUDIT_WFL::e_brouillon && $date < date("o-m-d")) {
+        if (!empty($date)
+            && $this->getPropertyValue("state") === COGIP_AUDIT_AUDIT_WFL::e_brouillon
+            && $date < date("o-m-d")) {
             return _("coa:The date must not be inferior at today");
         }
         return null;
@@ -379,17 +436,18 @@ Vous avez ajouté une condition pour que la contrainte ne se déclenche qu'à l'
 
 ## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
 
-Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie, que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.
+Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie,
+que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.
 
 Ces paramétrages vous permette simplement de créer des cycles complet et riche et de guider les utilisateurs.
 
 ## Voir aussi {#quickstart:837931f9-3475-4494-9f2b-c09327ec4603}
 
-* [Document workflow][DocWFLDoc],
-* [Modèle de mail][DocModelMail],
-* [Minuteur][DocMinuteur],
-* [Code de cycle de vie][DocWFLClass],
-* [Ask][DocWFLask].
+-   [Document workflow][DocWFLDoc],
+-   [Modèle de mail][DocModelMail],
+-   [Minuteur][DocMinuteur],
+-   [Code de cycle de vie][DocWFLClass],
+-   [Ask][DocWFLask].
 
 <!-- links -->
 
