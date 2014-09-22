@@ -45,22 +45,18 @@ Les cycles de vie sont représentés par deux objets systèmes :
 
 ### Cycle des audits {#quickstart:4b8012f7-a650-4e63-9015-4c7d577892b6}
 
-Ouvrez le **developper toolkit** et cliquez sur **Template** puis **Create a workflow**, l'outil vous demande de saisir :
+Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
--   path : le path vers le répertoire `COGIP_AUDIT`,
--   logical name : `WFL_COGIP_AUDIT_AUDIT`,
--   [namespace][php_namespace] : `COGIP`.
-
-Cliquez sur `generate`.
+    php <path_to_devtool>/devtool.phar createWorkflow -s . -n COGIP_AUDIT_AUDIT -m COGIP -a COGIP_AUDIT
 
 Deux fichiers sont générés :
 
     ./COGIP_AUDIT
     ...
-    ├── COGIP_AUDIT_AUDIT__WFL__CLASS.php
+    ├── COGIP_AUDIT_AUDIT__WFL.php
     ├── COGIP_AUDIT_AUDIT__WFL.csv
 
-Le fichier `__CLASS.php` contient le code métier et la structure du cycle de vie,
+Le fichier `.php` contient le code métier et la structure du cycle de vie,
 le fichier `.csv` contiendra quelques éléments de paramétrage.
 
 Le fichier est initialisé avec les éléments suivants :
@@ -123,9 +119,6 @@ Il est conseillé de mettre les noms des états sous la forme d'un identifiant *
 pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
 
 <span class="flag inline nota-bene"></span>
-Il est conseillé de préfixer les constantes par `e_` pour en faciliter l'extraction des clefs pour la traduction.
-
-<span class="flag inline nota-bene"></span>
 Les commentaires `//region States` et `//endregion` sont une convention de certains éditeurs
 ([PhpStorm][phpStormFolding], etc.) qui permet de replier et retrouver plus facilement cette zone.
 
@@ -136,8 +129,8 @@ Il décrit l'activité qui doit avoir lieu lors de cette étape.
 
     [php]
     public $stateactivity = array(
-        self::e_brouillon => "coa:audit:planning",
-        self::e_redaction => "coa:audit:writing"
+        self::e_brouillon => "coa_planning",
+        self::e_redaction => "coa_writing"
     );
 
 <span class="flag inline nota-bene"></span> En théorie, les étapes finales d'un cycle n'ont pas d'activité.
@@ -163,9 +156,6 @@ Pour chaque transition, vous allez indiquer un nom logique qui porte sa référe
 <span class="flag inline nota-bene"></span>
 Il est conseillé de mettre les noms des états sous la forme d'un identifiant *neutre* (id, uuid)
 pour pouvoir plus simplement gérer le changement de forme du cycle de vie et de paramétrage de celui-ci.
-
-<span class="flag inline nota-bene"></span>
-Il est conseillé de préfixer les constantes par `t_` pour en faciliter l'extraction des clefs pour la traduction.
 
 <span class="flag inline nota-bene"></span>
 Il est possible d'utiliser la même transition pour relier deux étapes mais ce fonctionnement est déconseillé
@@ -246,8 +236,8 @@ Vous avez terminé la déclaration de la structure. Le fichier doit donc conteni
         //endregion
     
         public $stateactivity = array(
-            self::e_brouillon => "coa:planning",
-            self::e_redaction => "coa:writing"
+            self::e_brouillon => "coa_planning",
+            self::e_redaction => "coa_writing"
         );
     
         public $transitions = array(
@@ -272,16 +262,89 @@ Vous avez terminé la déclaration de la structure. Le fichier doit donc conteni
 
 Vous allez maintenant extraire les clefs permettant de traduire votre cycle de vie.
 
-Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`,
-vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
+### Ajout des clefs {#quickstart:14027cc6-191a-43d5-90b4-b616b00f91f6}
+
+Les clefs s'ajoutent à l'aide de commentaires dans le code. Pour ajouter une clef sur état, il faut ajouter le commentaire :
+
+`/* @transitionLabel _("state_name")/`
+
+Les annotations ainsi ajoutée permettent à l'outil d'extraction d'identifier les clefs.
+
+En reprenant le fichier ci-dessus on obtient : 
+
+    namespace Cogip;
+    
+    class COGIP_AUDIT_AUDIT_WFL extends \Dcp\Family\WDoc
+    {
+        public $attrPrefix = 'caaw';
+        public $firstState = self::e_brouillon;
+        public $viewlist = "none";
+    
+        //region MyAttributes-constants
+        //endregion
+    
+        //region States
+        /* @stateLabel _("coa_e1") */
+        const e_brouillon = 'coa_e1';
+        /* @stateLabel _("coa_e2") */
+        const e_annule = 'coa_e2';
+        /* @stateLabel _("coa_e3") */
+        const e_redaction = 'coa_e3';
+        /* @stateLabel _("coa_e4") */
+        const e_certifie = 'coa_e4';
+        /* @stateLabel _("coa_e5") */
+        const e_refus_certif = 'coa_e5';
+        //endregion
+    
+        //region Transitions
+        /* @stateLabel _("coa_t1") */
+        const t_brouillon__redaction = 'coa_t1';
+        /* @stateLabel _("coa_t2") */
+        const t_brouillon__annule = 'coa_t2';
+        /* @stateLabel _("coa_t3") */
+        const t_redaction__brouillon = 'coa_t3';
+        /* @stateLabel _("coa_t4") */
+        const t_redaction__certif = 'coa_t4';
+        /* @stateLabel _("coa_t5") */
+        const t_redaction__refus_certif = 'coa_t5';
+        //endregion
+    
+        public $stateactivity = array(
+            /* @stateLabel _("coa_planning") */
+            self::e_brouillon => "coa_planning",
+            /* @stateLabel _("coa_writing") */
+            self::e_redaction => "coa_writing"
+        );
+    
+        public $transitions = array(
+            self::t_brouillon__redaction => array("nr" => true),
+            self::t_brouillon__annule => array("nr" => true),
+            self::t_redaction__brouillon => array("nr" => true),
+            self::t_redaction__certif => array("nr" => true),
+            self::t_redaction__refus_certif => array("nr" => true),
+        );
+    
+        public $cycle = array(
+            array("t" => self::t_brouillon__redaction, "e1" => self::e_brouillon, "e2" => self::e_redaction),
+            array("t" => self::t_brouillon__annule, "e1" => self::e_brouillon, "e2" => self::e_annule),
+            array("t" => self::t_redaction__brouillon, "e1" => self::e_redaction, "e2" => self::e_brouillon),
+            array("t" => self::t_redaction__certif, "e1" => self::e_redaction, "e2" => self::e_certifie),
+            array("t" => self::t_redaction__refus_certif, "e1" => self::e_redaction, "e2" => self::e_refus_certif),
+        );
+    
+    }
+
+Ouvrez la console dans le répertoire contenant les sources et :
+
+    php <path_to_devtool>/devtool.phar extractPo -i .
 
 Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
 
     [gettext]
-    msgid "coa:planning"
+    msgid "coa_planning"
     msgstr "En planification"
     
-    msgid "coa:writing"
+    msgid "coa_writing"
     msgstr "En rédaction"
     
     msgid "coa_e1"

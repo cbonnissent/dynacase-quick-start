@@ -86,8 +86,6 @@ Deux paramètres ont été remplis par le **developper tool** :
 L'image de l’icône doit être ajoutée dans le répertoire `Images` à la racine du contexte.
 Vous devez donc créer dans vos sources un répertoire `Images` et ajouter une image.
 
-Vous pouvez trouver ici un zip contenant une suggestion d'icônes.<span class="flag fixme"> Ou ? URL ? </span>
-
 Vous obtenez la structure de fichiers suivantes :
 
     ├ Images
@@ -98,6 +96,10 @@ Vous obtenez la structure de fichiers suivantes :
       └─ COGIP_AUDIT_REFERENTIEL.png
 
 ![ Famille avec icônes ](30-30-with-title.png "Famille avec icônes")
+
+De plus pour que ce répertoire soit déployé, vous devez l'ajouter au fichier `build.json`, dans la catégorie `includedPath`. Vous obtenez la ligne suivante :
+
+`    "includedPath" : ["locale","EXTERNALS","STYLE", "Images"],`
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
 

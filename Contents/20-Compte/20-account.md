@@ -115,6 +115,10 @@ Veuillez fermer la fenêtre de propriétés.
 
 ### Export du document {#quickstart:3ee75773-6a1c-44f4-8b67-bf1e50dd8a95}
 
+<span class="flag inline nota-bene"></span> Le paramétrage par défaut (CSV sans enclosure) est un mode de compatibilité et son usage est déprécié.
+
+#### Export  {#quickstart:3fee7d00-3ee4-4ced-ba78-b6c37e36ad6d}
+
 Vous allez maintenant exporter le document. Veuillez cliquer sur `Autres` et ensuite sur `Ajouter au porte-document`.
 
 La fenêtre suivante s'ouvre :
@@ -139,7 +143,6 @@ Un fichier CSV vous est proposé au téléchargement, celui-ci est encodé avec 
 -   Séparateur de texte : `"`.
 
 Le logiciel conseillé pour ouvrir ces documents est Libre Office. Avec ce logiciel, le fenêtre de paramétrage avant ouverture du fichier est :
-<span class="fixme flag inline">mettre à jour la capture pour le délimiteur</span>
 
 ![ Utilisateur : export ](20-10-user-export3.png "Utilisateur : export")
 
@@ -184,8 +187,6 @@ Utilisez la sauvegarde de votre tableur, les options de sauvegarde doivent être
 -   Séparateur de cellule : `;`,
 -   Séparateur de texte : `"`.
 
-<span class="flag inline nota-bene"></span> Ces réglages doivent être utilisés pour tous les fichiers `CSV` du tutoriel.
-
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IUSER__INIT_DATA.csv`.
 
 <span class="flag inline nota-bene"></span> Le nom est normalement laissé à votre appréciation.
@@ -196,7 +197,7 @@ Il vous reste à ajouter l'instruction d'import du fichier dans le fichier `info
 Ce fichier déclare les actions réalisées lors de l'installation ou la mise à jour du paquet. Vous allez donc ajouter la ligne suivante pour demander l'import des utilisateurs :
 
     [xml]
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
 
 entre les lignes :
 
@@ -221,7 +222,7 @@ Vous devez obtenir un résultat similaire à :
 ![ Utilisateur : CSV ](20-10-user-export6.png "Utilisateurs : CSV")
 
 Au prochain import de votre paquet, si vous choisissez la stratégie d'initialisation, les utilisateurs que vous avez
-ajoutés ici seront ajoutés à la base. <span class="flag fixme">¿ stratégie d'initialisation ?</span>
+ajoutés ici seront ajoutés à la base.
 
 ## Création des groupes {#quickstart:78e478c8-e1bf-4766-9ae1-de45e13e3068}
 
@@ -234,7 +235,7 @@ Retournez dans l'interface d'administration, cliquez sur gestion des utilisateur
 Appuyez ensuite sur `Créer un groupe d'utilisateur`, un formulaire est affiché. Vous devez compléter les deux champs obligatoires :
 
 -   _Nom_ : `Utilisateurs COGIP`,
--   _Identifiant_ : `GRP_USER_COGI`P.
+-   _Identifiant_ : `GRP_USER_COGIP`.
 
 Appuyez ensuite sur le bouton `Créer`.
 
@@ -264,27 +265,27 @@ Ouvrez le et supprimez les colonnes non nécessaires pour ne garder que :
 Enregistrez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IGROUP__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier `info.xml` l'instruction suivante :
-`<process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>`
+`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;/>`
 
 Les groupes contenant les utilisateurs, ils doivent être importés *avant* les utilisateurs.
 
 Ce qui donne l'ordre suivant pour la procédure d'installation :
 
-    <process command="programs/record_application COGIP_AUDIT" />
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
-    <process command="programs/update_catalog" />
+        <process command="programs/record_application COGIP_AUDIT"/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
+        <process command="programs/update_catalog"/>
 
 Pour créer les autres groupes, de la même manière que pour les utilisateurs, vous pouvez dupliquer la 3ème ligne.
 
-Vous obtenez un listing semblable au suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
+Vous obtenez un listing semblable au suivant :
 
 ![ Liste des groupes ](20-10-group-creation3.png "Liste des groupes")
 
-Vous devez maintenant construire la hiérarchie des groupes. La colonne `D` permet d'indiquer qu'un groupe est contenudans un autre.
+Vous devez maintenant construire la hiérarchie des groupes. La colonne `D` permet d'indiquer qu'un groupe est contenu dans un autre.
 Tous les groupes sont contenus dans le groupe `GRP_USER_COGIP`, vous allez donc compléter la colonne `D` pour l'indiquer.
 
-Vous obtenez un listing semblable au suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
+Vous obtenez un listing semblable au suivant :
 
 ![ Liste des groupes ](20-10-group-creation4.png "Liste des groupes")
 
@@ -297,7 +298,7 @@ La colonne `D` est modifiée avec le nouveau groupe parent. Vous pouvez effectue
 L'association des utilisateurs aux groupes se passe de la même manière. Veuillez ouvrir le fichier `IUSER__INIT_DATA.csv`
 et compléter la colonne `D` pour indiquer pour chaque utilisateur à quel groupe il appartient.
 
-Soit :<span class="fixme flag inline">à compléter avec les nouveaux groupes (liés aux rôles)</span>
+Soit :
 
 -   `USER_JEAN_MARTIN` : `GRP_QUALITE_COGIP`,
 -   `USER_PRISCILLA_ARTHAUD` : `GRP_QUALITE_COGIP`,
@@ -342,17 +343,17 @@ Ouvrez le et supprimez les colonnes inutiles, pour ne garder que :
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `ROLE__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier info.xml l'instruction suivante : 
-`<process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>`
+`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;/>`
 
 Les rôles pouvant être associés aux groupes et aux utilisateurs, ils doivent être importés en premier.
 
 Ce qui donne pour la procédure d'installation :
 
-    <process command="programs/record_application COGIP_AUDIT" />
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv"/>
-    <process command="./wsh.php --api=importDocuments --csv-enclosure='"' --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv"/>
-    <process command="programs/update_catalog" />
+    <process command="programs/record_application COGIP_AUDIT"/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;/>
+    <process command="programs/update_catalog"/>
 
 En procédant comme pour les utilisateurs ou les groupes, vous allez initialiser les autres rôles (duplication de la ligne contenant l'instruction `DOC`).
 
@@ -366,7 +367,7 @@ Vous allez maintenant conclure la partie pratique de ce chapitre en associant le
 
 <span class="flag inline nota-bene"></span> Afin de garantir une meilleure évolutivité de l'application, il est
 de systématiquement passer par un _groupe_ pour faire l'association entre _utilisateurs_ et _rôles_. Ainsi, les
-administrateurs n'ont pas à gérer ls rôles, mais uniquement l'appartenance des utilisateurs aux groupes.
+administrateurs n'ont pas à gérer les rôles, mais uniquement l'appartenance des utilisateurs aux groupes.
 
 Cette association se fait dans les fichiers de définition des groupes.
 
@@ -375,7 +376,7 @@ Dans le fichier `IGROUP__INIT_DATA.csv`, vous allez ajouter une colonne nommée 
 L'analyse a mis en évidence que tous les membres du groupe `Section Risque Opérationnel et Qualité` sont auditeurs.
 Vous allez donc affecter le rôle à ce groupe.  
 De plus, _Karine Marthe_ et _Marina Arnic_ sont _administrateur fonctionnel_, et _Karine Marthe_ est _responsable des audit_.
-Ce qui donne le résultat suivant :<span class="fixme flag inline">à mettre à jour avec les nouveaux groupes (liés aux rôles)</span>
+Ce qui donne le résultat suivant :
 
 ![ Rôle association ](20-10-role-association2.png "Rôle association")
 
@@ -410,8 +411,7 @@ Vous pouvez maintenant vous rendre dans la gestion des utilisateurs pour voir vo
 
 Pour les deux autres éléments, vous allez produire le paquet.
 
-Pour ce faire, veuillez utiliser le **developper toolkit**, cliquer sur le bouton `webinst`,
-sélectionner le path où sont les sources et ensuite cliquer sur le bouton `build`.<span class="flag fixme"></span>
+    php <path_to_devtool>/devtool.phar generateWebinst -i .
 
 Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
 Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`.

@@ -48,3 +48,5 @@ book:
           content:  "50-Action/20-action.md"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
+        - level: 1
+          content:  "1000-annexe/20-developper-toolkit.md"

@@ -94,13 +94,18 @@ Par exemple, si vous souhaitez empêcher la duplication de tous les documents au
 vous pouvez le spécifier au niveau de la famille mère et le comportement est transmis à toutes les familles filles.  
 De même, comme nous le verrons plus tard, cela permet de mettre en place une vue commune à toutes ces familles.
 
-Ouvrez le **developper toolkit** et cliquez sur **Template** et ensuite **Create a family**, l'outil vous demande de saisir :
+Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-* path : le path vers le répertoire `COGIP_AUDIT`,
-* logical name : `COPGIP_AUDIT_BASE`,
-* [namespace][php_namespace] : `COGIP`.
+    php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT
 
-Puis cliquez sur `generate`.
+La commande createFamily permet de créer des familles Dynacase. La liste de ses options est accessibles avec l'option --help.
+
+Les options utilisées ci dessus sont :
+
+* `-s` : emplacement des sources (dans notre exemple le répertoire courant),
+* `-n` : nom logique de la famille,
+* `-m` : namespace de la famille,
+* `-a` : application contenant la famille.
 
 Les fichiers suivants sont générés :
 
@@ -115,8 +120,10 @@ Vous devez maintenant indiquer dans le fichier `info.xml` que cette famille doit
 et la mise à jour. Vous allez ajouter les lignes suivantes :
 
     [xml]
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+
+<span class="flag inline nota-bene"></span> Ces deux lignes vous sont retournées par la commande de création des fichiers.
 
 à 2 endroits :
 
@@ -128,11 +135,11 @@ Vous devez avoir un fichier `info.xml` semblable à :
     [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT" />
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
         <process command="programs/update_catalog" />
     </post-install>
     
@@ -147,29 +154,12 @@ Vous devez avoir un fichier `info.xml` semblable à :
 
 ## Création des fichiers de familles {#quickstart:72980b93-3f1f-4aa0-b12d-756e072f2029}
 
-Vous allez maintenant créer les autres familles, reprenez l'outil **developper toolkit**, cliquez sur **Template** et
-ensuite **Create a family** pour chacune des familles présentées ci-dessous.
+Vous allez maintenant créer les autres familles, reprenez la ligne de commande ci-dessus pour chacune des familles présentées ci-dessous.
 
--   `Référentiel qualité` :
-    -   path : le path vers le répertoire `COGIP_AUDIT`,
-    -   logical name : `COGIP_AUDIT_REFERENTIEL`,
-    -   parent name : `COGIP_AUDIT_BASE`,
-    -   [namespace][php_namespace] : `COGIP`.
--   `Chapitre` :
-    -   path : le path vers le répertoire `COGIP_AUDIT`,
-    -   logical name : `COPGIP_AUDIT_CHAPITRE`,
-    -   parent name : `COGIP_AUDIT_BASE`,
-    -   [namespace][php_namespace] : `COGIP`.
--   `Audit` :
-    -   path : le path vers le répertoire `COGIP_AUDIT`,
-    -   logical name : `COPGIP_AUDIT_AUDIT`,
-    -   parent name : `COGIP_AUDIT_BASE`,
-    -   [namespace][php_namespace] : `COGIP`.
--   `Fiche de non-conformité` :
-    -   path : le path vers le répertoire `COGIP_AUDIT`,
-    -   logical name : `COPGIP_AUDIT_FNC`,
-    -   parent name : `COGIP_AUDIT_BASE`,
-    -   [namespace][php_namespace] : `COGIP`.
+-   `Référentiel qualité` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Référentiel Qualité"`
+-   `Chapitre` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
+-   `Audit` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
+-   `Fiche de non-conformité` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
 
 Vous avez créé l'ensemble des fichiers qui vont définir vos familles. 
 
@@ -181,38 +171,36 @@ Votre `info.xml` contient les lignes suivantes :
 
     [xml]
     <post-install>
-        <process command="programs/record_application COGIP_AUDIT" />
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER_INIT_DATA.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv"/>
-        <process command="programs/update_catalog" />
+        <process command="programs/record_application COGIP_AUDIT"/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command="programs/update_catalog"/>
     </post-install>
-    
     <post-upgrade>
-        <process command="programs/pre_migration COGIP_AUDIT" />
-        <process command="programs/record_application COGIP_AUDIT" />
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv"/>
-        <process command="programs/post_migration COGIP_AUDIT" />
-        <process command="programs/update_catalog" />
+        <process command="programs/pre_migration COGIP_AUDIT"/>
+        <process command="programs/record_application COGIP_AUDIT"/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command="programs/post_migration COGIP_AUDIT"/>
+        <process command="programs/update_catalog"/>
     </post-upgrade>
 
 ## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
@@ -336,20 +324,18 @@ elles sont générées automatiquement sur le serveur lors de l'importation des 
 Vous pouvez générer des classes de référence, les _stubs_, qui permettent d'utiliser la complétion sur votre IDE.
 Ces classes ne contiennent que les éléments qui vous seront utiles lors du développement et ne sont pas tout à fait semblables à celles générées sur le serveur.
 
-Pour générer les stubs, ouvrez le **developper toolkit** et cliquez sur **Stubs** l'outil vous demande ensuite :
+Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
--   path : le path vers les sources
-
-Cliquez ensuite sur `Generate`.
+`php <path_to_devtool>/devtool.phar generateStub -i . -o ./stubs/`
 
 L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le répertoire de vos sources :
 
     ├ stubs
-      ├─ COGIP_AUDIT_AUDIT__STUB.php
-      ├─ COGIP_AUDIT_BASE__STUB.php
-      ├─ COGIP_AUDIT_CHAPITRE__STUB.php
-      ├─ COGIP_AUDIT_FNC__STUB.php
-      └─ COGIP_AUDIT_REFERENTIEL__STUB.php
+      ├─ cogip_audit_audit__STUB.php
+      ├─ cogip_audit_base__STUB.php
+      ├─ cogip_audit_chapitre__STUB.php
+      ├─ cogip_audit_fnc__STUB.php
+      └─ cogip_audit_referentiel__STUB.php
 
 Les fichiers stubs contiennent :
 
@@ -367,8 +353,9 @@ Exemple de complétion d'attribut à l'aide des stubs :
 
 Vous allez maintenant extraire les clefs permettant de traduire vos familles.
 
-Reprenez le **developper toolkit** et cliquez sur le bouton `internationalisation`,
-vous indiquez alors le path vers vos sources et cliquer sur le bouton `extraction`.
+Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
+
+`php <path_to_devtool>/devtool.phar extractPo -i .`
 
 Des nouveaux fichiers de po sont ajoutés, il en existe un par famille et par langue.
 
@@ -462,7 +449,6 @@ Vous pouvez créer quelques formulaires en utilisant l'interface.
 1. Cliquez sur une des icônes,
 2. Cliquez sur `création > ...nom de la famille... `.
 
-<span class="flag fixme">pas assez large</span>
 ![ Onefam ](30-20-onefam_audit.png "Onefam : Création")
 
 ## Conclusion {#quickstart:1f4af8a5-d83c-443d-a41d-cbc1e5677af4}

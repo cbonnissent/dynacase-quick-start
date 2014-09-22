@@ -8,7 +8,7 @@ Le format standard de CSV de Dynacase est :
 
 -   encodage : `UTF8`,
 -   délimiteur de cellule : `;`,
--   délimiteur de texte : `"` (chaîne vide).
+-   délimiteur de texte : `` (chaîne vide).
 
 Ce format est valide pour l'import et pour l'export des documents et des familles avec l'action `importDocuments`.
 

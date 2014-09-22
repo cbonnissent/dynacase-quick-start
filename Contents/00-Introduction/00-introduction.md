@@ -2,7 +2,7 @@
 
 ## Présentation et objectif {#quickstart:a11031ce-6591-46fa-b005-fb757717dd53}
 
-Ce document présente un Quick Start pour la plateforme Dynacase. 
+Ce document est le Quick Start de la plateforme Dynacase. 
 
 Il contient un projet fictif mettant en œuvre les principales fonctionnalités de la plateforme.
 
