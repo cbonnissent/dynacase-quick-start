@@ -2,7 +2,7 @@
 
 ## Présentation et objectif {#quickstart:a11031ce-6591-46fa-b005-fb757717dd53}
 
-Ce document est le Quick Start de la plateforme Dynacase. 
+Ce document est le tutoriel de la plateforme Dynacase. 
 
 Il contient un projet fictif mettant en œuvre les principales fonctionnalités de la plateforme.
 
@@ -16,7 +16,7 @@ Une fois le tutoriel complété, vous saurez :
     -   Créer des familles et utiliser le mécanisme d'héritage,
     -   Paramétrer les formulaires et customiser leur mise en forme,
     -   Ajouter du code métier au formulaire,
-    -   Gérer la sécurité (CRUD) par document et les visibilités par élément de formulaire,
+    -   Gérer la sécurité par document et les visibilités par élément de formulaire,
     -   Utiliser les documents pour produire des sorties bureautique,
     -   Internationaliser les formulaires.
 -   Construire des cycles de vie
@@ -30,11 +30,11 @@ Une fois le tutoriel complété, vous saurez :
     - Gérer la sécurité des applications / actions,
     - Internationaliser les applications.
 -   Packager
-    - Créer des package pour faciliter le déploiement,
-    - Créer des scripts pour gérer les mise à jour.
+    - Créer des packages pour faciliter le déploiement,
+    - Créer des scripts pour gérer les mises à jour.
 
 De plus, [Anakeen][anakeen_services] propose des prestations de formation à l'utilisation de la plateforme Dynacase.  
-Ces formations, d'une durée de 5 jours en standard, permettent d'aborder les points de ce Quick Start.  
+Ces formations, d'une durée de 5 jours en standard, permettent d'aborder les points de ce tutoriel.  
 Elles peuvent aussi être adaptées pour aborder des thèmes avancés non présentés dans ce document.
 Elles alternent parties théoriques et applications pratiques. Les parties pratiques s'appuient sur un projet standard
 ou peuvent être basées sur votre propre projet.  
@@ -42,21 +42,19 @@ Elles se déroulent en inter entreprise sur Paris ou Toulouse ou en intra sur vo
 
 ## Organisation {#quickstart:f6b3c074-0249-4a60-bbb2-0778b6a8778b}
 
-Ce Quick Start est organisé en chapitres principaux :
+Ce tutoriel est organisé en 5 chapitres principaux :
 
--   Mise en place du contexte de développement,
--   Utilisateurs,
--   Familles / Documents,
--   Cycles de vie,
--   Applications / Actions,
--   Déploiement.
+-   [Mise en place du contexte de développement][chapter_dev],
+-   [Comptes (Utilisateur, Rôles et Groupes)][chapter_account],
+-   [Familles / Documents][chapter_fam],
+-   [Cycles de vie][chapter_wfl],
+-   [Applications / Actions][chapter_action].
 
 Il permet d'avoir une vue d'ensemble des fonctionnalités de Dynacase Platform.
 
 Chaque chapitre est composé de sous chapitres. Un sous chapitre est écrit pour pouvoir être parcouru et compris en **2 heures**.
 
-Les chapitres sont rédigés de manière à réduire les dépendances entre eux de façon à ce que l'ordre d'exécution du
-tutoriel ne soit pas imposé, toutefois nous vous conseillons de suivre l'ordre du sommaire.
+De plus, il y a aussi une [annexe][chapter_annexe] qui résume quelques points clefs.
 
 ## Contexte Fonctionnel {#quickstart:1b340f92-085a-4bbe-a866-47e17444ca51}
 
@@ -89,3 +87,9 @@ Votre responsable hiérarchique vous a donc assigné la tâche de mener à bien 
 <!-- links -->
 [anakeen_services]: http://anakeen.com/#services
 [COGIP]: http://fr.wikipedia.org/wiki/COGIP
+[chapter_dev]: #quickstart:354d4c0e-3386-47fb-b79c-4ea19e3cd5d9
+[chapter_account]: #quickstart:7c5b312e-42cf-44e2-b68f-9ddce9b48d71
+[chapter_fam]: #quickstart:f43b95f5-71d4-4c40-bd28-3fff24a3261f
+[chapter_wfl]: #quickstart:64fac308-94ce-4717-96c7-56e2336c7791
+[chapter_action]: #quickstart:3e7da180-3454-4344-a8a1-73f958365aa5
+[chapter_annexe]: #quickstart:f032dd5b-a7dc-47f7-b216-6a973a447dfd

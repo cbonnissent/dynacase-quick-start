@@ -31,11 +31,11 @@ Dynacase Control utilise des modules au format **webinst**.
 Ce format permet de transporter le module sous la forme d'un seul fichier.
 Ce fichier, nommé *paquet*, est composé de la manière suivante :
 
--   une archive [**tar**][tar] contenant :
+-   une archive [**tar.gz**][tar] contenant :
     -   le fichier `info.xml`
-    -   une archive compressée [**tar.gz**][tar] contenant le code source du module tel qu'il est déployé sur le serveur
+    -   une archive compressée [**content.tar.gz**][tar] contenant le code source du module tel qu'il est déployé sur le serveur
 
-Une fois le module fourni à Dynacase Control, celui-ci lit le fichier `info.xml`, décompresse le contenu du tar.gz dans
+Une fois le module fourni à Dynacase Control, celui-ci lit le fichier `info.xml`, décompresse le contenu du content.tar.gz dans
 le contexte et exécute les éventuelles instructions d'installation ou mise à jour.
 
 ## Mise en place {#quickstart:6207b157-95a4-4a53-b112-fbb5c2b58741}
@@ -77,11 +77,6 @@ Dans notre cas, vous rentrez les options suivantes :
 
     php <path_to_devtool>/devtool.phar createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
 
-**Attention** : Le quickstart est prévu pour une version de Dynacase inférieure
-à la 3.2.17, cette version ne supporte pas l'import/export de document et 
-paramétrage de fichier CSV avec enclosure, il faut donc mettre l'option -e pour
-indiquer que l'on travaille avec des CSV sans enclosure.
-
 Vous obtenez la structure de fichiers suivante :
 
     ┊
@@ -94,6 +89,7 @@ Vous obtenez la structure de fichiers suivante :
     ├─ EXTERNALS/
     ├─ STYLE/
     ├─ locale/
+    ├─ Images/
     ├─ build.json
     ├─ info.xml
     ┊
@@ -110,7 +106,7 @@ l'installation et de la mise à jour du module. Il est initialisé avec les inst
 applicatifs associés à l'application `COGIP_AUDIT` par défaut il contient le 
 numéro de version de l'application.
 
-Vous allez reprendre le fichier `COGIP_AUDIT/COGIP_AUDIT.app`
+Ouvrez le fichier `COGIP_AUDIT/COGIP_AUDIT.app`
 
     [php]
     $app_desc = array(
@@ -122,12 +118,12 @@ Vous allez reprendre le fichier `COGIP_AUDIT/COGIP_AUDIT.app`
         "childof" => ""
     );
 
-Nous voyons que par défaut une référence est ajoutée vers un fichier `COGIP_AUDIT.png` ce fichier est à déposer dans le
-répertoire `Images`. Cette image est utilisée pour représenter l'application dans les différentes interfaces Dynacase
--menus, administration, etc-.
+Nous voyons que par défaut une référence est ajoutée vers un fichier `COGIP_AUDIT.png` ce fichier est à déposer dans le répertoire `Images` à la racine du module. Cette image est utilisée pour représenter l'application dans les différentes interfaces Dynacase -menus, administration, etc-.
 
-Toutes les chaînes de caractères qui sont inclues dans la fonction `_` sont traduisibles, ce qui est ici le cas pour
+Toutes les chaînes de caractères qui sont inclues dans les fonction `_` et `N_` sont traduisibles, ce qui est ici le cas pour
 `short_name` et `description`.
+
+Vous pouvez ajouter l'image au répertoire, toutes les images du tutoriel peuvent-être trouvées [ici][tuto_images].
 
 ## Traduction {#quickstart:bec85337-36e8-4289-a938-f48b361e125e}
 
@@ -137,7 +133,7 @@ Une première version des fichiers de traductions a été initialisée lors de l
 
 La commande pour rafraîchir les po est :
 
-    php <path_to_devtool>/devtool.phar extractPo -i .
+    php <path_to_devtool>/devtool.phar extractPo -s .
 
 Le -i indique le path où se trouve les sources, dans l'exemple ci-dessus elles sont dans le path courant.
 
@@ -174,7 +170,7 @@ Le fichier `COGIP_AUDIT_fr.po` contient :
     #
     msgid ""
     msgstr ""
-    "Project-Id-Version: PACKAGE VERSION\n"
+    "Project-Id-Version: COGIP_AUDIT_fr\n"
     "Report-Msgid-Bugs-To: \n"
     "POT-Creation-Date: 2014-09-22 12:08+0200\n"
     "PO-Revision-Date: 2014-09-22 11:44+0200\n"
@@ -182,7 +178,7 @@ Le fichier `COGIP_AUDIT_fr.po` contient :
     "Language-Team: none\n"
     "Language: fr\n"
     "MIME-Version: 1.0\n"
-    "Content-Type: text/plain; charset=ASCII\n"
+    "Content-Type: text/plain; charset=UTF-8\n"
     "Content-Transfer-Encoding: 8bit\n"
     "Plural-Forms: nplurals=2; plural=(n > 1);\n"
     
@@ -198,12 +194,8 @@ Complétez avec `Application d'audit de la cogip`.
 Ce qui donne :
 
     [...]
-    msgid "Cogip_audit"
+    msgid "COGIP_AUDIT:COGIP_AUDIT"
     msgstr "Application d'audit de la cogip"
-
-**Attention** : Par défaut, le charset du fichier po est `ASCII` (`"Content-Type: text/plain; charset=ASCII\n"`), si vous utilisez des clefs en dehors de l'ASCII, il est conseillé de le passer à `UTF-8` (`"Content-Type: text/plain; charset=UTF8\n"`).
-
-**Attention** : Pour des raisons de performances, l'ensemble des po sont concaténer en un seul catalogue sur le serveur, il est donc conseillé de préfixer les clefs pour éviter d'écraser les clefs d'une autre application.
 
 Une fois les modifications faites, vous obtenez le fichier suivant :
 
@@ -215,9 +207,9 @@ Une fois les modifications faites, vous obtenez le fichier suivant :
     #
     msgid ""
     msgstr ""
-    "Project-Id-Version: PACKAGE VERSION\n"
+    "Project-Id-Version: COGIP_AUDIT_fr\n"
     "Report-Msgid-Bugs-To: \n"
-    "POT-Creation-Date: 2014-09-22 11:46+0200\n"
+    "POT-Creation-Date: 2014-09-22 12:08+0200\n"
     "PO-Revision-Date: 2014-09-22 11:44+0200\n"
     "Last-Translator: Automatically generated\n"
     "Language-Team: none\n"
@@ -237,7 +229,7 @@ Vous allez maintenant conclure ce chapitre en produisant le fichier contenant le
 
 Exécutez la commande :
 
-    php <path_to_devtool>/devtool.phar generateWebinst -i .
+    php <path_to_devtool>/devtool.phar generateWebinst -s .
 
 Un paquet `cogip-audit-1.0.0-0.webinst` est alors produit dans le répertoire des sources.
 
@@ -278,7 +270,7 @@ et avez abordé les principes des traductions.
 -   [Internationalisation et traduction][manref_internationalisation]
 
 [wikiIDE]: https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement_int%C3%A9gr%C3%A9
-[githubSource]: https://github.com/Anakeen/dynacase-quick-start/archive/after_10_30.zip "Github : source après le tutoriel"
+[githubSource]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after_10_30.zip "Github : source après le tutoriel"
 [tar]: https://fr.wikipedia.org/wiki/Tar_(informatique) "Définition du TAR : Wikipedia"
 [wpoedit]: https://en.wikipedia.org/wiki/Poedit "Description de Poedit : Wikipedia"
 [upoedit]: http://www.poedit.net/download.php "Téléchargement de Poedit"
@@ -288,3 +280,4 @@ et avez abordé les principes des traductions.
 [url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/devtool.phar
 [annexe_toolkit]: #quickstart:afe5e4fc-97c4-46d6-9583-94daa33919f1
 [annexe_buildjson]: #quickstart:f0fb9907-44e1-4956-aea1-14beb5cc077c
+[tuto_images]: https://github.com/Anakeen/dynacase-quick-start-code/tree/master/Images

@@ -1,7 +1,7 @@
 # La gestion des utilisateurs {#quickstart:7c5b312e-42cf-44e2-b68f-9ddce9b48d71}
 
-Dans Dynacase la gestion des utilisateurs passe par la notion de _compte_ (_account_ dans la
-documentation de référence). Ceux-ci se répartissent en trois catégories :
+Dans Dynacase, la gestion des utilisateurs utilise la notion de _compte_ (_account_ dans la
+documentation de référence). Les comptes se répartissent en trois catégories :
 
 -   les _utilisateurs_ : ce type de compte identifie une personne et permet à celle-ci de se connecter sur la plateforme,
 -   les _groupes_ : un groupe est un ensemble d'utilisateurs. 
