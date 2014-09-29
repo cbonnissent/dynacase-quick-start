@@ -60,8 +60,6 @@ Fiche de non-conformité
         -   un responsable,
         -   une date de prise en compte.
 
-<span class="flag fixme inline">présenter le MCD de type UML ou BDD</span>
-
 ## Partie théorique {#quickstart:75dc2bf5-ae31-434e-a538-96ad9c52967f}
 
 ### Structure de famille {#quickstart:652fd302-fef6-4335-bea8-e26a60759537}
@@ -87,7 +85,7 @@ La structure de la famille est utilisée en interne par Dynacase pour :
 
 À la liste des familles identifiées de manière fonctionnelle, nous allons ajouter une famille dite _de base_,
 dont toutes les familles de l'application hériteront.
-Cette méthode est considérée comme une bonne pratique pour débuter un projet Dynacase.
+Cette méthode est  une bonne pratique pour débuter un projet Dynacase.
 Ceci permet de propager plus facilement des comportements spécifiques entre toutes les familles d'un projet.
 
 Par exemple, si vous souhaitez empêcher la duplication de tous les documents au sein de votre projet,
@@ -96,7 +94,7 @@ De même, comme nous le verrons plus tard, cela permet de mettre en place une vu
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-    php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT
+    php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT
 
 La commande createFamily permet de créer des familles Dynacase. La liste de ses options est accessibles avec l'option --help.
 
@@ -157,9 +155,9 @@ Vous devez avoir un fichier `info.xml` semblable à :
 Vous allez maintenant créer les autres familles, reprenez la ligne de commande ci-dessus pour chacune des familles présentées ci-dessous.
 
 -   `Référentiel qualité` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Référentiel Qualité"`
--   `Chapitre` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
--   `Audit` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
--   `Fiche de non-conformité` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COPGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
+-   `Chapitre` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
+-   `Audit` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
+-   `Fiche de non-conformité` : `php <path_to_devtool>/devtool.phar createFamily -s . -n COGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
 
 Vous avez créé l'ensemble des fichiers qui vont définir vos familles. 
 
@@ -172,36 +170,39 @@ Votre `info.xml` contient les lignes suivantes :
     [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT"/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
         <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;;&apos; '/>
         <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
         <process command="programs/update_catalog"/>
     </post-install>
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT"/>
         <process command="programs/record_application COGIP_AUDIT"/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;;&apos; '/>
         <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
         <process command="programs/post_migration COGIP_AUDIT"/>
         <process command="programs/update_catalog"/>
     </post-upgrade>
+
+Vous pouvez retrouvez l'ensemble de ces fichiers initialisés dans les [sources du chapitre complété][tuto_after_30_20].
 
 ## Ajout des attributs {#quickstart:dfb226d3-2b6d-45a2-b5de-7a671186247b}
 
@@ -261,6 +262,8 @@ Dans le cas des `Référentiel qualité`, vous devez obtenir une structure simil
     
     ![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
 
+Vous pouvez retrouver le [fichier complété][tuto_audit_ref].
+
 ### Chapitre {#quickstart:db00ea11-3c9a-4a99-8879-af61e8ad2745}
 
 Vous allez maintenant compléter la famille `chapitre`.
@@ -279,6 +282,8 @@ Ce type d'attribut référence un document et permet de créer des liens entre l
 Dans la définition du `docid`, la référence à la famille `Référentiel` indique la nature du lien,
 et permet de n'afficher en édition que les documents issus de cette famille.
 
+Vous pouvez retrouver le [fichier complété][tuto_audit_chapitre].
+
 ### Fiche de non-conformité {#quickstart:6bc0b33f-c7a9-4b20-b940-8d939c3b97ec}
 
 Vous allez maintenant compléter la `Fiche de non-conformité`.
@@ -294,6 +299,8 @@ Vous pouvez remarquer la présence de deux nouveaux éléments structurants :
 -   [tab][DocTab] : un `tab` est représenté sous la forme d'un onglet dans le formulaire.
     Il permet d'organiser les informations à présenter, d'avoir une présentation plus lisible et éviter des formulaires trop long.
 
+Vous pouvez retrouver le [fichier complété][tuto_audit_fnc].
+
 ### Audit {#quickstart:b2eccdab-bbda-4d80-86a7-dd5e6cdb22dc}
 
 Vous allez maintenant compléter votre dernière famille, la `Fiche d'audit`.
@@ -301,6 +308,8 @@ Vous allez maintenant compléter votre dernière famille, la `Fiche d'audit`.
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv`, et complétez le pour obtenir une structure similaire à :
 
 ![ Contenu structure Audit ](30-20-structure-audit.png "Contenu structure Audit")
+
+Vous pouvez retrouver le [fichier complété][tuto_audit_audit].
 
 Bravo ! Vous avez initialisé l'ensemble des familles.
 
@@ -326,7 +335,7 @@ Ces classes ne contiennent que les éléments qui vous seront utiles lors du dé
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-`php <path_to_devtool>/devtool.phar generateStub -i . -o ./stubs/`
+`php <path_to_devtool>/devtool.phar generateStub -s . -o ./stubs/`
 
 L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le répertoire de vos sources :
 
@@ -345,6 +354,8 @@ Les fichiers stubs contiennent :
     qui contiennent la liste des attributs définis dans les fichiers `__STRUCT.csv`
     et permettent de référencer les attributs en utilisant la complétion.
 
+Vous pouvez retrouver les stubs sur [github][tuto_stub].
+
 Exemple de complétion d'attribut à l'aide des stubs :
 
 ![ Complétion d'attribut ](30-20-structure-stub-completion.png "Complétion d'attribut dans PhpStorm")
@@ -355,29 +366,29 @@ Vous allez maintenant extraire les clefs permettant de traduire vos familles.
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-`php <path_to_devtool>/devtool.phar extractPo -i .`
+`php <path_to_devtool>/devtool.phar extractPo -s .`
 
 Des nouveaux fichiers de po sont ajoutés, il en existe un par famille et par langue.
 
-    ├ locale
-      ├─ en
-      │  └─ LC_MESSAGES
-      │     └─ src
-      │        ├─ COGIP_AUDIT.po
-      │        ├─ family_COGIP_AUDIT_AUDIT.po
-      │        ├─ family_COGIP_AUDIT_BASE.po
-      │        ├─ family_COGIP_AUDIT_CHAPITRE.po
-      │        ├─ family_COGIP_AUDIT_FNC.po
-      │        └─ family_COGIP_AUDIT_REFERENTIEL.po
-      └─ fr
-         └─ LC_MESSAGES
-            └─ src
-               ├─ COGIP_AUDIT.po
-               ├─ family_COGIP_AUDIT_AUDIT.po
-               ├─ family_COGIP_AUDIT_BASE.po
-               ├─ family_COGIP_AUDIT_CHAPITRE.po
-               ├─ family_COGIP_AUDIT_FNC.po
-               └─ family_COGIP_AUDIT_REFERENTIEL.po
+    ./locale
+    ├── en
+    │   └── LC_MESSAGES
+    │       └── src
+    │           ├── COGIP_AUDIT_AUDIT_en.po
+    │           ├── COGIP_AUDIT_BASE_en.po
+    │           ├── COGIP_AUDIT_CHAPITRE_en.po
+    │           ├── COGIP_AUDIT_en.po
+    │           ├── COGIP_AUDIT_FNC_en.po
+    │           └── COGIP_AUDIT_REFERENTIEL_en.po
+    └── fr
+        └── LC_MESSAGES
+            └── src
+                ├── COGIP_AUDIT_AUDIT_fr.po
+                ├── COGIP_AUDIT_BASE_fr.po
+                ├── COGIP_AUDIT_CHAPITRE_fr.po
+                ├── COGIP_AUDIT_FNC_fr.po
+                ├── COGIP_AUDIT_fr.po
+                └── COGIP_AUDIT_REFERENTIEL_fr.po
 
 Chacun de ces fichiers contient l'ensemble des clefs permettant de traduire les labels des attributs et des énumérés de la famille qu'il référence.
 
@@ -401,7 +412,9 @@ Pour le fichier `fr`, vous pouvez enlever les fuzzy car les propositions sont co
 
 ## Production du paquet {#quickstart:62bc3a4e-9b6c-4da2-9fb0-145ecee0f281}
 
-Vous allez maintenant produire le paquet en utilisant le **developper toolkit**.
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/devtool.phar generateWebinst -i .
 
 Déployez le paquet en passant par Dynacase Control, en utilisant le scénario *upgrade*.
 
@@ -459,6 +472,7 @@ Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer
 
 ## Voir aussi {#quickstart:226443c7-a82f-4edd-b8e1-430892fcf030}
 
+* [Les sources après ce chapitre][tuto_after_30_20],
 * [Définition CSV d'une famille][DocFamCSV],
 * [Liste des attributs][DocAttribut],
 * [Liste des visibilités][DocVisibilite],
@@ -476,3 +490,9 @@ Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer
 [DocArray]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:dd400581-8896-4eec-9b9e-f1e5669cf180.html "Documentation : Array"
 [DocTab]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:5b236ce8-ad99-4e21-ae8a-cbea6942c3e4.html "Documentation : Tab"
 [Internationalisation]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:8f3ad20a-4630-4e86-937b-da3fa26ba423.html "Documentation : Internationalisation"
+[tuto_after_30_20]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-20.zip
+[tuto_audit_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-20/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
+[tuto_audit_chapitre]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-20/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv
+[tuto_audit_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-20/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv
+[tuto_audit_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-20/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv
+[tuto_stub]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-20/stubs
