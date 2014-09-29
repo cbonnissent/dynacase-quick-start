@@ -430,34 +430,7 @@ Vous pouvez retrouver les fichiers complété [ici](https://github.com/Anakeen/d
 
 ## Mise en place des modifications {#quickstart:c7522c13-68ab-47c7-b592-6c672b963820}
 
-Vous allez maintenant déployer vos modifications. Il y a pour cela deux manières de faire :
-
--   vous pouvez construire le paquet `webinst` et le déployer en choisissant la stratégie `install`,
--   vous pouvez déployer manuellement les fichiers que vous avez produit à l'aide de l'interface d'administration.
-
-<span class="flag inline nota-bene"></span> L'import manuel est destiné à des phases de développement, ou de test ou des importations ponctuelles.
-
-Vous allez commencer par déployer manuellement le premier fichier.
-Veuillez sélectionner dans l'interface d'administration `Gestion des documents > Importations de documents`.
-L'interface présentée est la suivante :
-
-![ Importation manuelle ](20-10-import.png "Importation manuelle")
-
-Veuillez sélectionner votre fichier, `ROLE__INIT_DATA.csv`, et ensuite cliquer sur `Lancer l'analyse`.
-La mécanique d'import manuel passe toujours par une phase d'analyse permettant de contrôler si un fichier est importable.
-
-![ Importation manuelle : analyse ](20-10-import-valid.png "Importation manuelle : analyse")
-
-Le fichier d'import est valide. L'analyse indique qu'un document est mis à jour manuellement et deux autres ajoutés.
-Ce qui correspond à ce que vous avez fait en créant le premier document manuellement et créant les autres dans le fichier.
-
-Cliquez ensuite sur `Importer les documents maintenant`. Le panneau de gauche se met à jour et vous indique le compte rendu de l'import.
-
-Vous pouvez maintenant vous rendre dans la gestion des utilisateurs pour voir vos nouveaux utilisateurs.
-
-![ Importation manuelle : résultat ](20-10-import-role.png "Importation manuelle : résultat")
-
-Pour les deux autres éléments, vous allez produire le paquet.
+Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
 
     php <path_to_devtool>/devtool.phar generateWebinst -i .
 
@@ -491,7 +464,7 @@ Vous pouvez consulter les chapitres suivants de la documentation :
 
 <!-- links -->
 
-[githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start/archive/after_20_20.zip "Github : source après le tutoriel"
+[githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-20-20.zip "Github : source après le tutoriel"
 [docCompte]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2bd98eec-5b03-4af0-b9d6-1bbf78fe9733.html "Doc Dynacase : Comptes"
 [formatCSV] : https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093.html "Doc Dynacase : CSV"
 [annexe]:   #quickstart:69f091b6-34ef-47b0-a453-8e00676b7dcd
