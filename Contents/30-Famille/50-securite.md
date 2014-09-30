@@ -136,9 +136,6 @@ Ensuite, sélectionnez le document pour pouvoir l'exporter, dans l'interface du 
 Une fois le porte-documents ouvert, pensez à supprimer les documents qui ne vous intéressent pas
 et cliquez sur `Outils > Exportation du dossier`.
 
-<span class="flag inline nota-bene"></span>
-__Attention__, si la fenêtre ne s'ouvre pas, veuillez regarder dans l'application `Gestion des documents > Explorateur de documents`.
-
 <span class="flag inline nota-bene"/>
 Vous pouvez remarquer que le nom logique du document est préfixé
 de manière à rapidement identifier son type : `PFAM` pour _Profil de famille_.
@@ -192,6 +189,8 @@ Ce qui donne dans votre cas :
 
 ![ Import référentiel ](30-50-import-pfam-ref.png "Import référentiel")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_ref].
+
 ### Chapitre {#quickstart:71093ab5-b57d-4b3b-b58c-bb6067ce4afd}
 
 Vous allez maintenant valuer le profil de famille _Chapitres_.
@@ -220,6 +219,8 @@ Ce qui donne dans votre cas :
 
 ![ Import chapitre ](30-50-import-pfam-chapitre.png "Import chapitre")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_chapitre].
+
 ### Audit {#quickstart:5bcdd917-3580-4cf4-8ece-6696e88c2da5}
 
 Vous allez maintenant valuer le profil de famille _Audits_.
@@ -241,6 +242,8 @@ Ce qui donne dans votre cas :
 
 ![ Import audit ](30-50-import-pfam-audit.png "Import audit")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_audit].
+
 ### Fiche de non-conformité {#quickstart:70215d94-966b-42a9-a453-c5651bc045b7}
 
 Vous allez maintenant valuer le profil de famille _Fiche de non-conformité_.
@@ -261,6 +264,8 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv`:
 Ce qui donne dans votre cas :
 
 ![ Import fiche de non-conformité ](30-50-import-pfam-fnc.png "Import fiche de non-conformité")
+
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
 ## Profil de document {#quickstart:62aad07c-8c51-423d-907a-ed7a0d8b5f5d}
 
@@ -337,6 +342,8 @@ Ajoutez :
 
 ![ Import : profil référentiel ](30-50-export-pdoc.png "Import : profil référentiel")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_ref].
+
 ### Chapitre {#quickstart:5e2a95fe-474c-498d-b902-f625a234b575}
 
 Vous allez maintenant valuer le profil de famille Chapitres.
@@ -349,6 +356,10 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv`:
 -   ajoutez juste avant l'instruction `END`, une ligne contenant :
     -   dans la première case `CPROFID`,
     -   dans la deuxième case, le nom logique du profil soit : `PDOC_CHAPITRE`.
+    
+![ Import : profil référentiel ](30-50-import-cvdoc-chapter.png "Import : profil référentiel")
+
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_chapitre].
 
 ### Audit et fiche de non-conformité {#quickstart:0dfd0cb1-c566-4149-9ef8-8c568427d574}
 
@@ -529,7 +540,9 @@ Ouvrez `./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv` :
 
 Vous obtenez le fichier suivant :
 
-![Porte-documents : association famille](30-50-import-cvdoc-ref.png "Porte-documents : association famille")
+![Famille paramétrage : Fiche de non-conformité](30-50-import-cvdoc-ref.png "Famille paramétrage : Fiche de non-conformité")
+
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
 ## Conclusion {#quickstart:d26ea9af-dc4c-4c90-9a53-0963a06fdfe5}
 
@@ -554,6 +567,7 @@ Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône
 
 ## Voir aussi {#quickstart:a8ae1a02-f60f-4b81-a207-ad5ff44a8d10}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   [Profil][DocProfilExport],
 -   [Contrôle de vue][DocCVDOC],
 -   [Zone][DocZone].
@@ -567,3 +581,8 @@ Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône
 [DocProfilDocument]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:a99dcc5f-f42f-4574-bbfa-d7bb0573c95d.html#core-ref:f1575705-10e8-4bf2-83b3-4c0b5bfb77cf "Documentation : Profil Document"
 [DocMasque]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:327ad491-06df-4e5b-b49a-695c75439fe1.html "Documentation : masque"
 [DocZone]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cb3e2b97-ee6d-4cdf-aa25-b2e41d0d3156.html#core-ref:49b96dc9-64e9-4f5a-a167-396282625c1e "Documentation : Zone"
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-50.zip
+[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
+[tuto_param_chapitre]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv
+[tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv
+[tuto_param_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv
