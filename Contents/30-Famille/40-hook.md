@@ -72,7 +72,7 @@ Les point suivants sont intéressants :
 -   la gestion des erreurs dans Dynacase est faite principalement par le retour de la fonction :
     celle-ci renvoie une chaîne de caractères décrivant l'erreur en cours et une chaîne vide lorsque la fonction n'a pas échoué.
 
-Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction est appelée après chaque enregistrement du document :
+Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction est appelée automatiquement après chaque enregistrement du document :
 
     [php]
     public function postStore() {
@@ -89,12 +89,14 @@ Il est ainsi possible de surcharger dans les familles filles les fonctions appel
 
 <span class="flag inline nota-bene"></span>
 Vous remarquerez que la méthode `computeFNC` ne sauvegarde pas les modifications qu'elle effectue (elle n'appelle pas `store`).
-En effet, les hooks fant automatiquement cette sauvegarde lorsque nécessaire.
+En effet, les hooks font automatiquement cette sauvegarde lorsque nécessaire.
 De plus, cela permet d'appeler les méthodes concernées en dehors des hooks, sans surcoût particulier.
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
 
 ### Problèmes {#quickstart:59afb583-b9da-4dc2-92d7-69426961562e}
 
-A ce stade, le formulaire calcule automatiquement la valeur de l'attribut `caa_fnc_fnc`, il reste deux points à résoudre :
+A ce stade si vous déployez les sources modifiées, le formulaire calcule automatiquement la valeur de l'attribut `caa_fnc_fnc`, il reste deux points à résoudre :
 
 -   lors de la modification de l'audit, les utilisateurs peuvent toujours modifier la valeur de l'attribut dans le formulaire,
 -   le calcul est effectué seulement lors de la sauvegarde du document audit.
@@ -109,8 +111,8 @@ Modifiez la colonne `I` :
 
 La liste des fiches de non conformité n'est plus modifiable dans les audits en modification.
 
-Pour corriger le second point, vous devez modifier les fiches de non conformité pour que, lors de leurs sauvegardes,
-elles mettent à jour l'audit associé.
+Pour corriger le second point, vous devez modifier la fiche de non conformité pour que, lors de sa sauvegarde,
+elle mette à jour l'audit associé.
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et ajoutez la fonction suivante :
 
     [php]
@@ -151,6 +153,8 @@ Ensuite surchargez la fonction [`postStore`][DocDocPostStore] :
 <span class="flag inline nota-bene"></span>
 Attention à bien appeler le parent lors de la surcharge de la fonction de hook, sinon le code des classes parentes ne serait pas appelé.
 
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+
 ## Duplication {#quickstart:c2f7a2b2-f9d5-4db1-845d-371ba6425317}
 
 Vous allez mettre en place un traitement après la duplication d'un audit pour supprimer les dates de l'audit
@@ -158,7 +162,7 @@ dans le nouveau document créé par duplication.
 
 <span class="flag inline nota-bene"></span>
 Les liens vers les fiches de non-conformité sont re-calculé automatiquement après la duplication de la page
-(car ils sont enregistrés au `postStore`).
+(car ils sont enregistrés au `postStore`), il est donc inutile de les supprimer après la duplication.
 
 Ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction suivante :
 
@@ -184,15 +188,21 @@ Cette fonction utilise [`clearValue`][DocDocClearValue] qui permet de vider la v
 Ajoutez ensuite la fonction suivante :
 
     [php]
-    public function postDuplicate() {
-        $err = parent::postDuplicate();
+    public function postDuplicate($copyFrom) {
+        $err = parent::postDuplicate($copyFrom);
         $err .= $this->cleanDate();
         if ($err) {
             error_log(__FILE__ . ":" . __LINE__ . ":" . __METHOD__ . " " . $err . "\n");
         }
     }
 
+<span class="flag inline nota-bene"></span> Attention à penser à transmettre le paramètre $copyFrom au parent.
+
+Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/devtool.phar generateWebinst -s .` et le
+déployer.
 Vous pouvez ensuite dupliquer le document en utilisant le menu du document `Autres > Dupliquer`.
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
 
 ## Affichage d'un message aux utilisateurs {#quickstart:d0443641-f6fc-419b-9647-c30bc1b2e635}
 
@@ -204,12 +214,14 @@ Ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fonction suiva
     [php]
     /**
      * Check if the end date is in the past
-     * 
+     *
      * @return string
      */
-    public function checkEndDate() {
+    public function checkEndDate()
+    {
         $err = "";
-        if ($this->getAttributeValue(MyAttributes::caa_date_fin) > date("o-m-d") ) {
+        $date = $this->getAttributeValue(MyAttributes::caa_date_fin);
+        if (!empty($date) && $this->getAttributeValue(MyAttributes::caa_date_fin) < new \DateTime()) {
             $err = ___("The end date of the audit is in the past", "COGIP_AUDIT:AUDIT");
         }
         return $err;
@@ -229,9 +241,14 @@ Ajoutez ensuite la fonction suivante :
         return $err;
     }
 
+Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/devtool.phar generateWebinst -s .` et le
+déployer.
+
 Une fois le code déployé si la date de fin d'audit est dans le passé vous avez le message suivant qui s'affiche :
 
 ![ Message utilisateur ](30-40-postRefresh.png "Message utilisateur")
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
 
 ## Contrôle à la suppression {#quickstart:e1f220a8-aa10-4149-aa4a-a20fd6b4598c}
 
@@ -277,10 +294,12 @@ Ajoutez ensuite la fonction suivante :
         return $msg;
     }
 
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+
 ## Injection de JS ou CSS {#quickstart:bb25d5ff-d5a6-4d26-b32a-26db45de88e7}
 
 Pour finir ce chapitre, le service qualité a jeté un coup d'œil sur vos ajouts et aimerait
-que le message envoyé aux utilisateurs soit moins anxiogène. 
+que le message envoyé aux utilisateurs soit moins anxiogène et donc moins rouge. 
 
 Vous allez donc ajouter une CSS pour obtenir ce comportement.
 
@@ -309,7 +328,7 @@ Cette méthode fait appel à la fonction [`addCssRef`][DocAddCssRef], elle perme
 Vous allez maintenant ajouter les fonctions suivantes :
 
     [php]
-        public function preEdition() {
+    public function preEdition() {
         $err = parent::preEdition();
         $this->addCSS();
         return $err;
@@ -324,6 +343,8 @@ Vous allez maintenant ajouter les fonctions suivantes :
 Les deux fonctions ajoutées s’exécutent respectivement avant l'édition et avant la consultation.
 La CSS définie ci-dessus est ajoutée dans le formulaire.
 
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+
 ## Conclusion {#quickstart:e066bf1f-a23b-4a8d-bf56-7207147c095b}
 
 Vous avez abordé les _hooks_ et leurs fonctionnalités. Ils permettent de surcharger le fonctionnement par défaut
@@ -331,6 +352,7 @@ des documents de Dynacase pour implémenter la logique métier de votre projet.
 
 ## Voir aussi {#quickstart:3d2825a4-f9f5-45ce-ac3a-099965f178b5}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   [Les hooks][DocHook].
 
 <!-- links -->
@@ -344,3 +366,5 @@ des documents de Dynacase pour implémenter la logique métier de votre projet.
 [DocOnlyCount]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa.html "Documentation : onlyCount"
 [DocAddCssRef]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:4bba8a6b-8002-4c0a-8ac7-70d75b31b02b.html "Documentation : addCssRef"
 [DocVisibilite]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e8.html "Documentation : visibilité"
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-40.zip
+[tuto_sources]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-40/COGIP_AUDIT
