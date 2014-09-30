@@ -5,7 +5,7 @@ Une [action][DocIntroAction] permet d'étendre les fonctionnalités de Dynacase.
 -   manipuler des documents,
 -   exporter dans un format spécifique (XML, JSON, XLS, PDF, etc.),
 -   implémenter le protocole SOAP,
--   implémenter un endpoint REST,
+-   implémenter un point d'accès REST,
 -   mettre en place une IHM spécifique,
 -   etc.
 

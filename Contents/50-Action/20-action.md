@@ -9,8 +9,8 @@ Vous allez écrire une série d'action réalisant une nouvelle interface de cons
 
 ## Cadre {#quickstart:a37beb82-63ba-4295-95c7-4833b7974e5b}
 
-Vos utilisateurs sont conquis par les formulaires que vous avez réalisé dans les chapitres précédents.
-Toutefois, ils trouvent que l'interface d'accès par défaut pourrait être plus design
+Vos utilisateurs sont conquis par les formulaires que vous avez réalisés dans les chapitres précédents.
+Toutefois, ils trouvent que l'interface d'accès par défaut pourrait être plus design 
 et vous demandent de faire une nouvelle proposition.
 
 La COGIP étant une entreprise moderne votre parc de machine est à jour
@@ -52,7 +52,7 @@ Une fois l'action déclarée, elle peut être appelée de la manière suivante :
 ## Ajout des librairies externes {#quickstart:faab6a06-0d73-495e-ae50-4c1bf34382dd}
 
 Vous allez ajouter les librairies dans le paquet.
-Vous pouvez trouver les fichiers ayant servi à la réalisation du tutoriel <span class="fixme flag inline">ici</span>.
+Vous pouvez trouver les fichiers ayant servi à la réalisation du tutoriel dans les [sources][tuto_libs].
 
 Vous devez obtenir une arborescence similaire à :
 
@@ -135,6 +135,8 @@ La nouvelle action comporte les éléments suivants :
 
 <span class="flag inline nota-bene"></span>
 Toutes les entrées du tableau `$action_desc` sont décrites dans la [documentation][DocumentationEnregistrementAction].
+
+Vous pouvez trouver le fichier complété dans [les sources][tuto_application].
 
 #### Ajout des fichiers {#quickstart:6af4c944-b263-484b-9615-0e044baac3e4}
 
@@ -250,6 +252,8 @@ en fin d'action (ici pour du retour en JSON) :
     $action->lay->noparse = true;
     header('Content-type: application/json');
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_document_list].
+
 ##### Template {#quickstart:29e51122-8f66-4478-9f5d-4abd3f5f6e0a}
 
 Ajoutez le fichier `./COGIP_AUDIT/Layout/document_list.html` :
@@ -307,6 +311,8 @@ Le template ci-dessus a les spécificités suivantes :
 -   le code JavaScript permettant l'animation du formulaire n'est pas fourni avec
     mais sera mis en place sur la page principale.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_document_list_layout].
+
 ## Action : principale {#quickstart:ff2d40f6-f0af-40c1-b3cb-b5844e7fed92}
 
 Vous allez maintenant mettre en place l'action principale de votre interface.
@@ -332,6 +338,8 @@ Ajoutez cette entrée au tableau `$action_desc` :
 La définition est similaire à l'action `DOCUMENT_LIST` à une différence près :
 cette action est [`root`][DocumentationEnregistrementAction].
 C'est donc l'action par défaut de l'application et elle peut-être appelée directement avec l'url `<context>/?app=COGIP_AUDIT`
+
+Vous pouvez trouver le fichier complété dans [les sources][tuto_application].
 
 #### Ajout des fichiers {#quickstart:2d0b4cca-a029-4e95-91e5-96704aaef9b9}
 
@@ -435,6 +443,8 @@ Le template ci-dessus contient les spécificités suivantes :
 -   les documents sont représentés dans l'iframe `main-doc`,
 -   le formulaire `disconnect` permet de déconnecter l'utilisateur courant du contexte.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_layout_main].
+
 ##### Assets {#quickstart:fcd8773a-55b2-4978-a632-fcdb94a421db}
 
 Il y a deux fichiers d'asset (un fichier CSS et un fichier JS).
@@ -471,6 +481,8 @@ Ajoutez le fichier `./COGIP_AUDIT/libs/css/main.css` :
 
 La CSS ci-dessus reste très simple et apporte principalement de la mise en forme pour l'iframe centrale
 et pour le formulaire des listes de documents.
+
+Vous pouvez trouver le fichier complété dans [les sources][tuto_css_main].
 
 ###### JavaScript {#quickstart:0a80214f-4b5e-4097-bf7c-0a75b23f30ac}
 
@@ -641,6 +653,8 @@ Rendez vous à l'adresse `<context>/?app=COGIP_AUDIT`, vous obtenez l'interface 
 
 ![ Interface : rendu final ](50-20-interface-finale.gif "Interface : rendu final")
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_js_main].
+
 ## Enregistrement de l'interface {#quickstart:d5124a6a-20f5-42ce-87b4-a5df9dff75a1}
 
 Vous allez finir ce chapitre en enregistrant votre nouvelle action principale en tant qu'action par défaut,
@@ -659,11 +673,18 @@ Le paramètre [`CORE_START_APP`][DocumentationCoreStartApp] permet de spécifier
 Le script [`setApplicationParameter`][DocumentationScriptSetApp] permet de définir la valeur d'un paramètre applicatif
 lors l'installation d'un paquet.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_info_xml].
+
 ## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
 
 Vous avez maintenant expérimenté le système d'application/action.
 Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système
 et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
+
+Merci d'avoir complété ce tutoriel jusqu'à cette dernière étape. Nous vous souhaitons bonne chance et bon courage dans
+le développement de vos applications.
+
+Vous pouvez trouver les sources entièrement complétés sur [github][tuto_zip].
 
 <!-- links -->
 
@@ -680,3 +701,12 @@ et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
 [DocumentationCoreStartApp]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:82f525dd-33a0-4b25-9efb-7fb50f251802.html#core-ref:82f525dd-33a0-4b25-9efb-7fb50f251802 "Documentation : CORE_START_APP"
 [DocumentationScriptSetApp]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:75bd5f66-ad6b-470b-b217-7e926d7f960e.html#core-ref:75bd5f66-ad6b-470b-b217-7e926d7f960e "Documentation : setApplicationParameter"
 [ZurbOffcanvas]: http://foundation.zurb.com/docs/components/offcanvas.html "Foundation : offcanvas"
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-50-20.zip
+[tuto_libs]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-50-20/COGIP_AUDIT/libs
+[tuto_application]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/COGIP_AUDIT.app
+[tuto_document_list]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/action.document_list.php
+[tuto_document_list_layout]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/Layout/document_list.html
+[tuto_layout_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/Layout/main.html
+[tuto_js_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/libs/js/main.js
+[tuto_css_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/libs/css/main.css
+[tuto_info_xml]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/info.xml#L76-L77
