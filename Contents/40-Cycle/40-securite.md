@@ -88,7 +88,6 @@ La liste des transitions présentée sur le document tient compte du profil de l
 ## Profil des étapes {#quickstart:99be7d83-d8c0-407f-894a-b44e1df6bfa4}
 
 Vous allez maintenant ajouter des profils de document au différentes étapes.
-<span class="fixme inline flag">t'as pas mis les droits aux admins sur toutes les étapes.</span>
 
 ### Création des profils {#quickstart:88533bb0-692a-4d4e-a61d-d5fbc29a4e78}
 
@@ -126,7 +125,7 @@ Cliquez sur `Activer`. La page se recharge. Cliquez sur `Accessibilités`.
 
 Remplissez la matrice comme ci-dessous :
 
-![ Profil Audit : Planifié ](40-40-pdoc-brouillon.png "Profil Audit : Planifié")
+![ Profil Audit : Planifié ](40-40-pdoc-planif.png "Profil Audit : Planifié")
 
 Cliquez sur `Modifier les privilèges`.
 
@@ -183,6 +182,8 @@ Vous devez obtenir un fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` sembl
 
 ![ Export cycle de vie avec sécurité ](40-40-security-param.png "Export cycle de vie avec sécurité")
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_param].
+
 ## Conclusion {#quickstart:c4e5ebfa-74b7-4565-819d-34537af6317e}
 
 Vous savez maintenant paramétrer les éléments de sécurité associés au cycle de vie.
@@ -190,6 +191,7 @@ Vous pouvez définir qui peut effectuer quelle transition et qui peut _voir_/_mo
 
 ## Voir aussi {#quickstart:44b393d1-c6ad-448b-997d-e9cc1d47fd89}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   [Import profil cycle de vie][DocCSVWFL],
 -   [Profil de document][DocProfilDocument].
 
@@ -199,3 +201,5 @@ Vous pouvez définir qui peut effectuer quelle transition et qui peut _voir_/_mo
 [DocCSVWFL]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:e0d99925-df0d-4d51-8ebc-d44c4dd03873.html#core-ref:e0d99925-df0d-4d51-8ebc-d44c4dd03873 "Documentation : Import cycle de vie"
 [ParamDroit]: #quickstart:1cd2c714-d287-4ca6-8282-c5a20393c0ea
 [ExportCycle]: #quickstart:6633ab3c-ab35-48ad-93a9-71898bfad9f3
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-40.zip
+[tuto_audit_param]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-40/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L4-L13
