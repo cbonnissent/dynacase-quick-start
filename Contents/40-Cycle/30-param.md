@@ -85,6 +85,8 @@ Ce qui donne le cycle suivant :
 __Attention__, il faut exporter le document de cycle de vie et mettre à jour sa définition dans le fichier
 `COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` pour que ce paramétrage soit valide en dehors du contexte de développement.
 
+Vous pouvez trouver le document complété dans [les sources][tuto_color].
+
 ### Les mails {#quickstart:284cd032-303b-4140-bb44-72a30843d0c8}
 
 Ouvrez le document de cycle de vie en modification.
@@ -134,6 +136,8 @@ quelle que soit la transition utilisée pour parvenir dans cette étape.
 
 ![ Mail : exemple ](40-30-mail.png "Mail : exemple")
 
+Vous pouvez trouver le modèle de mail complété dans [les sources][tuto_mail_dem].
+
 ### Relance (timer) {#quickstart:67c58ac9-a1df-4d22-9bb6-8172a3adfb1d}
 
 Ouvrez le document de cycle de vie en modification.
@@ -142,7 +146,7 @@ Ouvrez le document de cycle de vie en modification.
 Il existe plusieurs manière d'affecter les minuteurs, elles sont décrites dans la [documentation][DocMinuteur].
 
 Vous allez créer un minuteur simple, celui-ci est attaché au document lors du passage de la transition
-et détaché au prochain changement d'état.<span class="flag inline fixme">ce minuteur est persistant et jamais détaché…</span>
+et détaché au prochain changement d'état.
 
 Sélectionnez l'onglet `Transitions` et cliquez le `+` à droite de `Minuteur Démarrer`.
 
@@ -251,6 +255,8 @@ Ajoutez les nouveaux documents au début du fichier `__PARAM.csv`, soit :
 
 ![ Famille Audit ](40-30-wdoc-import-csv.png "Famille Audit")
 
+Vous pouvez trouver le modèle de mail complété dans [les sources][tuto_minuteur].
+
 ## Paramétrage via le code {#quickstart:bc42ac10-2bf8-48fc-850b-30caf71b72d8}
 
 L'intégralité du paramétrage du cycle de vie via le code est détaillé dans la [documentation][DocWFLClass].
@@ -285,11 +291,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL__CLASS.php` et ajoutez l
         $searchDoc = new \SearchDoc("", \Dcp\Family\Cogip_audit_fnc::familyName);
         //If you find one FNC it's enough (speed the search)
         $searchDoc->setSlice(1);
-        $searchDoc->addFilter("%s = '%d'",
-            \Dcp\AttributeIdentifiers\Cogip_audit_fnc::caf_audit,
-            $this->doc->getPropertyValue("initid")
-        );
-        $searchDoc->addFilter("state <> '%s'", COGIP_AUDIT_FNC_WFL::e_clos);
+        $searchDoc->addFilter("%s = '%d'", \Dcp\AttributeIdentifiers\Cogip_audit_fnc::caf_audit, $this->doc->getPropertyValue("initid"));
+        $searchDoc->addFilter("state <> '%s'", COGIP_AUDIT_FNC__WFL::e_clos);
         if ($searchDoc->onlyCount() > 0) {
             return _("coa:You have to close all FNC before change state");
         }
@@ -303,6 +306,8 @@ Cette fonction effectue une recherche sur les FNC, elle a les spécificités sui
     car un seul résultat suffit à indiquer que la transition ne doit pas être franchie,
 -   la recherche utilise la fonction [`onlyCount`][DocSearchOnlyCount].
     Cette fonction calcule uniquement le nombre de résultats et ne retourne pas les documents.
+
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
 
 ##### Enregistrement de la fonction {#quickstart:587bf536-180e-4878-9c02-9b0f2969c441}
 
@@ -323,6 +328,8 @@ Vous avez déclaré deux hooks de `m0` qui seront déclenchés lors de l'afficha
 
 Dans l'exemple ci-dessus la transition est refusée et au survol un message est affiché à l'utilisateur.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
+
 ### Question au changement d'état (ask) {#quickstart:52b12e42-a3e8-4b7f-a7a2-bf0c77f2691c}
 
 Vous allez maintenant mettre en place le mécanisme de [`ask`][DocWFLask].
@@ -340,6 +347,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv` et ajoutez les lign
 
 ![ Déclaration _ask_ ](40-30-wdoc-ask-declaration.png  "Déclaration _ask_")
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_wfl].
+
 Vous avez déclaré deux paramètres, ceux-ci peuvent être utilisés comme _ask_.
 Vous allez mettre à jour la liste des transitions :
 
@@ -350,7 +359,7 @@ Vous allez mettre à jour la liste des transitions :
             ),
             self::t_brouillon__annule => array(
                 "nr" => true,
-                "ask" => \Dcp\AttributeIdentifiers\Cogip_audit_audit_wfl::caaw_raison
+                "ask" => \Dcp\AttributeIdentifiers\Cogip_audit_audit__wfl::caaw_raison
             ),
             self::t_redaction__brouillon => array(
                 "nr" => true
@@ -372,6 +381,8 @@ Lors du passage de la transition, le ask est présenté sous la forme d'une fen�
 
 ![ Ask : démonstration ](40-30-wdoc-ask-capture.png  "Ask : démonstration")
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
+
 #### Utilisation du ASK {#quickstart:e7fe1de5-f5da-45dc-bbb2-2ca0f4449477}
 
 Les valeurs de retour du ASK peuvent être utilisées au m1, m2 et m3 et dans les modèles de mail.
@@ -383,7 +394,7 @@ Ajoutez la fonction suivante :
     [php]
     public function handleRaison()
     {
-        $this->doc->addHistoryEntry($this->getRawValue(\Dcp\AttributeIdentifiers\Cogip_audit_audit_wfl::caaw_raison));
+        $this->doc->addHistoryEntry($this->getRawValue(\Dcp\AttributeIdentifiers\Cogip_audit_audit__wfl::caaw_raison));
     }
 
 et modifiez la liste des transitions :
@@ -392,7 +403,7 @@ et modifiez la liste des transitions :
     public $transitions = array(
         self::t_brouillon__redaction => array("nr" => true),
         self::t_brouillon__annule => array("nr" => true,
-            "ask" => array(\Dcp\AttributeIdentifiers\Cogip_audit_audit_wfl::caaw_raison),
+            "ask" => array(\Dcp\AttributeIdentifiers\Cogip_audit_audit__wfl::caaw_raison),
             "m2" => "handleRaison"
         ),
         self::t_redaction__brouillon => array("nr" => true),
@@ -408,6 +419,8 @@ et ensuite vous avez enregistré cette fonction au `m2` de la transition `self::
 Une fois la transition de retour franchie, si l'utilisateur clique sur le menu `historique`,
 l'interface ci-dessus est présentée.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
+
 ## Mise à jour des contrôle de cohérence {#quickstart:85a0bad9-9e7f-424f-b5d3-88aea4616944}
 
 Vous allez maintenant modifier le contrôle de cohérence que vous avez mis en place sur les [dates][contrainte]
@@ -418,31 +431,43 @@ et modifiez la fonction `checkDate` pour qu'elle soit identique à :
 
     [php]
     /**
-     * Check if the date is inferior to today
+     * Check if the end date is in the past
      *
-     * @param string $date iso date
-     * @return string|null
+     * @return string
      */
-    public function checkBeginningDate($date) {
+    public function checkEndDate()
+    {
+        $err = "";
+        $date = $this->getAttributeValue(MyAttributes::caa_date_fin);
         if (!empty($date)
-            && $this->getPropertyValue("state") === COGIP_AUDIT_AUDIT_WFL::e_brouillon
-            && $date < date("o-m-d")) {
-            return _("coa:The date must not be inferior at today");
+            && $this->getPropertyValue("state") === COGIP_AUDIT_AUDIT__WFL::e_brouillon
+            && $this->getAttributeValue(MyAttributes::caa_date_fin) < new \DateTime()) {
+            $err = ___("The end date of the audit is in the past", "COGIP_AUDIT:AUDIT");
         }
-        return null;
+        return $err;
     }
 
 Vous avez ajouté une condition pour que la contrainte ne se déclenche qu'à l'état `Brouillon`.
 
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_class].
+
 ## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
+
+Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
+
+    php <path_to_devtool>/devtool.phar generateWebinst -i .
+
+Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
+Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Upgrade`.
 
 Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie,
 que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.
 
-Ces paramétrages vous permette simplement de créer des cycles complet et riche et de guider les utilisateurs.
+Ces paramétrages permettent de créer simplement des cycles complets et riches et de guider les utilisateurs.
 
 ## Voir aussi {#quickstart:837931f9-3475-4494-9f2b-c09327ec4603}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   [Document workflow][DocWFLDoc],
 -   [Modèle de mail][DocModelMail],
 -   [Minuteur][DocMinuteur],
@@ -461,3 +486,10 @@ Ces paramétrages vous permette simplement de créer des cycles complet et riche
 [DocTransition]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:91e2017b-d595-47b3-bfc6-3b57c932b989.html#core-ref:ed74f035-ec6f-4e63-ae61-014a2947a6aa "Documentation : transition"
 [DocSearchOnlyCount]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa.html#core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa "Documentation : searchDoc::onlyCount"
 [contrainte]: #quickstart:ec7f3353-9d8f-4813-adda-ab1a964e2760
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-30.zip
+[tuto_color]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L3
+[tuto_mail_dem]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L5-L7
+[tuto_minuteur]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L8-L13
+[tuto_audit_code]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php
+[tuto_audit_wfl]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv#L5-L7
+[tuto_audit_class]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L78
