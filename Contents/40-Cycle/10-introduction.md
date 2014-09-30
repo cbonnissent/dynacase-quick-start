@@ -3,7 +3,7 @@
 Vous allez maintenant configurer les cycles de vie de votre application.
 
 Le cycle de de vie est un élément de Dynacase qui permet d'encadrer la vie d'un document via un ensemble d'étapes
-et de transition. À chaque étape, le développeur peut spécifier :
+et de transitions. À chaque étape, le développeur peut spécifier :
 
 -   la mise en forme du document (visibilités, formulaire de modification, consultation spécifiques, etc...),
 -   qui peut voir, modifier, supprimer le document,

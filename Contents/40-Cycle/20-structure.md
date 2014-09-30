@@ -62,9 +62,9 @@ le fichier `.csv` contiendra quelques éléments de paramétrage.
 Le fichier est initialisé avec les éléments suivants :
 
     [php]
-    namespace Cogip;
+    namespace COGIP;
     
-    class COGIP_AUDIT_AUDIT_WFL extends \Dcp\Family\WDoc
+    class COGIP_AUDIT_AUDIT__WFL extends \Dcp\Family\WDoc
     {
         public $attrPrefix = 'FIXME'; //FIXME: set attrPrefix
         public $firstState = 'FIXME'; //FIXME: set FirstState
@@ -208,9 +208,9 @@ Vous allez maintenant définir le premier état de votre cycle. Passez `$firstSt
 Vous avez terminé la déclaration de la structure. Le fichier doit donc contenir :
 
     [php]
-    namespace Cogip;
+    namespace COGIP;
     
-    class COGIP_AUDIT_AUDIT_WFL extends \Dcp\Family\WDoc
+    class COGIP_AUDIT_AUDIT__WFL extends \Dcp\Family\WDoc
     {
         public $attrPrefix = 'caaw';
         public $firstState = self::e_brouillon;
@@ -272,9 +272,10 @@ Les annotations ainsi ajoutée permettent à l'outil d'extraction d'identifier l
 
 En reprenant le fichier ci-dessus on obtient : 
 
-    namespace Cogip;
+    [php]
+    namespace COGIP;
     
-    class COGIP_AUDIT_AUDIT_WFL extends \Dcp\Family\WDoc
+    class COGIP_AUDIT_AUDIT__WFL extends \Dcp\Family\WDoc
     {
         public $attrPrefix = 'caaw';
         public $firstState = self::e_brouillon;
@@ -334,6 +335,8 @@ En reprenant le fichier ci-dessus on obtient :
     
     }
 
+Vous pouvez trouver les fichiers complets dans [les sources][tuto_source].
+
 Ouvrez la console dans le répertoire contenant les sources et :
 
     php <path_to_devtool>/devtool.phar extractPo -i .
@@ -341,12 +344,6 @@ Ouvrez la console dans le répertoire contenant les sources et :
 Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
 
     [gettext]
-    msgid "coa_planning"
-    msgstr "En planification"
-    
-    msgid "coa_writing"
-    msgstr "En rédaction"
-    
     msgid "coa_e1"
     msgstr "Brouillon"
     
@@ -362,6 +359,9 @@ Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/CO
     msgid "coa_e5"
     msgstr "Refusé"
     
+    msgid "coa_planning"
+    msgstr "En planification"
+    
     msgid "coa_t1"
     msgstr "Démarrer"
     
@@ -376,6 +376,9 @@ Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/CO
     
     msgid "coa_t5"
     msgstr "Refuser la certification"
+    
+    msgid "coa_writing"
+    msgstr "En rédaction"
 
 ## Inscription dans le paquet {#quickstart:3094c4a5-631d-491f-b5cb-4fa688c1bd09}
 
@@ -386,9 +389,9 @@ Ajoutez la ligne suivante dans le `info.xml` à l'installation et à la mise à 
 `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>`:
 
     [xml]
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv"/>
-    <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv --csv-separator=&apos;;&apos; '/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
 
 ## Génération du document {#quickstart:c343a2f1-6ad0-4ad2-bbdb-bfed3ddd846c}
 
@@ -405,12 +408,12 @@ en haut dans la partie de droite, l'interface de création de documents s'ouvre 
 
 ![ Création workflow ](40-20-creation-wfl1.png "Création workflow")
 
-Sélectionnez ensuite votre cycle de vie dans la liste déroulante en haut `COGIP_AUDIT_AUDIT_WFL`.
+Sélectionnez ensuite votre cycle de vie dans la liste déroulante en haut `COGIP_AUDIT_AUDIT__WFL`.
 
 Complétez le formulaire présenté avec les éléments suivants :
 
 -   **Titre** : Audit,
--   **Famille** (Basique et Profil Dynamique) : `COGIP_AUDIT_AUDIT`.
+-   **Famille** (Basique et Profil Dynamique) : `Audit`.
 
 ![ Création workflow ](40-20-creation-wfl2.png "Création workflow")
 
@@ -424,7 +427,7 @@ Si vous cliquez sur `Voir le graphe`, vous pouvez consulter une représentation 
 
 #### Nom logique {#quickstart:0b81cb6c-c93b-4e48-a02c-e5bca4114c56}
 
-Ajoutez un nom logique au cycle de vie, cliquez sur `Autres > Propriétés` et ajoutez le nom `WDOC_COGIP_AUDIT_AUDIT_WFL`.
+Ajoutez un nom logique au cycle de vie, cliquez sur `Autres > Propriétés` et ajoutez le nom `WDOC_COGIP_AUDIT_AUDIT__WFL`.
 
 #### Export {#quickstart:bacf9a03-0af5-4b52-afb5-e7f22f04a064}
 
@@ -445,9 +448,11 @@ Pour finir, vous allez ajouter l'instruction qui associe le cycle de vie des aud
 Ajoutez une ligne juste avant le `END` les éléments suivant :
 
 -   colonne `A` : `WID`,
--   colonne `B` : `WDOC_COGIP_AUDIT_AUDIT_WFL`.
+-   colonne `B` : `WDOC_COGIP_AUDIT_AUDIT__WFL`.
 
 <span class="flag inline nota-bene"></span> L'instruction [WID est détaillée dans la documentation.][DocWID]
+
+Le fichier COGIP_AUDIT_AUDIT__PARAM complété est accessible dans [les sources][tuto_param_audit].
 
 ## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
 
@@ -459,6 +464,7 @@ mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
 
 ## Voir aussi {#quickstart:59b3f403-b656-4a8f-86b8-c368f64e08d8}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   [Documentation cycle de vie][DocCycleDeVie],
 -   [Transition][DocTransition],
 -   [Cycle][DocCycle],
@@ -472,3 +478,6 @@ mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
 [DocCycle]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b8824399-f17d-4007-adde-8a7433939273.html#core-ref:d5ddda0c-09d2-42b0-9543-0723e242ec09 "Documentation : cycle"
 [DocWID]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:6f013eb8-33c7-11e2-be43-373b9514dea3 "Documentation : wid"
 [DocCycleDeVie]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b8824399-f17d-4007-adde-8a7433939273.html#core-ref:d5ddda0c-09d2-42b0-9543-0723e242ec09 "Documentation : cycle de vie"
+[tuto_source]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-40-20/COGIP_AUDIT
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-20.zip
+[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/1.0-integration/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
