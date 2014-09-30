@@ -64,13 +64,13 @@ Une fois le fichier de structure importé ou le module déployé le formulaire d
 
 Vous pouvez remarquer que les deux libellés _pièces jointes_ surnuméraires ne sont plus présents.
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
+
 ## Le style {#quickstart:87bae86c-a40c-4018-baea-cd72ebf85288}
 
 Vous allez créer votre style.
 Un style est composé d'un fichier de définition et de fichier d'assets (css, js, [layout][DocLayout]),
 et permet de définir des règles de mise en forme valables sur un contexte.
-
-<span class="flag inline fixme">les dev tools devraient permettre d'initialiser un style</span>
 
 ### Création des fichiers {#quickstart:bc2cd429-dac5-4f68-a277-6a68b163a8d3}
 
@@ -176,6 +176,8 @@ Ouvrez le fichier `STYLE/COGIP_AUDIT/COGIP_AUDIT.sty` et modifiez le contenu pou
 
 <span class="flag inline nota-bene"></span>
 Vous pouvez trouver la liste des règles de compositions applicables dans la [documentation][DocStyleRules].
+
+Vous pouvez retrouver le repertoire style initialisé dans [les sources][tuto_style].
 
 ### Import du style {#quickstart:58893482-8ef1-45d6-9598-4ed0ff78a8db}
 
@@ -297,6 +299,8 @@ Ajoutez le fichier `audit_void.xml` dans le répertoire `./COGIP_AUDIT/Layout`.
 Ce fichier reste vide car il va servir à cacher les attributs de durée et de fin
 qui sinon seraient représentés deux fois.
 
+Vous pouvez retrouver les fichier complété dans [les sources][tuto_audit_edit].
+
 #### Enregistrement {#quickstart:bb5c90dd-8f71-4532-9031-027065b796dd}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et ajoutez les options suivantes :
@@ -304,6 +308,9 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et ajoutez les o
 -   `caa_date_debut` : colonne `P` (options) : `edittemplate=COGIP_AUDIT:AUDIT_DATES_EDIT.xml:S`,
 -   `caa_duree` : colonne `P` : `edittemplate=COGIP_AUDIT:AUDIT_VOID.xml:S`,
 -   `caa_date_fin` : colonne `P` : `edittemplate=COGIP_AUDIT:AUDIT_VOID.xml:S`.
+
+
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
 
 Une fois le paquet déployé, vous obtenez en édition sur les documents d'audit le rendu suivant :
 
@@ -313,7 +320,7 @@ Une fois le paquet déployé, vous obtenez en édition sur les documents d'audit
 
 #### Création {#quickstart:d472fab6-1baa-47c0-8b05-68c59e774912}
 
-Vous allez maintenant customiser la [vue de consultation][DocVueAttrEdit].
+Vous allez maintenant customiser la [vue de consultation][DocVueAttrView].
 
 Ajoutez le fichier `audit_dates_view.xml` dans le répertoire `./COGIP_AUDIT/Layout/`.
 
@@ -362,6 +369,8 @@ Veuillez le compléter comme ci-dessous :
         <span class="date-fin">[L_CAA_DATE_FIN] &nbsp;: [V_CAA_DATE_FIN]</span>
     </div>
 
+Vous pouvez retrouver les fichier complété dans [les sources][tuto_audit_view].
+
 #### Enregistrement {#quickstart:4d3b485d-8341-43ed-ac71-b5479b28401f}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et ajoutez les options suivantes :
@@ -373,6 +382,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et ajoutez les o
 Une fois le paquet déployé, vous obtenez en consultation sur les documents d'audit le rendu suivant :
 
 ![ Audit : Attributs alignés ](30-60-attr-aligned-view.png "Audit : Attributs alignés")
+
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
 
 ## Vue de rangée de tableau {#quickstart:6393dae9-7911-46c7-a687-466ea623d18b}
 
@@ -417,6 +428,8 @@ Ce fichier doit contenir :
         </table-body>
     </table>
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_fnc_table].
+
 Le fichier ci-dessus décrit un template de table où :
 
 -   il n'y a plus de ligne de header (absence de la balise `table-head`),
@@ -428,11 +441,11 @@ Ensuite ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv`
 et modifiez la colonne `P` (options) de la ligne `caf_a_action` pour remplacer `vlabel=up` par
 `vlabel=up|rowviewzone=COGIP_AUDIT:FNC_TABLE.xml|roweditzone=COGIP_AUDIT:FNC_TABLE.xml`. 
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
+
 Ces nouvelles options indiquent que le template ci-dessus est utilisé en édition et en consultation.
 
 Après le déploiement du paquet, le tableau est présenté de la manière suivante :
-<span class="flag inline fixme">voir avec Eric pour trouver un moyen de dégager ce bout de bleu moche…
-ce n'est pas possible, il faut soit faire de la css, soit mettre nous même un thead sur notre colonne, à trancher</span>
 
 ![ FNC : tableau mis en forme ](30-60-rowviewzone.png "FNC : tableau mis en forme")
 
@@ -460,6 +473,8 @@ Ajoutez un fichier `edit_admin.xml` dans le répertoire `./COGIP_AUDIT/Layout/`.
 Ce fichier doit contenir :
 
     [DOCUMENT]
+
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_edit_admin].
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php` et ajoutez les fonctions suivantes :
 
@@ -524,6 +539,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php` et ajoutez les fon
             return false;
         }
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_class_base].
+
 Vous pouvez remarquer les points suivants :
 
 -   la fonction `userIsAdmin`, cette fonction récupère l'utilisateur en cours et vérifie deux conditions :
@@ -548,6 +565,8 @@ Ouvrez le fichier `COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv` et ajoutez la ligne
 
 ![ Base : définition de menu ](30-60-base-menu-def.png "Base : définition de menu")
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_struct_base].
+
 Vous allez gérer les visibilités de ce menu.
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php` et ajoutez la fonctions suivante :
 
@@ -566,11 +585,15 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php` et ajoutez la fonc
         }
     }
 
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_class_base].
+
 Cette fonction va vous permettre de définir que le menu est visible
 uniquement pour les utilisateurs ayant le profil administrateur.
 
 Ouvrez le fichier `COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv`
 et modifiez la colonne `M` (phpfunc) pour l'attribut `cab_menu_admin_edit` en la complétant avec `::visibilityAdminMenu()`.
+
+Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_struct_base].
 
 ### Résultat {#quickstart:74785b78-5688-4118-ad87-da23df9ceaaf}
 
@@ -596,6 +619,7 @@ Vous avez pu constater que le formulaire est facilement modifiable,
 
 ## Voir aussi {#quickstart:5e6dd852-671f-4dc8-ac40-6197cb950c93}
 
+-   [Les sources après ce chapitre][tuto_zip],
 -   le [style][DocStyle],
 -   les [layouts][DocLayout],
 -   les [options des attributs][DocAttrOptions],
@@ -617,3 +641,12 @@ Vous avez pu constater que le formulaire est facilement modifiable,
 [DocStyleRules]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1844a1a8-1406-47bd-a884-1a18ef0a6ca7.html#core-ref:76671db7-f66c-4a6f-853e-e573be03f213 "Documentation : style règles"
 [DocVueAttrEdit]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:26dca29e-92b3-445f-a6d8-51eaa297219a.html#core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8 "Documentation : vue attribut édition"
 [DocVueAttrView]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:26dca29e-92b3-445f-a6d8-51eaa297219a.html#core-ref:9cb7b313-7294-424d-bd86-a63155025902 "Documentation : vue attribut consultation"
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-60.zip
+[tuto_style]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-60/STYLE/COGIP_AUDIT
+[tuto_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
+[tuto_audit_edit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/audit_dates_edit.xml
+[tuto_audit_view]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/audit_dates_view.xml
+[tuto_fnc_table]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/fnc_table.xml
+[tuto_edit_admin]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/edit_admin.xml
+[tuto_class_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php#L32-L106
+[tuto_struct_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv#L5
