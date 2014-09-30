@@ -68,7 +68,7 @@ Vous copiez le contenu du fichier référencé ci-dessus à la place du script e
 Vous pouvez ensuite ajouter les scripts en modifiant les menus : faites un clic droit sur la barre d'outils et
 sélectionnez l'option `Personnaliser la barre d'outil`.
 
-Ce script intègre plusieurs macros :<span class="fixme flag inline">à décrire</span>
+Ce script intègre plusieurs macros :
 
 -   `color`,
 -   `autoReset`,
