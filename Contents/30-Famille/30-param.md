@@ -89,17 +89,17 @@ Vous devez donc créer dans vos sources un répertoire `Images` et ajouter une i
 Vous obtenez la structure de fichiers suivantes :
 
     ├ Images
-      ├─ COGIP_AUDIT_AUDIT.png
-      ├─ COGIP_AUDIT_BASE.png
-      ├─ COGIP_AUDIT_CHAPITRE.png
-      ├─ COGIP_AUDIT_FNC.png    
-      └─ COGIP_AUDIT_REFERENTIEL.png
+    ├── cogip_audit_audit.png
+    ├── cogip_audit_base.png
+    ├── cogip_audit_chapitre.png
+    ├── cogip_audit_fnc.png
+    ├── COGIP_AUDIT.png
+    └── cogip_audit_referentiel.png
+
+
+Vous pouvez retrouver l'ensemble des images de l'application sur [github][tuto_images].
 
 ![ Famille avec icônes ](30-30-with-title.png "Famille avec icônes")
-
-De plus pour que ce répertoire soit déployé, vous devez l'ajouter au fichier `build.json`, dans la catégorie `includedPath`. Vous obtenez la ligne suivante :
-
-`    "includedPath" : ["locale","EXTERNALS","STYLE", "Images"],`
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
 
@@ -108,7 +108,12 @@ Ouvrez le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et mod
 
     [gettext]
     msgid "COGIP_AUDIT_AUDIT#title"
-    msgstr "COGIP_AUDIT_AUDIT"
+    msgstr ""
+    "#-#-#-#-#  COGIP_AUDIT_AUDIT.pot (COGIP_AUDIT_AUDIT )  #-#-#-#-#\n"
+    "Audit\n"
+    "#-#-#-#-#  COGIP_AUDIT_AUDIT.pot (COGIP_AUDIT_AUDIT )  #-#-#-#-#\n"
+
+Le message contient deux entrées une provenant du fichier `__STRUCT` et une provenant du fichier `__PARAM`.
 
 en
 
@@ -127,6 +132,8 @@ Complétez les différents fichiers `.po` avec les traductions suivantes :
 
 <span class="flag inline nota-bene"></span> **Attention** si jamais votre bloc de traduction porte la mention `fuzzy`,
 cette mention doit être supprimée pour que la traduction soit prise en compte.
+
+Vous pouvez retrouver les po complétés sur [github][tuto_po].
 
 ### Valeur par défaut {#quickstart:b48d21a1-1305-407c-a2bc-aebca7315416}
 
@@ -176,6 +183,8 @@ Complétez ensuite les autres familles :
 -   `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` : attribut `caa_titre`,
 -   `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` : attributs `caf_titre` et `caf_audit`.
 
+Vous pouvez retrouver les familles complétées dans les [sources][tuto_fam].
+
 ## Calcul des titres des documents {#quickstart:66cc3713-6e43-4e45-916e-82d29c016d05}
 
 Il existe deux moyens de spécifier les règles de calcul de titre d'un document :
@@ -186,6 +195,8 @@ Il existe deux moyens de spécifier les règles de calcul de titre d'un document
     -   seuls les attributs textuels et numériques sont utilisables.
 -   soit en modifiant la méthode [`getCustomTitle`][DocGetCustomTitle] dans ce cas vous composez directement le titre.
     La colonne `E` n'est plus utilisée.
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 ### Composition du titre par paramétrage de la structure {#quickstart:d3a65d4a-67d4-42dd-9b11-23a41ee3f5c7}
 
@@ -241,6 +252,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la m�
         return sprintf("%s : %s", $chapterTitle, $title);
     }
 
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
+
 ### Paramètre de famille {#quickstart:534a6d71-a5f5-4cc0-8a6d-c44275ae9937}
 
 Vous allez maintenant construire le titre pour la famille audit. Ce titre est composé de deux parties :
@@ -258,6 +271,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` et modifiez le po
 
 À la prochaine importation, le paramètre sera associé à cette famille.
 Sa valeur est modifiable dans les interfaces d'administration sans nouveau déploiement des sources.
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 ### Composition du titre avec un paramètre de famille {#quickstart:fc2ad726-7db2-4bed-a759-f0f49f7163cc}
 
@@ -313,7 +328,9 @@ Quelques remarques sur la fonction ci-dessus :
 -   la fonction `_` permet d'indiquer que la chaîne va être traduite.
 
 <span class="flag inline nota-bene"></span>
-Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier `.po` de l'application.
+Pensez à relancer l'extraction des traductions et à traduire la chaîne dans le fichier `.po` de l'application (`COGIP_AUDIT_fr.po`).
+
+Vous pouvez retrouver la contrainte complétée dans les [sources][tuto_code_contrainte].
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez la colonne `O`
 de la ligne de l'attribut `caa_date_debut` pour y ajouter la référence à la fonction définie ci-dessus.
@@ -340,6 +357,8 @@ Pour l'instant cette contrainte est très limitante, en effet elle s’exécute 
 2. vous le modifiez le 16 juin la contrainte vous indique que la date de début est dépassée et vous empêche de sauvegarder.
 
 Vous verrez dans le chapitre sur les cycles de vie différents moyens d'améliorer cette contrainte.
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
@@ -374,7 +393,7 @@ Ajoutez un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajoutez
         $searchDoc->addFilter("id in (%s)", $auditReferentiel);
         //Add a filter on the title that take the userInput
         if (!empty($userInput)) {
-            $searchDoc->addFilter("title ~* '%s'", $userInput);
+            $searchDoc->addFilter("title ~* '%s'", preg_quote($userInput));
         }
     
         $htmlUserInput = htmlentities($userInput);
@@ -426,6 +445,8 @@ Tout document possède plusieurs moyens d'être identifié :
     le `name` est défini par le développeur. Ainsi, il est constant entre les différentes installations,
     alors que l'`id` et l'`initid` ne le sont pas.
 
+Vous pouvez retrouver les aides à la saisie complétées dans les [sources][tuto_external].
+
 ### Paramétrage {#quickstart:dd771ea3-deb6-4d78-991a-236caed4b347}
 
 Vous allez maintenant référencer cette aide à la saisie dans la famille.
@@ -448,6 +469,8 @@ le nombre de retour de la fonction d'aide à la saisie (3 éléments par valeur 
 et la définition de l'aide à la saisie (2 éléments uniquement).  
 En effet, le premier élément du retour de l'aide à la saisie est utilisé
 pour construire la liste de suggestion présentée à l'utilisateur.
+
+Vous pouvez retrouver le paramétrage complété dans les [sources][tuto_fnc_struct].
 
 ### Résultat {#quickstart:ac23551e-7fc5-4f92-b6dd-7d97c11cbb6e}
 
@@ -474,10 +497,10 @@ La fonction suivante est à ajouter dans `helper_audit.php` :
         $searchDoc->setObjectReturn();
         /* @var $auditReferentiel \COGIP\COGIP_AUDIT_CHAPITRE */
         //Add a filter to select only the referentiel in the audit
-        $searchDoc->addFilter("id = '%s'", $caf_referentiel);
+        $searchDoc->addFilter("cac_ref = '%s'", $caf_referentiel);
         //Add a filter on the title that take the userInput
         if (!empty($userInput)) {
-            $searchDoc->addFilter("title ~* '%s'", $userInput);
+            $searchDoc->addFilter("title ~* '%s'", preg_quote($userInput));
         }
     
         $htmlUserInput = htmlentities($userInput);
@@ -499,9 +522,13 @@ La fonction suivante est à ajouter dans `helper_audit.php` :
         return $return;
     }
 
+Vous pouvez retrouver les aides à la saisie complétées dans les [sources][tuto_external].
+
 Et complétez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` :
 
 ![ Aide à la saisie : struct ](30-30-helper2.png " Aide à la saisie : struct")
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 ## Attributs calculés {#quickstart:ead89bc8-c1ce-4522-8d19-6e2d8d0dfd50}
 
@@ -525,8 +552,12 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fon
             $date->add($interval);
             return $date->format("o-m-d");
         }
-        return "";
+        return " ";
     }
+
+<span class="flag inline nota-bene"></span> Le retour de l'attribut calculé doit être un espace pour indiquer que
+le contenu de l'attribut doit-être vidé. Si jamais la fonction retourne une chaîne vide ou rien alors le contenu
+de l'attribut est laissé tel quel.
 
 Ensuite, vous devez enregistrer la fonction dans le fichier `__STRUCT.csv`,
 ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut `caa_date_fin` les colonnes :
@@ -536,6 +567,8 @@ ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut
 -   `M` : `::computeDateFin(caa_date_debut,caa_duree)`.
     Cette cellule porte la référence vers la fonction et ces paramètres d'entrée.
     Le format de cet élément est explicité dans la [documentation][DocDocAttrComputed].
+
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
@@ -553,6 +586,7 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 
 ## Voir aussi {#quickstart:3cd0df89-9a45-46a6-86de-3d218619b8bd}
 
+-   [Les sources après ce chapitre][tuto_after_30_30],
 -   [Principales méthodes de la classe Doc][DocMethodClassDoc],
 -   [Contrainte][DocDocContrainte],
 -   [Attribut calculé][DocDocAttrComputed],
@@ -584,3 +618,10 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 [DocIsAlive]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b791d14e-800a-4b3b-bee7-41e271a8087e.html "Documentation : alive"
 [DocDocProperty]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:9aa8edfa-2f2a-11e2-aaec-838a12b40353.html "Documentation : propriétés des documents"
 [DocLigneeDoc]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1cdff481-42e0-4caf-baba-d2348d760ca5.html "Documentation : Lignée documentaire"
+[tuto_images]: https://github.com/Anakeen/dynacase-quick-start-code/tree/master/Images
+[tuto_after_30_30]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-30.zip
+[tuto_po]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-30/locale/fr/LC_MESSAGES/src
+[tuto_fam]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-30/COGIP_AUDIT
+[tuto_external]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/EXTERNALS/helper_audit.php
+[tuto_fnc_struct]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv#L11-L12
+[tuto_code_contrainte]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L24-L36
