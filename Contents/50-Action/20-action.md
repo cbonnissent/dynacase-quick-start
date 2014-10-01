@@ -677,7 +677,18 @@ Vous pouvez trouver le fichier complété dans [les sources][tuto_info_xml].
 
 ## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
 
-Vous avez maintenant expérimenté le système d'application/action.
+
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
+
+Vous avez expérimenté le système d'application/action.
 Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système
 et notamment créer des interfaces dédiées aux besoins de vos utilisateurs.
 
@@ -701,12 +712,13 @@ Vous pouvez trouver les sources entièrement complétés sur [github][tuto_zip].
 [DocumentationCoreStartApp]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:82f525dd-33a0-4b25-9efb-7fb50f251802.html#core-ref:82f525dd-33a0-4b25-9efb-7fb50f251802 "Documentation : CORE_START_APP"
 [DocumentationScriptSetApp]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:75bd5f66-ad6b-470b-b217-7e926d7f960e.html#core-ref:75bd5f66-ad6b-470b-b217-7e926d7f960e "Documentation : setApplicationParameter"
 [ZurbOffcanvas]: http://foundation.zurb.com/docs/components/offcanvas.html "Foundation : offcanvas"
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-50-20.zip
-[tuto_libs]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-50-20/COGIP_AUDIT/libs
-[tuto_application]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/COGIP_AUDIT.app
-[tuto_document_list]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/action.document_list.php
-[tuto_document_list_layout]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/Layout/document_list.html
-[tuto_layout_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/Layout/main.html
-[tuto_js_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/libs/js/main.js
-[tuto_css_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/COGIP_AUDIT/libs/css/main.css
-[tuto_info_xml]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-50-20/info.xml#L76-L77
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-50-20.zip
+[tuto_libs]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-50-20/COGIP_AUDIT/libs
+[tuto_application]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/COGIP_AUDIT.app
+[tuto_document_list]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/action.document_list.php
+[tuto_document_list_layout]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/Layout/document_list.html
+[tuto_layout_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/Layout/main.html
+[tuto_js_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/libs/js/main.js
+[tuto_css_main]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/COGIP_AUDIT/libs/css/main.css
+[tuto_info_xml]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-50-20/info.xml#L76-L77
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

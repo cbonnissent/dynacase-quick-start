@@ -43,7 +43,7 @@ L'intégralité du paramétrage du document cycle de vie est détaillé dans la 
 
 Vous allez commencer par spécifier les couleurs.
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Allez dans l'application `Gestion des documents > Explorateur de documents` cliquez ensuite sur `les cycles`
 et sélectionnez le cycle `Audit Audit`.
@@ -222,7 +222,7 @@ Vous avez plusieurs manières de faire cette action, soit :
 
 Vous allez exporter l'ensemble des documents en une seule fois.
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Ouvrez la `Gestion des documents > Accès aux documents systèmes`, sélectionnez la famille `Audit`.
 
@@ -453,12 +453,14 @@ Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_class].
 
 ## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
 
-Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
+Vous allez maintenant produire le paquet.
 
-    php <path_to_devtool>/devtool.phar generateWebinst -i .
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
 
-Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
-Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Upgrade`.
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
 
 Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie,
 que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.
@@ -486,10 +488,11 @@ Ces paramétrages permettent de créer simplement des cycles complets et riches 
 [DocTransition]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:91e2017b-d595-47b3-bfc6-3b57c932b989.html#core-ref:ed74f035-ec6f-4e63-ae61-014a2947a6aa "Documentation : transition"
 [DocSearchOnlyCount]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa.html#core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa "Documentation : searchDoc::onlyCount"
 [contrainte]: #quickstart:ec7f3353-9d8f-4813-adda-ab1a964e2760
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-30.zip
-[tuto_color]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L3
-[tuto_mail_dem]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L5-L7
-[tuto_minuteur]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L8-L13
-[tuto_audit_code]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php
-[tuto_audit_wfl]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv#L5-L7
-[tuto_audit_class]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L78
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-40-30.zip
+[tuto_color]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L3
+[tuto_mail_dem]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L5-L7
+[tuto_minuteur]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L8-L13
+[tuto_audit_code]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php
+[tuto_audit_wfl]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv#L5-L7
+[tuto_audit_class]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L78
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

@@ -61,7 +61,7 @@ Le profil de famille permet de définir :
 
 ### Création {#quickstart:651a15e9-ebbf-4e85-8f0f-652d64fcf5cd}
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Sélectionnez l'application `Gestion des documents > Explorateur de documents`.
 
@@ -280,7 +280,7 @@ un document.
 
 ### Création {#quickstart:54194696-d4ab-43de-b4ac-50a93bcfc878}
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Sélectionnez l'application `Gestion des documents > Explorateur de documents`.
 
@@ -378,7 +378,7 @@ Vous allez commencer par créer le [masque][DocMasque].
 
 #### Création {#quickstart:fa8b629c-79a7-42d0-a0f2-d6efc0dfa01d}
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`,
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`,
 sélectionnez l'application `Gestion des documents > Explorateurs de documents`,
 cliquez sur `Création > Documents système` et sélectionnez dans la liste déroulante en haut à droite `Masque de saisie`.
 Vous obtenez l'interface ci-dessous :
@@ -422,7 +422,7 @@ Vous pouvez remarquer que le nom logique du document est préfixé de manière �
 
 #### Création {#quickstart:9643ca08-b086-4e99-b821-f8dd60b73733}
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`,
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`,
 sélectionnez l'application `Gestion des documents > Explorateurs de documents`,
 cliquez sur `Création > Documents système` et sélectionnez dans la liste déroulante en haut à droite `Contrôle de vue`.
 Vous obtenez l'interface ci-dessous :
@@ -546,6 +546,13 @@ Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
 ## Conclusion {#quickstart:d26ea9af-dc4c-4c90-9a53-0963a06fdfe5}
 
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
 Vous pouvez maintenant vous connecter à l'application et consulter une fiche de non-conformité
 avec un utilisateur ayant le profil `Auditeur`.
 
@@ -581,8 +588,9 @@ Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône
 [DocProfilDocument]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:a99dcc5f-f42f-4574-bbfa-d7bb0573c95d.html#core-ref:f1575705-10e8-4bf2-83b3-4c0b5bfb77cf "Documentation : Profil Document"
 [DocMasque]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:327ad491-06df-4e5b-b49a-695c75439fe1.html "Documentation : masque"
 [DocZone]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cb3e2b97-ee6d-4cdf-aa25-b2e41d0d3156.html#core-ref:49b96dc9-64e9-4f5a-a167-396282625c1e "Documentation : Zone"
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-50.zip
-[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
-[tuto_param_chapitre]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv
-[tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv
-[tuto_param_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-50/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-30-50.zip
+[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
+[tuto_param_chapitre]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv
+[tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv
+[tuto_param_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

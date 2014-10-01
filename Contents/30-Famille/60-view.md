@@ -613,6 +613,13 @@ Vous pouvez remarquer dans cette vue :
 
 ## Conclusion {#quickstart:eeb14f31-c61d-4502-a8ab-7cf9b1044a4e}
 
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
 Dans ce chapitre vous avez expérimenté les principales techniques de modifications d'interface.
 Vous avez pu constater que le formulaire est facilement modifiable,
 à la fois dans les détails de mise en forme et dans son fonctionnement.
@@ -641,12 +648,13 @@ Vous avez pu constater que le formulaire est facilement modifiable,
 [DocStyleRules]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1844a1a8-1406-47bd-a884-1a18ef0a6ca7.html#core-ref:76671db7-f66c-4a6f-853e-e573be03f213 "Documentation : style règles"
 [DocVueAttrEdit]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:26dca29e-92b3-445f-a6d8-51eaa297219a.html#core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8 "Documentation : vue attribut édition"
 [DocVueAttrView]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:26dca29e-92b3-445f-a6d8-51eaa297219a.html#core-ref:9cb7b313-7294-424d-bd86-a63155025902 "Documentation : vue attribut consultation"
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-60.zip
-[tuto_style]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-60/STYLE/COGIP_AUDIT
-[tuto_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
-[tuto_audit_edit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/audit_dates_edit.xml
-[tuto_audit_view]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/audit_dates_view.xml
-[tuto_fnc_table]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/fnc_table.xml
-[tuto_edit_admin]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/Layout/edit_admin.xml
-[tuto_class_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php#L32-L106
-[tuto_struct_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv#L5
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-30-60.zip
+[tuto_style]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-60/STYLE/COGIP_AUDIT
+[tuto_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
+[tuto_audit_edit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/Layout/audit_dates_edit.xml
+[tuto_audit_view]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/Layout/audit_dates_view.xml
+[tuto_fnc_table]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/Layout/fnc_table.xml
+[tuto_edit_admin]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/Layout/edit_admin.xml
+[tuto_class_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php#L32-L106
+[tuto_struct_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv#L5
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

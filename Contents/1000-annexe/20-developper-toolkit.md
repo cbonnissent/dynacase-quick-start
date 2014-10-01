@@ -14,25 +14,24 @@ Les principales fonctionnalité du toolkit sont :
 
 ## Pré-requis {#quickstart:6e47679b-125b-4cd6-bc8d-806e5500128d}
 
-Pour window, le toolkit nécessite en pré-requis :
-
-* php : http://windows.php.net/ ,
-* poedit : http://poedit.net/
-
-Il est conseillé d'ajouter le path vers votre installation de PHP et celui du répertoire `GettextTools\bin\` dans la variable [`PATH` de windows](http://www.java.com/en/download/help/path.xml).
+Pour window, le toolkit est livré dans un package avec toutes ses dépendances : [toolkit window][url_win_toolkit].
 
 Pour linux, les paquets :
 
 * php,
 * gettext
 
+sont requis.
+
 ## Installation {#quickstart:e9e7fc63-031f-44c7-8443-60787e35d7be}
 
-Le developper toolkit est un [phar][php_phar]. Vous pouvez récupérer la dernière version du toolkit [ici][url_toolkit].
+Pour linux : le developper toolkit est un [phar][php_phar]. Il suffit donc télécharger le [phar][url_linux_toolkit]. 
+Et de l’exécuter avec l'interpréteur PHP.
 
-Il vous suffit de le télécharger et l’exécuter avec l'interpréteur PHP.
+`php dynacase-devtool.phar`
 
-`php devtool.phar`
+Pour window, il faut télécharger [toolkit window][url_win_toolkit] et le dezipper. Celui-ci contient un .bat `dynacase-devtool.bat` qui
+doit être exécuté via la console window.
 
 ## Utilisation {#quickstart:6e013ebc-697a-4c18-8e38-d571b94d4261}
 
@@ -86,6 +85,8 @@ Si vous souhaitez customiser les commandes, vous pouvez télécharger [le dépô
 
 <!-- links -->
 [php_phar]: http://php.net/manual/en/intro.phar.php
-[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/devtool.phar
+[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/dynacase-devtool.phar
 [url_depot]: https://github.com/cbonnissent/dynacase-devTools
 [php_composer]: https://getcomposer.org/
+[url_win_toolkit]: https://docs.anakeen.com/dynacase/3.2/quick-start/dynacase-devtool-win32.zip
+[url_linux_toolkit]: https://docs.anakeen.com/dynacase/3.2/quick-start/dynacase-devtool.phar

@@ -47,7 +47,7 @@ Les cycles de vie sont représentés par deux objets systèmes :
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-    php <path_to_devtool>/devtool.phar createWorkflow -s . -n COGIP_AUDIT_AUDIT -m COGIP -a COGIP_AUDIT
+    php <path_to_devtool>/dynacase-devtool.phar createWorkflow -s . -n COGIP_AUDIT_AUDIT -m COGIP -a COGIP_AUDIT
 
 Deux fichiers sont générés :
 
@@ -339,7 +339,7 @@ Vous pouvez trouver les fichiers complets dans [les sources][tuto_source].
 
 Ouvrez la console dans le répertoire contenant les sources et :
 
-    php <path_to_devtool>/devtool.phar extractPo -i .
+    php <path_to_devtool>/dynacase-devtool.phar extractPo -i .
 
 Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
 
@@ -401,7 +401,7 @@ Vous allez maintenant générer le document de cycle de vie.
 
 Pour cela générez le `webinst` et importez le.
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Cliquez sur `Gestion des documents > Explorateurs de documents` et cliquez sur `Création > Documents système`
 en haut dans la partie de droite, l'interface de création de documents s'ouvre sur la partie droite.
@@ -456,6 +456,15 @@ Le fichier COGIP_AUDIT_AUDIT__PARAM complété est accessible dans [les sources]
 
 ## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
 
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
 Vous avez initié la structure d'un des cycles de vie et associé celui-ci à sa famille.
 Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycles de vie.
 
@@ -478,6 +487,7 @@ mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
 [DocCycle]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b8824399-f17d-4007-adde-8a7433939273.html#core-ref:d5ddda0c-09d2-42b0-9543-0723e242ec09 "Documentation : cycle"
 [DocWID]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75.html#core-ref:6f013eb8-33c7-11e2-be43-373b9514dea3 "Documentation : wid"
 [DocCycleDeVie]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:b8824399-f17d-4007-adde-8a7433939273.html#core-ref:d5ddda0c-09d2-42b0-9543-0723e242ec09 "Documentation : cycle de vie"
-[tuto_source]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-40-20/COGIP_AUDIT
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-20.zip
-[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/1.0-integration/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
+[tuto_source]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-40-20/COGIP_AUDIT
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-40-20.zip
+[tuto_param_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-1.0-integration/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

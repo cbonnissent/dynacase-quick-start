@@ -92,7 +92,7 @@ Vous remarquerez que la méthode `computeFNC` ne sauvegarde pas les modification
 En effet, les hooks font automatiquement cette sauvegarde lorsque nécessaire.
 De plus, cela permet d'appeler les méthodes concernées en dehors des hooks, sans surcoût particulier.
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_audit].
 
 ### Problèmes {#quickstart:59afb583-b9da-4dc2-92d7-69426961562e}
 
@@ -110,6 +110,8 @@ Modifiez la colonne `I` :
 -   pour l'attribut `caac_fnc_fnc`, passez la valeur de `W` à `S`.
 
 La liste des fiches de non conformité n'est plus modifiable dans les audits en modification.
+
+Vous pouvez retrouver le fichier CSV complété dans les [sources][tuto_struct_audit].
 
 Pour corriger le second point, vous devez modifier la fiche de non conformité pour que, lors de sa sauvegarde,
 elle mette à jour l'audit associé.
@@ -153,7 +155,7 @@ Ensuite surchargez la fonction [`postStore`][DocDocPostStore] :
 <span class="flag inline nota-bene"></span>
 Attention à bien appeler le parent lors de la surcharge de la fonction de hook, sinon le code des classes parentes ne serait pas appelé.
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_fnc].
 
 ## Duplication {#quickstart:c2f7a2b2-f9d5-4db1-845d-371ba6425317}
 
@@ -198,11 +200,11 @@ Ajoutez ensuite la fonction suivante :
 
 <span class="flag inline nota-bene"></span> Attention à penser à transmettre le paramètre $copyFrom au parent.
 
-Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/devtool.phar generateWebinst -s .` et le
+Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .` et le
 déployer.
 Vous pouvez ensuite dupliquer le document en utilisant le menu du document `Autres > Dupliquer`.
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_audit].
 
 ## Affichage d'un message aux utilisateurs {#quickstart:d0443641-f6fc-419b-9647-c30bc1b2e635}
 
@@ -241,14 +243,14 @@ Ajoutez ensuite la fonction suivante :
         return $err;
     }
 
-Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/devtool.phar generateWebinst -s .` et le
+Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .` et le
 déployer.
 
 Une fois le code déployé si la date de fin d'audit est dans le passé vous avez le message suivant qui s'affiche :
 
 ![ Message utilisateur ](30-40-postRefresh.png "Message utilisateur")
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_audit].
 
 ## Contrôle à la suppression {#quickstart:e1f220a8-aa10-4149-aa4a-a20fd6b4598c}
 
@@ -294,7 +296,7 @@ Ajoutez ensuite la fonction suivante :
         return $msg;
     }
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_ref].
 
 ## Injection de JS ou CSS {#quickstart:bb25d5ff-d5a6-4d26-b32a-26db45de88e7}
 
@@ -343,9 +345,18 @@ Vous allez maintenant ajouter les fonctions suivantes :
 Les deux fonctions ajoutées s’exécutent respectivement avant l'édition et avant la consultation.
 La CSS définie ci-dessus est ajoutée dans le formulaire.
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_sources].
+Vous pouvez retrouver les sources complétées dans les [sources][tuto_class_base].
 
 ## Conclusion {#quickstart:e066bf1f-a23b-4a8d-bf56-7207147c095b}
+
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
 
 Vous avez abordé les _hooks_ et leurs fonctionnalités. Ils permettent de surcharger le fonctionnement par défaut
 des documents de Dynacase pour implémenter la logique métier de votre projet.
@@ -366,5 +377,11 @@ des documents de Dynacase pour implémenter la logique métier de votre projet.
 [DocOnlyCount]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2d43be1a-1991-42dd-a25d-5c3bb0b393fa.html "Documentation : onlyCount"
 [DocAddCssRef]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:4bba8a6b-8002-4c0a-8ac7-70d75b31b02b.html "Documentation : addCssRef"
 [DocVisibilite]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e8.html "Documentation : visibilité"
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-40.zip
-[tuto_sources]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-40/COGIP_AUDIT
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-30-40.zip
+[tuto_sources]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-40/COGIP_AUDIT
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e
+[tuto_class_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-40/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php
+[tuto_struct_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-40/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv
+[tuto_class_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-40/COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php
+[tuto_class_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-40/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__CLASS.php
+[tuto_class_base]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-40/COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php

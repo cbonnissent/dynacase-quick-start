@@ -52,7 +52,7 @@ Le paramétrage des droits associés à un cycle de vie sont de deux natures.
 Vous allez commencer par profiler le document cycle de vie,
 ce qui va vous permettre de définir quel type d'utilisateur peut effectuer quelle transition.
 
-Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/admin.php`.
+Connectez vous à l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`.
 
 Allez dans l'application `Gestion des documents > Explorateur de documents`,
 cliquez ensuite sur `les cycles` et sélectionnez le cycle `Audit Audit`.
@@ -186,6 +186,15 @@ Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_param].
 
 ## Conclusion {#quickstart:c4e5ebfa-74b7-4565-819d-34537af6317e}
 
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
 Vous savez maintenant paramétrer les éléments de sécurité associés au cycle de vie.
 Vous pouvez définir qui peut effectuer quelle transition et qui peut _voir_/_modifier_/_supprimer_ les documents suivant l'étape.
 
@@ -201,5 +210,6 @@ Vous pouvez définir qui peut effectuer quelle transition et qui peut _voir_/_mo
 [DocCSVWFL]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:e0d99925-df0d-4d51-8ebc-d44c4dd03873.html#core-ref:e0d99925-df0d-4d51-8ebc-d44c4dd03873 "Documentation : Import cycle de vie"
 [ParamDroit]: #quickstart:1cd2c714-d287-4ca6-8282-c5a20393c0ea
 [ExportCycle]: #quickstart:6633ab3c-ab35-48ad-93a9-71898bfad9f3
-[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-40-40.zip
-[tuto_audit_param]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-40-40/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L4-L13
+[tuto_zip]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-40-40.zip
+[tuto_audit_param]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-40/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv#L4-L13
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

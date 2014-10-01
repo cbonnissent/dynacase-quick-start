@@ -155,6 +155,8 @@ Ce qui donne :
 
 ![ Valeur par défaut ](30-30-param-default.png "Valeur par défaut")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
+
 De plus, cette valeur n'étant pas modifiable par les utilisateurs, vous allez modifier la [visibilité][DocVisibilite]
 par défaut de l'attribut correspondant pour le rendre non modifiable.
 
@@ -162,6 +164,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv` et modifiez la lig
 pour mettre `S` dans la colonne `I`. Cela indique que l'attribut est statique et donc non modifiable :
 
 ![ Attribut en S ](30-30-param-default-S.png "Attribut en S")
+
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_struct_fnc].
 
 ## Attribut obligatoire {#quickstart:2654ac63-6c63-4daa-a107-8bb9e50c70c0}
 
@@ -196,8 +200,6 @@ Il existe deux moyens de spécifier les règles de calcul de titre d'un document
 -   soit en modifiant la méthode [`getCustomTitle`][DocGetCustomTitle] dans ce cas vous composez directement le titre.
     La colonne `E` n'est plus utilisée.
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
-
 ### Composition du titre par paramétrage de la structure {#quickstart:d3a65d4a-67d4-42dd-9b11-23a41ee3f5c7}
 
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifiez le pour qu'il soit similaire à :
@@ -207,6 +209,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv` et modifie
 Ce qui donne après la création du document :
 
 ![ Document avec le calcul du titre ](30-30-compute-title-simple.png "Document avec le calcul du titre")
+
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_struct_ref].
 
 ### Composition du titre en utilisant `getCustomTitle` {#quickstart:7afe120f-3249-48a1-af92-7bd52b4ff837}
 
@@ -234,6 +238,8 @@ Ce qui donne après la création du document :
 
 ![ Document avec le calcul du titre ](30-30-compute-title-function.png "Document avec le calcul du titre")
 
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_class_audit].
+
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la méthode [`getCustomTitle`][DocGetCustomTitle] :
 
     [php]
@@ -252,7 +258,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php` et surchargez la m�
         return sprintf("%s : %s", $chapterTitle, $title);
     }
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
+Vous pouvez retrouver le fichier complété dans [les sources][tuto_class_fnc].
 
 ### Paramètre de famille {#quickstart:534a6d71-a5f5-4cc0-8a6d-c44275ae9937}
 
@@ -347,6 +353,8 @@ Une fois le module déployé, le formulaire possède une nouvelle fonctionnalit�
 
 ![ Définition contrainte : résultat ](30-30-form-constraint.png "Définition contrainte : résultat")
 
+Vous pouvez retrouver la contrainte complétée dans les [sources][tuto_struct_audit].
+
 <span class="flag inline nota-bene"></span> Les contraintes permettent aussi de suggérer des valeurs.
 Si vous souhaitez implémenter ce comportement, veuillez consulter la [documentation][DocDocContrainte].
 
@@ -357,8 +365,6 @@ Pour l'instant cette contrainte est très limitante, en effet elle s’exécute 
 2. vous le modifiez le 16 juin la contrainte vous indique que la date de début est dépassée et vous empêche de sauvegarder.
 
 Vous verrez dans le chapitre sur les cycles de vie différents moyens d'améliorer cette contrainte.
-
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
 
 ## Configuration des aides à la saisie {#quickstart:4678ab4e-c5bf-4dae-b446-611baad5e225}
 
@@ -559,6 +565,8 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php` et ajoutez la fon
 le contenu de l'attribut doit-être vidé. Si jamais la fonction retourne une chaîne vide ou rien alors le contenu
 de l'attribut est laissé tel quel.
 
+Vous pouvez retrouver le fichier PHP complété dans les [sources][tuto_class_audit].
+
 Ensuite, vous devez enregistrer la fonction dans le fichier `__STRUCT.csv`,
 ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut `caa_date_fin` les colonnes :
 
@@ -568,14 +576,20 @@ ouvrez `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv` et modifiez pour l'attribut
     Cette cellule porte la référence vers la fonction et ces paramètres d'entrée.
     Le format de cet élément est explicité dans la [documentation][DocDocAttrComputed].
 
-Vous pouvez retrouver les sources complétées dans les [sources][tuto_fam].
+Vous pouvez retrouver le fichier CSV complété dans les [sources][tuto_struct_audit].
 
 Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
 ## Conclusion {#quickstart:8a58c628-904c-46ea-914a-f592438059c5}
 
-Vous pouvez maintenant, si ce n'est pas déjà fait, générer le paquet et le déployer et créer quelques formulaires
-pour voir les modifications que vous avez mises en place.
+Vous allez maintenant produire le paquet.
+
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+
+Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+ 
+Vous pouvez ensuite créer quelques formulaires pour voir les modifications que vous avez mises en place.
 
 Ce chapitre de paramétrage vous a permis de rendre votre formulaire plus interactif et d'y intégrer plus de logique métier.
 
@@ -619,9 +633,16 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 [DocDocProperty]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:9aa8edfa-2f2a-11e2-aaec-838a12b40353.html "Documentation : propriétés des documents"
 [DocLigneeDoc]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1cdff481-42e0-4caf-baba-d2348d760ca5.html "Documentation : Lignée documentaire"
 [tuto_images]: https://github.com/Anakeen/dynacase-quick-start-code/tree/master/Images
-[tuto_after_30_30]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-30-30.zip
-[tuto_po]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-30/locale/fr/LC_MESSAGES/src
-[tuto_fam]: https://github.com/Anakeen/dynacase-quick-start-code/tree/after-30-30/COGIP_AUDIT
-[tuto_external]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/EXTERNALS/helper_audit.php
-[tuto_fnc_struct]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv#L11-L12
-[tuto_code_contrainte]: https://github.com/Anakeen/dynacase-quick-start-code/blob/after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L24-L36
+[tuto_after_30_30]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-30-30.zip
+[tuto_po]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-30/locale/fr/LC_MESSAGES/src
+[tuto_fam]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-30/COGIP_AUDIT
+[tuto_external]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/EXTERNALS/helper_audit.php
+[tuto_fnc_struct]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv#L11-L12
+[tuto_code_contrainte]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L24-L36
+[tuto_struct_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv
+[tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv#L9
+[tuto_struct_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv#L6
+[tuto_class_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php
+[tuto_class_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__CLASS.php#L14-L22
+[tuto_struct_audit]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv#L7
+[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e

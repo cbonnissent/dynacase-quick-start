@@ -40,18 +40,18 @@ le contexte et exécute les éventuelles instructions d'installation ou mise à 
 
 ## Mise en place {#quickstart:6207b157-95a4-4a53-b112-fbb5c2b58741}
 
-Il vous faut tout d'abord télécharger le **[developper toolkit][url_toolkit]**, cet outil vous permet :
+Il vous faut tout d'abord télécharger le **developper toolkit**, cet outil vous permet :
 
 -   d’initialiser les sources d'un module Dynacase,
 -   d'ajouter des applications, des familles, des workflow à votre projet,
 -   de faire les traductions,
 -   de produire le fichier webinst.
 
-L'installation du toolkit et de ses dépendances est décrites dans [l'annexe toolkit][annexe_toolkit], merci de vous y référer.
+L'installation du toolkit et de ses dépendances est décrite dans [l'annexe toolkit][annexe_toolkit], merci de vous y référer.
 
 Une fois l'outil téléchargé et installé, vous lancez, via la console, la commande :
 
-    php <path_to_devtool>/devtool.phar createModule
+    php <path_to_devtool>/dynacase-devtool.phar createModule
 
 L'invite vous proposer les choix suivants :
 
@@ -71,13 +71,13 @@ L'invite vous proposer les choix suivants :
       -h, --help              show the usage message
 
 
-Cette commande va initier pour vous une structure de module Dynacase type pré-paramétrée.
+Cette commande va intialiser pour vous une structure de module Dynacase type pré-paramétrée.
 
 Dans notre cas, vous rentrez les options suivantes :
 
-    php <path_to_devtool>/devtool.phar createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
+    php <path_to_devtool>/dynacase-devtool.phar createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
 
-Vous obtenez la structure de fichiers suivante :
+Cela créer dans le répertoire courant la structure de fichiers suivante :
 
     ┊
     ├─ API/
@@ -133,7 +133,7 @@ Une première version des fichiers de traductions a été initialisée lors de l
 
 La commande pour rafraîchir les po est :
 
-    php <path_to_devtool>/devtool.phar extractPo -s .
+    php <path_to_devtool>/dynacase-devtool.phar extractPo -s .
 
 Le -i indique le path où se trouve les sources, dans l'exemple ci-dessus elles sont dans le path courant.
 
@@ -229,7 +229,7 @@ Vous allez maintenant conclure ce chapitre en produisant le fichier contenant le
 
 Exécutez la commande :
 
-    php <path_to_devtool>/devtool.phar generateWebinst -s .
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
 
 Un paquet `cogip-audit-1.0.0-0.webinst` est alors produit dans le répertoire des sources.
 
@@ -252,7 +252,7 @@ Dynacase control vous indique les différentes actions qu'il va exécuter.
 Veuillez valider, l’installation se déroule et votre application est en place.
 
 Vous pouvez ensuite vérifier que celle-ci est bien installée et que la traduction est en place. Pour cela, allez sur
-`http://<nomDeDomaine>/admin.php` dans la catégorie `Gestion des applications`, `Les applications`.
+`http://<nomDeDomaine>/dynacase/admin.php` dans la catégorie `Gestion des applications`, `Les applications`.
 
 ![ Show application ](01-02-module_verify.png "Show application")
 
@@ -270,14 +270,14 @@ et avez abordé les principes des traductions.
 -   [Internationalisation et traduction][manref_internationalisation]
 
 [wikiIDE]: https://fr.wikipedia.org/wiki/Environnement_de_d%C3%A9veloppement_int%C3%A9gr%C3%A9
-[githubSource]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after_10_30.zip "Github : source après le tutoriel"
+[githubSource]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-10-30.zip "Github : source après le tutoriel"
 [tar]: https://fr.wikipedia.org/wiki/Tar_(informatique) "Définition du TAR : Wikipedia"
 [wpoedit]: https://en.wikipedia.org/wiki/Poedit "Description de Poedit : Wikipedia"
 [upoedit]: http://www.poedit.net/download.php "Téléchargement de Poedit"
 [webinst]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-platform-operating-manual/website/book/module.html "Le format des paquets webinst"
 [manref_internationalisation]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1de9ba03-a3b6-4b56-bfbe-62ce991f8ca1.html#core-ref:1de9ba03-a3b6-4b56-bfbe-62ce991f8ca1 "Internationalisation et traduction"
 [manref_internationalisation_php]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:ca73ff9e-ceb8-456b-bdd4-9b9056f1543d.html#core-ref:967cd878-e068-4c99-8266-adaed3f700ff "Utiliser une traduction dans un programme PHP"
-[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/devtool.phar
+[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/dynacase-devtool.phar
 [annexe_toolkit]: #quickstart:afe5e4fc-97c4-46d6-9583-94daa33919f1
 [annexe_buildjson]: #quickstart:f0fb9907-44e1-4956-aea1-14beb5cc077c
 [tuto_images]: https://github.com/Anakeen/dynacase-quick-start-code/tree/master/Images

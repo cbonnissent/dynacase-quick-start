@@ -49,7 +49,7 @@ De plus, l'application doit être initialisée avec les utilisateurs suivants :
 ## Initialisation du premier utilisateur {#quickstart:653a946b-9655-4728-9c65-50c90bb771df}
 
 Pour initialiser les différents types de comptes, vous pouvez utiliser l'interface web.
-Veuillez vous rendre sur l'interface d'administration : `http://<nomDeDomaine>/admin.php`
+Veuillez vous rendre sur l'interface d'administration : `http://<nomDeDomaine>/dynacase/admin.php`
 
 Et cliquer sur `Gestion des utilisateurs`
 
@@ -226,7 +226,7 @@ Le fichier CSV complété peut-être consulté [ici][source_iuser].
 
 <span class="flag inline nota-bene"></span> Vous pouvez à tout moment générer le fichier `webinst` via la commande :
 
-`php <path_to_devtool>/devtool.phar generateWebinst -s .`
+`php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .`
 
 et le déployer en choississant la stratégie d'initialisation pour tester l'ajout des utilisateurs.
 
@@ -327,7 +327,7 @@ Soit :
 -   `USER_KARINE_MARTHE` : `GRP_QUALITE_COGIP`,
 -   `USER_MARINA_ARNIC` : `GRP_DSI_COGIP`.
 
-et sauvez le fichier. Celui peut-être consulté [ici](https://github.com/Anakeen/dynacase-quick-start-code/blob/user-add-group/COGIP_AUDIT/IUSER__INIT_DATA.csv).
+et sauvez le fichier. Celui peut-être consulté [ici](https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-user-add-group/COGIP_AUDIT/IUSER__INIT_DATA.csv).
 
 ## Création des rôles {#quickstart:1a5c2498-c522-491b-a7a3-f73d03b13116}
 
@@ -388,7 +388,7 @@ Après ajout des rôles définis lors de la phase de d'analyse, on obtient :
 
 ![ Rôle ](20-10-role-creation2.png "Rôle")
 
-Une fois initialisé le fichier de rôle est semblable à [celui-ci](https://github.com/Anakeen/dynacase-quick-start-code/blob/init-role/COGIP_AUDIT/ROLE__INIT_DATA.csv).
+Une fois initialisé le fichier de rôle est semblable à [celui-ci](https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-init-role/COGIP_AUDIT/ROLE__INIT_DATA.csv).
 
 ### Association des rôles aux groupes et utilisateurs {#quickstart:e946f46a-9d47-4f44-a61d-45248f47ce62}
 
@@ -426,13 +426,13 @@ Ce qui donne le résultat suivant :
 
 ![ Rôle association : utilisateurs](20-10-user-role.png "Association des rôles : utilisateurs")
 
-Vous pouvez retrouver les fichiers complété [ici](https://github.com/Anakeen/dynacase-quick-start-code/tree/associate_role_account/COGIP_AUDIT).
+Vous pouvez retrouver les fichiers complétés [dans les sources](https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-associate-role-account/COGIP_AUDIT).
 
 ## Mise en place des modifications {#quickstart:c7522c13-68ab-47c7-b592-6c672b963820}
 
 Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
 
-    php <path_to_devtool>/devtool.phar generateWebinst -i .
+    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
 
 Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
 Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`.
@@ -464,9 +464,9 @@ Vous pouvez consulter les chapitres suivants de la documentation :
 
 <!-- links -->
 
-[githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start-code/archive/after-20-20.zip "Github : source après le tutoriel"
+[githubSourceAfter]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-20-20.zip "Github : source après le tutoriel"
 [docCompte]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2bd98eec-5b03-4af0-b9d6-1bbf78fe9733.html "Doc Dynacase : Comptes"
 [formatCSV] : https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093.html "Doc Dynacase : CSV"
 [annexe]:   #quickstart:69f091b6-34ef-47b0-a453-8e00676b7dcd
-[source_iuser]: https://github.com/Anakeen/dynacase-quick-start-code/blob/init-iuser/COGIP_AUDIT/IUSER__INIT_DATA.csv
-[source_igroup]: https://github.com/Anakeen/dynacase-quick-start-code/blob/init-group/COGIP_AUDIT/IGROUP__INIT_DATA.csv
+[source_iuser]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-init-iuser/COGIP_AUDIT/IUSER__INIT_DATA.csv
+[source_igroup]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-init-group/COGIP_AUDIT/IGROUP__INIT_DATA.csv
