@@ -49,9 +49,14 @@ Il vous faut tout d'abord télécharger le **developper toolkit**, cet outil vou
 
 L'installation du toolkit et de ses dépendances est décrite dans [l'annexe toolkit][annexe_toolkit], merci de vous y référer.
 
+Pour l'exécuter les devtool, il y a deux procédures suivant si vous êtes sous un système linux ou window :
+
+* window : lancer la console et appeler le fichier dynacase-devtool.bat,
+* linux : lancer la console et appeler le fichier dynacase-devtool.phar (ou php dynacase-devtool.phar si vous n'avez pas associé les .phar à php).
+
 Une fois l'outil téléchargé et installé, vous lancez, via la console, la commande :
 
-    php <path_to_devtool>/dynacase-devtool.phar createModule
+    <devtool> createModule
 
 L'invite vous proposer les choix suivants :
 
@@ -75,7 +80,7 @@ Cette commande va intialiser pour vous une structure de module Dynacase type pr�
 
 Dans notre cas, vous rentrez les options suivantes :
 
-    php <path_to_devtool>/dynacase-devtool.phar createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
+    <devtool> createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
 
 Cela créer dans le répertoire courant la structure de fichiers suivante :
 
@@ -133,7 +138,7 @@ Une première version des fichiers de traductions a été initialisée lors de l
 
 La commande pour rafraîchir les po est :
 
-    php <path_to_devtool>/dynacase-devtool.phar extractPo -s .
+    <devtool> extractPo -s .
 
 Le -i indique le path où se trouve les sources, dans l'exemple ci-dessus elles sont dans le path courant.
 
@@ -229,7 +234,7 @@ Vous allez maintenant conclure ce chapitre en produisant le fichier contenant le
 
 Exécutez la commande :
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Un paquet `cogip-audit-1.0.0-0.webinst` est alors produit dans le répertoire des sources.
 

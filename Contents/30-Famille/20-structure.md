@@ -94,7 +94,7 @@ De même, comme nous le verrons plus tard, cela permet de mettre en place une vu
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-    php <path_to_devtool>/dynacase-devtool.phar createFamily -s . -n COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT
+    <devtool> createFamily -s . -n COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT
 
 La commande createFamily permet de créer des familles Dynacase. La liste de ses options est accessibles avec l'option --help.
 
@@ -154,10 +154,10 @@ Vous devez avoir un fichier `info.xml` semblable à :
 
 Vous allez maintenant créer les autres familles, reprenez la ligne de commande ci-dessus pour chacune des familles présentées ci-dessous.
 
--   `Référentiel qualité` : `php <path_to_devtool>/dynacase-devtool.phar createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Référentiel Qualité"`
--   `Chapitre` : `php <path_to_devtool>/dynacase-devtool.phar createFamily -s . -n COGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
--   `Audit` : `php <path_to_devtool>/dynacase-devtool.phar createFamily -s . -n COGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
--   `Fiche de non-conformité` : `php <path_to_devtool>/dynacase-devtool.phar createFamily -s . -n COGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
+-   `Référentiel qualité` : `<devtool> createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Référentiel Qualité"`
+-   `Chapitre` : `<devtool> createFamily -s . -n COGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
+-   `Audit` : `<devtool> createFamily -s . -n COGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
+-   `Fiche de non-conformité` : `<devtool> createFamily -s . -n COGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
 
 Vous avez créé l'ensemble des fichiers qui vont définir vos familles. 
 
@@ -335,7 +335,7 @@ Ces classes ne contiennent que les éléments qui vous seront utiles lors du dé
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-`php <path_to_devtool>/dynacase-devtool.phar generateStub -s . -o ./stubs/`
+`<devtool> generateStub -s . -o ./stubs/`
 
 L'outil a généré les stubs dans le nouveau sous-répertoire `stubs` dans le répertoire de vos sources :
 
@@ -366,7 +366,7 @@ Vous allez maintenant extraire les clefs permettant de traduire vos familles.
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-`php <path_to_devtool>/dynacase-devtool.phar extractPo -s .`
+`<devtool> extractPo -s .`
 
 Des nouveaux fichiers de po sont ajoutés, il en existe un par famille et par langue.
 
@@ -414,7 +414,7 @@ Pour le fichier `fr`, vous pouvez enlever les fuzzy car les propositions sont co
 
 Vous allez maintenant produire le paquet.
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de basoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).

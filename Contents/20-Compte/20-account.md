@@ -226,7 +226,7 @@ Le fichier CSV complété peut-être consulté [ici][source_iuser].
 
 <span class="flag inline nota-bene"></span> Vous pouvez à tout moment générer le fichier `webinst` via la commande :
 
-`php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .`
+`<devtool> generateWebinst -s .`
 
 et le déployer en choississant la stratégie d'initialisation pour tester l'ajout des utilisateurs.
 
@@ -432,7 +432,7 @@ Vous pouvez retrouver les fichiers complétés [dans les sources](https://github
 
 Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
 Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`.

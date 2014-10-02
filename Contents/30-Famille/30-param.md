@@ -584,7 +584,7 @@ Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
 Vous allez maintenant produire le paquet.
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).

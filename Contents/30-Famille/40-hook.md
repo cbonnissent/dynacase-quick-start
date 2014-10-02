@@ -200,7 +200,7 @@ Ajoutez ensuite la fonction suivante :
 
 <span class="flag inline nota-bene"></span> Attention à penser à transmettre le paramètre $copyFrom au parent.
 
-Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .` et le
+Si vous souhaitez tester, vous pouvez générer le paquet `<devtool> generateWebinst -s .` et le
 déployer.
 Vous pouvez ensuite dupliquer le document en utilisant le menu du document `Autres > Dupliquer`.
 
@@ -243,7 +243,7 @@ Ajoutez ensuite la fonction suivante :
         return $err;
     }
 
-Si vous souhaitez tester, vous pouvez générer le paquet `php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .` et le
+Si vous souhaitez tester, vous pouvez générer le paquet `<devtool> generateWebinst -s .` et le
 déployer.
 
 Une fois le code déployé si la date de fin d'audit est dans le passé vous avez le message suivant qui s'affiche :
@@ -351,7 +351,7 @@ Vous pouvez retrouver les sources complétées dans les [sources][tuto_class_bas
 
 Vous allez maintenant produire le paquet.
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).

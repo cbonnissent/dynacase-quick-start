@@ -47,7 +47,7 @@ Les cycles de vie sont représentés par deux objets systèmes :
 
 Ouvrez une console et rendez vous dans le répertoire de votre application et lancez la commande suivante :
 
-    php <path_to_devtool>/dynacase-devtool.phar createWorkflow -s . -n COGIP_AUDIT_AUDIT -m COGIP -a COGIP_AUDIT
+    <devtool> createWorkflow -s . -n COGIP_AUDIT_AUDIT -m COGIP -a COGIP_AUDIT
 
 Deux fichiers sont générés :
 
@@ -339,7 +339,7 @@ Vous pouvez trouver les fichiers complets dans [les sources][tuto_source].
 
 Ouvrez la console dans le répertoire contenant les sources et :
 
-    php <path_to_devtool>/dynacase-devtool.phar extractPo -i .
+    <devtool> extractPo -i .
 
 Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
 
@@ -458,7 +458,7 @@ Le fichier COGIP_AUDIT_AUDIT__PARAM complété est accessible dans [les sources]
 
 Vous allez maintenant produire le paquet.
 
-    php <path_to_devtool>/dynacase-devtool.phar generateWebinst -s .
+    <devtool> generateWebinst -s .
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
