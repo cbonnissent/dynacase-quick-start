@@ -49,12 +49,12 @@ Il vous faut tout d'abord télécharger le **developper toolkit**, cet outil vou
 
 L'installation du toolkit et de ses dépendances est décrite dans [l'annexe toolkit][annexe_toolkit], merci de vous y référer.
 
-Pour l'exécuter les devtool, il y a deux procédures suivant si vous êtes sous un système linux ou window :
+Pour l'exécuter les devtool, la procédure diffère si vous êtes sous un système linux ou window :
 
 * window : lancer la console et appeler le fichier dynacase-devtool.bat,
 * linux : lancer la console et appeler le fichier dynacase-devtool.phar (ou php dynacase-devtool.phar si vous n'avez pas associé les .phar à php).
 
-Une fois l'outil téléchargé et installé, vous lancez, via la console, la commande :
+Une fois l'outil téléchargé et installé, lancez, via la console, la commande :
 
     <devtool> createModule
 
