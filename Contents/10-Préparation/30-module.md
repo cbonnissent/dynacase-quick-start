@@ -140,7 +140,7 @@ La commande pour rafraîchir les po est :
 
     <devtool> extractPo -s .
 
-Le -i indique le path où se trouve les sources, dans l'exemple ci-dessus elles sont dans le path courant.
+Le -s indique le path où se trouve les sources, dans l'exemple ci-dessus elles sont dans le path courant.
 
 Les po sont dans la structure suivante.
 
@@ -261,7 +261,7 @@ Vous pouvez ensuite vérifier que celle-ci est bien installée et que la traduct
 
 ![ Show application ](01-02-module_verify.png "Show application")
 
-Vous pouvez retrouver votre application dans la liste. En outre, la traduction est appliquée dans la colonne description.
+Vous pouvez retrouver votre application dans la liste. En outre, la traduction que nous avons faite apparaît dans la colonne description.
 
 ## Conclusion {#quickstart:12b5141e-7400-467b-87c0-458e487c9da3}
 
