@@ -71,6 +71,7 @@ L'invite vous proposer les choix suivants :
       -x, --external          with external file
       -s, --style             with style directory
       -p, --api               with api directory
+      -i, --images            with images directory
       -e, --enclosure [<arg>] enclosure of the CSV generated (default : " )
       -d, --delimiter <arg>   delimiter of the CSV generated (default : ; )
       -h, --help              show the usage message
@@ -80,7 +81,7 @@ Cette commande va intialiser pour vous une structure de module Dynacase type, pr
 
 Dans notre cas, vous rentrez les options suivantes :
 
-    <devtool> createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
+    <devtool> createModule  -o . -n cogip-audit -a COGIP_AUDIT -xspi -e
 
 Cela crée, dans le répertoire courant, la structure de fichiers suivante :
 
