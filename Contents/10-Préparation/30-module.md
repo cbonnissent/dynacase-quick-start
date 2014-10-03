@@ -76,13 +76,13 @@ L'invite vous proposer les choix suivants :
       -h, --help              show the usage message
 
 
-Cette commande va intialiser pour vous une structure de module Dynacase type pré-paramétrée.
+Cette commande va intialiser pour vous une structure de module Dynacase type, pré-paramétrée.
 
 Dans notre cas, vous rentrez les options suivantes :
 
     <devtool> createModule  -o . -n cogip-audit -a COGIP_AUDIT -xsp -e
 
-Cela créer dans le répertoire courant la structure de fichiers suivante :
+Cela crée, dans le répertoire courant, la structure de fichiers suivante :
 
     ┊
     ├─ API/
