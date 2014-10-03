@@ -58,10 +58,10 @@ L'[annexe][chapter_annexe] résume quelques points clefs.
 
 ## Au secours
 
-Pour trouver des  aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
+Pour trouver des aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
 Le forum **Quick Start** a été créé à cet effet.
 
-D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutorial, vous pouvez les soumettre via [Github][quickstart_repo].
+D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel, vous pouvez les soumettre via [Github][quickstart_repo].
 
 ## Contexte Fonctionnel {#quickstart:1b340f92-085a-4bbe-a866-47e17444ca51}
 

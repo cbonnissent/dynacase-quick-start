@@ -7,86 +7,46 @@ book:
     chapters: 
         - level:   1
           content:  "00-Introduction/00-introduction.md"
-          flags:
-            new : "in progress"
         - level:   1
           content:  "10-Préparation/10-introduction.md"
-          flags:
-            new : "in progress"
           subtoc : 2
         - level:   2
           content:  "10-Préparation/20-VM.md"
-          flags:
-            new : "in progress"
         - level:   2
           content:  "10-Préparation/30-module.md"
-          flags:
-            new : "in progress"
         - level:   1
           content:  "20-Compte/10-introduction.md"
-          flags:
-            new : "in progress"
           subtoc: 2
         - level:   2
           content:  "20-Compte/20-account.md"
-          flags:
-            new : "in progress"
         - level:  1
           content:  "30-Famille/10-introduction.md"
-          flags:
-            new : "in progress"
           subtoc: 2
         - level:  2
           content:  "30-Famille/20-structure.md"
-          flags:
-            new : "in progress"
         - level:  2
           content:  "30-Famille/30-param.md"
-          flags:
-            new : "in progress"
         - level:  2
           content:  "30-Famille/40-hook.md"
-          flags:
-            new : "in progress"
         - level:  2
           content:  "30-Famille/50-securite.md"
-          flags:
-            new : "in progress"
         - level:  2
-          content:  "30-Famille/60-view.md"
-          flags:
-            new : "in progress"
+          content:  "30-Famille/60-view.md
         - level:   1
           content:  "40-Cycle/10-introduction.md"
-          flags:
-            new : "in progress"
           subtoc: 2
         - level :  2
           content:  "40-Cycle/20-structure.md"
-          flags:
-            new : "in progress"
         - level :  2
           content:  "40-Cycle/30-param.md"
-          flags:
-            new : "in progress"
         - level :  2
           content:  "40-Cycle/40-securite.md"
-          flags:
-            new : "in progress"
         - level:   1
           content:  "50-Action/10-introduction.md"
-          flags:
-            new : "in progress"
           subtoc: 2
         - level :  2
           content:  "50-Action/20-action.md"
-          flags:
-            new : "in progress"
         - level: 1
           content:  "1000-annexe/10-annexe.md"
-          flags:
-            new : "in progress"
         - level: 2
           content:  "1000-annexe/20-developper-toolkit.md"
-          flags:
-            new : "in progress"
