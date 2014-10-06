@@ -58,7 +58,7 @@ L'[annexe][chapter_annexe] résume quelques points clefs.
 
 ## Au secours
 
-Pour trouver des aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
+Pour trouver des  aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
 Le forum **Quick Start** a été créé à cet effet.
 
 D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutorial, vous pouvez les soumettre via [Github][quickstart_repo].
