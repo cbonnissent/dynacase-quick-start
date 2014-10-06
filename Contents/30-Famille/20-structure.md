@@ -417,7 +417,7 @@ Vous allez maintenant produire le paquet.
     <devtool> generateWebinst -s .
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de basoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
 
 Vos familles sont installées sur le contexte, vous allez pouvoir consulter vos premiers formulaires.
 
