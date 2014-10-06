@@ -144,8 +144,8 @@ Vous devez avoir un fichier `info.xml` semblable à :
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT" />
         <process command="programs/record_application COGIP_AUDIT" />
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv"/>
-        <process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv"/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
         <process command="programs/post_migration COGIP_AUDIT" />
         <process command="programs/update_catalog" />
     </post-upgrade>

@@ -145,8 +145,7 @@ Vous retrouvez ensuite le contenu suivant :
 
 ![ Utilisateur : CSV ](20-10-user-export4.png "Utilisateur : CSV")
 
-Ce fichier contient l'ensemble des valeurs contenues dans la fiche utilisateur à l'exception des mots de passe qui,
-étant encodés en base, ne sont pas exportables.
+Ce fichier contient l'ensemble des valeurs contenues dans la fiche utilisateur **à l'exception des mots de passe qui, étant encodés en base, ne sont pas exportables.**
 
 ### Format d'export {#quickstart:9f1e3e32-bb48-4e6b-807a-37ff31c0f705}
 
@@ -382,7 +381,7 @@ Les rôles sont les suivants :
 
 -   Responsable des audits : `ROLE_RESPONSABLE_AUDITS`,
 -   Auditeurs : `ROLE_AUDITEUR`,
--   Administrateur fonctionnel : `ROLE_AUDITEUR`.
+-   Administrateur fonctionnel : `ROLE_ADMIN_FONCTIONNEL`.
 
 Après ajout des rôles définis lors de la phase de d'analyse, on obtient :
 
