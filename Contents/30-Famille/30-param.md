@@ -99,6 +99,9 @@ Vous obtenez la structure de fichiers suivantes :
 
 Vous pouvez retrouver l'ensemble des images de l'application sur [github][tuto_images].
 
+Pour créer un webinst avec ces images, vous devez éditer le fichier `build.json` et ajouter `Images` dans la liste des dossiers identifiés par la variable `IncludedPath`.
+
+
 ![ Famille avec icônes ](30-30-with-title.png "Famille avec icônes")
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
