@@ -25,7 +25,7 @@ La liste des hooks standards est dans la [documentation][DocHook].
 Lors de la phase de spécification, les éléments suivants ont été identifiés. L'application nécessite :
 
 -   pour les _Audits_ :
-    -   le tableau des Fiche de non conformité doit être calculé automatiquement et non modifiable,
+    -   le tableau des Fiches de non conformité doit être calculé automatiquement et non modifiable,
     -   la duplication d'un audit peut-être effectuée mais la date d'audit doit être vidée automatiquement,
     -   lorsque la fin de l'audit est dépassée un message doit être affiché pour avertir les utilisateurs,
 -   pour les _Référentiels de qualité_ :

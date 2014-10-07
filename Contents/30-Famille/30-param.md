@@ -107,7 +107,7 @@ Pour créer un webinst avec ces images, vous devez éditer le fichier `build.jso
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
 
 Le titre de la famille se paramètre via les traductions.
-Ouvrez le fichier `locale/fr/LC_MESSAGES/src/family_COGIP_AUDIT_AUDIT.po` et modifiez le bloc suivant :
+Ouvrez le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT_AUDIT.po` et modifiez le bloc suivant :
 
     [gettext]
     msgid "COGIP_AUDIT_AUDIT#title"
