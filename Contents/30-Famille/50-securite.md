@@ -211,6 +211,7 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv`:
 
 -   copiez les quatre lignes de profil comme précédemment,
 -   modifiez les deux références au nom logique pour le passer de `PFAM_REFERENTIEL` à `PFAM_CHAPITRE`,
+-   renommer le titre du profil en "Profil de chapitre'
 -   ajoutez juste à la ligne du dessus de l'instruction `END`, une ligne contenant :
     -   dans la première case `PROFID`,
     -   dans la deuxième case, le nom logique du profil soit : `PFAM_CHAPITRE`.
@@ -231,6 +232,7 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv`:
 
 -   copiez les quatre lignes de profil comme précédemment,
 -   modifiez les deux références au nom logique pour le passer de `PFAM_REFERENTIEL` à `PFAM_AUDIT`,
+-   renommer le titre du profil en "Profil d'audit'
 -   modifiez les tuples :
     -   `create=ROLE_AUDITEUR` en `create=ROLE_RESPONSABLE_AUDITS`,
     -   `icreate=ROLE_AUDITEUR` en `icreate=ROLE_RESPONSABLE_AUDITS`,
@@ -250,10 +252,11 @@ Vous allez maintenant valuer le profil de famille _Fiche de non-conformité_.
 Votre spécification indique que celui-ci est similaire à celui du référentiel avec juste une différence :
 le compte ayant le droit de _création_ est le rôle _Responsable des audits_.
 
-Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv`:
+Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv`:
 
 -   copiez les quatre lignes de profil comme précédemment,
 -   modifiez les deux références au nom logique pour le passer de `PFAM_REFERENTIEL` à `PFAM_FNC`,
+-   renommer le titre du profil en "Profil de FNC'
 -   modifiez les tuples :
     -   `create=ROLE_AUDITEUR` en `create=ROLE_RESPONSABLE_AUDITS`,
     -   `icreate=ROLE_AUDITEUR` en  `icreate=ROLE_RESPONSABLE_AUDITS`,
@@ -353,6 +356,7 @@ Ouvrez le fichier `/COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv`:
 
 -   copiez les quatre lignes de profil comme précédemment,
 -   modifiez les deux références au nom logique pour le passer de `PDOC_REFERENTIEL` à `PDOC_CHAPITRE`,
+-   modifiez le titre en 'Profil des documents chapitre" ainsi que le nom de la famille associée (colonne dpdocfam) en "Chapitre"
 -   ajoutez juste avant l'instruction `END`, une ligne contenant :
     -   dans la première case `CPROFID`,
     -   dans la deuxième case, le nom logique du profil soit : `PDOC_CHAPITRE`.
@@ -469,7 +473,7 @@ Complétez le tableau des vues comme présenté ci-dessous :
 
 ![Création contrôle de vue](30-50-cvdoc-creation3.png "Création du contrôle de vue")
 
-Cliquez sur sauver.
+Cliquez sur Créer.
 
 #### Paramétrage {#quickstart:2e34eab3-a689-493a-b313-b6e3267c5d3b}
 
@@ -554,14 +558,14 @@ Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dyna
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
 
 Vous pouvez maintenant vous connecter à l'application et consulter une fiche de non-conformité
-avec un utilisateur ayant le profil `Auditeur`.
+avec un utilisateur ayant le profil `Auditeur` (marthe.karine/p@ssw0rd).
 
 ![FNC profil auditeur](30-50-fnc-auditeur.png "FNC profil auditeur")
 
 ![FNC profil DSI](30-50-fnc-dsi.png "FNC profil DSI")
 
 Vous pouvez remarquer que l'utilisateur ayant le profil **auditeur** peut ajouter des lignes d'écart
-alors que celui qui n'a pas ce profil (le DSI dans l'exemple ci-dessus) ne le peut pas.
+alors que celui qui n'a pas ce profil, le DSI dans l'exemple ci-dessus (arnic.marina/p@ssw0rd), ne le peut pas.
 
 On peut aussi remarquer les droits sur les `Référentiels`.
 
