@@ -79,7 +79,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv`, celui-ci c
 Deux paramètres ont été remplis par le **developper tool** :
 
 -   `ICON` : désigne une image qui est utilisée comme icône pour cette famille dans les interfaces standards,
--   `DFLDID` : lié au fonctionnement de ONEFAM, il est paramétré par défaut avec une valeur permettant d'afficher les familles dans ONEFAM.
+-   `DFLDID` : cette propriété est utilisée par l'interface par défaut `ONEFAM` pour identifier les familles à afficher.
 
 ### Icône {#quickstart:486c3a7e-2471-4cc4-8633-44ce5203c1fe}
 
@@ -99,9 +99,6 @@ Vous obtenez la structure de fichiers suivantes :
 
 Vous pouvez retrouver l'ensemble des images de l'application sur [github][tuto_images].
 
-Pour créer un webinst avec ces images, vous devez éditer le fichier `build.json` et ajouter `Images` dans la liste des dossiers identifiés par la variable `IncludedPath`.
-
-
 ![ Famille avec icônes ](30-30-with-title.png "Famille avec icônes")
 
 ### Titre de famille {#quickstart:dfcd3737-1642-449f-9986-28bbbd4bccdb}
@@ -112,11 +109,6 @@ Ouvrez le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT_AUDIT.po` et modifiez l
     [gettext]
     msgid "COGIP_AUDIT_AUDIT#title"
     msgstr ""
-    "#-#-#-#-#  COGIP_AUDIT_AUDIT.pot (COGIP_AUDIT_AUDIT )  #-#-#-#-#\n"
-    "Audit\n"
-    "#-#-#-#-#  COGIP_AUDIT_AUDIT.pot (COGIP_AUDIT_AUDIT )  #-#-#-#-#\n"
-
-Le message contient deux entrées une provenant du fichier `__STRUCT` et une provenant du fichier `__PARAM`.
 
 en
 
@@ -374,11 +366,16 @@ Vous verrez dans le chapitre sur les cycles de vie différents moyens d'amélior
 Vous allez maintenant configurer une [aide à la saisie][DocDocHelper].  
 La spécification indique que dans une fiche de non-conformité les référentiels accessibles sont ceux référencés par l'audit associé à la fiche.
 
+<span class="flag inline nota-bene"></span> Une aide à la saisie est dans un fichier autonome car elle peut-être utilisée
+au sein de plusieurs famille différentes.
+
 ### Fonction {#quickstart:3af954c1-fba1-4899-934e-2de89965e9f4}
 
 Ajoutez un fichier `helper_audit.php` dans le répertoire `EXTERNALS` et ajoutez dans celui-ci la fonction `selectReferentiel` comme ci-dessous :
 
     [php]
+    <?php
+    
     function selectReferentiel($caf_audit, $userInput = "") {
     
         $return = array();

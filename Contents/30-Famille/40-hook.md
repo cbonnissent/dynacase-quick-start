@@ -76,7 +76,6 @@ Surchargez ensuite la fonction [`postStore`][DocDocPostStore], cette fonction es
 
     [php]
     public function postStore() {
-        $err = "";
         $err = parent::postStore();
         $err .= $this->computeFNC();
         if ($err) {

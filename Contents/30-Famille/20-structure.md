@@ -154,10 +154,10 @@ Vous devez avoir un fichier `info.xml` semblable à :
 
 Vous allez maintenant créer les autres familles, reprenez la ligne de commande ci-dessus pour chacune des familles présentées ci-dessous.
 
--   `Référentiel qualité` : `<devtool> createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Référentiel Qualité"`
--   `Chapitre` : `<devtool> createFamily -s . -n COGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Chapitre"`
--   `Audit` : `<devtool> createFamily -s . -n COGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Audit"`
--   `Fiche de non-conformité` : `<devtool> createFamily -s . -n COGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT -t "Fiche de non conformité"`
+-   `Référentiel qualité` : `<devtool> createFamily -s . -n COGIP_AUDIT_REFERENTIEL -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT`
+-   `Chapitre` : `<devtool> createFamily -s . -n COGIP_AUDIT_CHAPITRE -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT`
+-   `Audit` : `<devtool> createFamily -s . -n COGIP_AUDIT_AUDIT -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT`
+-   `Fiche de non-conformité` : `<devtool> createFamily -s . -n COGIP_AUDIT_FNC -p COGIP_AUDIT_BASE -m COGIP -a COGIP_AUDIT`
 
 Vous avez créé l'ensemble des fichiers qui vont définir vos familles. 
 
@@ -259,8 +259,10 @@ Dans le cas des `Référentiel qualité`, vous devez obtenir une structure simil
     Ce qui donne, par exemple : `fam_a_fichiers`, puis `fam_fichiers_file` et `fam_fichiers_commentaire`
 
 -   vous pouvez commencer en complétant uniquement les colonnes `A`, `B`, `D`, `G` puis au moyen des scripts décrits en [annexe][annexeColor].
-    
-    ![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
+
+Vous pouvez voir ci-dessous un exemple de construction sur la famille chapitre.
+
+![ Exemple de construction ](30-20-structure-completion.gif "Exemple de construction")
 
 Vous pouvez retrouver le [fichier complété dans les sources][tuto_audit_ref].
 
@@ -308,6 +310,9 @@ Vous allez maintenant compléter votre dernière famille, la `Fiche d'audit`.
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv`, et complétez le pour obtenir une structure similaire à :
 
 ![ Contenu structure Audit ](30-20-structure-audit.png "Contenu structure Audit")
+
+**Attention** : Dans la spécification, il est indiqué que l'audit porte plusieurs référentiels. Vous devez donc ajouter
+dans la colonnes `options` (`P`), l'option `multiple=yes`. 
 
 Vous pouvez retrouver le [fichier complété dans les sources][tuto_audit_audit].
 
@@ -418,6 +423,10 @@ Vous allez maintenant produire le paquet.
 
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+
+<span class="flag inline nota-bene"></span> Vous utilisez maintenant le scénario *upgrade* car vous avez fait l'initialisation
+dans le chapitre précédent. L'initialisation apporte l'import des comptes (utilisateurs, groupes, rôles), or ceux-ci
+sont déjà importés, il est donc inutile (et coûteux en temps) de le faire à nouveau.
 
 Vos familles sont installées sur le contexte, vous allez pouvoir consulter vos premiers formulaires.
 

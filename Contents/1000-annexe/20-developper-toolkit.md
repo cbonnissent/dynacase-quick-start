@@ -49,7 +49,7 @@ Le devtool vous proposer par défaut la liste de commande suivante :
         generateStub
         generateWebinst
 
-Chacune de ces commandes est auto-documentée et présentée dans le tutoriel.
+Chacune de ces commandes est auto-documentée via l'option `-h` ou `--help`.
 
 ## Build.json {#quickstart:f0fb9907-44e1-4956-aea1-14beb5cc077c}
 

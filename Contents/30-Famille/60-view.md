@@ -438,7 +438,7 @@ Le fichier ci-dessus décrit un template de table où :
     pour favoriser la mise en place d'une éventuelle css.
 
 Ensuite ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv`
-et modifiez la colonne `P` (options) de la ligne `caf_a_action` pour remplacer `vlabel=up` par
+et modifiez la colonne `P` (options) de la ligne `caf_a_action` pour remplacer la colonne options (vide) par
 `vlabel=up|rowviewzone=COGIP_AUDIT:FNC_TABLE.xml|roweditzone=COGIP_AUDIT:FNC_TABLE.xml`. 
 
 Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].

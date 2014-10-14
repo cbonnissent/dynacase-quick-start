@@ -270,6 +270,20 @@ Ce qui donne dans votre cas :
 
 Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
+**Attention** : Les profils ne s'appliquent que sur les nouveaux documents, les documents déjà existant n'étant pas
+profilés ceux-ci sont accessibles par tous les utilisateurs. En production, il vous faudrait faire [un script de migration][doc_migration]
+pour profiler les documents pré-existants.
+
+#### Vérification de l'application du profil sur les référentiels {#quickstart:12cbb20f-382a-4f01-a2bb-35fc1d867513}
+
+Il vous faut créer un nouveau document de type référentiel. Ensuite, connectez-vous avec l'utilisateur DSI (arnic.marina/p@ssw0rd).
+
+Ouvrez ensuite votre nouveau document `Référentiels`.
+
+![Référentiel profil DSI](30-50-ref-dsi.png "Référentiel profil DSI")
+
+Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône indique que le document est non modifiable.
+
 ## Profil de document {#quickstart:62aad07c-8c51-423d-907a-ed7a0d8b5f5d}
 
 Vous allez maintenant créer les [profils de documents][DocProfilDocument]. Un profil de document permet de définir qui peut :
@@ -311,7 +325,7 @@ Donnez les droits suivants :
 -   Modifier : rôle _Auditeur_,
 -   Supprimer : rôle _Auditeur_.
 
-Vous obtenez la matrice suivante (les groupes 24 à 86 ont été coupés sur la capture d'écran) :
+Vous obtenez la matrice suivante :
 
 ![ Import Profil de document ](30-50-create-pdoc-view.png "Import Profil de document")
 
@@ -557,6 +571,12 @@ Vous allez maintenant produire le paquet.
 Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
 (en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
 
+**Attention** : Les profils ne s'appliquent que sur les nouveaux documents, les documents déjà existant n'étant pas
+profilés ceux-ci sont accessibles par tous les utilisateurs. En production, il vous faudrait faire [un script de migration][doc_migration]
+pour profiler les documents pré-existants.
+
+Vous devez donc créer de nouveaux documents pour tester.
+
 Vous pouvez maintenant vous connecter à l'application et consulter une fiche de non-conformité
 avec un utilisateur ayant le profil `Auditeur` (marthe.karine/p@ssw0rd).
 
@@ -565,16 +585,7 @@ avec un utilisateur ayant le profil `Auditeur` (marthe.karine/p@ssw0rd).
 ![FNC profil DSI](30-50-fnc-dsi.png "FNC profil DSI")
 
 Vous pouvez remarquer que l'utilisateur ayant le profil **auditeur** peut ajouter des lignes d'écart
-alors que celui qui n'a pas ce profil, le DSI dans l'exemple ci-dessus (arnic.marina/p@ssw0rd), ne le peut pas.
-
-On peut aussi remarquer les droits sur les `Référentiels`.
-
-![Référentiel profil auditeur](30-50-ref-auditeur.png "Référentiel profil auditeur")
-
-![Référentiel profil DSI](30-50-ref-dsi.png "Référentiel profil DSI")
-
-Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône indique que le document est non modifiable.
-
+alors que celui qui n'a pas ce profil. Le DSI dans l'exemple ci-dessus (arnic.marina/p@ssw0rd), ne le peut pas.
 
 ## Voir aussi {#quickstart:a8ae1a02-f60f-4b81-a207-ad5ff44a8d10}
 
@@ -598,3 +609,4 @@ Vous pouvez remarquer que le profil DSI n'a pas le menu modifier et qu'un icône
 [tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv
 [tuto_param_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-50/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv
 [deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e
+[doc_migration]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book//core-ref:d2bd57f9-7b5a-46b0-8570-6b5b0710d7c3.html
