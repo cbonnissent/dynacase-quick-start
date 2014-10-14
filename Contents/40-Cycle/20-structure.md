@@ -124,7 +124,7 @@ Les commentaires `//region States` et `//endregion` sont une convention de certa
 
 ### Activités {#quickstart:41ca59ea-f036-4918-94c3-12c2697e274c}
 
-Les activités sont un deuxième libellé qui est apposé à un étape.
+L'activité est un deuxième libellé qui est apposé à l'étape.
 Il décrit l'activité qui doit avoir lieu lors de cette étape.
 
     [php]
@@ -339,9 +339,9 @@ Vous pouvez trouver les fichiers complets dans [les sources][tuto_source].
 
 Ouvrez la console dans le répertoire contenant les sources et :
 
-    <devtool> extractPo -i .
+    <devtool> extractPo -s .
 
-Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT.po`
+Les clefs suivantes sont ajoutées dans le fichier `locale/fr/LC_MESSAGES/src/COGIP_AUDIT_fr.po`
 
     [gettext]
     msgid "coa_e1"
@@ -408,7 +408,7 @@ en haut dans la partie de droite, l'interface de création de documents s'ouvre 
 
 ![ Création workflow ](40-20-creation-wfl1.png "Création workflow")
 
-Sélectionnez ensuite votre cycle de vie dans la liste déroulante en haut `COGIP_AUDIT_AUDIT__WFL`.
+Sélectionnez ensuite la famille `COGIP_AUDIT_AUDIT__WFL` à la place de "Masque de saisie".
 
 Complétez le formulaire présenté avec les éléments suivants :
 
