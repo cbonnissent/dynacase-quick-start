@@ -147,7 +147,7 @@ Le fichier CSS doit contenir :
         padding: 3px;
     }
 
-Ces règles CSS vont rendre les attributs en `S` avec un fond blanc et une police noire
+Ces règles CSS vont rendre les attributs en `S` avec un fond blanc et une police noire sur les vues d'édition et
 sur les navigateurs suffisamment récents (supérieurs à IE7).
 
 Vous allez maintenant enregistrer votre fichier CSS pour que celui-ci soit ajouté aux fichiers CSS produit par Dynacase.
@@ -236,7 +236,7 @@ Ce qui donne :
     
     </module>
 
-Après déploiement, cela donne pour la date évoquée ci-dessus :
+Après déploiement, cela donne pour la date évoquée ci-dessus, en édition :
 
 ![ Audit : Date Statique ](30-60-date-S-style.png "Audit : Date Statique")
 
