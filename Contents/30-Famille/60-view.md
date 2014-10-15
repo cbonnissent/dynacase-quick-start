@@ -316,6 +316,9 @@ Une fois le paquet déployé, vous obtenez en édition sur les documents d'audit
 
 ![ Audit : Attributs alignés ](30-60-attr-aligned.png "Audit : Attributs alignés")
 
+<span class="flag inline nota-bene"></span> Le nom du fichier du fichier doit-être en minuscule et celui dans l'options
+`edittemplate` et `viewtemplate` n'est pas sensible à la casse.
+
 ### Vue d'attribut : consultation {#quickstart:7dc65009-e511-408d-9c7a-fcb14b11f0a8}
 
 #### Création {#quickstart:d472fab6-1baa-47c0-8b05-68c59e774912}
@@ -385,6 +388,9 @@ Une fois le paquet déployé, vous obtenez en consultation sur les documents d'a
 
 Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
 
+<span class="flag inline nota-bene"></span> Le nom du fichier du fichier doit-être en minuscule et celui dans l'options
+`edittemplate` et `viewtemplate` n'est pas sensible à la casse.
+
 ## Vue de rangée de tableau {#quickstart:6393dae9-7911-46c7-a687-466ea623d18b}
 
 Vous allez maintenant créer une [vue de rangée de tableau][DocVueRangeeTableau].
@@ -440,6 +446,9 @@ Le fichier ci-dessus décrit un template de table où :
 Ensuite ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv`
 et modifiez la colonne `P` (options) de la ligne `caf_a_action` pour remplacer la colonne options (vide) par
 `vlabel=up|rowviewzone=COGIP_AUDIT:FNC_TABLE.xml|roweditzone=COGIP_AUDIT:FNC_TABLE.xml`. 
+
+<span class="flag inline nota-bene"></span> Le nom du fichier du fichier doit-être en minuscule et celui dans l'options
+`edittemplate` et `viewtemplate` n'est pas sensible à la casse.
 
 Vous pouvez retrouver le fichier mis à jour dans [les sources][tuto_audit].
 
