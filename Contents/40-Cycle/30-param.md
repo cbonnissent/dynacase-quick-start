@@ -282,6 +282,9 @@ avant d'accorder ou de refuser la certification.
 
 ##### Définition de la fonction {#quickstart:3ddde06d-f233-4e54-980a-8264e370ef9b}
 
+**Attention** : Pour fonctionner cette méthode nécessite la présence du cycle de vie des FNC, que vous pouvez 
+retrouver dans les [sources complétées][source_precedent] du chapitre précédent.
+
 Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php` et ajoutez la fonction suivante :
 
     [php]
@@ -307,7 +310,7 @@ Cette fonction effectue une recherche sur les FNC, elle a les spécificités sui
 -   la recherche utilise la fonction [`onlyCount`][DocSearchOnlyCount].
     Cette fonction calcule uniquement le nombre de résultats et ne retourne pas les documents.
 
-Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code_1].
 
 ##### Enregistrement de la fonction {#quickstart:587bf536-180e-4878-9c02-9b0f2969c441}
 
@@ -328,7 +331,7 @@ Vous avez déclaré deux hooks de `m0` qui seront déclenchés lors de l'afficha
 
 Dans l'exemple ci-dessus la transition est refusée et au survol un message est affiché à l'utilisateur.
 
-Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code].
+Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_code_1].
 
 ### Question au changement d'état (ask) {#quickstart:52b12e42-a3e8-4b7f-a7a2-bf0c77f2691c}
 
@@ -496,3 +499,5 @@ Ces paramétrages permettent de créer simplement des cycles complets et riches 
 [tuto_audit_wfl]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv#L5-L7
 [tuto_audit_class]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L78
 [deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e
+[source_precedent]: https://github.com/Anakeen/dynacase-quick-start-code/archive/3.2-after-40-20.zip
+[tuto_audit_code_1]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-during-40-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php
