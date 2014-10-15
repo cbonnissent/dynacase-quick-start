@@ -359,7 +359,7 @@ Vous allez mettre à jour la liste des transitions :
             ),
             self::t_brouillon__annule => array(
                 "nr" => true,
-                "ask" => \Dcp\AttributeIdentifiers\Cogip_audit_audit__wfl::caaw_raison
+                "ask" => array("caaw_raison")
             ),
             self::t_redaction__brouillon => array(
                 "nr" => true
