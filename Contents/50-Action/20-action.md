@@ -147,6 +147,9 @@ Vous allez maintenant ajouter les fichiers que vous avez spécifié dans le chap
 Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit contenir le code suivant :
 
     [php]
+
+    <?php
+
     function document_list(Action &$action) {
     
         $usage = new \ActionUsage($action);
@@ -159,8 +162,8 @@ Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit con
         try {
             $usage->verify(true);
     
-            $inProgressStates = array(\Cogip\COGIP_AUDIT_AUDIT_WFL::e_brouillon,
-                \Cogip\COGIP_AUDIT_AUDIT_WFL::e_redaction
+            $inProgressStates = array(\Cogip\COGIP_AUDIT_AUDIT__WFL::e_brouillon,
+                \Cogip\COGIP_AUDIT_AUDIT__WFL::e_redaction
             );
     
             $inProgressStates = array_map(function ($value) {
@@ -286,7 +289,7 @@ Ajoutez le fichier `./COGIP_AUDIT/Layout/document_list.html` :
         <ul class="pagination">
             <li class="arrow [IFNOT FIRST]unavailable[ENDIF FIRST] js-previous"><a href="#">&laquo;</a></li>
             <li class="current"><a href="">[OFFSET]</a></li>
-            <li class="arrow [IFNOT FIRST]unavailable[ENDIF FIRST] js-next"><a href="#">&raquo;</a></li>
+            <li class="arrow [IFNOT LAST]unavailable[ENDIF LAST] js-next"><a href="#">&raquo;</a></li>
         </ul>
      </div>
     <ul class="off-canvas-list js-docs-list">
@@ -350,6 +353,8 @@ Vous allez maintenant ajouter les fichiers que vous avez spécifié dans le chap
 Ajoutez le fichier `./COGIP_AUDIT/action.main.php`, ce fichier doit contenir le code suivant :
 
     [php]
+    <?php
+
     function main(Action &$action) {
     
     }
