@@ -468,8 +468,8 @@ Vous pouvez ensuite consulter les modifications apportées via l'application `ht
 Vous avez initié la structure d'un des cycles de vie et associé celui-ci à sa famille.
 Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycles de vie.
 
-La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre,
-mais vous pouvez trouver les fichiers complet dans la solution du chapitre.
+** La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre,
+mais vous pouvez trouver les fichiers complet dans la solution du chapitre. **
 
 ## Voir aussi {#quickstart:59b3f403-b656-4a8f-86b8-c368f64e08d8}
 

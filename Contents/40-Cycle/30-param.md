@@ -282,7 +282,7 @@ avant d'accorder ou de refuser la certification.
 
 ##### Définition de la fonction {#quickstart:3ddde06d-f233-4e54-980a-8264e370ef9b}
 
-Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL__CLASS.php` et ajoutez la fonction suivante :
+Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.php` et ajoutez la fonction suivante :
 
     [php]
     public function checkAssociatedFNC()
