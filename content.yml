@@ -31,7 +31,7 @@ book:
         - level:  2
           content:  "30-Famille/50-securite.md"
         - level:  2
-          content:  "30-Famille/60-view.md
+          content:  "30-Famille/60-view.md"
         - level:   1
           content:  "40-Cycle/10-introduction.md"
           subtoc: 2

@@ -1,0 +1,21 @@
+.help-access {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    background-color: orange;
+    color: #000 !important;
+    border-radius: 0 0 3px 3px;
+    padding: 5px;
+    opacity: 0.4;
+    text-align: center;
+    box-shadow: 1px 1px 4px rgba(0,0,0,1);
+}
+.help-access > div {
+    display: none;
+}
+.help-access:hover {
+  opacity: 1;
+}
+.help-access:hover > div {
+    display: block;
+}

@@ -59,7 +59,12 @@ L'[annexe][chapter_annexe] résume quelques points clefs.
 ## Au secours
 
 Pour trouver des aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
-Le forum **Quick Start** a été créé à cet effet.
+
+Le forum [Quick Start][forum_dynacase_qs] a été créé à cet effet.
+
+Sur toutes les pages du tutorial, en haut à gauche, une zone vous permet d'accèder directement au [forum][forum_dynacase_qs].
+Il vous suffit de cliquer dessus.
+![L'aide en ligne](help-access.png)
 
 D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel, vous pouvez les soumettre via [Github][quickstart_repo].
 
@@ -101,4 +106,5 @@ Votre responsable hiérarchique vous a donc confié ce développement. Vous avez
 [chapter_action]: #quickstart:3e7da180-3454-4344-a8a1-73f958365aa5
 [chapter_annexe]: #quickstart:f032dd5b-a7dc-47f7-b216-6a973a447dfd
 [forum_dynacase]: http://forum.dynacase.org/
+[forum_dynacase_qs]: http://forum.dynacase.org/viewforum.php?id=23
 [quickstart_repo]: https://github.com/Anakeen/dynacase-quick-start
