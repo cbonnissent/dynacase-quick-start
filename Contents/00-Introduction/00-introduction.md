@@ -62,11 +62,11 @@ Pour trouver des aides sur la réalisation du tutorial vous pouvez utiliser le [
 
 Le forum [Quick Start][forum_dynacase_qs] a été créé à cet effet.
 
-Sur toutes les pages du tutorial, en haut à gauche, une zone vous permet d'accèder directement au [forum][forum_dynacase_qs].
+Sur toutes les pages du tutorial, en haut à droite, une zone vous permet d'accèder directement au [forum][forum_dynacase_qs].
 Il vous suffit de cliquer dessus.
 ![L'aide en ligne](help-access.png)
 
-D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel, vous pouvez les soumettre via [Github][quickstart_repo].
+D'autre part, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel, nous vous invitons à nous les partager via  [Github][quickstart_repo].
 
 ## Contexte Fonctionnel {#quickstart:1b340f92-085a-4bbe-a866-47e17444ca51}
 

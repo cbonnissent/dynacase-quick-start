@@ -5,7 +5,7 @@ $(document).on("ready", function() {
 	    .addClass("help-access")
 	    .html("J'ai besoin d'aide ?")
 	    .attr("href","http://forum.dynacase.org/viewforum.php?id=23")
-	    .attr("target", "_blanck")
+	    .attr("target", "_blank")
 	    .append( 
 		$("<div/>")
 		    .html("J'utilise le forum")
@@ -14,9 +14,3 @@ $(document).on("ready", function() {
 
 
 });
-/*
-$("ul.chunk_nav::before").on("click", function() {
-    alert('Yo');
-    window.open("
-});
-*/
