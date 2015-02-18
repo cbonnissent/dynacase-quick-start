@@ -283,7 +283,7 @@ et avez abordé les principes des traductions.
 [webinst]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-platform-operating-manual/website/book/module.html "Le format des paquets webinst"
 [manref_internationalisation]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:1de9ba03-a3b6-4b56-bfbe-62ce991f8ca1.html#core-ref:1de9ba03-a3b6-4b56-bfbe-62ce991f8ca1 "Internationalisation et traduction"
 [manref_internationalisation_php]: https://docs.anakeen.com/dynacase/3.2/dynacase-doc-core-reference/website/book/core-ref:ca73ff9e-ceb8-456b-bdd4-9b9056f1543d.html#core-ref:967cd878-e068-4c99-8266-adaed3f700ff "Utiliser une traduction dans un programme PHP"
-[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/dynacase-devtool.phar
+[url_toolkit]: https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool.phar
 [annexe_toolkit]: #quickstart:afe5e4fc-97c4-46d6-9583-94daa33919f1
 [annexe_buildjson]: #quickstart:f0fb9907-44e1-4956-aea1-14beb5cc077c
 [tuto_images]: https://github.com/Anakeen/dynacase-quick-start-code/tree/master/Images
