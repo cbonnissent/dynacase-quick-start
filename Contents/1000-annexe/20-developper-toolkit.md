@@ -85,8 +85,8 @@ Si vous souhaitez customiser les commandes, vous pouvez télécharger [le dépô
 
 <!-- links -->
 [php_phar]: http://php.net/manual/en/intro.phar.php
-[url_toolkit]: https://github.com/cbonnissent/dynacase-devTools/raw/master/dynacase-devtool.phar
-[url_depot]: https://github.com/cbonnissent/dynacase-devTools
+[url_toolkit]: https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool.phar
+[url_depot]: https://github.com/Anakeen/development-tools
 [php_composer]: https://getcomposer.org/
 [url_win_toolkit]: https://docs.anakeen.com/dynacase/3.2/quick-start/dynacase-devtool-win32.zip
 [url_linux_toolkit]: https://docs.anakeen.com/dynacase/3.2/quick-start/dynacase-devtool.phar
