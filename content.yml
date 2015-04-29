@@ -1,9 +1,9 @@
 book:
-    title: "Tutoriel"
+    title: "Quick Start"
     module: "Dynacase Platform"
     githubsrc: "https://github.com/Anakeen/dynacase-quick-start"
     version: "3.2"
-    edition: "2"
+    edition: "3"
     chapters: 
         - level:   1
           content:  "00-Introduction/00-introduction.md"
