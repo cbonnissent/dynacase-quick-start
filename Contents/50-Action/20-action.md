@@ -147,9 +147,9 @@ Vous allez maintenant ajouter les fichiers que vous avez spécifié dans le chap
 Ajoutez le fichier `./COGIP_AUDIT/action.document_list.php`, ce fichier doit contenir le code suivant :
 
     [php]
-
+    
     <?php
-
+    
     function document_list(Action &$action) {
     
         $usage = new \ActionUsage($action);
