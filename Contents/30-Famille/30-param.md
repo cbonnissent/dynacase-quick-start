@@ -637,7 +637,7 @@ Dans les chapitres suivants, vous allez continuer à améliorer celui-ci notamme
 [tuto_po]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-30/locale/fr/LC_MESSAGES/src
 [tuto_fam]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-30/COGIP_AUDIT
 [tuto_external]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/EXTERNALS/helper_audit.php
-[tuto_fnc_struct]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv#L11-L12
+[tuto_fnc_struct]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-60/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv#L11-L12
 [tuto_code_contrainte]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_AUDIT__CLASS.php#L24-L36
 [tuto_struct_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv
 [tuto_param_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-30/COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv#L9
