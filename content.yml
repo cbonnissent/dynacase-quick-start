@@ -3,8 +3,8 @@ book:
     module: "Dynacase Platform"
     githubsrc: "https://github.com/Anakeen/dynacase-quick-start"
     version: "3.2"
-    edition: "3"
-    chapters: 
+    edition: "4"
+    chapters:
         - level:   1
           content:  "00-Introduction/00-introduction.md"
         - level:   1
