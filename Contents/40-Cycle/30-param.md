@@ -454,16 +454,15 @@ Vous avez ajouté une condition pour que la contrainte ne se déclenche qu'à l'
 
 Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_class].
 
-## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
+## Mise en place des modifications {#ddui-ref:d9d8d8ee-cbc9-4321-8105-fe0ee8797d27}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
+## Conclusion {#quickstart:72d48b82-db47-4c82-9d5e-a7cb5b6077e2}
 
 Vous connaissez les principales manipulations que vous pouvez effectuer avec un cycle de vie,
 que ça soit à l'aide du document cycle de vie ou de la classe de la famille cycle de vie.

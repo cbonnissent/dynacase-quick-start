@@ -454,22 +454,21 @@ Ajoutez une ligne juste avant le `END` les éléments suivant :
 
 Le fichier COGIP_AUDIT_AUDIT__PARAM complété est accessible dans [les sources][tuto_param_audit].
 
-## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
+## Mise en place des modifications {#ddui-ref:73a9a224-8c1b-40f5-95ea-81f45d330bc3}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
+## Conclusion {#quickstart:c655d20b-7edd-4fb1-979f-4d3978ce52a3}
 
 Vous avez initié la structure d'un des cycles de vie et associé celui-ci à sa famille.
 Dans les prochains chapitres, vous verrez comment paramétrer, ajouter du code métier et profiler vos cycles de vie.
 
-** La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre,
-mais vous pouvez trouver les fichiers complet dans la solution du chapitre. **
+__La réalisation de la structure du cycle des non-conformités n'est pas décrite dans ce chapitre,
+mais vous pouvez trouver les fichiers complet dans la solution du chapitre.__
 
 ## Voir aussi {#quickstart:59b3f403-b656-4a8f-86b8-c368f64e08d8}
 

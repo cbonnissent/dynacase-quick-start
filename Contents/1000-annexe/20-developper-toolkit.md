@@ -35,16 +35,18 @@ doit être exécuté via la console window.
 
 ## Utilisation {#quickstart:6e013ebc-697a-4c18-8e38-d571b94d4261}
 
-Le devtool vous proposer par défaut la liste de commande suivante :
+Le devtool vous propose par défaut la liste de commandes suivante :
 
     DevTools for Dynacase 3.2
-    You can access to the sub command :
+    Devtool version : 3.2
+    You can access to the sub command : 
         createAction
         createApplication
         createFamily
         createInfoXml
         createModule
         createWorkflow
+        deploy
         extractPo
         generateStub
         generateWebinst
@@ -76,7 +78,7 @@ Les entrées sont :
 * *toolsPath* : c'est un objet, il contient la liste des références (path) aux outils externes utilisés par le module. Pour l'instant, un seul outil est requis `gettext`. Vous devez mettre cet élément à jour si vous ne pouvez pas ajouter `gettext` à votre `PATH` courant,
 * *csvParam* : la majorité des fichiers de configuration de Dynacase sont en CSV, ces options indique les paramètres du CSV.
 
-**Attention** : Tous répertoire qui n'est ni dans la liste des applications, ni dans celles des included path n'est pas inclus dans le webinst et donc pas déployé sur le serveur.
+**Attention** : Tout répertoire qui n'est ni dans la liste des applications, ni dans celles des included path n'est pas inclus dans le webinst et donc pas déployé sur le serveur.
 
 ## Utilisation avancée {#quickstart:c5c3fc85-44b9-48c8-a522-91afe6975787}
 

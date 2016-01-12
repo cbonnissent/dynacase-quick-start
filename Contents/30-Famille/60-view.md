@@ -620,14 +620,13 @@ Vous pouvez remarquer dans cette vue :
 -   le champ rédacteur qui normalement est en `S` (non modifiable) et passé en `W` (modifiable)
     et est donc modifiable par l'administrateur fonctionnel.
 
+## Mise en place des modifications {#ddui-ref:1b931b47-eb68-471c-a62b-d2c86cc54b24}
+
+Vous allez maintenant déployer vos modifications :
+
+    <devtool> deploy --target quickstart
+
 ## Conclusion {#quickstart:eeb14f31-c61d-4502-a8ab-7cf9b1044a4e}
-
-Vous allez maintenant produire le paquet.
-
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
 
 Dans ce chapitre vous avez expérimenté les principales techniques de modifications d'interface.
 Vous avez pu constater que le formulaire est facilement modifiable,

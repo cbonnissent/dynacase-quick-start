@@ -264,6 +264,36 @@ Vous pouvez ensuite vérifier que celle-ci est bien installée et que la traduct
 
 Vous pouvez retrouver votre application dans la liste. En outre, la traduction que nous avons faite apparaît dans la colonne description.
 
+## Déploiement automatisé de paquet {#ddui-ref:24eb4759-95cb-4754-9940-0f1dc56ccd36}
+
+Chaque fois que vous souhaiterez déployer vos développements sur le serveur de production, il faudra,
+comme indiqué ci-dessus :
+
+-   générer le webinst
+-   vous rendre sur l'interface web de Dynacase Control
+-   uploader le webinst
+-   choisir le scénario (_install_ ou _upgrade_)
+
+Afin de simplifier cette succession d'étapes, les devtool fournissent la commande `deploy`.
+
+Lors de son premier usage, il faut préciser tous les paramètres de déploiement, ainsi qu'une _target_, dans laquelle seront mémorisés ces paramètres pour simplifier les déploiements futurs :
+
+-   `--target` : le nom de la target
+-   `--url` : l'url d'accès à Dynacase Control (sous la forme `http[s]://<user>:<password>@<host>/<path/to/control>`)
+-   `--port` : le port d'accès à Dynacase Control
+-   `--context` : le nom du contexte
+
+soit :
+
+    <devtool> deploy --target quickstart --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
+
+Les différents paramètres de déploiement sont sauvegardés dans le fichier `deploy.json` à la racine du contexte.
+
+Lors des appels ultérieurs à la commande `deploy`, il suffit de passer la même target,
+et les options de déploiement seront automatiquement récupérées depuis le fichier `deploy.json`, soit :
+
+    <devtool> deploy --target quickstart
+
 ## Conclusion {#quickstart:12b5141e-7400-467b-87c0-458e487c9da3}
 
 Vous connaissez maintenant la structure des sources Dynacase, vous savez construire et déployer un module

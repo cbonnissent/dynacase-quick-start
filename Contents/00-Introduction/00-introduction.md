@@ -56,7 +56,7 @@ Chaque chapitre est composé de sous chapitres. Un sous chapitre est écrit pour
 
 L'[annexe][chapter_annexe] résume quelques points clefs.
 
-## Au secours
+## Au secours {#ddui-ref:da00d85f-7d42-48bc-9f7a-3162d6fe2c5a}
 
 Pour trouver des aides sur la réalisation du tutorial vous pouvez utiliser le [forum Dynacase][forum_dynacase].
 

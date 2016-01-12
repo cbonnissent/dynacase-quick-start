@@ -580,16 +580,15 @@ Vous pouvez retrouver le fichier CSV complété dans les [sources][tuto_struct_a
 
 Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
-## Conclusion {#quickstart:8a58c628-904c-46ea-914a-f592438059c5}
+## Mise en place des modifications {#ddui-ref:acf98975-1c63-48d2-aa06-7a480102e990}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
+    <devtool> deploy --target quickstart
 
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
- 
 Vous pouvez ensuite créer quelques formulaires pour voir les modifications que vous avez mises en place.
+
+## Conclusion {#quickstart:8a58c628-904c-46ea-914a-f592438059c5}
 
 Ce chapitre de paramétrage vous a permis de rendre votre formulaire plus interactif et d'y intégrer plus de logique métier.
 

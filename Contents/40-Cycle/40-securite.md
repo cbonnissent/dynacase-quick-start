@@ -184,16 +184,15 @@ Vous devez obtenir un fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` sembl
 
 Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_param].
 
-## Conclusion {#quickstart:c4e5ebfa-74b7-4565-819d-34537af6317e}
+## Mise en place des modifications {#ddui-ref:211833c4-a5e7-4685-a14e-8b52f634417c}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
+## Conclusion {#quickstart:c4e5ebfa-74b7-4565-819d-34537af6317e}
 
 Vous savez maintenant paramétrer les éléments de sécurité associés au cycle de vie.
 Vous pouvez définir qui peut effectuer quelle transition et qui peut _voir_/_modifier_/_supprimer_ les documents suivant l'étape.

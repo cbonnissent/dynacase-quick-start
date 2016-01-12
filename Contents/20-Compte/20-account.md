@@ -429,13 +429,9 @@ Vous pouvez retrouver les fichiers complétés [dans les sources](https://github
 
 ## Mise en place des modifications {#quickstart:c7522c13-68ab-47c7-b592-6c672b963820}
 
-Vous allez maintenant déployer vos modifications. Vous allez produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Vous obtenez alors un fichier `webinst` que vous allez déployer en passant par Dynacase Control `http://<content>/dynacase-control/`.
-Vous sélectionnez votre contexte et cliquez sur le bouton `Import module`. Choisissez la stratégie de déploiement `Install`.
-Le paquet se déploie et vous pouvez voir vos différents fichiers `csv` qui sont traités.
+    <devtool> deploy --target quickstart --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 Vous pouvez maintenant vous rendre dans la gestion des utilisateurs :
 
