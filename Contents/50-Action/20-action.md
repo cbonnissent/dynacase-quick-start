@@ -680,18 +680,15 @@ lors l'installation d'un paquet.
 
 Vous pouvez trouver le fichier complété dans [les sources][tuto_info_xml].
 
-## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
+## Mise en place des modifications {#ddui-ref:9094da43-9be5-4918-bea7-af84e77a0564}
 
+Vous allez maintenant déployer vos modifications :
 
-Vous allez maintenant produire le paquet.
-
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
 
+## Conclusion {#quickstart:023d9e27-4170-46a5-b7f9-27e8a9e2a4f1}
 
 Vous avez expérimenté le système d'application/action.
 Vous pouvez simplement et rapidement étendre les fonctionnalités de la plateforme grâce à ce système

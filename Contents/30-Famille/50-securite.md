@@ -562,14 +562,11 @@ Vous obtenez le fichier suivant :
 
 Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
-## Conclusion {#quickstart:d26ea9af-dc4c-4c90-9a53-0963a06fdfe5}
+## Mise en place des modifications {#quickstart:d26ea9af-dc4c-4c90-9a53-0963a06fdfe5}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 **Attention** : Les profils ne s'appliquent que sur les nouveaux documents, les documents déjà existant n'étant pas
 profilés ceux-ci sont accessibles par tous les utilisateurs. En production, il vous faudrait faire [un script de migration][doc_migration]

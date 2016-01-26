@@ -415,17 +415,19 @@ La notation `fuzzy` indique que la traduction est une proposition pour aider le 
 
 Pour le fichier `fr`, vous pouvez enlever les fuzzy car les propositions sont correctes, par contre il vous faudra traduire fichier `en`.
 
-## Production du paquet {#quickstart:62bc3a4e-9b6c-4da2-9fb0-145ecee0f281}
+## Mise en place des modifications {#quickstart:62bc3a4e-9b6c-4da2-9fb0-145ecee0f281}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
+    <devtool> deploy --target quickstart
 
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+<span class="flag inline nota-bene"></span> vous n'avez plus besoin de préciser les paramètres de déploiement car ils
+ont été automatiquement mémorisés pour la _target_ `quickstart` lors du déploiement du chapitre précédent.
+N'hésitez pas à consulter les instruction de [déploiement][deploy_instruct] pour plus d'explications.
 
-<span class="flag inline nota-bene"></span> Vous utilisez maintenant le scénario *upgrade* car vous avez fait l'initialisation
-dans le chapitre précédent. L'initialisation apporte l'import des comptes (utilisateurs, groupes, rôles), or ceux-ci
+<span class="flag inline nota-bene"></span> Le script de déploiement choisit automatiquement le scénario *upgrade*
+car vous avez fait l'initialisation dans le chapitre précédent.
+L'initialisation apporte l'import des comptes (utilisateurs, groupes, rôles), or ceux-ci
 sont déjà importés, il est donc inutile (et coûteux en temps) de le faire à nouveau.
 
 Vos familles sont installées sur le contexte, vous allez pouvoir consulter vos premiers formulaires.
@@ -506,4 +508,4 @@ Dans les autres tutoriaux de ce chapitre vous allez apprendre à les paramétrer
 [tuto_audit_ref]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-20/COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv
 [tuto_audit_fnc]: https://github.com/Anakeen/dynacase-quick-start-code/blob/3.2-after-30-20/COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv
 [tuto_stub]: https://github.com/Anakeen/dynacase-quick-start-code/tree/3.2-after-30-20/stubs
-[deploy_instruct]: #quickstart:e53aa0c3-6fa8-4083-8bb8-b64bd750ab9e
+[deploy_instruct]: #ddui-ref:24eb4759-95cb-4754-9940-0f1dc56ccd36

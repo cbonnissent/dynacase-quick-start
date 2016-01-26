@@ -347,16 +347,15 @@ La CSS définie ci-dessus est ajoutée dans le formulaire.
 
 Vous pouvez retrouver les sources complétées dans les [sources][tuto_class_base].
 
-## Conclusion {#quickstart:e066bf1f-a23b-4a8d-bf56-7207147c095b}
+## Mise en place des modifications {#ddui-ref:1061b39f-2d7b-486f-900e-ad4dda23949d}
 
-Vous allez maintenant produire le paquet.
+Vous allez maintenant déployer vos modifications :
 
-    <devtool> generateWebinst -s .
-
-Déployez le paquet en passant par Dynacase Control (`http://<nomDeDomaine>/dynacase-control/`) en utilisant le scénario *upgrade* 
-(en cas de besoin, n'hésitez pas à consulter les instruction de [déploiement][deploy_instruct]).
+    <devtool> deploy --target quickstart
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
+
+## Conclusion {#quickstart:e066bf1f-a23b-4a8d-bf56-7207147c095b}
 
 Vous avez abordé les _hooks_ et leurs fonctionnalités. Ils permettent de surcharger le fonctionnement par défaut
 des documents de Dynacase pour implémenter la logique métier de votre projet.
