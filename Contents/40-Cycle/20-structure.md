@@ -389,9 +389,9 @@ Ajoutez la ligne suivante dans le `info.xml` à l'installation et à la mise à 
 `<process command="./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv"/>`:
 
     [xml]
-    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv --csv-separator=&apos;;&apos; '/>
-    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__WFL.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
 
 ## Génération du document {#quickstart:c343a2f1-6ad0-4ad2-bbdb-bfed3ddd846c}
 

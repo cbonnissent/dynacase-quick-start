@@ -118,8 +118,8 @@ Vous devez maintenant indiquer dans le fichier `info.xml` que cette famille doit
 et la mise à jour. Vous allez ajouter les lignes suivantes :
 
     [xml]
-    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos; '/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+    <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
 
 <span class="flag inline nota-bene"></span> Ces deux lignes vous sont retournées par la commande de création des fichiers.
 
@@ -133,19 +133,19 @@ Vous devez avoir un fichier `info.xml` semblable à :
     [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT" />
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
         <process command="programs/update_catalog" />
     </post-install>
     
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT" />
         <process command="programs/record_application COGIP_AUDIT" />
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COPGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
         <process command="programs/post_migration COGIP_AUDIT" />
         <process command="programs/update_catalog" />
     </post-upgrade>
@@ -170,34 +170,34 @@ Votre `info.xml` contient les lignes suivantes :
     [xml]
     <post-install>
         <process command="programs/record_application COGIP_AUDIT"/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
         <process command="programs/update_catalog"/>
     </post-install>
     <post-upgrade>
         <process command="programs/pre_migration COGIP_AUDIT"/>
         <process command="programs/record_application COGIP_AUDIT"/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;;&apos; '/>
-        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;;&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_BASE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_REFERENTIEL__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_CHAPITRE__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__STRUCT.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
+        <process command='./wsh.php --api=importDocuments --file=./COGIP_AUDIT/COGIP_AUDIT_FNC__PARAM.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos; '/>
         <process command="programs/post_migration COGIP_AUDIT"/>
         <process command="programs/update_catalog"/>
     </post-upgrade>

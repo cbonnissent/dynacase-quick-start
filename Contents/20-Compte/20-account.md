@@ -134,8 +134,8 @@ Veuillez cliquer sur `Exporter` en laissant les options par défaut.
 Un fichier CSV vous est proposé au téléchargement, celui-ci est encodé avec les paramètres suivants :
 
 -   Jeu de caractères : `UTF8`,
--   Séparateur de cellule : `;`,
--   Séparateur de texte : ``.
+-   Séparateur de cellule : `,`,
+-   Séparateur de texte : `"`.
 
 Le logiciel conseillé pour ouvrir ces documents est Libre Office. Avec ce logiciel, le fenêtre de paramétrage avant ouverture du fichier est :
 
@@ -192,7 +192,7 @@ Ce fichier déclare les actions réalisées lors de l'installation ou la mise à
 Vous allez donc ajouter la ligne suivante pour demander l'import des utilisateurs :
 
     [xml]
-    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;,&apos;  -csv-enclosure=&apos;"&apos;'/>
 
 entre les lignes de la partie installation (`post-install`):
 
@@ -274,15 +274,15 @@ Ouvrez le et supprimez les colonnes non nécessaires pour ne garder que :
 Enregistrez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `IGROUP__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier `info.xml` l'instruction suivante :
-`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>`
+`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>`
 
 Les groupes contenant les utilisateurs, ils doivent être importés *avant* les utilisateurs.
 
 Ce qui donne l'ordre suivant pour la procédure d'installation :
 
         <process command="programs/record_application COGIP_AUDIT"/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+        <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
         <process command="programs/update_catalog"/>
 
 Pour créer les autres groupes, de la même manière que pour les utilisateurs, vous pouvez dupliquer la 3ème ligne.
@@ -363,16 +363,16 @@ Ouvrez le et supprimez les colonnes inutiles, pour ne garder que :
 Sauvez le fichier dans le répertoire `COGIP_AUDIT` sous le nom `ROLE__INIT_DATA.csv`.
 
 Ensuite, ajoutez dans le fichier info.xml l'instruction suivante : 
-`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>`
+`<process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>`
 
 Les rôles pouvant être associés aux groupes et aux utilisateurs, ils doivent être importés en premier.
 
 Ce qui donne pour la procédure d'installation :
 
     <process command="programs/record_application COGIP_AUDIT"/>
-    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
-    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;;&apos;'/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/ROLE__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IGROUP__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
+    <process command='./wsh.php --api=importDocuments  --file=./COGIP_AUDIT/IUSER__INIT_DATA.csv --csv-separator=&apos;,&apos; --csv-enclosure=&apos;"&apos;'/>
     <process command="programs/update_catalog"/>
 
 En procédant comme pour les utilisateurs ou les groupes, vous allez initialiser les autres rôles (duplication de la ligne contenant l'instruction `DOC`).

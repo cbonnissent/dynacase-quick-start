@@ -81,7 +81,7 @@ Cette commande va intialiser pour vous une structure de module Dynacase type, pr
 
 Dans notre cas, vous rentrez les options suivantes :
 
-    <devtool> createModule  -o . -n cogip-audit -a COGIP_AUDIT -xspi -e
+    <devtool> createModule  -o . -n cogip_audit -a COGIP_AUDIT -xspi -d \,
 
 Cela crée, dans le répertoire courant, la structure de fichiers suivante :
 
@@ -276,7 +276,8 @@ comme indiqué ci-dessus :
 
 Afin de simplifier cette succession d'étapes, les devtool fournissent la commande `deploy`.
 
-Lors de son premier usage, il faut préciser tous les paramètres de déploiement, ainsi qu'une _target_, dans laquelle seront mémorisés ces paramètres pour simplifier les déploiements futurs :
+Lors de son premier usage, il faut préciser tous les paramètres de déploiement, ainsi qu'une _target_, dans laquelle sont
+ mémorisés ces paramètres pour simplifier les déploiements futurs :
 
 -   `--target` : le nom de la target
 -   `--url` : l'url d'accès à Dynacase Control (sous la forme `http[s]://<user>:<password>@<host>/<path/to/control>`)
