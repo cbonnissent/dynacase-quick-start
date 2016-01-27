@@ -184,6 +184,33 @@ Vous devez obtenir un fichier `./COGIP_AUDIT/COGIP_AUDIT_AUDIT__PARAM.csv` sembl
 
 Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_param].
 
+## Ajout des dépendances {#ddui-ref:402654dd-c81a-4d52-bff8-0350105f8ea0}
+
+Vous avez utilisé le rôle `Administrateur de la plateforme`, celui-ci est mis à disposition par le paquet 
+`dynacase-admin-uis`, vous allez donc indiquer dans le fichier `info.xml` que le paquet nécessite `dynacase-admin-uis`.
+
+Complétez le bloc `requires` suivant dans le fichier `info.xml` de manière à y ajouter l'instruction :
+
+```
+    <module name="dynacase-admin-uis" />
+```
+
+Vous devez obtenir le bloc suivant :
+
+```
+    <requires>
+        <module comp="ge" name="dynacase-core" version="3.2"/>
+        <module name="dynacase-admin-uis" />
+    </requires>
+```
+
+Lors de l'installation ou de la mise à jour du module, si le paquet `dynacase-admin-uis` n'est pas présent il est 
+installé.
+
+<span class="flag inline nota-bene"></span>
+
+Si jamais un des paquets ajoutés dans le bloc `require` n'est pas disponible alors le paquet ne peut pas être installé.
+
 ## Mise en place des modifications {#ddui-ref:211833c4-a5e7-4685-a14e-8b52f634417c}
 
 Vous allez maintenant déployer vos modifications :
