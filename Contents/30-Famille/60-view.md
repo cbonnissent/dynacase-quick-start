@@ -536,7 +536,7 @@ Ouvrez le fichier `./COGIP_AUDIT/COGIP_AUDIT_BASE__CLASS.php` et ajoutez les fon
         {
             global $action;
     
-            if ($action->user->id === 1) {
+            if ($action->user->id == 1) {
                 return true;
             }
             $roles = $action->user->getAllRoles();

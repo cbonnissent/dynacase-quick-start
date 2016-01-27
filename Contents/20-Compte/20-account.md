@@ -165,7 +165,7 @@ Dans notre cas, vous allez conserver uniquement les colonnes correspondant aux �
 -   les 4 premières colonnes,
 -   _Nom_ : `us_lname`,
 -   _Prénom_ : `us_fname`,
--   _Mail_ : `us_mail`,
+-   _Mail_ : `us_extmail`,
 -   _Login_ : `us_login`,
 -   _Nouveau mot de passe_ : `us_passwd1`,
 -   _Confirmation mot de passe_ : `us_passwd2`.
