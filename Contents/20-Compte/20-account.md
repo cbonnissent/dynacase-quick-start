@@ -431,7 +431,7 @@ Vous pouvez retrouver les fichiers complétés [dans les sources](https://github
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 Vous pouvez maintenant vous rendre dans la gestion des utilisateurs :
 

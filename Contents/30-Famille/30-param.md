@@ -584,7 +584,7 @@ Bravo ! Vous avez terminé la partie pratique de ce chapitre.
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 Vous pouvez ensuite créer quelques formulaires pour voir les modifications que vous avez mises en place.
 

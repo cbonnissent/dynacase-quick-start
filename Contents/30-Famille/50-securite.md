@@ -566,7 +566,7 @@ Vous pouvez retrouver le fichier complété dans [les sources][tuto_param_fnc].
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy  -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 **Attention** : Les profils ne s'appliquent que sur les nouveaux documents, les documents déjà existant n'étant pas
 profilés ceux-ci sont accessibles par tous les utilisateurs. En production, il vous faudrait faire [un script de migration][doc_migration]

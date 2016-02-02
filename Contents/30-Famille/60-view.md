@@ -624,7 +624,7 @@ Vous pouvez remarquer dans cette vue :
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 ## Conclusion {#quickstart:eeb14f31-c61d-4502-a8ab-7cf9b1044a4e}
 

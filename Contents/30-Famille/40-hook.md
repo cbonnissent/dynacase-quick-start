@@ -351,7 +351,7 @@ Vous pouvez retrouver les sources complétées dans les [sources][tuto_class_bas
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
 

@@ -458,7 +458,7 @@ Vous pouvez trouver le fichier complété dans [les sources][tuto_audit_class].
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 Vous pouvez ensuite consulter les modifications apportées via l'application `http://<nomDeDomaine>/dynacase/`.
 

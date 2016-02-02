@@ -419,7 +419,7 @@ Pour le fichier `fr`, vous pouvez enlever les fuzzy car les propositions sont co
 
 Vous allez maintenant déployer vos modifications :
 
-    <devtool> deploy --target quickstart
+    <devtool> deploy -s . --url http://admin:anakeen@<nomDeDomaine>/dynacase-control/ --port <port> --context dynacase
 
 <span class="flag inline nota-bene"></span> vous n'avez plus besoin de préciser les paramètres de déploiement car ils
 ont été automatiquement mémorisés pour la _target_ `quickstart` lors du déploiement du chapitre précédent.
